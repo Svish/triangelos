@@ -1,0 +1,19 @@
+{
+	"repositories":
+	[
+		{"type": "vcs", "url": "https://github.com/Svish/php-image"}
+	],
+	"require":
+	{
+		"php": ">=5.5.12",
+		"mustache/mustache": "2.*",
+		"leafo/lessphp": "0.*",
+		"kus/php-image": "dev-master"
+	},
+	
+	"autoload":
+	{
+		"psr-0": {"": "src/"}
+	}
+}
+    

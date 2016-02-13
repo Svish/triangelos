@@ -1,0 +1,23 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.mp3",
+				"*.ogg",
+				"*.pdf",
+				"*.png",
+				"*.min.*",
+				"*.sublime-*"
+			],
+			"folder_exclude_patterns":
+			[
+				".git",
+				".cache",
+				"vendor"
+			],
+			"path": "."
+		}
+	]
+}

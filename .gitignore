@@ -1,0 +1,5 @@
+.cache/
+.phpintel/
+vendor/
+constants.*.php
+*.sublime-workspace

@@ -1,0 +1,58 @@
+
+.transition(@property: all, @duration: 500ms, @timing: ease-out, @delay: 0s)
+{
+	-webkit-transition: @arguments;
+	-moz-transition: @arguments;
+	-o-transition: @arguments;
+	-ms-transition: @arguments;
+	transition: @arguments;
+}
+
+.blur(@amount)
+{
+	-webkit-filter: blur(@amount);
+	-moz-filter: blur(@amount);
+	-o-filter: blur(@amount);
+	-ms-filter: blur(@amount);
+	filter: blur(@amount);	
+}
+
+.rotate(@degrees)
+{
+	-webkit-transform: rotate(@degrees);
+	-moz-transform: rotate(@degrees);
+	-o-transform: rotate(@degrees);
+	-ms-transform: rotate(@degrees);
+	transform: rotate(@degrees);
+}
+.radius(@radius: 5px)
+{
+	border-radius: @radius;
+}
+.disable-selection()
+{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.box-sizing(@model: border-box)
+{
+	-webkit-box-sizing: @model;
+	-moz-box-sizing: @model;
+	box-sizing: @model;
+}
+.drop-shadow(@x, @y, @radius, @color)
+{
+	-moz-box-shadow: @x @y @radius @color;
+	-webkit-box-shadow: @x @y @radius @color;
+	box-shadow: @x @y @radius @color;
+}
+.inset-shadow(@x, @y, @radius, @color)
+{
+	-moz-box-shadow: inset @x @y @radius @color;
+	-webkit-box-shadow: inset @x @y @radius @color;
+	box-shadow: inset @x @y @radius @color;
+}

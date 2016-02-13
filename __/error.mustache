@@ -1,0 +1,15 @@
+{{% BLOCKS }}
+{{< layout }}
+{{$ title }}{{status}} {{title}}{{/ title }}
+
+{{$ content}}
+	<p>{{message}}</p>
+	
+	{{^isProd}}
+	<table>
+		{{{debug}}}
+	</table>
+	{{/isProd}}
+{{/ content}}
+
+{{/ layout }}

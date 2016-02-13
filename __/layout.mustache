@@ -1,0 +1,39 @@
+{{% BLOCKS }}
+<!DOCTYPE html>
+<html lang="{{lang}}">
+	<head>
+		<title>{{$title}}{{/title}} - Triangelos</title>
+
+		<base href="{{#url}}/{{/url}}" />
+		<link rel="canonical" href="{{#url}}/{{this}}{{/url}}"/>
+
+		<!-- Styles -->
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		{{#css.global}}
+			<link rel="stylesheet" type="text/css" href="{{href}}" media="{{media}}"/>
+		{{/css.global}}
+
+		<!-- Scripts -->
+		{{#js.global}}
+			<script type="text/javascript" src="{{.}}"></script>
+		{{/js.global}}
+		<script>
+			var Site = {Url: {Base: '{{url}}', Current: '{{this}}'}};
+		</script>
+
+	</head>
+	<body>
+		<header id="header">
+			{{> header}}
+		</header>
+
+		<div id="content">
+			<h2>{{$title}}{{/title}}</h2>
+			{{$content}}{{/content}}
+		</div>
+
+		<footer id="footer">
+			{{> footer}}
+		</footer>
+	</body>
+</html>
