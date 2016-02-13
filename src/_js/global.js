@@ -5,7 +5,7 @@ $(function()
 	$('[href='+Site.Url.Current+']').addClass('current');
 	// TODO: Mark current language
 
-	if(window.location.host == 'localhost')
+	if(window.location.host == 'localhost' || true) // TODO: Remove true when proper hosted
 	$('a', '#language-selector')
 		.on('click', function()
 		{
