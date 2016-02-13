@@ -7,16 +7,14 @@
 		<base href="{{#url}}/{{/url}}" />
 		<link rel="canonical" href="{{#url}}/{{this}}{{/url}}"/>
 
-		<!-- Styles -->
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		{{#css.global}}
-			<link rel="stylesheet" type="text/css" href="{{href}}" media="{{media}}"/>
-		{{/css.global}}
+		{{#css}}
+		<link rel="stylesheet" type="text/css" href="{{.}}">
+		{{/css}}
 
-		<!-- Scripts -->
-		{{#js.global}}
-			<script type="text/javascript" src="{{.}}"></script>
-		{{/js.global}}
+		{{#js}}
+		<script type="text/javascript" src="{{.}}"></script>
+		{{/js}}
 		<script>
 			var Site = {Url: {Base: '{{url}}', Current: '{{this}}'}};
 		</script>

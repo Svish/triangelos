@@ -10,6 +10,8 @@
 	- Render in markdown
 	- Then render mustache afterwards if possible?
 
+- (!) Add relevant COOKIE/GET to etag
+
 Data
 ===
 - Store data as XML/JSON for no need of DB?

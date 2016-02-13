@@ -12,10 +12,10 @@ class File
 
 	public static function get($filename, $default = NULL)
 	{
-		$fp = @fopen($filename, 'r');
-		if( ! $fp)
+		if( ! file_exists($filename))
 			return $default;
-
+		
+		$fp = fopen($filename, 'r');
 		flock($fp, LOCK_SH);
 		$contents = fread($fp, filesize($filename));
 		flock($fp, LOCK_UN);

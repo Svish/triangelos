@@ -5,6 +5,7 @@ return [
 	'Members' => 'Medlemmer',
 	'Music' => 'Musikk',
 	'Calendar' => 'Kalender',
+	'Choir' => 'Koret',
 	'Contact' => 'Kontakt',
 	'Icons' => 'Ikoner',
 	'Source code' => 'Kildekode',
