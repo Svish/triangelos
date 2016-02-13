@@ -1,15 +1,14 @@
 
-- XML? PHP? Mustache? CommonMark?
-
-- (!) Get <lang> from hostname?
-	- Constants, include constants.<lang>.php with language settings
-	- Or include <domain>.inc, which sets constants, locale, etc?
-
 - Add __isset and __get to Page
 	- Check if Model_Class exists
 	- Return new __invokable class rendering calendar/etc
 
-- Add music sheet overlay to header background
+- (!) Add music sheet overlay to header background
+
+- Do something with markdown... {{#md}}file?{{md}}
+	- Find lang spefific file
+	- Render in markdown
+	- Then render mustache afterwards if possible?
 
 Data
 ===

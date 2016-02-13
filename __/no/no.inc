@@ -2,7 +2,7 @@
 
 return [
 	'About the site' => 'Om nettstedet',
-	'Choir' => 'Koret',
+	'Members' => 'Medlemmer',
 	'Music' => 'Musikk',
 	'Calendar' => 'Kalender',
 	'Contact' => 'Kontakt',
