@@ -4,7 +4,7 @@
 /**
  * URL helper for Mustache templates.
  */
-class MH_Url
+class Helper_Url
 {
 	/**
 	 * Returns $url prefixed with WEBBASE, or WEBROOT if starting with /.

@@ -4,7 +4,7 @@
 /**
  * Translator for Mustache templates.
  */
-class MH_Translator
+class Helper_Translator
 {
 	public function __construct()
 	{

@@ -15,7 +15,7 @@ define('CONFIG', DOCROOT.'config'.DIRECTORY_SEPARATOR);
 // Language, Encoding and Locales
 mb_internal_encoding("UTF-8");
 date_default_timezone_set('Europe/Oslo');
-require CONFIG.Util::get($_COOKIE, 'host', $_SERVER['HTTP_HOST']).'.inc';
+require CONFIG.'_'.Util::get($_COOKIE, 'host', $_SERVER['HTTP_HOST']).'.inc';
 
 // Directories
 define('CACHE', DOCROOT.'.cache'.DIRECTORY_SEPARATOR.LANG.DIRECTORY_SEPARATOR);

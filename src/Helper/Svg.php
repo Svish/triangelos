@@ -3,7 +3,7 @@
 /**
  * SVG importer for Mustache templates.
  */
-class MH_Svg
+class Helper_Svg
 {
 	const DIR = DOCROOT.'_'.DIRECTORY_SEPARATOR;
 

@@ -3,7 +3,7 @@
 /**
  * Markdown importer for Mustache templates.
  */
-class MH_Markdown
+class Helper_Markdown
 {
 	const DIR = DOCROOT.'_'.DIRECTORY_SEPARATOR;
 
@@ -26,8 +26,6 @@ class MH_Markdown
 			$md = Markdown::render($md);
 			return $helper ? $helper->render($md) : $md;
 		}
-		
-		throw new Mustache_Exception_UnknownTemplateException($string);
 	}
 
 

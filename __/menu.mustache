@@ -7,4 +7,9 @@
 		<li><a href="calendar">{{#_}}Calendar{{/_}}</a>
 		<li><a href="contact">{{#_}}Contact{{/_}}</a>
 	</ul>
+	<ul id="language-selector">
+		{{#languages.all}}
+		<li><a href="{{href}}" data-lang="{{lang}}" title="{{name}}" data-host="{{host}}"><img src="_/flag/{{flag}}.png"></a>
+		{{/languages.all}}
+	</ul>
 </nav>

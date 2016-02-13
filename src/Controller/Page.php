@@ -16,7 +16,7 @@ class Controller_Page extends Controller
 			'js' => Controller_Javascript::config()->global,
 			'lang' => LANG,
 			'isProd' => ENV == 'prod',
-			'_' => new MH_Translator,
+			'_' => new Helper_Translator,
 		];
 
 		try
@@ -37,19 +37,25 @@ class Controller_Page extends Controller
 
 	public function __isset($key)
 	{
-		// ALready set
+		// Already set?
 		if(array_key_exists($key, $this->ctx))
 			return true;
 
 		// Class?
-		$helper = 'MH_'.ucfirst($key);
-		if(class_exists($helper))
-		{
-			$this->ctx[$key] = new $helper($this);
-			return true;
-		}
+		foreach($this->alternatives($key) as $name)
+			if(class_exists($name))
+			{
+				$this->ctx[$key] = new $name($this);
+				return true;
+			}
 
 		return false;
 	}
 
+	private function alternatives($key)
+	{
+		$key = ucfirst($key);
+		yield 'Model_'.$key;
+		yield 'Helper_'.$key;
+	}
 }
