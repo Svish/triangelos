@@ -7,9 +7,6 @@ define('WEBROOT', 'http://'.$_SERVER['HTTP_HOST'].WEBBASE);
 
 // Environment
 define('ENV', $_SERVER['ENV']);
-@include DOCROOT.'constants.'.ENV.'.php';
-
-// Configuration
 define('CONFIG', DOCROOT.'config'.DIRECTORY_SEPARATOR);
 
 // Language, Encoding and Locales

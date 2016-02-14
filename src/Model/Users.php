@@ -2,13 +2,11 @@
 
 
 /**
- * Translator for Mustache templates.
+ * User model.
  */
 class Model_Users extends Model
 {
 	const DIR = parent::DIR.'users'.DIRECTORY_SEPARATOR;
-
-	
 
 
 
@@ -23,7 +21,7 @@ class Model_Users extends Model
 			'technician' => ['name' => 'technician', 'members' => []],
 		];
 
-		foreach($this->findUsers() as $user)
+		foreach($this->all() as $user)
 			$x[$user->role]['members'][] = $user;
 		
 		foreach($x as &$role)
@@ -35,8 +33,16 @@ class Model_Users extends Model
 		return array_values($x);
 	}
 
+	public function find($id)
+	{
+		$p = is_numeric($id) ? 'id' : 'email';
+		foreach ($this->all as $user)
+			if($user->$p == $id)
+				return $user;
+	}
 
-	private function findUsers()
+
+	public function all()
 	{
 		foreach(glob(self::DIR.'*.json') as $file)
 		{

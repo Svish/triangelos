@@ -1,6 +1,6 @@
 .cache/
 .phpintel/
-vendor/
-constants.*.php
-*.sublime-workspace
 data/
+vendor/
+config/.*
+*.sublime-workspace

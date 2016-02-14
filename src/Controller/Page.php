@@ -67,5 +67,6 @@ class Controller_Page extends Controller
 		$key = ucfirst($key);
 		yield 'Model_'.$key;
 		yield 'Helper_'.$key;
+		yield $key;
 	}
 }

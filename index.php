@@ -2,7 +2,7 @@
 
 // Include autoloader and stuff
 require 'vendor/autoload.php';
-require 'constants.php';
+require 'constants.inc';
 
 
 // Error handling
