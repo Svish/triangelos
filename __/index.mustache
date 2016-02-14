@@ -1,7 +1,12 @@
 {{% BLOCKS }}
 {{< layout }}
-{{$ title }}Welcome{{/ title }}
+{{$ title }}{{#_}}Welcome{{/_}}{{/ title }}
 
-{{$ content}}{{{markdown}}}{{/ content}}
+{{$ content}}
+{{{markdown}}}
+
+<p>TODO: Latest album? Next practice? Next events?
+
+{{/ content}}
 
 {{/ layout }}

@@ -15,6 +15,7 @@
 			[
 				".git",
 				".cache",
+				".phpintel",
 				"vendor"
 			],
 			"path": "."

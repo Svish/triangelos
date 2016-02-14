@@ -1,15 +1,5 @@
-{{% BLOCKS }}
-{{< layout }}
-{{$ title }}Velkommen{{/ title }}
-
-{{$ content}}
-
 <p>Velkommen til våre nettsider! Her kan du blant annet lytte til og kjøpe <a href="music">vår musikk</a>, sjekke når vi opptrer neste gang i <a href="calendar">vår kalender</a> og <a href="contact">kontakte oss</a> dersom det er noe du lurer på.
 
-
-<p><img src="_/choir.jpg" />
-
-<h2>Hvem vi er</h2>
 
 <p>Triangelos er et Kristent kor med base i i 1992 i Adventkirken Betel i Oslo, som er Norges eldste Syvendedags Adventist (SDA) menighet.
 
@@ -27,7 +17,5 @@ Den første CD var Din Stemme som ble utgitt i juni 1994. Av Nåde kom ut i apri
 <p>Vi ønsker å synge til Guds ære, og vi velger sanger som har et innhold som forkynner hvem Gud er, Hans store kjærlighet som har gitt oss livet. Sang er også lovprisning av, og takk til Gud.
 
 <p>I et kor er det flere medlemmer og alle er like viktige. Når vi står sammen så har vi ekstra styrke og det er lettere å kaste seg ut i en utfordring. I tillegg til å være et sosialt fellesskap for de som ønsker å synge, ønsker vi også at medlemmene skal få lov til å utvikle seg personlig. Ved at vi tar ansvar for andakt på øvelsene og deltar med innlegg under gudstjenester vil vi få større erfaring med å holde taler og personlig vitnesbyrd.
-	
-{{/ content}}
 
-{{/ layout }}
+<p><img src="_/choir.jpg" />

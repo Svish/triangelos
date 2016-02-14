@@ -10,7 +10,7 @@ class Controller_Page extends Controller
 	public function get($url, $context = [])
 	{
 		$url = ltrim($url, '/') ?: 'index';
-		$this->ctx = [
+		$this->ctx = $context + [
 			'this' => $url,
 			'css' => Controller_Less::config()->global,
 			'js' => Controller_Javascript::config()->global,

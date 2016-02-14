@@ -10,4 +10,6 @@ return [
 	'Icons' => 'Ikoner',
 	'Source code' => 'Kildekode',
 	'Web developer' => 'Webutvikler',
+	'Welcome' => 'Velkommen',
+
 ];

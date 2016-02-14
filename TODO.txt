@@ -12,21 +12,27 @@
 
 - (!) Add relevant COOKIE/GET to etag
 
+
+
 Data
 ===
 - Store data as XML/JSON for no need of DB?
 	- file/directory = email?
 - Import calendar events from outlook?
+
 - Import practice stuff from onedrive? Include audio?
+
 
 
 Store
 ===
 
-- Reuse Paypal stuff
-- Samples from highly compressed full files
+- Reuse Paypal stuff?
+	- http://minicartjs.com
+- Samples from highly compressed full files?
 - Fade out and stop playing after n seconds
 	- Serve only part of file?
+
 
 
 Auto update?
