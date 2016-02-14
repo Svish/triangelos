@@ -14,7 +14,6 @@ class Controller_Page extends Controller
 			'this' => $url,
 			'css' => Controller_Less::config()->global,
 			'js' => Controller_Javascript::config()->global,
-			'lang' => LANG,
 			'isProd' => ENV == 'prod',
 			'_' => new Helper_Translator,
 		];
@@ -41,15 +40,26 @@ class Controller_Page extends Controller
 		if(array_key_exists($key, $this->ctx))
 			return true;
 
+		// Constant?
+		if(defined($key))
+			return $this->set($key, constant($key));
+
 		// Class?
 		foreach($this->alternatives($key) as $name)
 			if(class_exists($name))
-			{
-				$this->ctx[$key] = new $name($this);
-				return true;
-			}
+				return $this->set($key, new $name($this));
+
+		// Function?
+		if(function_exists($key))
+			return $this->set($key, new Helper_Function($key));
 
 		return false;
+	}
+
+	private function set($key, $value)
+	{
+		$this->ctx[$key] = $value;
+		return true;
 	}
 
 	private function alternatives($key)

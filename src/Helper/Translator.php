@@ -27,7 +27,7 @@ class Helper_Translator
 		$text = array_key_exists($text, $this->strings)
 			? $this->strings[$text]
 			: $text;
-		return $helper->render($text);
+		return $helper ? $helper->render($text) : $text;
 	}
 
 

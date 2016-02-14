@@ -4,7 +4,15 @@
 
 {{$ content}}
 
-<p>TODO: List members
+{{#users.member_page}}
+<h2>{{name | _ | ucfirst}}</h2>
+<ul class="member-frames">
+	{{#members}}
+	<li><img src="t/350x150/{{id}}"> <span>{{first}}</span>
+	{{/members}}
+</ul>
+{{/users.member_page}}
+
 
 {{/ content}}
 

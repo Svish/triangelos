@@ -3,3 +3,4 @@
 vendor/
 constants.*.php
 *.sublime-workspace
+data/

@@ -12,4 +12,11 @@ return [
 	'Web developer' => 'Webutvikler',
 	'Welcome' => 'Velkommen',
 
+	'director' => 'dirigent',
+	'soprano' => 'sopran',
+	'alto' => 'alt',
+	'tenor' => 'tenor',
+	'bass' => 'bass',
+	'technician' => 'tekniker',
+
 ];
