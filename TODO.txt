@@ -1,10 +1,9 @@
 
 - (!) Add music sheet overlay to header background
 
-- (!) Add relevant COOKIE/GET to etag
-
 - (!) Cache Controller_Page
 	- Use lmod of newest content file for valid check
+	- (!) Add relevant COOKIE/GET to etag
 
 
 
