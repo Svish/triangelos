@@ -1,5 +1,5 @@
 <nav>
-	<ul>
+	<ul id="main-menu">
 		<li><a href="index">{{#svg}}home{{/svg}}</a>
 		<li><a href="choir">{{#_}}Choir{{/_}}</a>
 		<li><a href="members">{{#_}}Members{{/_}}</a>
@@ -10,7 +10,7 @@
 	<ul id="language-selector">
 		<li><a href="login" title="{{#_}}login{{/_}}">{{#svg}}login:flag{{/svg}}</a></span>
 		{{#_.languages}}
-		<li><a class="language" href="{{href}}" data-lang="{{lang}}" title="{{name}}" data-host="{{host}}"><img src="_/flag/{{flag}}.png"></a>
+		<li><a class="language" href="{{href}}/{{this}}" rel="alternate" hreflang="{{lang}}" lang="{{lang}}" title="{{name}}" data-host="{{host}}"><img src="_/flag/{{flag}}.png"></a>
 		{{/_.languages}}
 	</ul>
 </nav>

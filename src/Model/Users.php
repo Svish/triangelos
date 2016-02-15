@@ -10,7 +10,7 @@ class Model_Users extends Model
 
 
 
-	public function member_page()
+	public function listing()
 	{
 		$x = [
 			'conductor' => ['name' => 'conductor', 'members' => []],

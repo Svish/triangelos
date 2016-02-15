@@ -5,9 +5,13 @@
 		<title>{{$title}}{{/title}} - Triangelos</title>
 
 		<base href="{{#url}}/{{/url}}" />
-		<link rel="canonical" href="{{#url}}/{{this}}{{/url}}"/>
+		<link rel="canonical" href="{{#url}}/{{this}}{{/url}}">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		{{#_.languages}}
+		<link rel="alternate" hreflang="{{lang}}" href="{{href}}/{{this}}">
+		{{/_.languages}}
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		{{#css}}
 		<link rel="stylesheet" type="text/css" href="{{.}}">
 		{{/css}}

@@ -6,7 +6,14 @@
 	- (!) Add relevant COOKIE/GET to etag
 
 - Add nonce thingy to contact form.
-- Add language alternative pointer tag thingies to <head>
+- User websites?
+- Collapse menu on narrow screens?
+
+
+SMS?
+===
+
+- https://www.twilio.com/sms/pricing/no
 
 
 Store
