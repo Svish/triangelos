@@ -14,11 +14,11 @@ class Model_Users extends Model
 	{
 		$x = [
 			'conductor' => ['name' => 'conductor', 'members' => []],
+			'technician' => ['name' => 'technician', 'members' => []],
 			'soprano' => ['name' => 'soprano', 'members' => []],
 			'alto' => ['name' => 'alto', 'members' => []],
 			'tenor' => ['name' => 'tenor', 'members' => []],
 			'bass' => ['name' => 'bass', 'members' => []],
-			'technician' => ['name' => 'technician', 'members' => []],
 		];
 
 		foreach($this->all() as $user)
