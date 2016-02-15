@@ -4,22 +4,56 @@
 
 {{$ content}}
 
-TODO: Contact form, etc..
-
 {{{markdown}}}
 
-<dl>
-	<dt>Mail
-	<dd>Triangelos<br>
-	Postboks 102<br>
-	1429 Vinterbro
+<div id="gmap_canvas"></div>
+<script type='text/javascript'>function init_map()
+{
+	map = new google.maps.Map(document.getElementById('gmap_canvas'),
+		{
+			zoom:16,
+			center: new google.maps.LatLng(59.917949,10.744473),
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			mapTypeControl: false,
+			streetViewControl: false,
+		});
 
-	<dt>Bank
-	<dd>
-	1720 26 24200<br>
-	IBAN: NO71 1720 2624 200<br>
-	SWIFT/BIC: BIENNOK1<br>
-</dl>
+	marker = new google.maps.Marker(
+		{
+			map: map,
+			position: new google.maps.LatLng(59.917949,10.744473),
+			title: 'Adventkirken Betel',
+		});
+
+	google.maps.event.addDomListener(window, 'resize', function()
+		{
+			map.setCenter(marker.position);
+		});
+}
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?callback=init_map"></script>
+
+
+<section>
+	<h2>{{#_}}E-Mail{{/_}}</h2>
+	{{>email}}
+</section>
+
+
+<section>
+	<h2>{{#_}}Mail{{/_}}</h2>
+	<p><address>
+			Triangelos<br>
+			Postboks 102<br>
+			1429 Vinterbro<br>
+			Norway
+		</address>
+	<h2>{{#_}}Bank details{{/_}}</h2>
+	<p>1720 26 24200<br>
+		<b>IBAN:</b> NO71 1720 2624 200<br>
+		<b>SWIFT/BIC:</b> BIENNOK1
+</section>
+
 {{/ content}}
 
 {{/ layout }}

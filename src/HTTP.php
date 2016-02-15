@@ -50,7 +50,7 @@ class HTTP
 	 * @param target URL to redirect to
 	 * @param prepend If target should be prepended with WEBROOT
 	 */
-	public static function redirect($code, $target = NULL, $prepend = TRUE)
+	public static function redirect($target = NULL, $code = 302, $prepend = TRUE)
 	{
 		if($prepend)
 			$target = WEBROOT.$target;

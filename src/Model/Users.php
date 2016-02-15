@@ -13,7 +13,7 @@ class Model_Users extends Model
 	public function member_page()
 	{
 		$x = [
-			'director' => ['name' => 'director', 'members' => []],
+			'conductor' => ['name' => 'conductor', 'members' => []],
 			'soprano' => ['name' => 'soprano', 'members' => []],
 			'alto' => ['name' => 'alto', 'members' => []],
 			'tenor' => ['name' => 'tenor', 'members' => []],

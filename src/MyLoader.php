@@ -5,7 +5,10 @@
  */
 class MyLoader implements Mustache_Loader
 {
-	private $templates = [];
+	const EXT = '.mustache';
+
+	protected $templates = [];
+
 
 	public function load($name)
 	{
@@ -29,7 +32,14 @@ class MyLoader implements Mustache_Loader
 
 	protected function alternatives($name)
 	{
-		yield CONTENT.$name.'.mustache';
-		yield CONTENT.'..'.DIRECTORY_SEPARATOR.$name.'.mustache';
+		yield CONTENT.$name.self::EXT;
+		yield CONTENT.'..'.DIRECTORY_SEPARATOR.$name.self::EXT;
+
+		$parts = explode('/', $name);
+		while($part = array_pop($parts))
+		{
+			yield CONTENT.$part.self::EXT;
+			yield CONTENT.'..'.DIRECTORY_SEPARATOR.$part.self::EXT;	
+		}
 	}
 }

@@ -20,6 +20,10 @@ abstract class CachedController extends Controller
 	{
 		parent::before($info);
 
+		// Only cache get requests
+		if($info['method'] != 'get')
+			return;
+
 		// Init our cache
 		$get = Util::array_whitelist($_GET, $this->parameter_whitelist);
 		$get = json_encode($get, JSON_NUMERIC_CHECK);
@@ -77,7 +81,8 @@ abstract class CachedController extends Controller
 
 	public function after(array &$info)
 	{
-		if( ! $this->cached)
+		// Cache get requests
+		if( ! $this->cached && $info['method'] == 'get')
 		{
 			$content = ob_get_clean();
 			$time = time() - 2;

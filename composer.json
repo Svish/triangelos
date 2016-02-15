@@ -7,9 +7,10 @@
 	{
 		"php": ">=5.5.12",
 		"mustache/mustache": "2.*",
-		"league/commonmark": "0.*",
 		"leafo/lessphp": "0.*",
 		"kus/php-image": "dev-master",
+		"swiftmailer/swiftmailer": "5.*",
+		"league/commonmark": "0.*",
 		"webuni/commonmark-attributes-extension": "^0.3.2",
 		"webuni/commonmark-table-extension": "^0.4.3"
 	},

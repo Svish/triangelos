@@ -7,8 +7,15 @@ class Helper_Svg
 {
 	const DIR = DOCROOT.'_'.DIRECTORY_SEPARATOR;
 
-	public function __invoke($filename)
+	public function __invoke($name)
 	{
-		return File::get(self::DIR.$filename.'.svg');
+		$opt = explode(':', $name);
+		
+		$svg = File::get(self::DIR.$opt[0].'.svg');
+
+		if(isset($opt[1]))
+			$svg = str_replace('<svg', "<svg class=\"{$opt[1]}\"", $svg);
+
+		return $svg;
 	}
 }

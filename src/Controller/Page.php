@@ -16,6 +16,8 @@ class Controller_Page extends Controller
 			'js' => Controller_Javascript::config()->global,
 			'isProd' => ENV == 'prod',
 			'_' => new Helper_Translator,
+			'_get' => $_GET,
+			'_post' => $_POST,
 		];
 
 		try
@@ -65,8 +67,8 @@ class Controller_Page extends Controller
 	private function alternatives($key)
 	{
 		$key = ucfirst($key);
-		yield 'Model_'.$key;
 		yield 'Helper_'.$key;
+		yield 'Model_'.$key;
 		yield $key;
 	}
 }

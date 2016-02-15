@@ -1,21 +1,16 @@
-<p>Velkommen til våre nettsider! Her kan du blant annet lytte til og kjøpe <a href="music">vår musikk</a>, sjekke når vi opptrer neste gang i <a href="calendar">vår kalender</a> og <a href="contact">kontakte oss</a> dersom det er noe du lurer på.
+Triangelos er et Kristent kor med base i i 1992 i [Betel](http://adventkirken-betel.no) i Oslo, som er Norges eldste [Syvendedags Adventist](http://adventist.no) (SDA) menighet.
 
+Vi valgte navnet **Triangelos** fordi det henviser til de **tre englers budskap** i **Åpenbaringen 14**, som er viktige budskap for mennesker i denne tid.
 
-<p>Triangelos er et Kristent kor med base i i 1992 i Adventkirken Betel i Oslo, som er Norges eldste Syvendedags Adventist (SDA) menighet.
+Triangelos har sunget i kirker og menigheter mange steder i Norge. Fra Mandal i sør til Tromsø i nord, fra Bergen i vest til Lillehammer i øst. Triangelos har sunget i domkirken i Molde og i Banken på Lillehammer. Koret har også sunget mange steder i Danmark og Sverige.
 
-<p>Vi valgte navnet Triangelos fordi det henviser til de tre englers budskap i Åpenbaringen 14, som er viktige budskap for mennesker i denne tid.
+Korets medlemmer kommer i fra SDA menighetene i Oslo området. Flere er studenter ved et av de mange utdannelsesinstitusjonene i Oslo. Vi har også glede av medlemmer som ikke deler vår tro.  Å møte mennesker som ikke deler vårt syn i alle saker er en berikelse, fordi vi må kunne lytte til andre mennesker samtidig som vi bekrefter vår egen tro.
 
-<p>Triangelos har sunget i kirker og menigheter mange steder i Norge. Fra Mandal i sør til Tromsø i nord, fra Bergen i vest til Lillehammer i øst. Triangelos har sunget i domkirken i Molde og i Banken på Lillehammer. Koret har også sunget mange steder i Danmark og Sverige.
+**Inger B. Berger** er vår dirigent. Det har hun vært siden første øvelse, **8. januar 1992**. Hun har alltid stått på og har stor tro på koret. Koret teller rundt 20 [medlemmer](members), noe som gir et passe antall i hver stemmegruppe samtidig som det er lite nok til at alle føler seg viktige.
 
-<p>Korets medlemmer kommer i fra SDA menighetene i Oslo området. Flere er studenter ved et av de mange utdannelsesinstitusjonene i Oslo. Vi har også glede av medlemmer som ikke deler vår tro.  Å møte mennesker som ikke deler vårt syn i alle saker er en berikelse, fordi vi må kunne lytte til andre mennesker samtidig som vi bekrefter vår egen tro.
-
-<p>Inger B. Berger er vår dirigent. Det har hun vært siden oppstarten. Hun har alltid stått på og har hatt stor tro på koret. Koret teller nå ca 20 medlemmer, noe som gir et passe antall i hver stemmegruppe samtidig som det er lite nok til at alle føler seg viktige.
-
-<p>Vi har gitt ut 5 CD i løpet av denne tiden.
+Vi har gitt ut [5 CDer](music) i løpet av denne tiden.
 Den første CD var Din Stemme som ble utgitt i juni 1994. Av Nåde kom ut i april 1996 og Dråper til liv kom ut i mars 1999. Kommer du ei snart? kom ut juni 2012. Vår første engelskspråklige CD, The Seventh Day, kom ut juli 2015.
 
-<p>Vi ønsker å synge til Guds ære, og vi velger sanger som har et innhold som forkynner hvem Gud er, Hans store kjærlighet som har gitt oss livet. Sang er også lovprisning av, og takk til Gud.
+Vi ønsker å synge til Guds ære, og vi velger sanger som har et innhold som forkynner hvem Gud er, Hans store kjærlighet som har gitt oss livet. Sang er også lovprisning av, og takk til Gud.
 
-<p>I et kor er det flere medlemmer og alle er like viktige. Når vi står sammen så har vi ekstra styrke og det er lettere å kaste seg ut i en utfordring. I tillegg til å være et sosialt fellesskap for de som ønsker å synge, ønsker vi også at medlemmene skal få lov til å utvikle seg personlig. Ved at vi tar ansvar for andakt på øvelsene og deltar med innlegg under gudstjenester vil vi få større erfaring med å holde taler og personlig vitnesbyrd.
-
-<p><img src="_/choir.jpg" />
+I et kor er det flere medlemmer og alle er like viktige. Når vi står sammen så har vi ekstra styrke og det er lettere å kaste seg ut i en utfordring. I tillegg til å være et sosialt fellesskap for de som ønsker å synge, ønsker vi også at medlemmene skal få lov til å utvikle seg personlig. Ved at vi tar ansvar for andakt på øvelsene og deltar med innlegg under gudstjenester vil vi få større erfaring med å holde taler og personlig vitnesbyrd.

@@ -2,6 +2,9 @@
 $(function()
 {
 	// Mark current menu item
+	$('a', '#header').each(function() {
+		console.info(this);
+	});
 	$('[href='+Site.Url.Current+']').addClass('current');
 	// TODO: Mark current language
 
