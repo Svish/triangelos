@@ -12,4 +12,4 @@ define('CONFIG', DOCROOT.'config'.DIRECTORY_SEPARATOR);
 // Language, Encoding and Locales
 mb_internal_encoding("UTF-8");
 date_default_timezone_set('Europe/Oslo');
-Translator::init(Util::get($_COOKIE, 'host', $_SERVER['HTTP_HOST']));
+I18N::init(Util::get($_COOKIE, 'host', $_SERVER['HTTP_HOST']));

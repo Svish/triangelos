@@ -4,7 +4,7 @@
 /**
  * Validator.
  */
-class Valid extends Translator
+class Valid extends I18N
 {
 	public static function check($subject, array $rules)
 	{
@@ -17,7 +17,7 @@ class Valid extends Translator
 		{
 			if( ! call_user_func_array('self::'.$func, [$subject[$key]]))
 			{
-				$result[$key][$func] = Translator::translate('error|'.$func);
+				$result[$key][$func] = I18N::translate('error|'.$func);
 				break;
 			}
 		}

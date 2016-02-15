@@ -1,23 +1,15 @@
 
-- Add __isset and __get to Page
-	- Check if Model_Class exists
-	- Return new __invokable class rendering calendar/etc
-
 - (!) Add music sheet overlay to header background
 
-- Do something with markdown... {{#md}}file?{{md}}
-	- Find lang spefific file
-	- Render in markdown
-	- Then render mustache afterwards if possible?
-
 - (!) Add relevant COOKIE/GET to etag
+
+- (!) Cache Controller_Page
+	- Use lmod of newest content file for valid check
 
 
 
 Data
 ===
-- Store data as XML/JSON for no need of DB?
-	- file/directory = email?
 - Import calendar events from outlook?
 
 - Import practice stuff from onedrive? Include audio?

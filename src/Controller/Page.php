@@ -15,7 +15,7 @@ class Controller_Page extends Controller
 			'css' => Controller_Less::config()->global,
 			'js' => Controller_Javascript::config()->global,
 			'isProd' => ENV == 'prod',
-			'_' => new Helper_Translator,
+			'_' => new Helper_I18N,
 			'_get' => $_GET,
 			'_post' => $_POST,
 		];
@@ -30,6 +30,8 @@ class Controller_Page extends Controller
 			throw new HTTP_Exception("No page found for the url '$url'.", 404);
 		}
 	}
+
+	
 
 	public function __get($key)
 	{

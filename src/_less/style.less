@@ -100,6 +100,14 @@ body
 			display: inline-block;
 			padding: 0 10px 6px 10px;
 		}
+		a:not(.current)
+		{
+			background: none;
+		}
+		a:not(.current):hover
+		{
+			background: fadeout(@link-color, 93%);
+		}
 	}
 
 	/*&:before

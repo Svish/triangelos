@@ -3,10 +3,10 @@ $(function()
 {
 	// Mark current menu item
 	$('a', '#header').each(function() {
-		console.info(this);
+		var href = $(this).attr('href');
+		var current = Site.Url.Current.contains(href) || href.contains(Site.Url.Host);
+		$(this).toggleClass('current', current);
 	});
-	$('[href='+Site.Url.Current+']').addClass('current');
-	// TODO: Mark current language
 
 	if(window.location.host == 'localhost' || true) // TODO: Remove true when proper hosted
 	$('a', '#language-selector')

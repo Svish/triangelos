@@ -4,7 +4,7 @@
 /**
  * Translator for Mustache templates.
  */
-class Helper_Translator extends Translator
+class Helper_I18N extends I18N
 {
 	public function __invoke($text, Mustache_LambdaHelper $helper = null)
 	{
