@@ -5,14 +5,8 @@
 	- Use lmod of newest content file for valid check
 	- (!) Add relevant COOKIE/GET to etag
 
-
-
-Data
-===
-- Import calendar events from outlook?
-
-- Import practice stuff from onedrive? Include audio?
-
+- Add nonce thingy to contact form.
+- Add language alternative pointer tag thingies to <head>
 
 
 Store
