@@ -9,7 +9,7 @@ $(function()
 	});
 
 	if(window.location.host == 'localhost' || true) // TODO: Remove true when proper hosted
-	$('a', '#language-selector')
+	$('a.language', '#language-selector')
 		.on('click', function()
 		{
 			var host = $(this).data('host');

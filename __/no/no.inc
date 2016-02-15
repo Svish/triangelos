@@ -12,6 +12,7 @@ return [
 	'Source code' => 'Kildekode',
 	'Web developer' => 'Webutvikler',
 	'Welcome' => 'Velkommen',
+	'Login' => 'Logg inn',
 
 	'E-Mail' => 'Epost',
 	'Mail' => 'Post',

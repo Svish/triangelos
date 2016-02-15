@@ -1,7 +1,6 @@
 
 @import "mixins";
 
-
 @padding: 8%;
 @max-width: 675px;
 @link-color: #58129F;
@@ -41,10 +40,11 @@ body
 	background: fadeout(@link-color, 90%);
 	border-bottom: 1px solid rgba(0,0,0,.75);
 	.drop-shadow(0, 0, 15px, #000);
+	.transition(font-size, 300ms);
 
 	h1
 	{
-		font: 700 90px 'Tangerine', sans-serif;
+		font: 700 5em 'Tangerine', sans-serif;
 		margin: 0 @padding -.2em -3px;
 		text-shadow: rgba(0,0,0, 50%) 0 0 6px;
 		color: inherit;
@@ -86,27 +86,25 @@ body
 
 	#language-selector
 	{
-		position: absolute;
-		top: 0;
-		right: @padding;
-
+		display: block;
 		li
 		{
-			margin: 0 0 .2em .2em;
+			&:first-child
+			{
+				margin-left: 0;
+			}
 		}
 
 		a
 		{
-			display: inline-block;
-			padding: 0 10px 6px 10px;
-		}
-		a:not(.current)
-		{
-			background: none;
-		}
-		a:not(.current):hover
-		{
-			background: fadeout(@link-color, 93%);
+			&.language:not(.current)
+			{
+				background: none;
+			}
+			&.language:not(.current):hover
+			{
+				background: fadeout(@link-color, 93%);
+			}
 		}
 	}
 
@@ -151,9 +149,15 @@ body
 	margin-bottom: .5em;
 
 	font-size: small;
+
 	nav
 	{
+		.transition(opacity, 500ms);
 		opacity: .5;
+		&:hover
+		{
+			opacity: 1;
+		}
 	}
 }
 
@@ -227,6 +231,10 @@ svg
 	{
 		fill: currentColor;	
 	}
+}
+svg.flag
+{
+	height: 11px
 }
 
 img
@@ -366,3 +374,6 @@ textarea.error
 {
 	border-color: #9E1B1B !important;
 }
+
+
+@import "responsive";
