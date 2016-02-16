@@ -10,6 +10,21 @@
 - Collapse menu on narrow screens?
 
 
+
+
+
+Music
+===
+
+- Page:
+	- Use id3 tags to create page
+	- Somehow link to webshop stuff
+- Previews:
+	- Stream % of file
+	- Hard cut? Is time reported correctly after?
+	- Strip all meta tag data?
+	- id3v2 tag_offset_end?
+
 SMS?
 ===
 

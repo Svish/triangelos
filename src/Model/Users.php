@@ -6,7 +6,8 @@
  */
 class Model_Users extends Model
 {
-	const DIR = parent::DIR.'users'.DIRECTORY_SEPARATOR;
+	const DIR = 'users';
+	const PATH = parent::DIR.self::DIR.DIRECTORY_SEPARATOR;
 
 
 
@@ -44,10 +45,16 @@ class Model_Users extends Model
 
 	public function all()
 	{
-		foreach(glob(self::DIR.'*.json') as $file)
+		foreach(glob(self::PATH.'*.json') as $file)
 		{
+			extract(pathinfo($file));
+
+			$img = glob("$dirname/$filename.{jpg,jpeg,png,gif}", GLOB_BRACE);
+
 			$data = json_decode(File::get($file));
-			$data->id = pathinfo($file, PATHINFO_FILENAME);
+			$data->id = $filename;
+			$data->img = empty($img) ? 'none' : self::DIR.'/'.pathinfo($img[0], PATHINFO_BASENAME);
+
 			yield $data->id => $data;
 		}
 	}
