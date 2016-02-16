@@ -23,8 +23,16 @@ SetEnv ENV prod
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
-# Pretty Urls
+# Block hidden files
+<Files .*>
+	Order Deny,Allow
+	Deny From All
+</Files>
+
+# Static files
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+
+# Route anything else through the app
 #RewriteRule .* index.php/$0 [L]
 RewriteRule .* index.php?path_uri=/$0 [PT,L,QSA]
