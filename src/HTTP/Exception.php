@@ -9,7 +9,7 @@ class HTTP_Exception extends Exception
 	{
 		parent::__construct($message, $code, $cause);
 		$this->httpStatus = $httpStatus;
-		$this->httpTitle = Http::status($httpStatus);
+		$this->httpTitle = HTTP::status($httpStatus);
 	}
 
 	public function getHttpStatus()
