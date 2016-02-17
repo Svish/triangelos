@@ -6,6 +6,7 @@ return [
 	'/_/:alpha:.css' => 'Controller_Less',
 	
 	'/t/:number:x:number:/:any:' => 'Controller_Thumbnail',
+	'/audio/:any:' => 'Controller_Audio',
 
 	'/(contact/email)' => 'Controller_Email',
 
