@@ -5,6 +5,9 @@
  */
 class Controller_Thumbnail extends CachedController
 {
+	protected $max_age = 172800; // 48 hours
+
+
 	protected $parameter_whitelist = ['w', 'h'];
 
 	private $whitelist = [[350,150], [700,700], [150,150]];

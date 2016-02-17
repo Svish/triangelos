@@ -14,12 +14,13 @@ class Model_Users extends Model
 	public function listing()
 	{
 		$x = [
-			'conductor' => ['name' => 'conductor', 'members' => []],
-			'technician' => ['name' => 'technician', 'members' => []],
 			'soprano' => ['name' => 'soprano', 'members' => []],
 			'alto' => ['name' => 'alto', 'members' => []],
 			'tenor' => ['name' => 'tenor', 'members' => []],
 			'bass' => ['name' => 'bass', 'members' => []],
+			'conductor' => ['name' => 'conductor', 'members' => []],
+			'pianist' => ['name' => 'pianist', 'members' => []],
+			'technician' => ['name' => 'technician', 'members' => []],
 		];
 
 		foreach($this->all() as $user)
