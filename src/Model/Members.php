@@ -4,9 +4,9 @@
 /**
  * User model.
  */
-class Model_Users extends Model
+class Model_Members extends Model
 {
-	const DIR = 'users';
+	const DIR = 'members';
 	const PATH = parent::DIR.self::DIR.DIRECTORY_SEPARATOR;
 
 
