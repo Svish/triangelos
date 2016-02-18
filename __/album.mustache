@@ -1,9 +1,9 @@
 {{% BLOCKS }}
 {{< layout }}
-{{$ title }}{{album.album}}{{/ title }}
-
-
+{{$ title }}{{album.album}} <span>{{album.year}}</span>{{/ title }}
 {{$ content}}
+
+
 
 {{{markdown}}}
 
@@ -25,8 +25,9 @@
 
 {{/album}}
 
+{{>jplayer}}
+
+
 
 {{/ content}}
-
-
 {{/ layout }}

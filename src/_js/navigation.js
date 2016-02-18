@@ -35,7 +35,7 @@ var Navigation = {
 
 	onMenuToggle: function()
 	{
-		$('#header').toggleClass('open');
+		$('ul', '#header').slideToggle();
 		return false;
 	},
 };

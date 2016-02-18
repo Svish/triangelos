@@ -8,6 +8,7 @@ class Helper_Markdown
 	const EXT = '.md';
 	const DIR = DOCROOT.'_'.DIRECTORY_SEPARATOR;
 
+	// TODO: Cache $name => $file
 
 	private $url;
 	public function __construct($ctx)
@@ -16,9 +17,12 @@ class Helper_Markdown
 	}
 
 
-	public function __invoke($string = null, Mustache_LambdaHelper $helper = null)
+	/**
+	 * Renders and returns the named markdown file.
+	 */
+	public function __invoke($name = null, Mustache_LambdaHelper $helper = null)
 	{
-		foreach($this->alternatives($string ?: $this->url) as $file)
+		foreach($this->alternatives($name ?: $this->url) as $file)
 		{
 			if( ! file_exists($file))
 				continue;
@@ -30,13 +34,18 @@ class Helper_Markdown
 	}
 
 
+	/**
+	 * Yields paths the markdown file could be.
+	 */
 	protected function alternatives($name)
 	{
+	 	// a/b/c, b/c, c
 		foreach(Util::sub_paths($name, true) as $x)
-		foreach(Util::sub_paths($x) as $y)
-		{
-			yield CONTENT.$y.self::EXT;
-			yield CONTENT.'../'.$y.self::EXT;
-		}
+	 		// a/b/c, a/b, a
+			foreach(Util::sub_paths($x) as $y)
+			{
+				yield CONTENT.$y.self::EXT;
+				yield CONTENT.'../'.$y.self::EXT;
+			}
 	}
 }

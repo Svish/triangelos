@@ -7,10 +7,28 @@
 @background-color: #eee;
 @text-color: #111;
 
+html::after {
+	content: "";
+	height: 1px;
+	width: 100%;
+	background: red;
+	position: fixed;
+	left: 0;
+	bottom: 5px;
+}
+html::before {
+	content: "";
+	height: 100%;
+	width: 1px;
+	background: red;
+	position: fixed;
+	top: 0;
+	right: 5px;
+}
 
 
-/* Ground stuff */
 
+// Base stuff
 body,
 input,
 textarea,
@@ -39,11 +57,14 @@ strong
 {
 	font-weight: 600;
 }
+small
+{
+	font-size: x-small;
+}
 
 
 
-/* Headers */
-
+// Headers
 h1,h2,h3,h4
 {
 	font-family: 'Open Sans Condensed', sans-serif;
@@ -67,8 +88,7 @@ h3+h4
 
 
 
-/* Links */
-
+// Links
 a
 {
 	text-decoration: none;
@@ -85,8 +105,7 @@ a
 
 
 
-/* Images */
-
+// Images
 img
 {
 	max-width: 100%;
@@ -110,8 +129,7 @@ svg.flag
 
 
 
-/* Lists */
-
+// Lists
 ul li
 {
 	list-style: square;
@@ -124,7 +142,7 @@ ul:empty
 
 
 
-/* Horizontal lines */
+// Horizontal lines
 hr
 {
 	margin: 2rem 0;
@@ -138,8 +156,7 @@ hr
 
 
 
-/* Tables */
-
+// Tables
 table
 {
 	border-collapse: collapse;
@@ -158,8 +175,7 @@ table
 
 
 
-/* Quotes */
-
+// Quotes
 blockquote
 {
 	display: block;
@@ -168,7 +184,6 @@ blockquote
 	padding: 15px 20px 15px 45px;
 	margin: 0 0 20px;
 
-	/*Font*/
 	color: #666;
 	
 	border-left: 15px solid @link-color;
@@ -177,7 +192,6 @@ blockquote
 	.box-shadow(2px, 2px, 15px, #ccc);
 	border-radius: 5px;
 }
-
 blockquote::before{
   content: "\201C"; /*Unicode for Left Double Quote*/
   
@@ -192,7 +206,6 @@ blockquote::before{
   left: 10px;
   top:5px;
 }
-
 blockquote::after{
   /*Reset to make sure*/
   content: "";
@@ -200,7 +213,7 @@ blockquote::after{
 
 
 
-/* Other */
+// Other
 span
 {
 	white-space: nowrap;
@@ -222,17 +235,30 @@ p.right
 	}
 }
 
-
-small
+.frame
 {
-	font-size: x-small;
+	border: 1px solid rgba(0,0,0,.25);
+	border-radius: 5px;
+	background: #fff;
+	.box-shadow(2px, 2px, 15px, rgba(0,0,0,.35));
+
+	img, span
+	{
+		margin: auto;
+		display: block;
+	}
 }
 
 
 
+
+
 @import "header";
-@import "footer";
 @import "content";
+@import "footer";
+
 @import "forms";
-@import "special";
 @import "responsive";
+
+@import "page-members";
+@import "page-music";

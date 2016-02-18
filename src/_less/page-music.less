@@ -1,0 +1,59 @@
+
+@import "jplayer";
+
+body.music #content
+{
+	h1
+	{
+		span
+		{
+			vertical-align: super;
+			font-size: medium;
+			color: black;
+		}
+	}
+	.album h1
+	{
+		margin-bottom: -.5em;
+	}
+}
+
+.tracks
+{
+	li
+	{
+		border-bottom: 1px dotted darken(@background-color, 15%);
+		&:last-child
+		{
+			border-bottom: none;
+		}
+
+		span
+		{
+			float: right;
+		}
+		a
+		{
+			color: inherit;
+			display: block;
+		}
+		a,span
+		{
+			padding: .1em .5em;
+		}
+		a:hover,
+		a:active
+		{
+			background: darken(@background-color, 5%);
+		}
+
+		&.playing a::before
+		{
+			content: url(pause.svg);
+			display: inline-block;
+			height: .8em;
+			width: .8em;
+			margin-right: .6em;
+		}
+	}
+}
