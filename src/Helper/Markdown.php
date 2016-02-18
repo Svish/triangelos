@@ -5,6 +5,7 @@
  */
 class Helper_Markdown
 {
+	const EXT = '.md';
 	const DIR = DOCROOT.'_'.DIRECTORY_SEPARATOR;
 
 
@@ -29,9 +30,13 @@ class Helper_Markdown
 	}
 
 
-	protected function alternatives($file)
+	protected function alternatives($name)
 	{
-		yield CONTENT.$file.'.md';
-		yield CONTENT.'..'.DIRECTORY_SEPARATOR.$file.'.md';
+		foreach(Util::sub_paths($name, true) as $x)
+		foreach(Util::sub_paths($x) as $y)
+		{
+			yield CONTENT.$y.self::EXT;
+			yield CONTENT.'../'.$y.self::EXT;
+		}
 	}
 }

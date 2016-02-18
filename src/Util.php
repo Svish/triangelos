@@ -12,6 +12,25 @@ class Util
 			: $default;
 	}
 
+	/**
+	 * Yields the sub paths of $url.
+	 *
+	 * false => a/b/c, a/b, a
+	 * true  => a/b/c, b/c, c
+	 */
+	public static function sub_paths($url, $backwards = false)
+	{
+		$url = explode('/', $url);
+		while( ! empty($url))
+		{
+			yield implode('/', $url);
+			if($backwards)
+				array_shift($url);
+			else
+				array_pop($url);
+		}
+	}
+
 
 	/**
 	 * String starts with.
