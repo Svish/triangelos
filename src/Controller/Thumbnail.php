@@ -38,6 +38,8 @@ class Controller_Thumbnail extends CachedController
 		if( ! in_array([$w, $h], $this->whitelist))
 			throw new HTTP_Exception('Requested size not in whitelist', 400);
 
+		ini_set('memory_limit','256M');
+
 		$i = new PHPImage($this->file);
 		$i->setOutput('jpg', 90);
 		$i->resize($w, $h, false, true);
