@@ -1,5 +1,4 @@
-
-@media only screen and (min-width : 550px)
+@media only screen and (min-width : 500px)
 {
 	#header
 	{
@@ -51,5 +50,52 @@
 	#header
 	{
 		font-size: small;
+	}
+}
+
+@media only screen and (max-width : 499px)
+{
+	#header
+	{
+		#main-menu
+		{
+			&,li,a
+			{
+				display: block !important;
+			}
+			li
+			{
+				margin: 0;
+			}
+		}
+
+		&:not(.open)
+		{
+			h1
+			{
+				margin-bottom: -0.05em;
+			}
+			nav
+			{
+				display: none !important;
+			}
+		}
+
+		&.open
+		{
+			#menu-toggle svg
+			{
+				.rotate(-180deg);
+			}
+		}
+
+		#menu-toggle
+		{
+			svg
+			{
+				.transition(transform, 350ms);
+			}
+			display: block;
+		}
 	}
 }

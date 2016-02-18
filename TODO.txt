@@ -1,26 +1,22 @@
 
 - (!) Add music sheet overlay to header background
+	- Canvas animated flurry lines?
 
 - (!) Cache Controller_Page
-	- Use lmod of newest content file for valid check
+	- Use lmod of cached newest content file for valid check?
 	- (!) Add relevant COOKIE/GET to etag
 
 - Add nonce thingy to contact form.
 - User websites?
-- Collapse menu on narrow screens?
 
 - (!) Correct multipart downloads with Multipart/bytes stuff
 
-- Use Download for thumbnails?
-
-- 100% input responsive
 
 
 Music
 ===
 
 - Page:
-	- Use id3 tags to create page
 	- Somehow link to webshop stuff
 - Previews:
 	- Stream % of file

@@ -10,6 +10,7 @@ return (object) [
 	'path' => [
 		'/_/script.js' => [
 			'src/_js/global.js',
+			'src/_js/navigation.js',
 			],
 		],
 ];
