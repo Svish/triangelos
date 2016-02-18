@@ -6,12 +6,20 @@
 class Controller_Page extends Controller
 {
 	private $ctx;
+	private $path;
+
+	public function before(array &$info)
+	{
+		$this->path = trim($info['path'], '/');
+		parent::before($info);
+	}
+
 
 	public function get($url, $context = [])
 	{
 		$url = ltrim($url, '/') ?: 'index';
 		$this->ctx = $context + [
-			'this' => $url,
+			'this' => $this->path,
 			'css' => Controller_Less::config()->global,
 			'js' => Controller_Javascript::config()->global,
 			'isProd' => ENV == 'prod',
