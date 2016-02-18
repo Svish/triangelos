@@ -12,7 +12,7 @@ return [
 
 	// Special Pages
 	'/(contact/email)' => 'Controller_Email',
-	'/(album/:number:)' => 'Controller_Album',
+	'/music/(album/:number:)' => 'Controller_Album',
 
 	// General Pages
 	0 => 'Controller_Page',

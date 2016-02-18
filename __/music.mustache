@@ -1,18 +1,18 @@
 {{% BLOCKS }}
 {{< layout }}
 {{$ title }}{{#_}}Music{{/_}}{{/ title }}
-
-
 {{$ content}}
+
 
 {{{markdown}}}
 
-<p><b>// TODO: Buy buttons</b>
+
+<p><b>// TODO: Buy buttons, Audio player, Only stream N % of files as preview</b>
 
 {{#music.listing}}
 <hr>
 <article class="album">
-	<h1><a href="{{url}}">{{album}}</a>
+	<h1><a href="music/{{url}}">{{album}}</a>
 		<span>{{year}}</span>
 	</h1>
 	<ol class="tracks">
@@ -21,26 +21,13 @@
 		{{/tracks}}
 	</ol>
 	<p>
-		<a href="{{url}}">
+		<a href="music/{{url}}">
 			<img alt="{{#_}}Album cover{{/_}}" src="t/250x250/{{cover}}">
 		</a>
 	</p>
 </article>
 {{/music.listing}}
 
-<script>
-$(function()
-{
-	$('h1 a', '.album')
-		.on('click', function() { $(this).closest('.album').toggleClass('closed'); return false; })
-		.closest('.album')
-		.addClass('closed');
-})
-
-</script>
-
 
 {{/ content}}
-
-
 {{/ layout }}
