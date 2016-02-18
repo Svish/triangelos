@@ -8,3 +8,5 @@ Over the years we have have visited many churches and congregations, covering mo
 Our beloved director is **Inger B. Berger**. She has been leading us since the first choir practice, **January 8th, 1992**. The members are mainly from the SDA churches in and around Oslo. The choir usually runs with around 20 [members](members) which gives a good number in each vocal group while still keeping it small enough so everyone are important.
 
 We have released [five CD albums](music) throughout the time. Being a Norwegian choir located in Norway we have for the most part focused on Norway and Scandinavia. That's why you will find our previous albums are in Norwegian. Our last album, The Seventh Day, July 2015, is in English with a special focus on prophecies and the Three Angels' Messages that we would like to proclaim to the world.
+
+![Triangelos at the Lillehammer Adventist Church](t/700x700/choir.jpg){.frame}

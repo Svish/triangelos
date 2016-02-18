@@ -35,24 +35,25 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?callback=init_map"></script>
 
 
-<section>
+<section class="responsive">
 	<h2>{{#_}}E-Mail{{/_}}</h2>
 	{{>email}}
 </section>
 
 
-<section>
+<section class="responsive">
 	<h2>{{#_}}Mail{{/_}}</h2>
-	<p><address>
-			Triangelos<br>
-			Postboks 102<br>
-			1429 Vinterbro<br>
-			Norway
-		</address>
+	<address>
+		Triangelos<br>
+		Postboks 102<br>
+		1429 Vinterbro<br>
+		Norway
+	</address>
 	<h2>{{#_}}Bank details{{/_}}</h2>
 	<p>1720 26 24200<br>
-		<b>IBAN:</b> NO71 1720 2624 200<br>
-		<b>SWIFT/BIC:</b> BIENNOK1
+		<small><b>IBAN:</b> NO71 1720 2624 200</small><br>
+		<small><b>SWIFT/BIC:</b> BIENNOK1</small>
+	</p>
 </section>
 
 {{/ content}}

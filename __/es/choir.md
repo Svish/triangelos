@@ -9,3 +9,5 @@ A través de los años hemos visitado muchas iglesias y congregaciones, cubriend
 Siendo un coro noruego situado en Noruega nos hemos centrado mayormente en Noruega y Escandinavia. Por lo tanto encontraréis que la mayor parte de nuestros discos son en noruego. Nuestro último disco, El Séptimo Día es en Inglés, con un enfoque especial en las profecías y los mensajes de los tres ángeles que nos gustaría llevar más lejos en el mundo.
 
 Estando juntos ganamos más fuerza y nos resulta más fácil enfrentar desafíos.. Además aparte de ser un coro también queremos ser una hermandad cristiana y social.
+
+![Triangelos](t/700x700/choir.jpg){.frame}

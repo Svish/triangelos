@@ -6,18 +6,42 @@
  */
 class Model_Music extends Model
 {
-	const DIR = 'music';
+	const DIR = 'album';
 	const ROOT = parent::DIR.self::DIR;
 
-	
 
-	public function find_by_url($url)
+
+	public function listing()
+	{
+		$albums = iterator_to_array($this->albums());
+
+		usort($albums, function($a, $b)
+		{
+			return -1 * strcmp($a->year, $b->year);
+		});
+
+		return $albums;
+	}
+
+
+
+	public function track($url)
 	{
 		foreach($this->albums() as $album)
 		foreach($album->tracks as $track)
 			if($track->url == $url)
 				return $track;
 	}
+
+
+
+	public function album($url)
+	{
+		foreach($this->albums() as $album)
+			if($album->url == $url)
+				return $album;
+	}
+
 
 
 	public function albums()
@@ -46,6 +70,7 @@ class Model_Music extends Model
 								'year' => $id3['comments']['year'][0],
 								'album' => $id3['comments']['album'][0],
 								'artist' => $id3['comments']['artist'][0],
+								'url' => self::url($tracks->getSubPath()),
 								];
 
 						$album['tracks'][] = (object) [
@@ -85,10 +110,12 @@ class Model_Music extends Model
 	}
 
 
+
 	private function url($path)
 	{
 		return self::DIR.'/'.str_replace(DIRECTORY_SEPARATOR, '/', $path);
 	}
+
 
 
 	private function valid($album)

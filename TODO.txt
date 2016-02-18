@@ -9,8 +9,11 @@
 - User websites?
 - Collapse menu on narrow screens?
 
+- (!) Correct multipart downloads with Multipart/bytes stuff
 
+- Use Download for thumbnails?
 
+- 100% input responsive
 
 
 Music

@@ -5,6 +5,7 @@ return [
 	'Calendar' => 'Kalender',
 	'Picture of the choir' => 'Bilde av koret',
 	'The choir' => 'Koret',
+	'Choir' => 'Koret',
 	'Contact' => 'Kontakt',
 	'Icons' => 'Ikoner',
 	'Members' => 'Medlemmer',
@@ -13,6 +14,7 @@ return [
 	'Web developer' => 'Webutvikler',
 	'Welcome' => 'Velkommen',
 	'Login' => 'Logg inn',
+	'Listen' => 'Lytt',
 
 	'E-Mail' => 'Epost',
 	'Mail' => 'Post',

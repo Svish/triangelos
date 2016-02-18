@@ -25,3 +25,5 @@ Haluamme ylistää ja kiittää Pelastajaamme ja Luojaamme, mikä käy ilmi laul
 
 
 Kaikki kuorolaiset ovat yhtä tärkeitä. Yhdessä tulemme vahvemmiksi ja pystymme kohtaamaan haasteita. Sen lisäksi, että olemme kuoro, haluamme että kuorolaiset kehittyvät henkiläkohtaisesti. Monet pitävät lyhyen hartauden kuoroharjoituksissa. Kaikissa konserteissa useat pitävät lyhyen todistuksen, jakavat raamatunjakeita, pitävät rukouksen tai puheen. 
+
+![Triangelos](t/700x700/choir.jpg){.frame}

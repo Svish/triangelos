@@ -7,23 +7,37 @@
 
 {{{markdown}}}
 
-{{#music.albums}}
-<article class="album">
-	<header>
-		<hgroup>
-			<h1>{{album}}</h1>
-			<h2>{{year}}</h2>
-		</hgroup>
-		<p><img alt="{{#_}}Album cover{{/_}}" src="t/150x150/{{cover}}"></a></p>
-	</header>
+<p><b>// TODO: Buy buttons</b>
 
-	<ol>
+{{#music.listing}}
+<hr>
+<article class="album">
+	<h1><a href="{{url}}">{{album}}</a>
+		<span>{{year}}</span>
+	</h1>
+	<ol class="tracks">
 		{{#tracks}}
-		<li><a href="audio/{{url}}" type="{{mime}}">{{title}}
+		<li><span>{{time}}</span> <a href="stream/{{url}}" type="{{mime}}">{{title}}</a>
 		{{/tracks}}
 	</ol>
+	<p>
+		<a href="{{url}}">
+			<img alt="{{#_}}Album cover{{/_}}" src="t/250x250/{{cover}}">
+		</a>
+	</p>
 </article>
-{{/music.albums}}
+{{/music.listing}}
+
+<script>
+$(function()
+{
+	$('h1 a', '.album')
+		.on('click', function() { $(this).closest('.album').toggleClass('closed'); return false; })
+		.closest('.album')
+		.addClass('closed');
+})
+
+</script>
 
 
 {{/ content}}

@@ -1,0 +1,32 @@
+{{% BLOCKS }}
+{{< layout }}
+{{$ title }}{{album.album}}{{/ title }}
+
+
+{{$ content}}
+
+{{{markdown}}}
+
+{{#album}}
+	
+	<p><b>// TODO: Buy buttons</b>
+	<hr>
+
+	<ol class="tracks">
+		{{#tracks}}
+		<li><span>{{time}}</span> <a href="stream/{{url}}" type="{{mime}}">{{title}}</a>
+		{{/tracks}}
+	</ol>
+
+	<p>
+		<img alt="{{#_}}Album cover{{/_}}" src="t/320x370/{{cover}}">
+		<img alt="{{#_}}Album inlay{{/_}}" src="t/320x370/{{inlay}}">
+	</p>
+
+{{/album}}
+
+
+{{/ content}}
+
+
+{{/ layout }}

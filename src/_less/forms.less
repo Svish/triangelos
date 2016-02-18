@@ -1,0 +1,88 @@
+
+
+
+/** Input **/
+
+label[for]
+{
+	cursor: pointer;
+}
+
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+input[type=number],
+input[type=tel],
+input[type=date],
+input[type=time],
+input[type=search],
+select,
+textarea
+{
+	font-size: .9em;
+	padding: .5em;
+	border: 1px solid rgba(0,0,0,.25);
+	width: 300px;
+	.box-sizing();
+}
+input[type=checkbox]
+{
+	margin-right: .5em;
+}
+textarea
+{
+	resize: vertical;
+	min-height: 200px;
+}
+input.error,
+textarea.error
+{
+	border-color: #9E1B1B !important;
+}
+
+
+
+/** Buttons **/
+
+button
+{
+	padding: .25em 1em;
+	font-size: .9em;
+	background: fade(@link-color, 10%);
+	border: 1px solid rgba(0,0,0,.25);
+}
+button:hover
+{
+	background: fade(@link-color, 20%);
+}
+
+
+
+/** Boxes **/
+
+.info
+{
+	padding: .5em;
+	border: 1px solid fade(#090, 40%);
+	border-radius: 5px;
+	.box-shadow(0, 0, 6px, rgba(0,0,0,.35));
+	background: fade(#090, 15%);
+}
+
+.errors
+{
+	margin-top: -1rem;
+	font-size: x-small;
+	color: #9E1B1B;
+}
+
+
+
+/** Other related stuffs... **/
+
+address
+{
+	font-style: normal;
+	margin: 1em 0;
+}

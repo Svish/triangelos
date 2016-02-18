@@ -10,7 +10,7 @@ class Controller_Thumbnail extends CachedController
 
 	protected $parameter_whitelist = ['w', 'h'];
 
-	private $whitelist = [[350,150], [700,700], [150,150]];
+	private $whitelist = [[350,150], [700,700], [250,250], [320,370]];
 	private $file;
 
 
@@ -23,8 +23,10 @@ class Controller_Thumbnail extends CachedController
 			throw new HTTP_Exception("Image not found", 404);
 
 		parent::before($info);
+	
 	}
 
+	
 	protected function cache_valid($cached_time)
 	{
 		return parent::cache_valid($cached_time)

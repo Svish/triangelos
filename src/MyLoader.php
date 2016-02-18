@@ -36,6 +36,7 @@ class MyLoader implements Mustache_Loader
 		yield CONTENT.'..'.DIRECTORY_SEPARATOR.$name.self::EXT;
 
 		$parts = explode('/', $name);
+		
 		while($part = array_pop($parts))
 		{
 			yield CONTENT.$part.self::EXT;

@@ -1,0 +1,97 @@
+
+
+
+/* Framed */
+
+.frame
+{
+	border: 1px solid rgba(0,0,0,.5);
+	border-radius: 5px;
+	background: #fff;
+	.box-shadow(2px, 2px, 15px, rgba(0,0,0,.35));
+
+	img, span
+	{
+		margin: auto;
+		display: block;
+	}
+}
+
+
+
+/* Members page */
+
+body.members #content
+{
+	max-width: none;
+	ul
+	{
+		padding: 0;
+	}
+	.frame
+	{
+		display: inline-block;
+		text-align: center;
+		vertical-align: top;
+		margin: 0 .75em .75em 0;
+		padding: .75em;
+		img
+		{
+			.box-shadow(0,0,0,0);
+		}
+	}
+
+}
+
+
+
+/* Music page */
+
+body.music #content .album
+{
+	div
+	{
+		margin: 0;
+
+		&:first-child
+		{
+			margin-right: 1.5rem;
+			margin-bottom: 1rem;
+		}
+		&:last-child
+		{
+			//margin-top: -.67em;
+		}
+	}
+
+	h1
+	{
+		margin: 0;
+		span
+		{
+			vertical-align: super;
+			font-size: medium;
+			color: black;
+		}
+	}
+}
+
+.tracks
+{
+	li
+	{
+		border-bottom: 1px dotted #ccc;
+		&:last-of-type
+		{
+			border-bottom: none;
+		}
+		span
+		{
+			float: right;
+		}
+		a
+		{
+			color: inherit;
+		}
+	}
+}

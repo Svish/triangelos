@@ -5,14 +5,14 @@
 {{$ content}}
 
 {{#users.listing}}
-<section>
 <h2>{{name | _ | ucfirst}}</h2>
 <ul class="member-frames">
 	{{#members}}
-	<li><img src="t/350x150/{{img}}"> <span>{{first}}</span>
+	<li class="frame">
+		<img src="t/350x150/{{img}}" alt="{{first}}">
+		<span>{{first}}</span>
 	{{/members}}
 </ul>
-</section>
 {{/users.listing}}
 
 

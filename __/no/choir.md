@@ -14,3 +14,5 @@ Den første CD var Din Stemme som ble utgitt i juni 1994. Av Nåde kom ut i apri
 Vi ønsker å synge til Guds ære, og vi velger sanger som har et innhold som forkynner hvem Gud er, Hans store kjærlighet som har gitt oss livet. Sang er også lovprisning av, og takk til Gud.
 
 I et kor er det flere medlemmer og alle er like viktige. Når vi står sammen så har vi ekstra styrke og det er lettere å kaste seg ut i en utfordring. I tillegg til å være et sosialt fellesskap for de som ønsker å synge, ønsker vi også at medlemmene skal få lov til å utvikle seg personlig. Ved at vi tar ansvar for andakt på øvelsene og deltar med innlegg under gudstjenester vil vi få større erfaring med å holde taler og personlig vitnesbyrd.
+
+![Triangelos i Lillehammer Adventkirke](t/700x700/choir.jpg){.frame}
