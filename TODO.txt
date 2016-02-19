@@ -11,6 +11,7 @@
 
 - (!) Correct multipart downloads with Multipart/bytes Music
 
+- (!) Audio controls at bottom of screen.
 
 
 stuff

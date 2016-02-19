@@ -65,6 +65,9 @@ class Model_Music extends Model
 						$id3 = $getID3->analyze($file);
 						getid3_lib::CopyTagsToComments($id3);
 
+						if(strpos($file->getFilename(), 'preview') !== false)
+							continue;
+
 						if( ! isset($album['album']))
 							$album += [
 								'year' => $id3['comments']['year'][0],

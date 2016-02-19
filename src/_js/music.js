@@ -19,12 +19,11 @@ var Music = {
 			cssSelectorAncestor: '#jp_container',
 			supplied: 'mp3',
 			wmode: 'window',
-			solution: 'html,flash',
+			solution: 'html',
 			ended: Music.nextTrack,
 			pause: Music.onPause,
 			playing: Music.onPlaying,
-			loadstart: console.info,
-			loadeddata: console.info,
+			loadstart: Music.onLoadStart,
 		});
 	},
 
@@ -40,19 +39,15 @@ var Music = {
 
 	onPause: function()
 	{
-		Music.container.slideUp(250);
-		Music.container
-			.closest('li')
-			.removeClass('playing');
+		Music.hidePlayer();
 	},
 	onPlaying: function()
 	{
-		Music.container
-			.insertAfter(Music.tracks[Music.current])
-			.slideDown(250);
-		Music.container
-			.closest('li')
-			.addClass('playing');
+		Music.showPlayer();
+	},
+	onLoadStart: function()
+	{
+		Music.showPlayer();
 	},
 
 
@@ -77,15 +72,25 @@ var Music = {
 
 		Music.player.jPlayer('setMedia', { mp3: track.href });
 		Music.player.jPlayer('play');
-
 	},
 
 	stopTrack: function()
 	{
-		Music.player.jPlayer('clearMedia');
 		Music.current = null;
+		Music.player.jPlayer('stop');
 	},
 
+	showPlayer: function()
+	{
+		Music.container
+			.insertAfter(Music.tracks[Music.current])
+			.slideDown(250);
+	},
+	hidePlayer: function()
+	{
+		Music.container
+			.slideUp(250);
+	},
 
 };
 $(Music.init);
