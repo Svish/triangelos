@@ -42,12 +42,6 @@ class Controller_Javascript extends CachedController
 		$js = array_map('file_get_contents', $this->files);
 		$js = implode(PHP_EOL.PHP_EOL, $js);
 
-		if(ENV == 'dev')
-		{
-			echo $js;
-			return;
-		}
-
 		// Setup curl request
 		$c = curl_init();
 		curl_setopt_array($c, array
