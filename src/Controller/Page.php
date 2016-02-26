@@ -20,6 +20,7 @@ class Controller_Page extends Controller
 		$url = ltrim($url, '/') ?: 'index';
 		$this->ctx = $context + [
 			'this' => $this->path,
+			'class' => str_replace('/', ' ', $this->path),
 			'css' => Controller_Less::config()->global,
 			'js' => Controller_Javascript::config()->global,
 			'isProd' => ENV == 'prod',
