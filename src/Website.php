@@ -112,7 +112,7 @@ class Website
 
 			$pattern = strtr($pattern, $this->tokens);
 
-			if (preg_match('#^/?' . $pattern . '/?$#u', $path, $matches))
+			if(preg_match('#'.$pattern.'/?#Au', $path, $matches))
 			{
 				// TODO: array_shift
 				unset($matches[0]);
