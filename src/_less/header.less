@@ -4,7 +4,7 @@
 	padding: 10px @padding;
 	line-height: 1em;
 
-	background: fadeout(@link-color, 90%);
+	background: fadeout(@accent-color, 90%);
 	border-bottom: 1px solid lighten(#000, 25%);
 	.box-shadow(0, 0, 15px, #000);
 	//.transition(font-size, 300ms);
@@ -36,21 +36,21 @@
 				display: inline-block;
 				padding: 0.55em 0.75em;
 				color: lighten(@text-color, 20%);
-				background: fadeout(@link-color, 93%);
+				background: fadeout(@accent-color, 93%);
 				text-shadow: rgba(0,0,0, 50%) 0 0 6px;
 
-				border-bottom: 2px solid fadeout(@link-color, 93%);
+				border-bottom: 2px solid fadeout(@accent-color, 93%);
 
 				&:hover,
 				&:active
 				{
 					color: @text-color;
-					background: fadeout(@link-color, 88%);
+					background: fadeout(@accent-color, 88%);
 				}
 				&.current
 				{
 					color: @text-color;
-					border-bottom: 2px solid @link-color;
+					border-bottom: 2px solid @accent-color;
 					text-shadow: rgba(0,0,0, 75%) 0 0 6px;
 				}
 			}
@@ -80,7 +80,7 @@
 			}
 			&.language:not(.current):hover
 			{
-				background: fadeout(@link-color, 93%);
+				background: fadeout(@accent-color, 93%);
 			}
 		}
 	}
@@ -99,7 +99,7 @@
 	}
 }
 
-@media only screen and (max-width : 650px)
+@media only screen and (max-width : 550px)
 {
 	#header
 	{
@@ -107,7 +107,7 @@
 	}
 }
 
-@media only screen and (min-width : 500px)
+@media only screen and (min-width : 450px)
 {
 	#header
 	{
@@ -128,7 +128,7 @@
 	}
 }
 
-@media only screen and (max-width : 499px)
+@media only screen and (max-width : 449px)
 {
 
 	#header
