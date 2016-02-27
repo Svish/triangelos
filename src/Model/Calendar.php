@@ -112,6 +112,15 @@ class Model_Calendar extends Model
 
 
 
+	public function events()
+	{
+		$cal = ICalendar::fromFile(self::ICAL);
+		var_dump($cal);
+		exit;
+	}
+
+
+
 	public function ical()
 	{
 		return file_get_contents(self::ICAL);
