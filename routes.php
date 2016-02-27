@@ -13,6 +13,7 @@ return [
 	// Special Pages
 	'/(contact/email)' => 'Controller_Email',
 	'/music/(album/:number:)' => 'Controller_Album',
+	'/calendar\.ics' => 'Controller_Calendar',
 
 	// General Pages
 	0 => 'Controller_Page',

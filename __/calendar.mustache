@@ -3,7 +3,49 @@
 {{$ title }}{{#_}}Calendar{{/_}}{{/ title }}
 
 {{$ content}}
-<p><b>// TODO: Import calendar from Outlook.com</b>
+
+
+
+{{#calendar.listing}}
+
+	<table class="calendar" width="100%">
+		<col>
+		<col>
+		<col>
+		<col>
+		<col>
+		<col>
+		<col>
+		<thead>
+			<tr>
+				<th colspan="7">{{name|_}} {{year}}
+			</tr>
+			<tr>
+				<th>{{#_}}Monday{{/_}}
+				<th>{{#_}}Tuesday{{/_}}
+				<th>{{#_}}Wednesday{{/_}}
+				<th>{{#_}}Thursday{{/_}}
+				<th>{{#_}}Friday{{/_}}
+				<th>{{#_}}Saturday{{/_}}
+				<th>{{#_}}Sunday{{/_}}
+			</tr>
+		</thead>
+		<tbody>
+		{{#weeks}}
+		<tr data-week="{{week}}" {{#cssClass}}{{isCurrent}}{{/cssClass}}>
+			{{#days}}
+			<td data-day="{{day}}" data-name="{{name|_}}" {{#cssClass}}{{isCurrent}} {{hasEvents}}{{/cssClass}}>{{#events}}
+
+					{{/events}}</td>
+			{{/days}}
+		</tr>
+		{{/weeks}}
+	</table>
+
+{{/calendar.listing}}
+
+
+
 {{/ content}}
 
 {{/ layout }}
