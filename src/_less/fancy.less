@@ -75,9 +75,10 @@ a.frame:hover
 {
 	padding-right: 1em;
 	border: 1px solid #000;
-	font-size: x-small;
+	//font-size: x-small;
 	background: #ccc;
 	color: #000;
+	border-radius: 5px 0 0 5px;
 }
 a.badge:link,
 a.badge:visited,
@@ -101,15 +102,19 @@ a.badge:active
 	color: #fff;
 	box-shadow: 0 0 5px #000;
 }
+.badge[data-name]:before
+{
+	content: attr(data-name);
+}
 .badge-1
 {
-	background: @accent-color;
+	background: fade(@accent-color, 50%);
 }
 .badge-2
 {
-	background: @accent2-color;
+	background: fade(@accent2-color, 50%);
 }
 .badge-3
 {
-	background: @accent3-color;
+	background: fade(@accent3-color, 50%);
 }

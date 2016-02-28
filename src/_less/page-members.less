@@ -28,7 +28,7 @@ body.members #content
 	.details
 	{
 		text-align: left;
-		img
+		.frame
 		{
 			float: right;
 			margin: 0 0 2em 2em;
@@ -37,7 +37,7 @@ body.members #content
 	}
 }
 
-@media only screen and (max-width : 350px)
+@media only screen and (max-width : 400px)
 {
 	body.members #content ul li
 	{
@@ -48,7 +48,13 @@ body.members #content
 
 		.frame
 		{
-			margin: auto auto .5em auto;
+			margin-right: 0;
+		}
+		.details .frame
+		{
+			float: none;
+			margin: .5em auto;
+			max-width: 100%;
 		}
 	}
 }

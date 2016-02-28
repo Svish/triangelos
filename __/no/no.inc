@@ -25,6 +25,7 @@ return [
 	'Welcome' => 'Velkommen',
 	'Login' => 'Logg inn',
 	'Listen' => 'Lytt',
+	'Home' => 'Forsiden',
 
 	'Where?' => 'Hvor?',
 

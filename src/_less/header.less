@@ -11,7 +11,7 @@
 	h1
 	{
 		font: 700 5em/1em 'Tangerine', sans-serif;
-		margin: 0 0 -.6rem -5px;
+		margin: 0 0 -.6rem -2rem;
 		text-shadow: rgba(0,0,0, 50%) 0 0 6px;
 		color: inherit;
 		position: relative;
@@ -53,6 +53,14 @@
 					text-shadow: rgba(0,0,0, 75%) 0 0 6px;
 				}
 			}
+		}
+	}
+
+	#main-menu
+	{
+		span
+		{
+			display:none;
 		}
 	}
 
@@ -105,6 +113,10 @@
 	#header
 	{
 		font-size: small;
+		h1
+		{
+			margin-left: -6px;
+		}
 	}
 }
 
@@ -143,10 +155,15 @@
 		}
 		#main-menu
 		{
+			font-size: large;
 			margin-top: -0.65em;
 			li,a
 			{
 				display: block;
+			}
+			span
+			{
+				display:inline;
 			}
 		}
 		#main-menu,

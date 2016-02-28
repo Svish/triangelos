@@ -1,7 +1,4 @@
 
-- (!) Add music sheet overlay to header background
-	- Canvas animated flurry lines?
-
 - (!) Cache Controller_Page
 	- Use lmod of cached newest content file for valid check?
 	- (!) Add relevant COOKIE/GET to etag
@@ -10,8 +7,7 @@
 - User websites?
 
 - (!) Correct multipart downloads with Multipart/bytes Music
-- (!) Audio controls at bottom of screen.
-- (!) Album pages are picking up album description...
+
 
 
 - Only show description for logged in users
@@ -22,11 +18,18 @@ SMS?
 
 - https://www.twilio.com/sms/pricing/no
 
-
-
-Store
+Calendar
 ===
 
+- (!) ICS with only concerts and sermons
+- https://www.addevent.com ?
+
+
+
+Music/Store
+===
+
+- Popup with larger cover and inlay (which is hopefully readable)
 - Reuse Paypal stuff?
 	- http://minicartjs.com
 - Samples from highly compressed full files?
