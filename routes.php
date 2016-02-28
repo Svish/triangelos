@@ -15,6 +15,9 @@ return [
 	'/music/(album/:number:)' => 'Controller_Album',
 	'/calendar\.ics' => 'Controller_ICal',
 
+	// Admin pages
+	'/(admin/:any:)' => 'Controller_Admin',
+
 	// General Pages
 	0 => 'Controller_Page',
 ];

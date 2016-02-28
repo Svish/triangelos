@@ -1,0 +1,33 @@
+{{% BLOCKS }}
+{{< layout }}
+{{$ TITLE }}{{#_}}Members{{/_}} | {{title}}{{/ TITLE }}
+{{$ title }}{{#_}}Members{{/_}} <span>{{title}}</span>{{/ title }}
+
+{{$ content}}
+
+<table>
+	<thead>
+		<tr>
+			<th>Name
+			<th>Phone
+			<th>Email
+			<th>Role
+		</tr>
+	</thead>
+	<tbody class="striped">
+	{{#members.all}}
+		<tr>
+			<td data-key="Name">{{first | _ | ucfirst}} {{last | _ | ucfirst}}
+			<td data-key="Phone"><a href="tel:{{phone}}">{{phone}}</a>
+			<td data-key="Email"><a href="mailto:{{email}}">{{email}}</a>
+			<td data-key="Role">{{role | ucfirst | _ }}
+		</tr>
+	{{/members.all}}
+	</tbody>
+</table>
+
+<p>Email: <a href="mailto: {{#members.all}}{{email}},{{/members.all}}">All</p>
+
+{{/ content}}
+
+{{/ layout }}
