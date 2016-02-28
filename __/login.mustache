@@ -1,0 +1,29 @@
+{{% BLOCKS }}
+{{< layout }}
+{{$ title }}{{#_}}Login{{/_}}{{/ title }}
+
+{{$ content}}
+
+
+<form action="login" method="post">
+	
+	<p><input {{#errors.email}}class="error"{{/errors.email}} type="email" name="email" placeholder="{{#_}}Your email{{/_}}" value="{{_post.email}}">
+	<ul class="errors">{{#errors.email}}<li>{{.}}</li>{{/errors.email}}</ul>
+	
+	<p><input {{#errors.password}}class="error"{{/errors.password}} type="password" name="password" placeholder="{{#_}}Your password{{/_}}" value="{{_post.password}}">
+	<ul class="errors">{{#errors.password}}<li>{{.}}</li>{{/errors.password}}</ul>
+	
+	<p><button class="icon" type="submit">{{#svg}}login{{/svg}}</button>
+</form>
+
+<hr>
+
+<p><b>// TODO: User accounts</b>
+
+<p><b>// TODO: Private member area with exercise material and contact information to other members</b>
+
+<p><b>// TODO: Admin section with online editing of content</b>
+
+{{/ content}}
+
+{{/ layout }}

@@ -36,6 +36,7 @@ return [
 	'Your email' => 'Din epost',
 	'Your subject' => 'Ditt emne',
 	'Your message' => 'Din melding',
+	'Your password' => 'Ditt passord',
 
 	'Sunday' => 'Søndag',
 	'Monday' => 'Mandag',

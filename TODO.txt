@@ -1,28 +1,53 @@
 
+- (!) Correct multipart downloads with Multipart/bytes Music
 - (!) Cache Controller_Page
 	- Use lmod of cached newest content file for valid check?
 	- (!) Add relevant COOKIE/GET to etag
 
-- Add nonce thingy to contact form?
-- User websites?
-
-- (!) Correct multipart downloads with Multipart/bytes Music
 
 
+- Get stuff through JSON?
 
-- Only show description for logged in users
 
 
-SMS?
+Contact
 ===
 
-- https://www.twilio.com/sms/pricing/no
+- (!) Add nonce thingy to contact form
+
+
 
 Calendar
 ===
 
 - (!) ICS with only concerts and sermons
+- Only show description for logged in users?
 - https://www.addevent.com ?
+
+
+
+Members/Member area
+===
+
+- https://www.twilio.com/sms/pricing/no?
+- Contact details for members
+- Practice material
+	- Full length audio streaming
+	- Access to Musescore and PDF files
+- Edit account
+	- Update image
+	- Change details
+- Group SMS/Email sending to choir members
+
+
+
+Admin
+===
+
+- Edit content
+- Edit config
+- Add new translations
+- Config admin users? Limit to language?
 
 
 
