@@ -1,28 +1,27 @@
 #header
 {
 	position: relative;
-	padding: 10px @padding;
+	padding: 1rem @padding;
 	line-height: 1rem;
 
 	background: fadeout(@accent-color, 90%);
 	border-bottom: 1px solid black;
 	.box-shadow(0, 0, 15px, #000);
-	//.transition(font-size, 300ms);
 
 	h1
 	{
 		font: 700 5em/1em 'Tangerine', sans-serif;
-		margin: 0 0 -.15em -3px;
+		margin: 0 0 -.6rem -5px;
 		text-shadow: rgba(0,0,0, 50%) 0 0 6px;
 		color: inherit;
 		position: relative;
-		z-index: 1;
+		z-index: 10;
 	}
 	
 	ul
 	{
 		position: relative;
-		z-index: 2;
+		z-index: 20;
 		padding: 0;
 		margin: 0;
 
@@ -30,11 +29,12 @@
 		{
 			display: inline-block;
 			margin-right: 2px;
+			position: relative;
 			a
 			{
 				display: inline-block;
 				padding: 0.55em 0.95em;
-				color: lighten(@text-color, 20%);
+				color: inherit;
 				background: fadeout(@accent-color, 93%);
 				text-shadow: rgba(0,0,0, 50%) 0 0 6px;
 
@@ -87,6 +87,7 @@
 		bottom: 0;
 		outline: none;
 		color: @accent-color;
+		.drop-shadow(0, 0, 15px, white);
 		svg
 		{
 			height: 0.6em;
@@ -172,7 +173,8 @@
 			// Show menu toggle
 			display: block;
 		}
-		ul
+		ul,
+		#fancy
 		{
 			// Initially hides the menu
 			display: none;

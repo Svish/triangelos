@@ -27,7 +27,8 @@
 		top: 10%;
 		left: 5%;
 		right: 5%;
-		overflow: auto;
+		overflow-x: hidden;
+		overflow-y: auto;
 		max-height: 80%;
 		padding: .75em 1.5em;
 		background: rgba(255,255,255,.95);
@@ -42,9 +43,14 @@
 		.close
 		{
 			position: absolute;
-			top: .75em;
-			right: 1.5em;
+			top: 0;
+			right: 0;
+			padding: .75em 1.5em;
 			color: rgba(0,0,0,.70);
+			&:hover
+			{
+				color: rgba(0,0,0,.90);
+			}
 		}
 	}
 }

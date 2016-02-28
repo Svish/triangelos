@@ -8,9 +8,16 @@ class Controller_Thumbnail extends CachedController
 	protected $max_age = 172800; // 48 hours
 
 
-	protected $parameter_whitelist = ['w', 'h'];
+	protected $parameter_whitelist = ['q'];
 
-	private $whitelist = [[350,150], [350,250], [700,700], [250,250], [320,370]];
+	private $whitelist = [
+		[350,150], // Members: Listing
+		[350,250], // Members: Details
+		[700,700], // Choir: Large image
+		[250,250], // Music: Listing, cover
+		[320,370], // Music: Album, cover and inlay
+		[960,960], // Header
+		];
 	private $file;
 
 
@@ -40,9 +47,10 @@ class Controller_Thumbnail extends CachedController
 
 		ini_set('memory_limit','256M');
 
+
 		$i = new PHPImage($this->file);
-		$i->setOutput('jpg', 90);
-		$i->resize($w, $h, false, true);
+		$i->resize((int)$w, (int)$h, false, true);
+		$i->setOutput('jpg', 75);
 		$i->show();
 	}
 

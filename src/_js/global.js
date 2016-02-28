@@ -1,13 +1,19 @@
 
+// Configure NProgress
+NProgress.configure({
+	parent: '#content',
+	showSpinner: true,
+	//trickleRate: 0.03,
+	//trickleSpeed: 250,
+});
+
+
+$(window).load(NProgress.done);
 $(function()
 {
-	// Configure NProgress
-	NProgress.configure({
-		//parent: '#header',
-		//showSpinner: false,
-	});
+	NProgress.start();
 
-	// Global ajax progress, cause why not
+	// Global ajax progress
 	$(document)
 		.ajaxStart(NProgress.start)
 		.ajaxStop(NProgress.done);

@@ -12,6 +12,7 @@ return [
 	'Source code' => 'Kildekode',
 	'Web developer' => 'Webutvikler',
 	'Web analytics' => 'Statistikk',
+	'Graphics used for design' => 'Grafikk brukt til design',
 
 	'About the site' => 'Om nettstedet',
 	'The choir' => 'Koret',

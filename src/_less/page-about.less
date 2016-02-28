@@ -12,8 +12,23 @@ body.about #content
 	.accent2 {border-color: #281CA4; background: fade(#281CA4, 75%); &:before {content: "#281CA4"} }
 	.accent3 {border-color: #A9078A; background: fade(#A9078A, 75%); &:before {content: "#A9078A"} }
 
-	li
+
+	dt,dd
 	{
-		margin-bottom: .5em;
+		display: inline;
+	}
+	dd
+	{
+		margin-left: 0;
+	}
+	dd+dd:before
+	{
+		content: ' / ';
+	}
+
+	dd+dt:before
+	{
+		content: '\A';
+		white-space: pre;
 	}
 }

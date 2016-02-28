@@ -1,0 +1,38 @@
+
+#bg-1
+{
+	position: absolute;
+	z-index: 1;
+	left: 0; right: 0; top: 0; bottom: 0;
+
+	background: url(../t/960x960/piano.jpg) no-repeat;
+	background-position: 5% 36%;
+	background-size: cover;
+	opacity: .2;
+	-webkit-filter: blur(3px) grayscale(75%) hue-rotate(210deg);
+	-moz-filter: blur(3px) grayscale(75%) hue-rotate(210deg);
+	-o-filter: blur(3px) grayscale(75%) hue-rotate(210deg);
+	-ms-filter: blur(3px) grayscale(75%) hue-rotate(210deg);
+	filter: blur(3px) grayscale(75%) hue-rotate(210deg);
+}
+
+
+#nprogress
+{
+	.bar
+	{
+		background: @accent-color;
+	}
+	.peg
+	{
+		box-shadow: 0 0 10px @accent-color, 0 0 5px @accent-color;
+	}
+	.spinner-icon
+	{
+		border-top-color: @accent-color;
+		border-left-color: @accent-color;
+	}
+}
+
+//::-moz-selection{background-color: fade(@accent3-color, 75%);color: white;}
+//::selection{background-color: fade(@accent3-color, 75%);color: white;}

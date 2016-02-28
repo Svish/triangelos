@@ -46,6 +46,14 @@
 	-webkit-box-shadow: @x @y @radius @color;
 	box-shadow: @x @y @radius @color;
 }
+.drop-shadow(@x, @y, @radius, @color)
+{
+	-webkit-filter: drop-shadow(@x @y @radius @color);
+	-moz-filter: drop-shadow(@x @y @radius @color);
+	-o-filter: drop-shadow(@x @y @radius @color);
+	-ms-filter: drop-shadow(@x @y @radius @color);
+	filter: drop-shadow(@x @y @radius @color);	
+}
 .inset-shadow(@x, @y, @radius, @color)
 {
 	-moz-box-shadow: inset @x @y @radius @color;
