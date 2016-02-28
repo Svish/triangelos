@@ -1,16 +1,17 @@
 
+
 // Configure NProgress
 NProgress.configure({
 	parent: '#content',
 	showSpinner: true,
-	//trickleRate: 0.03,
-	//trickleSpeed: 250,
 });
 
 
+// End progress when everything loaded
 $(window).load(NProgress.done);
 $(function()
 {
+	// Start progress when DOM loaded
 	NProgress.start();
 
 	// Global ajax progress
