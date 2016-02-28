@@ -42,6 +42,7 @@ class Model_Calendar extends Model
 		// Gather events
 		$last = clone $first;
 		$events = [];
+		$uid = 0;
 		foreach($this->ical->events($first) as $e)
 		{
 			// Keep track of last date
@@ -49,6 +50,7 @@ class Model_Calendar extends Model
 
 			// Add formatted stuffs
 			$e += [
+				'uid' => ++$uid,
 				'iso' => $e['start']->format('Y-m-d'),
 				'start_date' => $e['start']->format(__('date/date')),
 				'start_w3c' => $e['start']->format(DATE_W3C),
@@ -132,6 +134,7 @@ class Model_Calendar extends Model
 			$cal[$month]['weeks'][$week]['days'][(int) $day->format('w')] = [
 				'date' => $day,
 				'day' => $day->format(__('date/day')),
+				'week' => (int) $day->format('W'),
 				'iso' => $iso,
 				'name' => $day->format(__('date/day-name')),
 				'events' => Util::path($events, $iso, []),

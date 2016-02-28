@@ -10,7 +10,7 @@ class Controller_Thumbnail extends CachedController
 
 	protected $parameter_whitelist = ['w', 'h'];
 
-	private $whitelist = [[350,150], [700,700], [250,250], [320,370]];
+	private $whitelist = [[350,150], [350,250], [700,700], [250,250], [320,370]];
 	private $file;
 
 

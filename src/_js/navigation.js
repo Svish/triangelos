@@ -31,6 +31,21 @@ var Navigation = {
 				window.location.reload();
 				return false;
 			});
+
+
+		// Elements with more details
+		$('.has-details', '#content').click(Navigation.onDetailsClick);
+		$('.details', '#content')
+			.click(Navigation.onDetailsOutsideClick)
+			.find('article')
+			.click(Navigation.doNothing)
+			.find('.close')
+			.click(Navigation.onDetailsCloseClick);
+	},
+
+	doNothing: function(event)
+	{
+    	event.stopPropagation();
 	},
 
 	onMenuToggle: function()
@@ -38,5 +53,31 @@ var Navigation = {
 		$('ul', '#header').slideToggle();
 		return false;
 	},
+
+	onDetailsClick: function()
+	{
+		var details = $(this).data('details');
+
+		$('.details[data-details="'+details+'"]')
+			.find('article')
+			.andSelf()
+			.slideDown();
+	},
+
+	onDetailsOutsideClick: function()
+	{
+		$(this)
+			.find('article')
+			.scrollTop(0)
+			.andSelf()
+			.slideUp();
+	},
+
+	onDetailsCloseClick: function()
+	{
+		$(this)
+			.closest('.details')
+			.click();
+	}
 };
 $(Navigation.init);

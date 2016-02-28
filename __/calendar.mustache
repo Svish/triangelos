@@ -18,49 +18,49 @@
 		<col>
 		<thead>
 			<tr>
-				<th colspan="7">{{name|_}}
+				<th colspan="7">{{name|_}}</th>
 			</tr>
 			<tr>
-				<th>{{#_}}Sunday{{/_}}
-				<th>{{#_}}Monday{{/_}}
-				<th>{{#_}}Tuesday{{/_}}
-				<th>{{#_}}Wednesday{{/_}}
-				<th>{{#_}}Thursday{{/_}}
-				<th>{{#_}}Friday{{/_}}
-				<th>{{#_}}Saturday{{/_}}
+				<th>{{#_}}Sunday{{/_}}</th>
+				<th>{{#_}}Monday{{/_}}</th>
+				<th>{{#_}}Tuesday{{/_}}</th>
+				<th>{{#_}}Wednesday{{/_}}</th>
+				<th>{{#_}}Thursday{{/_}}</th>
+				<th>{{#_}}Friday{{/_}}</th>
+				<th>{{#_}}Saturday{{/_}}</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody class="checkered">
 		{{#weeks}}
 		<tr data-week="{{week}}" class="{{#isCurrent}}current{{/isCurrent}}">
 			{{#days}}
 			{{^day}}
-			<td></td>
+			<td class="empty"></td>
 			{{/day}}
 			{{#day}}
-			<td data-day="{{day}}" data-date="{{iso}}" data-name="{{name|_}}" class="{{#isCurrent}}current{{/isCurrent}}">{{#events}}
+			<td data-day="{{day}}" data-week="{{week}}" data-date="{{iso}}" data-name="{{name|_}}" class="{{#isCurrent}}current{{/isCurrent}}">{{#events}}
 
-				<div class="event {{status}} {{transp}} {{continued}}" data-uid="{{uid}}">
+				<div class="event {{status}} {{transp}} {{continued}} has-details" data-details="{{uid}}">
 					{{#start_time}}<time datetime="{{start_w3c}}">{{start_time}}</time>{{/start_time}}
 					{{#end_time}}<time datetime="{{end_w3c}}"> – {{end_time}}</time>{{/end_time}}
 					<div class="summary">{{summary|_}}</div>
-					<div class="details">
-						<article>
-							<h1>{{summary|_}}</h1>
-							<div class="time">
-								<time datetime="{{start_w3c}}">{{start_date|_}}{{start_time}}</time>
-								{{#end_w3c}}
-								<time datetime="{{end_w3c}}"> – {{end_date|_}}{{end_time}}</time>
-								{{/end_w3c}}
-							</div>
-							{{{description}}}
+				</div>
+				<div class="details" data-details="{{uid}}">
+					<article>
+						<h1>{{summary|_}}</h1>
+						<div class="subtitle">
+							<time datetime="{{start_w3c}}">{{start_date|_}} {{start_time}}</time>
+							{{#end_w3c}}
+							<time datetime="{{end_w3c}}"> – {{end_date|_}} {{end_time}}</time>
+							{{/end_w3c}}
+						</div>
+						{{{description}}}
 
-							{{#location}}
-								<address>{{{location}}}</address>
-							{{/location}}
-							<!--<pre>{{{dump}}}</pre>-->
-						</article>
-					</div>
+						{{#location}}
+							<address>{{{location}}}</address>
+						{{/location}}
+						<a href="javascript:void(0)" class="close">{{#svg}}close{{/svg}}</a>
+					</article>
 				</div>
 
 				{{/events}}</td>
@@ -77,26 +77,13 @@
 <script>
 $(function()
 {
+	// Mark current day and week
 	var today = new Date().toISOString().split('T')[0];
 	$('[data-date="'+today+'"]', '.calendar')
 		.addClass('current')
 		.closest('tr')
 		.addClass('current');
-
-	$('.event')
-		.click(__onOpenEvent);
-
 });
-
-function __onOpenEvent()
-{
-	var e = $(this);
-	if(e.hasClass('continued'))
-		e = $('.event[data-uid="'+e.data('uid')+'"]:first', '.calendar');
-	
-
-	e.find('.details, .details>*').slideToggle();
-}
 </script>
 
 

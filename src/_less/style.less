@@ -9,6 +9,8 @@
 @background-color: #eee;
 @text-color: #111;
 
+
+
 html::after {
 	content: "";
 	height: 1px;
@@ -54,16 +56,6 @@ body
 	overflow-y: scroll;
 }
 
-::-moz-selection
-{
-	background-color: fade(@accent3-color, 75%);
-	color: white;
-}
-::selection
-{
-	background-color: fade(@accent3-color, 75%);
-	color: white;
-}
 
 b,
 strong
@@ -94,12 +86,24 @@ h1,h2,h3,h4
 	{
 		margin-top: 0;
 	}
+
+	span
+	{
+		vertical-align: super;
+		font-size: medium;
+		color: black;
+	}
 }
 h1+h2,
 h2+h3,
 h3+h4
 {
-	margin-top: -.75em;
+	margin-top: -1em;
+}
+.subtitle
+{
+	margin-top: -.5em;
+	font-size: small;
 }
 
 
@@ -168,50 +172,6 @@ hr
 	color: darken(@background-color, 20%);
 	background: darken(@background-color, 20%);
 	.box-shadow(0, 0, 6px, rgba(0,0,0,.35));
-}
-
-
-
-// Tables
-table
-{
-	width: 100%;
-	margin: 1em 0;
-	border-collapse: collapse;
-	empty-cells: hide;
-	font-size: small;
-
-	th,td
-	{
-		text-align: left;
-		vertical-align: top;
-		padding: .3em .5em;
-	}
-
-	thead
-	{
-		background: fade(@accent-color, 25%);
-		border-bottom: 2px solid lighten(#000, 25%);
-		th
-		{
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-	}
-
-	tbody
-	{
-		tr:nth-child(odd)
-		{
-			td,th{&:nth-child(odd){background: fade(@accent-color, 5%);}}
-			td,th{&:nth-child(even){background: fade(@accent-color, 10%);}}
-		}
-		tr:nth-child(even)
-		{
-			td,th{&:nth-child(odd){background: fade(@accent-color, 10%);}}
-			td,th{&:nth-child(even){background: fade(@accent-color, 5%);}}
-		}
-	}
 }
 
 
@@ -292,14 +252,19 @@ p.right
 
 
 
+//::-moz-selection{background-color: fade(@accent3-color, 75%);color: white;}
+//::selection{background-color: fade(@accent3-color, 75%);color: white;}
+
 
 
 @import "header";
 @import "content";
 @import "footer";
 
+@import "tables";
 @import "forms";
 @import "responsive";
+@import "details";
 
 @import "page-members";
 @import "page-music";

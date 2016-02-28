@@ -72,7 +72,6 @@ class ICalParser
 	private function unravel(array $event, \Recurr\Transformer\Constraint\AfterConstraint $constraint)
 	{
 		// Values same for every instance
-		$uid = Util::path($event, 'UID.value');
 		$summary = Util::path($event, 'SUMMARY.value');
 		$description = Util::path($event, 'DESCRIPTION.value');
 		$location = Util::path($event, 'LOCATION.value');
@@ -106,8 +105,8 @@ class ICalParser
 
 			// Yield wanted event properties
 			yield array_intersect_key(get_defined_vars(), array_flip([
-				'uid', 'location', 'status', 'transp',
 				'summary', 'description',
+				'location', 'status', 'transp',
 				'start', 'end', 'all_day',
 				]));
 		}

@@ -1,0 +1,50 @@
+
+.has-details
+{
+	cursor: pointer;
+}
+
+.details
+{
+	cursor: pointer;
+
+	display: none;
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,.70);
+
+	article
+	{
+		cursor: auto;
+
+		display: none;
+		position: fixed;
+		z-index: 100;
+		top: 10%;
+		left: 5%;
+		right: 5%;
+		overflow: auto;
+		max-height: 80%;
+		padding: .75em 1.5em;
+		background: rgba(255,255,255,.95);
+		border-radius: 15px;
+		color: black;
+		font-size: large;
+		.box-shadow(0,0,15px,black);
+		&>*:first-child
+		{
+			margin: 0;
+		}
+		.close
+		{
+			position: absolute;
+			top: .75em;
+			right: 1.5em;
+			color: rgba(0,0,0,.70);
+		}
+	}
+}

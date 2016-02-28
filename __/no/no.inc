@@ -1,10 +1,17 @@
 <?php
 
 return [
+
+	'Choir practice' => 'Korøvelse',
+	'On-the-road' => 'Langtur',
+	'Warmup' => 'Oppvarming',
+	'Sermon' => 'Gudstjeneste',
+	'Concert' => 'Konsert',
+	'Participate' => 'Delta',
+	
 	'About the site' => 'Om nettstedet',
-	'Calendar' => 'Kalender',
-	'Picture of the choir' => 'Bilde av koret',
 	'The choir' => 'Koret',
+	'Calendar' => 'Kalender',
 	'Choir' => 'Koret',
 	'Contact' => 'Kontakt',
 	'Icons' => 'Ikoner',
@@ -15,13 +22,6 @@ return [
 	'Welcome' => 'Velkommen',
 	'Login' => 'Logg inn',
 	'Listen' => 'Lytt',
-
-	'Choir practice' => 'Korøvelse',
-	'On-the-road' => 'Langtur',
-	'Warmup' => 'Oppvarming',
-	'Sermon' => 'Gudstjeneste',
-	'Concert' => 'Konsert',
-	'Participate' => 'Delta',
 
 	'Where?' => 'Hvor?',
 
@@ -54,22 +54,12 @@ return [
 	'November' => 'November',
 	'December' => 'Desember',
 
-	'conductor' => 'dirigent',
-	'soprano' => 'sopran',
-	'alto' => 'alt',
-	'tenor' => 'tenor',
-	'bass' => 'bass',
-	'technician' => 'tekniker',
-
-
-	// @see http://php.net/manual/en/function.date.php#refsect1-function.date-parameters
-	'date' => [
-		'month-name' => 'F Y',
-		'day-name' => 'l',
-		'day' => 'j.',
-		'date' => 'j. F Y',
-		'time' => ' H:i',
-	],
+	'Conductor' => 'Dirigent',
+	'Soprano' => 'Sopran',
+	'Alto' => 'Alt',
+	'Tenor' => 'Tenor',
+	'Bass' => 'Bass',
+	'Technician' => 'Tekniker',
 
 	'message' => [
 		'email-sent' => 'Eposten er sendt! Vi svarer så fort vi klarer :)',

@@ -17,6 +17,33 @@ body.members #content
 		{
 			.box-shadow(0,0,0,0);
 		}
-	}
 
+		.details
+		{
+			text-align: left;
+			img
+			{
+				float: right;
+				margin: 0 0 2em 2em;
+				max-width: 50%;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width : 350px)
+{
+	body.members #content .frame,
+	body.members #content .frame
+	{
+		&, .details img
+		{
+			display: block;	
+		}
+		.details img
+		{
+			float: none;
+			margin:1em 0;
+		}
+	}
 }

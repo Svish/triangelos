@@ -4,10 +4,10 @@ return [
 
 	'date' => [
 		'month-name' => 'F Y',
-		'day-name' => 'l',
+		'day-name' => 'l j.',
 		'day' => 'j.',
 		'date' => 'j. F Y',
-		'time' => ' H:i',
+		'time' => 'H:i',
 	],
 
 
