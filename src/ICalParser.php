@@ -72,11 +72,12 @@ class ICalParser
 	private function unravel(array $event, \Recurr\Transformer\Constraint\AfterConstraint $constraint)
 	{
 		// Values same for every instance
+		$uid = Util::path($event, 'UID.value');
 		$summary = Util::path($event, 'SUMMARY.value');
 		$description = Util::path($event, 'DESCRIPTION.value');
 		$location = Util::path($event, 'LOCATION.value');
 		$status = strtolower(Util::path($event, 'X-MICROSOFT-CDO-BUSYSTATUS.value', 'BUSY'));
-		$transp = strtolower(Util::path($event, 'TRANSP.value', 'OPAQUE'));
+		$transp = strtolower(Util::path($event, 'TRANSP.value', 'BUSY'));
 
 		// For consistency, pretend everything has an rrule
 		$rrule = Util::path($event, 'RRULE.value', 'FREQ=DAILY;COUNT=1');
@@ -95,28 +96,19 @@ class ICalParser
 		
 		foreach($events as $e)
 		{
-			// Start
+			$all_day = Util::path($event, 'DTSTART.params.VALUE') == 'DATE';
+			
 			$start = $e->getStart();
-			if(Util::path($event, 'DTSTART.params.VALUE') !== 'DATE')
-				$start_time = $start->format('H:i');
-			$start_date = $start->format('Y-m-d');
-			$start_w3c = $start->format(DATE_W3C);
-
-			// End
 			$end = $e->getEnd();
-			if(Util::path($event, 'DTSTART.params.VALUE') !== 'DATE')
-				$end_time = $end->format('H:i');
-			else
+
+			if(Util::path($event, 'DTSTART.params.VALUE') === 'DATE')
 				$end->sub(new DateInterval('PT1S'));
-			$end_w3c = $end->format(DATE_W3C);
-			$end_date = $end->format('Y-m-d');
 
 			// Yield wanted event properties
 			yield array_intersect_key(get_defined_vars(), array_flip([
-				'summary','description', 'location',
-				'start','start_date','start_time','start_w3c',
-				'end','end_date','end_time','end_w3c',
-				'status','transp',
+				'uid', 'location', 'status', 'transp',
+				'summary', 'description',
+				'start', 'end', 'all_day',
 				]));
 		}
 	}

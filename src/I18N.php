@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Short function for translations.
+ */
+function __($text)
+{
+	return I18N::translate($text);
+}
+
 
 /**
  * Translator for Mustache templates.
@@ -13,11 +21,15 @@ class I18N
 
 	public static function translate($string)
 	{
-		$keys = explode('|', $string);
+		if( ! self::$config)
+			throw new Exception(__METHOD__.' called before init');
+		
+		$keys = explode('/', $string);
 		$strings = &self::$strings;
 
 		while ($key = array_shift($keys))
 		{
+			$key = trim($key);
 			if( ! array_key_exists($key, $strings))
 				return $string;
 			$strings = &$strings[$key];
@@ -64,5 +76,6 @@ class I18N
 		// Get strings
 		$strings = CONTENT.$lang.'.inc';
 		self::$strings = file_exists($strings) ? require $strings : [];
+		self::$strings = Util::merge(require CONTENT.'../default.inc', self::$strings);
 	}
 }

@@ -54,6 +54,17 @@ body
 	overflow-y: scroll;
 }
 
+::-moz-selection
+{
+	background-color: fade(@accent3-color, 75%);
+	color: white;
+}
+::selection
+{
+	background-color: fade(@accent3-color, 75%);
+	color: white;
+}
+
 b,
 strong
 {
@@ -63,7 +74,6 @@ small
 {
 	font-size: small;
 }
-
 
 
 // Headers
@@ -79,6 +89,10 @@ h1,h2,h3,h4
 	a:active
 	{
 		color: inherit;
+	}
+	&:first-child
+	{
+		margin-top: 0;
 	}
 }
 h1+h2,
@@ -172,14 +186,17 @@ table
 		text-align: left;
 		vertical-align: top;
 		padding: .3em .5em;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 
 	thead
 	{
 		background: fade(@accent-color, 25%);
 		border-bottom: 2px solid lighten(#000, 25%);
+		th
+		{
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
 	}
 
 	tbody
@@ -287,3 +304,4 @@ p.right
 @import "page-members";
 @import "page-music";
 @import "page-calendar";
+@import "page-about";

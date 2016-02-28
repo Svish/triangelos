@@ -39,24 +39,54 @@ class Model_Calendar extends Model
 		// Begin first of current month
 		$first = new DateTime('midnight first day of 0 month');
 
-
-		// Gather events and find end date for calendar
+		// Gather events
 		$last = clone $first;
 		$events = [];
 		foreach($this->ical->events($first) as $e)
 		{
+			// Keep track of last date
 			$last = clone max($last, $e['start'], $e['end']);
-			$events[$e['start_date']][] = $e;
 
+			// Add formatted stuffs
+			$e += [
+				'iso' => $e['start']->format('Y-m-d'),
+				'start_date' => $e['start']->format(__('date/date')),
+				'start_w3c' => $e['start']->format(DATE_W3C),
+				'end_date' => $e['end']->format(__('date/date')),
+				'end_w3c' => $e['end']->format(DATE_W3C),
+				];
+
+			// If all day, remove times
+			if( ! $e['all_day']) $e += [
+				'start_time' => $e['start']->format(__('date/time')),
+				'end_time' => $e['end']->format(__('date/time')),
+				];
+
+			// If equal dates, remove end date
+			if($e['start_date'] == $e['end_date'])
+				unset($e['end_date']);
+			
+			// If equal datetimes, remove end
+			if($e['start'] == $e['end'])
+				unset($e['end_time'], $e['end_w3c']);
+
+			$e['description'] = Markdown::render($e['description']);
+			$e['location'] = str_replace(',', '<br>', $e['location']);
+
+			// Add to list
+			$events[$e['iso']][] = $e;
+
+			// Copy if over more days
 			$next = clone $e['start'];
 			$next->add(new DateInterval('P1D'));
 			foreach($this->days($next, $e['end']) as $day)
 			{
-				$e['summary'] = '←';
+				$e['first'] = $e['iso'];
+				$e['continued'] = 'continued';
 				$events[$day->format('Y-m-d')][] = $e;
 			}
 		}
-		
+
 
 		// Push end date to last of month
 		$last->modify('last day of 0 month 23:59:59');
@@ -82,8 +112,7 @@ class Model_Calendar extends Model
 			$month = $day->format('Y-M');
 			if( ! array_key_exists($month, $cal))
 				$cal[$month] = [
-					'name' => $day->format('F'),
-					'year' => $day->format('Y'),
+					'name' => $day->format(__('date/month-name')),
 					'weeks' => [],
 					];
 
@@ -99,13 +128,13 @@ class Model_Calendar extends Model
 			}
 
 			// Day
-			$ymd = $day->format('Y-m-d');
+			$iso = $day->format('Y-m-d');
 			$cal[$month]['weeks'][$week]['days'][(int) $day->format('w')] = [
 				'date' => $day,
-				'day' => $day->format('j'),
-				'iso' => $ymd,
-				'name' => $day->format('l'),
-				'events' => Util::path($events, $ymd, []),
+				'day' => $day->format(__('date/day')),
+				'iso' => $iso,
+				'name' => $day->format(__('date/day-name')),
+				'events' => Util::path($events, $iso, []),
 				];
 		}
 

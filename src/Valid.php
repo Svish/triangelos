@@ -17,7 +17,7 @@ class Valid extends I18N
 		{
 			if( ! call_user_func_array('self::'.$func, [$subject[$key]]))
 			{
-				$result[$key][$func] = I18N::translate('error|'.$func);
+				$result[$key][$func] = __('error/'.$func);
 				break;
 			}
 		}

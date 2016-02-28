@@ -6,29 +6,22 @@
 	- Use lmod of cached newest content file for valid check?
 	- (!) Add relevant COOKIE/GET to etag
 
-- Add nonce thingy to contact form.
+- Add nonce thingy to contact form?
 - User websites?
 
 - (!) Correct multipart downloads with Multipart/bytes Music
-
 - (!) Audio controls at bottom of screen.
+- (!) Album pages are picking up album description...
 
 
-stuff
-===
+- Only show description for logged in users
 
-- Page:
-	- Somehow link to webshop stuff
-- Previews:
-	- Stream % of file
-	- Hard cut? Is time reported correctly after?
-	- Strip all meta tag data?
-	- id3v2 tag_offset_end?
 
 SMS?
 ===
 
 - https://www.twilio.com/sms/pricing/no
+
 
 
 Store

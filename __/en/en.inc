@@ -2,13 +2,9 @@
 
 return [
 
-	'message' => [
-		'email-sent' => 'The e-mail is sent! We answer as soon as we can :)',
+	'date' => [
+		'date' => 'F jS Y',
+		'time' => ' H:i',
 	],
-	
-	'error' => [
-		'not_empty' => 'Cannot be empty',
-		'email' => 'Invalid email address',
-		'email_domain' => 'Invalid email domain',
-	],
+
 ];

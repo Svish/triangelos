@@ -32,40 +32,97 @@ body.calendar #content .calendar
 
 		&[data-day]:before
 		{
-			content: attr(data-day) ".";
+			content: attr(data-day);
 			display: block;
 			font-size: large;
 			padding: .05em .3em;
-		}
-		&:not(:empty)
-		{
-		}
-
-		.tentative
-		{
-			opacity: .5;
+			font-family: 'Open Sans Condensed', sans-serif;
+			font-weight: 300;
 		}
 
 		.event
 		{
 			padding: .05em .3em;
-			background: fade(@accent3-color, 40%);
 			margin: .5em 0;
+			background: fade(@accent3-color, 40%);
+			.transition(background-color, 250ms);
 
 			&:first-child { margin-top: 0}
 			&:last-child { margin-bottom: 0}
+
+			cursor: pointer;
 
 			.summary
 			{
 				overflow: hidden;
 				text-overflow: ellipsis;
+				font-weight: bold;
 			}
 
-			time
+			.time
 			{
 				font-weight: bold;
 			}
-			address
+			.details
+			{
+				display: none;
+				position: fixed;
+				z-index: 100;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: rgba(0,0,0,.55);
+				article
+				{
+					display: none;
+					position: fixed;
+					z-index: 100;
+					top: 5%;
+					left: 5%;
+					right: 5%;
+					overflow: auto;
+					max-height: 80%;
+					padding: .75em 1.5em;
+					background: rgba(255,255,255,.95);
+					border-radius: 15px;
+					color: black;
+					font-size: large;
+					.box-shadow(0,0,15px,black);
+					&>*:first-child
+					{
+						margin: 0;
+					}
+					.time
+					{
+						font-weight: normal;
+						font-size: small;
+					}
+				}
+			}
+
+			&:hover
+			{
+				background: fade(@accent3-color, 80%);
+			}
+		}
+
+		.tentative
+		{
+			background: fade(@accent3-color, 20%);
+			color: lighten(black, 40%);
+			&:before
+			{
+				content: "(?) ";
+			}
+		}
+		.continued
+		{
+			&:before
+			{
+				content: "←";
+			}
+			.summary
 			{
 				display: none;
 			}
@@ -94,7 +151,7 @@ body.calendar #content .calendar
 			position: relative;
 			//overflow: hidden;
 		}
-		colgroup,thead tr+tr,td:empty
+		colgroup,thead tr+tr
 		{
 			display: none;
 		}
@@ -104,24 +161,31 @@ body.calendar #content .calendar
 		{
 			background: fade(@accent-color, 5%);
 			height: auto;
-			min-height: 5rem;
 
-			.event,.event:first-of-type
+			.event,
 			{
+				padding: .5em .5em;
 				border: none;
+				background: fade(@accent3-color, 10%);
 			}
-		}
-		td:before
-		{
-			text-align: left;
-		}
-		td:after
-		{
-			content: attr(data-name);
-			font-size: small;
-			position: absolute;
-			top: .05em;
-			right: .3em;
+
+			&[data-day]:before
+			{
+				text-align: left;
+				content: attr(data-day);
+			}
+
+			.transparent
+			{
+				display: none;
+			}
+			.continued
+			{
+				.summary
+				{
+					display: block;
+				}
+			}
 		}
 	}
 }

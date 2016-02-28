@@ -16,6 +16,15 @@ return [
 	'Login' => 'Logg inn',
 	'Listen' => 'Lytt',
 
+	'Choir practice' => 'Korøvelse',
+	'On-the-road' => 'Langtur',
+	'Warmup' => 'Oppvarming',
+	'Sermon' => 'Gudstjeneste',
+	'Concert' => 'Konsert',
+	'Participate' => 'Delta',
+
+	'Where?' => 'Hvor?',
+
 	'E-Mail' => 'Epost',
 	'Mail' => 'Post',
 	'Bank details' => 'Bankdetaljer',
@@ -51,6 +60,16 @@ return [
 	'tenor' => 'tenor',
 	'bass' => 'bass',
 	'technician' => 'tekniker',
+
+
+	// @see http://php.net/manual/en/function.date.php#refsect1-function.date-parameters
+	'date' => [
+		'month-name' => 'F Y',
+		'day-name' => 'l',
+		'day' => 'j.',
+		'date' => 'j. F Y',
+		'time' => ' H:i',
+	],
 
 	'message' => [
 		'email-sent' => 'Eposten er sendt! Vi svarer så fort vi klarer :)',
