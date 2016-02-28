@@ -13,6 +13,7 @@ return [
 
 	'message' => [
 		'email-sent' => 'The e-mail is sent! We answer as soon as we can :)',
+		'cookies' => 'Cookies are used to analyze traffic, and when a member logs in.',
 	],
 	
 	'error' => [

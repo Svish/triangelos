@@ -9,6 +9,10 @@ return [
 	'Concert' => 'Konsert',
 	'Participate' => 'Delta',
 	
+	'Source code' => 'Kildekode',
+	'Web developer' => 'Webutvikler',
+	'Web analytics' => 'Statistikk',
+
 	'About the site' => 'Om nettstedet',
 	'The choir' => 'Koret',
 	'Calendar' => 'Kalender',
@@ -17,8 +21,6 @@ return [
 	'Icons' => 'Ikoner',
 	'Members' => 'Medlemmer',
 	'Music' => 'Musikk',
-	'Source code' => 'Kildekode',
-	'Web developer' => 'Webutvikler',
 	'Welcome' => 'Velkommen',
 	'Login' => 'Logg inn',
 	'Listen' => 'Lytt',
@@ -63,6 +65,7 @@ return [
 
 	'message' => [
 		'email-sent' => 'Eposten er sendt! Vi svarer så fort vi klarer :)',
+		'cookies' => 'Cookies brukes for å analysere trafikk, og når meldlemmer logger inn.',
 	],
 
 	'error' => [
