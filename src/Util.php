@@ -3,16 +3,6 @@
 class Util
 {
 	/**
-	 * Safe array get.
-	 */
-	public static function get($arr, $key, $default = null)
-	{
-		return array_key_exists($key, $arr)
-			? $arr[$key]
-			: $default;
-	}
-
-	/**
 	 * Yields the sub paths of $url.
 	 *
 	 * false => a/b/c, a/b, a
@@ -66,4 +56,71 @@ class Util
 		return array_diff_key($array, array_flip($blacklist));
 	}
 
+
+	/**
+	 * @see https://github.com/kohana/core/blob/3.3/master/classes/Kohana/Arr.php#L89
+	 */
+	public static function path($array, $path, $default = NULL, $delimiter = '.')
+	{
+		if ( ! is_array($array))
+		{
+			return $default;
+		}
+
+		if (is_array($path))
+		{
+			$keys = $path;
+		}
+		else
+		{
+			if (array_key_exists($path, $array))
+				return $array[$path];
+
+			$path = ltrim($path, "{$delimiter} ");
+			$path = rtrim($path, "{$delimiter} *");
+			$keys = explode($delimiter, $path);
+		}
+
+		do
+		{
+			$key = array_shift($keys);
+
+			if (ctype_digit($key))
+				$key = (int) $key;
+
+			if (isset($array[$key]))
+			{
+				if ($keys)
+				{
+					if (is_array($array[$key]))
+						$array = $array[$key];
+					else
+						break;
+				}
+				else
+				{
+					return $array[$key];
+				}
+			}
+			elseif ($key === '*')
+			{
+				$values = array();
+				foreach ($array as $arr)
+					if ($value = self::path($arr, implode('.', $keys)))
+						$values[] = $value;
+
+				if ($values)
+					return $values;
+				else
+					break;
+			}
+			else
+			{
+				break;
+			}
+		}
+		while ($keys);
+
+		return $default;
+	}
 }
