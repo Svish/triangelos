@@ -10,7 +10,7 @@ class Controller_Page extends Controller
 
 	public function before(array &$info)
 	{
-		$this->path = trim($info['path'], '/');
+		$this->path = trim($info['path'], '/') ?: 'index';
 		parent::before($info);
 	}
 
