@@ -11,8 +11,12 @@ class Model_Members extends Model
 
 
 
+	/**
+	 * For members.mustache
+	 */
 	public function listing()
 	{
+		// Role order
 		$x = [
 			'soprano' => ['name' => 'soprano', 'members' => []],
 			'alto' => ['name' => 'alto', 'members' => []],
@@ -25,16 +29,15 @@ class Model_Members extends Model
 
 		foreach($this->all() as $user)
 			$x[$user->role]['members'][] = $user;
-		
-		foreach($x as &$role)
-			usort($role['members'], function($a, $b)
-			{
-				return strcmp($a->first, $b->first);
-			});
 
 		return array_values($x);
 	}
 
+
+
+	/**
+	 * Single member
+	 */
 	public function find($id)
 	{
 		$p = is_numeric($id) ? 'id' : 'email';
@@ -44,7 +47,25 @@ class Model_Members extends Model
 	}
 
 
+
+	/**
+	 * All members
+	 */
 	public function all()
+	{
+		$cache = new Cache(__CLASS__);
+		return $cache->get(__METHOD__, function()
+			{
+				$x = iterator_to_array($this->_all());
+				usort($x, function($a, $b)
+				{
+					return strcmp($a->first, $b->first);
+				});
+				return $x;
+			}, true);
+	}
+
+	private function _all()
 	{
 		foreach(glob(self::PATH.'*.json') as $file)
 		{

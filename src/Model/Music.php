@@ -9,11 +9,9 @@ class Model_Music extends Model
 	const DIR = 'album';
 	const ROOT = parent::DIR.self::DIR;
 
-
-
 	public function listing()
 	{
-		$albums = iterator_to_array($this->albums());
+		$albums = $this->albums();
 
 		usort($albums, function($a, $b)
 		{
@@ -43,11 +41,17 @@ class Model_Music extends Model
 	}
 
 
-
 	public function albums()
 	{
-		// TODO: Cache this...
+		$cache = new Cache(__CLASS__);
+		return $cache->get(__METHOD__, function()
+			{
+				return iterator_to_array($this->_albums());
+			}, true);
+	}
 
+	private function _albums()
+	{
 		$getID3 = new getID3;
 		$albums = new RecursiveDirectoryIterator(self::ROOT, FilesystemIterator::SKIP_DOTS);
 		while($albums->valid())
