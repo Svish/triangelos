@@ -9,18 +9,18 @@
 	<thead>
 		<tr>
 			<th>Name
-			<th>Phone
-			<th>Email
 			<th>Role
+			<th>Email
+			<th>Phone
 		</tr>
 	</thead>
 	<tbody class="striped">
 	{{#members.all}}
 		<tr>
-			<td data-key="Name">{{first | _ | ucfirst}} {{last | _ | ucfirst}}
-			<td data-key="Phone"><a href="tel:{{phone}}">{{phone}}</a>
-			<td data-key="Email"><a href="mailto:{{email}}">{{email}}</a>
+			<td data-key="Name">{{first | ucfirst}} {{last | ucfirst}}
 			<td data-key="Role">{{role | ucfirst | _ }}
+			<td data-key="Email"><a href="mailto:{{email | strtolower}}">{{email | strtolower}}</a>
+			<td data-key="Phone"><a href="tel:{{phone}}">{{phone}}</a>
 		</tr>
 	{{/members.all}}
 	</tbody>

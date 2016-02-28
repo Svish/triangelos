@@ -20,7 +20,7 @@ var Navigation = {
 
 		// Cookie language switcher for dev env
 		if(['localhost','triangelos.geekality.net'].indexOf(window.location.host) >= 0)
-		$('a.language', '#language-selector')
+		$('a.language', '#language-menu')
 			.on('click', function()
 			{
 				var host = $(this).data('host');
@@ -50,7 +50,10 @@ var Navigation = {
 
 	onMenuToggle: function()
 	{
-		$('ul', '#header').slideToggle();
+		$('#header')
+			.toggleClass('menu-open')
+			.find('ul')
+			.slideToggle();
 		return false;
 	},
 
