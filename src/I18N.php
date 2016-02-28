@@ -41,7 +41,7 @@ class I18N
 	public static function init($host)
 	{
 		// For dev envs
-		if(in_array($host, ['localhost', 'triangelos.geekality.net']))
+		if(in_array($host, ['localhost', 'triangelos.geekality.net']) || ip2long($host) !== false)
 			$host = 'triangelos.net';
 
 
