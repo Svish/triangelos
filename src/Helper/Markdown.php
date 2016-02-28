@@ -20,7 +20,7 @@ class Helper_Markdown
 	/**
 	 * Renders and returns the named markdown file.
 	 */
-	public function __invoke($name = null, Mustache_LambdaHelper $helper = null)
+	public function __invoke($name = null, Mustache_LambdaHelper $render = null)
 	{
 		foreach($this->alternatives($name ?: $this->url) as $file)
 		{
@@ -29,7 +29,7 @@ class Helper_Markdown
 
 			$md = File::get($file);
 			$md = Markdown::render($md);
-			return $helper ? $helper->render($md) : $md;
+			return $render ? $render($md) : $md;
 		}
 	}
 

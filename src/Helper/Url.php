@@ -12,7 +12,7 @@ class Helper_Url
 	 * - foo => /base/foo
 	 * - /foo => http://host/base/foo
 	 */
-	public function __invoke($url = null, Mustache_LambdaHelper $helper = null)
+	public function __invoke($url = null)
 	{
 		return strpos($url, '/') === 0
 			? WEBROOT.ltrim($url, '/')

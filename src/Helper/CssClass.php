@@ -6,10 +6,10 @@
  */
 class Helper_CssClass
 {
-	public function __invoke($text, Mustache_LambdaHelper $helper = null)
+	public function __invoke($text, Mustache_LambdaHelper $render = null)
 	{
-		if($helper)
-			$text = $helper->render($text);
+		if($render)
+			$text = $render($text);
 
 		$text = trim($text);
 

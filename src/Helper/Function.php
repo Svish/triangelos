@@ -14,9 +14,9 @@ class Helper_Function
 	}
 
 
-	public function __invoke($text, Mustache_LambdaHelper $helper = null)
+	public function __invoke($text, Mustache_LambdaHelper $render = null)
 	{
 		$text = call_user_func_array($this->function, [$text]);
-		return $helper ? $helper->render($text) : $text;
+		return $render ? $render($text) : $text;
 	}
 }
