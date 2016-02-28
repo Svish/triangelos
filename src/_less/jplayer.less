@@ -1,33 +1,46 @@
-html.touch #jp_container .jp-gui
+html.touchevents #jp_container
 {
-	.jp-progress,
-	.jp-seek-bar,
-	.jp-play-bar
-	{
-		height: 1.4em;
-	}
+	font-size: xx-large;
 }
+
 
 #jp_container
 {
 	display: none;
 
-	.jp-gui
+	.jp-controls
 	{
-		.jp-progress,
-		.jp-seek-bar,
-		.jp-play-bar
+		overflow: hidden;
+		font-size: .8em;
+		text-align: right;
+		a
 		{
-			height: .4em;
-		}
-		.jp-progress,
-		.jp-seek-bar
-		{
-			background: rgba(0,0,0,.1)
-		}
-		.jp-play-bar
-		{
-			background: #000;
+			padding: .1em .5em;
+			color: inherit;
+			display: inline-block;
+			outline: none;
 		}
 	}
+
+	&.jp-state-playing .jp-controls a
+	{
+		color: @accent3-color;
+	}
+
+	.jp-progress,
+	.jp-seek-bar,
+	.jp-play-bar
+	{
+		height: .75em;
+	}
+	.jp-progress,
+	.jp-seek-bar
+	{
+		background: rgba(0,0,0,.1)
+	}
+	.jp-play-bar
+	{
+		background: #000;
+	}
+
 }

@@ -215,7 +215,7 @@ blockquote::after{
 
 
 // Other
-span
+.no-wrap
 {
 	white-space: nowrap;
 }
@@ -250,7 +250,14 @@ p.right
 	}
 }
 
-
+.no-select {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* IE/Edge */
+	user-select: none;
+}
 
 //::-moz-selection{background-color: fade(@accent3-color, 75%);color: white;}
 //::selection{background-color: fade(@accent3-color, 75%);color: white;}

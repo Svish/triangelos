@@ -13,7 +13,7 @@ var Navigation = {
 		// Mark current menu item
 		$('a', '#header').each(function() {
 			var href = $(this).attr('href');
-			var current = Site.Url.Current.contains(href) || href.contains(Site.Url.Host);
+			var current = Site.Url.Current.includes(href) || href.includes(Site.Url.Host);
 			$(this).toggleClass('current', current);
 		});
 
@@ -45,7 +45,7 @@ var Navigation = {
 
 	doNothing: function(event)
 	{
-    	event.stopPropagation();
+		event.stopPropagation();
 	},
 
 	onMenuToggle: function()
