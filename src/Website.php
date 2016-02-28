@@ -71,7 +71,7 @@ class Website
 	protected function get_parsed_path($path)
 	{
 		// Init cache
-		$cache = Cache::init(__CLASS__);
+		$cache = new Cache(__CLASS__);
 		$cache->validate(self::CACHE_FILENAME, filemtime($this->routes_filepath));
 
 		// Get cached routes

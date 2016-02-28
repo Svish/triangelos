@@ -8,16 +8,14 @@ class Cache
 {
 	const DIR = CACHE;
 	private $dir;
+	private $ttl;
 
 
-	public static function init($id)
-	{
-		return new self($id);
-	}
 
-	public function __construct($id)
+	public function __construct($id, $ttl = PHP_INT_MAX)
 	{
 		$this->dir = self::DIR.$id.DIRECTORY_SEPARATOR;
+		$this->ttl = $ttl;
 	}
 
 
@@ -26,13 +24,27 @@ class Cache
 	 * Reads and unserializes data from the cache file identified by $key.
 	 * Returns $default if the cache file doesn't exist.
 	 */
-	public function get($key, $default = NULL)
+	public function get($key, $default = NULL, $set = FALSE)
 	{
-		$key = $this->path($key);
-		$data = File::get($key);
-		return $data !== NULL
-			? unserialize($data)
+		$path = $this->path($key);
+
+		// Try get data, unless age greater than ttl
+		$data = $this->_get($path);
+		if($data !== NULL && $this->_age($path) <= $this->ttl)
+			return unserialize($data);
+
+		// Call default if Closure
+		if($default instanceof Closure)
+			$default = $default($key);
+
+		// Return the default; optionally set
+		return $set
+			? $this->_set($path, $default)
 			: $default;
+	}
+	private function _get($path)
+	{
+		return File::get($path);
 	}
 
 
@@ -41,8 +53,11 @@ class Cache
 	 */
 	public function set($key, $data)
 	{
-		$key = $this->path($key);
-		File::put($key, serialize($data));
+		return $this->_set( $this->path($key) , $data);
+	}
+	private function _set($path, $data)
+	{
+		File::put($path, serialize($data));
 		return $data;
 	}
 
@@ -52,11 +67,15 @@ class Cache
 	 */
 	public function age($key)
 	{
-		$path = $this->path($key);
+		return $this->_age( $this->path($key) );
+	}
+	private function _age($path)
+	{
 		return file_exists($path)
 			? time() - filemtime($path)
 			: PHP_INT_MAX;
 	}
+
 
 
 	/**
@@ -64,16 +83,17 @@ class Cache
 	 */
 	public function validate($key, $time)
 	{
-		$path = $this->path($key);
-		if(file_exists($path) && filemtime($path) <= $time)
-			@unlink($path);
+		$key = $this->path($key);
+		if(file_exists($key) && filemtime($key) <= $time)
+			@unlink($key);
 	}
 
 
-	public function path($key)
+
+	private function path($key)
 	{
 		File::check($this->dir);
-		return $this->dir . self::sanitize($key);
+		return $this->dir.self::sanitize($key);
 	}
 
 

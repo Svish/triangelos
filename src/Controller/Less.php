@@ -43,7 +43,7 @@ class Controller_Less extends CachedController
 
 	private static function compile($path)
 	{
-		$cache = Cache::init(__CLASS__);
+		$cache = new Cache(__CLASS__);
 		$cache_key = basename($path).'c';
 
 		// Get cached if exists
