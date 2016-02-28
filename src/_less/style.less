@@ -85,6 +85,11 @@ h1,h2,h3,h4
 	&:first-child
 	{
 		margin-top: 0;
+		margin-bottom: 0;
+		&+*
+		{
+			margin-top: 0;
+		}
 	}
 
 	span
@@ -125,12 +130,7 @@ a
 
 
 
-// Images
-img
-{
-	max-width: 100%;
-}
-
+// SVG
 svg
 {
 	vertical-align: baseline;
@@ -242,6 +242,10 @@ p.right
 {
 	text-align: right;
 }
+p.center
+{
+	text-align: center;
+}
 
 .responsive
 {
@@ -253,36 +257,6 @@ p.right
 	{
 		margin-right: 0;
 	}
-}
-
-.frame
-{
-	border: 1px solid rgba(0,0,0,.25);
-	border-radius: 5px;
-	background: #fff;
-	.box-shadow(2px, 2px, 15px, rgba(0,0,0,.35));
-
-	img, span
-	{
-		margin: auto;
-		display: block;
-	}
-	img
-	{
-		border: 1px solid rgba(0,0,0,.5);
-		border-radius: 5px;
-		.box-shadow(2px, 2px, 15px, rgba(0,0,0,.35));
-	}
-}
-
-
-.no-select {
-	-webkit-touch-callout: none; /* iOS Safari */
-	-webkit-user-select: none;   /* Chrome/Safari/Opera */
-	-khtml-user-select: none;    /* Konqueror */
-	-moz-user-select: none;      /* Firefox */
-	-ms-user-select: none;       /* IE/Edge */
-	user-select: none;
 }
 
 

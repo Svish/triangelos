@@ -15,13 +15,13 @@
 
 	<ol class="tracks">
 		{{#tracks}}
-		<li><span>{{time}}</span> <a href="stream/{{url}}" type="{{mime}}">{{title}}</a>
+		<li><span class="time">{{time}}</span> <a href="stream/{{url}}" type="{{mime}}">{{title}}</a>
 		{{/tracks}}
 	</ol>
 
 	<p>
-		<img alt="{{#_}}Album cover{{/_}}" src="t/320x370/{{cover}}">
-		<img alt="{{#_}}Album inlay{{/_}}" src="t/320x370/{{inlay}}">
+		<img class="frame" alt="{{#_}}Album cover{{/_}}" src="t/320x370/{{cover}}">
+		<img class="frame" alt="{{#_}}Album inlay{{/_}}" src="t/320x370/{{inlay}}">
 	</p>
 
 {{/album}}

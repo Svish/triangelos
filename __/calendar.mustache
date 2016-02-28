@@ -4,6 +4,9 @@
 
 {{$ content}}
 
+<p class="center">
+	<a class="badge" href="calendar.ics">{{#_}}Subscribe to calendar{{/_}}</a>
+</p>
 
 
 {{#calendar.listing}}
@@ -59,7 +62,7 @@
 						{{#location}}
 							<address>{{{location}}}</address>
 						{{/location}}
-						<a href="javascript:void(0)" class="close">{{#svg}}close{{/svg}}</a>
+						{{>close-link}}
 					</article>
 				</div>
 
@@ -69,6 +72,7 @@
 		</tr>
 		{{/weeks}}
 	</table>
+
 
 {{/calendar.listing}}
 

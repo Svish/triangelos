@@ -7,9 +7,6 @@ class Controller_Thumbnail extends CachedController
 {
 	protected $max_age = 172800; // 48 hours
 
-
-	protected $parameter_whitelist = ['q'];
-
 	private $whitelist = [
 		[350,150], // Members: Listing
 		[350,250], // Members: Details
@@ -47,10 +44,9 @@ class Controller_Thumbnail extends CachedController
 
 		ini_set('memory_limit','256M');
 
-
 		$i = new PHPImage($this->file);
 		$i->resize((int)$w, (int)$h, false, true);
-		$i->setOutput('jpg', 75);
+		$i->setOutput('jpg', 80);
 		$i->show();
 	}
 

@@ -2,6 +2,7 @@
 {
 	padding: 2em @padding;
 	max-width: @max-width;
+	position: relative;
 
 	&>*:first-child
 	{
@@ -11,6 +12,17 @@
 	&>*:last-child
 	{
 		margin-bottom: 0;
+	}
+
+	img
+	{
+		max-width: 100%;
+
+		&.badge
+		{
+			position: relative;
+			bottom: -1px;	
+		}
 	}
 }
 

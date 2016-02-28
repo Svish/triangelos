@@ -9,6 +9,7 @@ class MyPartialsLoader extends MyLoader
 	{
 		$tmpl = parent::loadFile($name);
 
+		// Strip out other than content if BLOCKS file
 		if(preg_match('%\{\{\$\s*content*\}\}(.+)\{\{\/\s*content*\}\}%s', $tmpl, $regs))
 			return $regs[1];
 		else

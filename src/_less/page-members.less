@@ -5,47 +5,49 @@ body.members #content
 	ul
 	{
 		padding: 0;
+		li
+		{
+			display: inline-block;
+		}
 	}
-	.frame
+	div.frame
 	{
 		display: inline-block;
 		text-align: center;
 		vertical-align: top;
-		margin: 0 .75em .75em 0;
-		padding: .75em;
+		margin: 0 .5em .5em 0;
+		padding: .75em .95em;
 		img
 		{
-			.box-shadow(0,0,0,0);
+			margin: auto;
+			.box-shadow(0,0,5px,rgba(0,0,0,.5));
 		}
+	}
 
-		.details
+	.details
+	{
+		text-align: left;
+		img
 		{
-			text-align: left;
-			img
-			{
-				float: right;
-				margin: 0 0 2em 2em;
-				max-width: 50%;
-			}
+			float: right;
+			margin: 0 0 2em 2em;
+			max-width: 50%;
 		}
 	}
 }
 
 @media only screen and (max-width : 350px)
 {
-	body.members #content .frame,
-	body.members #content .frame
+	body.members #content ul li
 	{
-		margin-right: 0;
-		
-		&, .details img
+		&, .frame, img
 		{
-			display: block;	
+			display: block;
 		}
-		.details img
+
+		.frame
 		{
-			float: none;
-			margin:1em 0;
+			margin: auto auto .5em auto;
 		}
 	}
 }
