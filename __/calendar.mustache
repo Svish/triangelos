@@ -21,28 +21,59 @@
 				<th colspan="7">{{name|_}} {{year}}
 			</tr>
 			<tr>
+				<th>{{#_}}Sunday{{/_}}
 				<th>{{#_}}Monday{{/_}}
 				<th>{{#_}}Tuesday{{/_}}
 				<th>{{#_}}Wednesday{{/_}}
 				<th>{{#_}}Thursday{{/_}}
 				<th>{{#_}}Friday{{/_}}
 				<th>{{#_}}Saturday{{/_}}
-				<th>{{#_}}Sunday{{/_}}
 			</tr>
 		</thead>
 		<tbody>
 		{{#weeks}}
-		<tr data-week="{{week}}" {{#cssClass}}{{isCurrent}}{{/cssClass}}>
+		<tr data-week="{{week}}" class="{{#isCurrent}}current{{/isCurrent}}">
 			{{#days}}
-			<td data-day="{{day}}" data-name="{{name|_}}" {{#cssClass}}{{isCurrent}} {{hasEvents}}{{/cssClass}}>{{#events}}
+			{{^day}}
+			<td></td>
+			{{/day}}
+			{{#day}}
+			<td data-day="{{day}}" data-date="{{iso}}" data-name="{{name|_}}" class="{{#isCurrent}}current{{/isCurrent}}">{{#events}}
+
+				<div class="event {{status}} {{transp}}">
+					{{#start_time}}<time datetime="{{start_w3c}}">{{start_time}}</time>{{/start_time}}
+					{{#end_time}} – <time datetime="{{end_w3c}}">{{end_time}}</time>{{/end_time}}
+					<div class="summary">{{summary}}</div>
+					{{#location}}<address>{{location}}</address>{{/location}}
+				</div>
+
+
+
 
 					{{/events}}</td>
+			{{/day}}
 			{{/days}}
 		</tr>
 		{{/weeks}}
 	</table>
 
 {{/calendar.listing}}
+
+
+
+<script>
+function __mark_today()
+{
+	var today = new Date().toISOString().split('T')[0];
+	today = '2016-02-13';
+	$('[data-date="'+today+'"]', '.calendar')
+		.addClass('current')
+		.closest('tr')
+		.addClass('current');
+
+}
+$(__mark_today);
+</script>
 
 
 

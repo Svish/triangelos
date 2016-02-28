@@ -7,16 +7,133 @@
  * @see https://tools.ietf.org/html/rfc5545
  * @see http://stackoverflow.com/a/11040109/39321
  */
-class ICalendar
+class ICalParser
 {
-	public static function fromFile($file)
+	const TTL = 14400; // 4 hours
+
+	private $file;
+	private $components = null;
+
+	private $transformer;
+	private $constraint;
+
+
+
+	/**
+	 * New ICalParser, constrained to the given starting date.
+	 */
+	public function __construct($file, $rlimit = 52)
 	{
-		$lines = self::read($file);
+		$config = new \Recurr\Transformer\ArrayTransformerConfig();
+		$config->setVirtualLimit($rlimit);
+		$this->transformer = new \Recurr\Transformer\ArrayTransformer($config);
+
+
+		$cache = new Cache(__CLASS__, isset($_GET['no-cache']) ? 0 : self::TTL);
+		$this->file = $cache->get($file, function($f)
+			{
+				return file($f, FILE_IGNORE_NEW_LINES);
+			}, true);
+	}
+
+
+
+	/**
+	 * Returns the raw file.
+	 */
+	public function raw()
+	{
+		return implode("\r\n", $this->file);
+	}
+
+
+
+	/**
+	 * Yields all event instances in this calendar.
+	 */
+	public function events(DateTime $after)
+	{
+		if($this->components == null)
+			$this->load();
+
+		$constraint = new \Recurr\Transformer\Constraint\AfterConstraint(clone $after, true);
+
+		foreach($this->components['VEVENT'] as $event)
+			foreach($this->unravel($event, $constraint) as $instance)
+				if($constraint->test($instance['start']))
+					yield $instance;
+	}
+
+
+
+	/**
+	 * Yield event instances for the event.
+	 */
+	private function unravel(array $event, \Recurr\Transformer\Constraint\AfterConstraint $constraint)
+	{
+		// Values same for every instance
+		$summary = Util::path($event, 'SUMMARY.value');
+		$description = Util::path($event, 'DESCRIPTION.value');
+		$location = Util::path($event, 'LOCATION.value');
+		$status = strtolower(Util::path($event, 'X-MICROSOFT-CDO-BUSYSTATUS.value', 'BUSY'));
+		$transp = strtolower(Util::path($event, 'TRANSP.value', 'OPAQUE'));
+
+		// For consistency, pretend everything has an rrule
+		$rrule = Util::path($event, 'RRULE.value', 'FREQ=DAILY;COUNT=1');
+
+		if($r_start = Util::path($event, 'DTSTART.value'))
+			$rrule .= ";DTSTART=$r_start";
+		if($r_end = Util::path($event, 'DTEND.value'))
+			$rrule .= ";DTEND=$r_end";
+		if($r_exdate = Util::path($event, 'EXDATE.value'))
+			$rrule .= ";EXDATE=$r_exdate";
+		if($r_rdate = Util::path($event, 'RDATE.value'))
+			$rrule .= ";RDATE=$r_rdate";
+
+		$rrule = new \Recurr\Rule($rrule);
+		$events = $this->transformer->transform($rrule, $constraint);
+		
+		foreach($events as $e)
+		{
+			// Start
+			$start = $e->getStart();
+			if(Util::path($event, 'DTSTART.params.VALUE') !== 'DATE')
+				$start_time = $start->format('H:i');
+			$start_date = $start->format('Y-m-d');
+			$start_w3c = $start->format(DATE_W3C);
+
+			// End
+			$end = $e->getEnd();
+			if(Util::path($event, 'DTSTART.params.VALUE') !== 'DATE')
+				$end_time = $end->format('H:i');
+			else
+				$end->sub(new DateInterval('PT1S'));
+			$end_w3c = $end->format(DATE_W3C);
+			$end_date = $end->format('Y-m-d');
+
+			// Yield wanted event properties
+			yield array_intersect_key(get_defined_vars(), array_flip([
+				'summary','description', 'location',
+				'start','start_date','start_time','start_w3c',
+				'end','end_date','end_time','end_w3c',
+				'status','transp',
+				]));
+		}
+	}
+
+
+
+	/**
+	 * Load file.
+	 */
+	private function load()
+	{
+		$lines = new ArrayIterator($this->file);
 		$lines = self::unfold($lines);
 		$lines = self::parse($lines);
 		$lines = self::gather($lines);
 
-		return $lines;
+		$this->components = $lines;
 	}
 
 
@@ -42,6 +159,7 @@ class ICalendar
 				return $component;
 
 			$component[$line['name']] = $line;
+			// TODO: Do adjustments? DURATION => DTEND?
 		}
 		
 		return $component['VCALENDAR'][0];
@@ -73,13 +191,14 @@ class ICalendar
 
 			// Return parsed line
 			yield [
-				'name' => $result['name'],
+				'name' => strtoupper($result['name']),
 				'value' => self::parseValue($result['value']),
 				'params' => $result['parameters'],
 				//'raw' => $line,
 			];
 		}
 	}
+
 
 
 	/**
@@ -117,23 +236,6 @@ class ICalendar
 		}
 
 		yield $prev;
-	}
-
-
-
-	/**
-	 * Yields each line of the given file.
-	 */
-	private static function read($file)
-	{
-		$fp = fopen($file, 'rb');
-		if( ! $fp)
-			return;
-		
-		while(($line = fgets($fp)) !== false)
-			yield rtrim($line, "\r\n");
-
-		fclose($fp);
 	}
 
 

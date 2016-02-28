@@ -11,6 +11,7 @@
 		"kus/php-image": "dev-master",
 		"swiftmailer/swiftmailer": "5.*",
 		"james-heinrich/getid3": "1.*",
+		"simshaun/recurr": "0.*",
 		"league/commonmark": "0.*",
 		"webuni/commonmark-attributes-extension": "^0.3.2",
 		"webuni/commonmark-table-extension": "^0.4.3"

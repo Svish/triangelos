@@ -4,16 +4,13 @@ body.calendar #content
 }
 body.calendar #content .calendar
 {
-
 	margin-bottom: 3em;
 	font-size: small;
 	table-layout: fixed;
 	empty-cells: show;
 
-
 	thead
 	{
-		margin: 0;
 		font-size: large;
 
 		tr+tr th
@@ -24,34 +21,63 @@ body.calendar #content .calendar
 	}
 	td
 	{
-		padding: 0;	
+		padding: 0;
 		position: relative;
-	}
+		height: 5rem;
 
-	td[data-day='']
-	{
-		background: none;
-	}
-	td:before
-	{
-		content: attr(data-day);
-		display: block;
-		text-align: right;
-		margin: .3em .5em;
-		color: #fff;
-		font-size: large;
-		font-weight: bold;
-		font-style: italic;
-		text-shadow: #000 0 0 3px;
+		&:not([data-day])
+		{
+			background: none;
+		}
+
+		&[data-day]:before
+		{
+			content: attr(data-day) ".";
+			display: block;
+			font-size: large;
+			padding: .05em .3em;
+		}
+		&:not(:empty)
+		{
+		}
+
+		.tentative
+		{
+			opacity: .5;
+		}
+
+		.event
+		{
+			padding: .05em .3em;
+			background: fade(@accent3-color, 40%);
+			margin: .5em 0;
+
+			&:first-child { margin-top: 0}
+			&:last-child { margin-bottom: 0}
+
+			.summary
+			{
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			time
+			{
+				font-weight: bold;
+			}
+			address
+			{
+				display: none;
+			}
+		}
 	}
 
 	tr.current
 	{
-		background: fade(@accent2-color, 45%);
 		td.current
 		{
-			background: fade(@accent2-color, 75%);
-			.box-shadow(0, 0, 15px, rgba(0,0,0,.75));
+			.box-shadow(0, 0, 20px, rgba(0,0,0,.75));
+			outline: 3px solid black;
 		}
 	}
 
@@ -68,16 +94,22 @@ body.calendar #content .calendar
 			position: relative;
 			//overflow: hidden;
 		}
-		colgroup, thead tr+tr {display: none;}
-
-		td:not(.events)
+		colgroup,thead tr+tr,td:empty
 		{
 			display: none;
 		}
 
+
 		td
 		{
 			background: fade(@accent-color, 5%);
+			height: auto;
+			min-height: 5rem;
+
+			.event,.event:first-of-type
+			{
+				border: none;
+			}
 		}
 		td:before
 		{
@@ -87,75 +119,9 @@ body.calendar #content .calendar
 		{
 			content: attr(data-name);
 			font-size: small;
-			margin: 1px 0 0 3px;
-			color: #fff;
-			font-style: italic;
 			position: absolute;
-			top:.3em;
-			right: .5em;
-			font-weight: bold;
-			text-shadow: #000 0 0 3px;
+			top: .05em;
+			right: .3em;
 		}
 	}
 }
-
-
-/*
-.cal td:nth-child(2):before
-{
-	content: attr(data-week);
-	font-size: small;
-	margin: 1px 0 0 3px;
-	position: absolute;
-	color: #222222;
-}
-
-.cal-event
-{
-	padding: .3em .5em;
-	line-height: 1.2em;
-}
-.cal-event time
-{
-	color: #000;
-}
-.cal-event a:link,
-.cal-event a:visited
-{
-	color: #fff;
-}
-.cal-today .cal-event,
-.cal-today .cal-event a:link,
-.cal-today .cal-event a:visited
-{
-	color: #000;
-	font-weight: bold;
-}
-
-
-.cal-private
-{
-	background: rgba(255,255,255,.2);
-}
-.cal-public
-{
-	background: rgba(255,127,0,.2);
-}
-
-.cal-tentative
-{
-	opacity: .4;
-}
-.cal-tentative a:link,
-.cal-tentative a:visited
-{
-}
-.cal-cancelled
-{
-	opacity: .2;
-}
-.cal-cancelled time
-{
-	color: #700;
-}
-*/

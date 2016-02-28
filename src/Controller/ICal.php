@@ -3,7 +3,7 @@
 /**
  * Calendar serving.
  */
-class Controller_Calendar extends Controller
+class Controller_ICal extends Controller
 {
 	public function get()
 	{
