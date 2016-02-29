@@ -26,6 +26,9 @@ class Controller_Thumbnail extends CachedController
 		if( ! $this->file)
 			throw new HTTP_Exception("Image not found", 404);
 
+		if( ! in_array([$info['params'][1], $info['params'][2]], $this->whitelist))
+			throw new HTTP_Exception('Requested size not in whitelist', 400);
+
 		parent::before($info);
 	
 	}
@@ -39,10 +42,9 @@ class Controller_Thumbnail extends CachedController
 
 	public function get($w, $h, $path)
 	{
-		if( ! in_array([$w, $h], $this->whitelist))
-			throw new HTTP_Exception('Requested size not in whitelist', 400);
-
+		set_time_limit(60);
 		ini_set('memory_limit','256M');
+		ini_set('gd.jpeg_ignore_warning', '1');
 
 		$i = new PHPImage($this->file);
 		$i->resize((int)$w, (int)$h, false, true);
