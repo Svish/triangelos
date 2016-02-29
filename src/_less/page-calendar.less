@@ -58,7 +58,7 @@ body.calendar #content .calendar
 		.event
 		{
 			margin: .5em 0;
-			background: fade(@accent3-color, 40%);
+			background: fade(@accent3-color, 50%);
 			.transition(background-color, 250ms);
 
 			&:first-child { margin-top: 0}
@@ -83,18 +83,17 @@ body.calendar #content .calendar
 			}
 		}
 
+		.private
+		{
+			background: fade(@accent3-color, 25%);
+		}
+
 		.tentative
 		{
-			background: fade(@accent3-color, 20%);
-			color: lighten(black, 40%);
+			opacity: .25;
 			&:before
 			{
 				content: "(?) ";
-			}
-
-			&:hover
-			{
-				background: fade(@accent3-color, 40%);
 			}
 		}
 		.continued

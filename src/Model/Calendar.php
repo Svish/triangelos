@@ -51,7 +51,7 @@ class Model_Calendar extends Model
 
 		// Generate calendar strucuture
 		$cal = [];
-		foreach($this->days($first, $last) as $day)
+		foreach(self::days($first, $last) as $day)
 		{
 			// Month
 			$month = $day->format('Y-M');
@@ -71,7 +71,7 @@ class Model_Calendar extends Model
 					'days' => [],
 					];
 			}
-			$cal[$month]['weeks'][$week]['isPast'] = $day < $today;
+			$cal[$month]['weeks'][$week]['past'] = $day < $today ? 'past' : false;
 
 
 			// Day
@@ -118,6 +118,9 @@ class Model_Calendar extends Model
 				'end_date' => $e['end']->format(__('date/date')),
 				'end_w3c' => $e['end']->format(DATE_W3C),
 				];
+
+			// Add type/category
+			$e['private'] = self::is_private($e);
 
 			// If all day, remove times
 			if( ! $e['all_day']) $e += [
@@ -167,7 +170,17 @@ class Model_Calendar extends Model
 	}
 
 
-	private function days(DateTime $first, DateTime $last)
+	private static $private = ['Choir practice', 'Warmup'];
+
+	private static function is_private(array $event)
+	{
+		return $event['transp'] !== 'opaque' || in_array($event['summary'], self::$private)
+			? 'private'
+			: false;
+	}
+
+
+	private static function days(DateTime $first, DateTime $last)
 	{
 		$date = clone $first;
 		$one = new DateInterval('P1D');
