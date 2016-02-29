@@ -9,7 +9,7 @@
  */
 class ICalParser
 {
-	const TTL = 14400; // 4 hours
+	const TTL = 3600; // 1 hour / Time raw file cached
 
 	private $file;
 	private $components = null;
@@ -27,7 +27,6 @@ class ICalParser
 		$config = new \Recurr\Transformer\ArrayTransformerConfig();
 		$config->setVirtualLimit($rlimit);
 		$this->transformer = new \Recurr\Transformer\ArrayTransformer($config);
-
 
 		$cache = new Cache(__CLASS__, isset($_GET['no-cache']) ? 0 : self::TTL);
 		$this->file = $cache->get($file, function($f)
