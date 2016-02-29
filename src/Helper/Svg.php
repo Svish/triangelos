@@ -9,12 +9,12 @@ class Helper_Svg
 
 	public function __invoke($name)
 	{
-		$opt = explode(':', $name);
+		$opt = explode(';', $name, 2);
 		
 		$svg = File::get(self::DIR.$opt[0].'.svg');
 
 		if(isset($opt[1]))
-			$svg = str_replace('<svg', "<svg class=\"{$opt[1]}\"", $svg);
+			$svg = str_replace('<svg ', "<svg {$opt[1]} ", $svg);
 
 		return $svg;
 	}
