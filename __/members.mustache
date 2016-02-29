@@ -4,30 +4,29 @@
 
 {{$ content}}
 
-{{#members.listing}}
-<h2>{{name | ucfirst | _}}</h2>
-<ul class="member-frames">
-	{{#members}}
-	<li>
-		<a class="frame has-details" data-details="{{id}}">
-			<img src="t/350x150/{{img}}" alt="{{first}}">
-			<span>{{first}}</span>
-		</a>
-		<div class="details" data-details="{{id}}">
-			<article>
-				<h1>{{first}}</h1>
-				<div class="subtitle">{{role | ucfirst | _ }}</div>
-				<p><img class="frame" src="t/350x250/{{img}}" alt="{{first}}"></p>
-				<p>Lorem ipsum dolor sit amet, usu eu natum neglegentur, soleat graeci periculis quo id, veniam fabellas mediocritatem ne nam. Id sale tollit dictas pro. Ne usu labitur meliore commune. Sale menandri moderatius ut cum, accusam corpora at sed, est noster cotidieque at. Purto adhuc libris vim in, eam enim probo quidam ei. Usu ne menandri intellegam, dico torquatos necessitatibus eos et. Dicat iudicabit ne est.
 
-				<p>Ne eos detracto reformidans, everti omittantur at mei. Vis no minimum scriptorem complectitur, ea sed vidisse laoreet dissentiunt. Ea mel invenire cotidieque. Pro case veri moderatius ex, his zril dictas sententiae et. Elit meis detraxit id sit.
-				{{>close-link}}
-			</article>
-		</div>
-	</li>
-	{{/members}}
-</ul>
+
+<div class="member-frames"><!--
+{{#members.listing}}
+
+	--><a class="frame has-details {{role}}" data-details="{{id}}">
+		<img src="t/350x100/{{img}}" alt="{{first}}">
+		<span>{{first}}</span>
+	</a><div class="details" data-details="{{id}}">
+		<article>
+			<h1>{{first}}</h1>
+			<div class="subtitle">{{role | ucfirst | _ }}</div>
+			<p><img class="frame" src="t/350x250/{{img}}" alt="{{first}}"></p>
+			<p>Lorem ipsum dolor sit amet, usu eu natum neglegentur, soleat graeci periculis quo id, veniam fabellas mediocritatem ne nam. Id sale tollit dictas pro. Ne usu labitur meliore commune. Sale menandri moderatius ut cum, accusam corpora at sed, est noster cotidieque at. Purto adhuc libris vim in, eam enim probo quidam ei. Usu ne menandri intellegam, dico torquatos necessitatibus eos et. Dicat iudicabit ne est.
+
+			<p>Ne eos detracto reformidans, everti omittantur at mei. Vis no minimum scriptorem complectitur, ea sed vidisse laoreet dissentiunt. Ea mel invenire cotidieque. Pro case veri moderatius ex, his zril dictas sententiae et. Elit meis detraxit id sit.
+			{{>close-link}}
+		</article>
+	</div><!--
+
 {{/members.listing}}
+--></div>
+
 
 
 {{/ content}}

@@ -8,7 +8,7 @@ class Controller_Thumbnail extends CachedController
 	protected $max_age = 172800; // 48 hours
 
 	private $whitelist = [
-		[350,150], // Members: Listing
+		[350,100], // Members: Listing
 		[350,250], // Members: Details
 		[700,700], // Choir: Large image
 		[250,250], // Music: Listing, cover

@@ -12,27 +12,14 @@ class Model_Members extends Model
 
 
 	/**
-	 * For members.mustache
+	 * Members
 	 */
 	public function listing()
 	{
-		// Role order
-		$x = [
-			'soprano' => ['name' => 'soprano', 'members' => []],
-			'alto' => ['name' => 'alto', 'members' => []],
-			'tenor' => ['name' => 'tenor', 'members' => []],
-			'bass' => ['name' => 'bass', 'members' => []],
-			'conductor' => ['name' => 'conductor', 'members' => []],
-			'pianist' => ['name' => 'pianist', 'members' => []],
-			'technician' => ['name' => 'technician', 'members' => []],
-		];
-
-		foreach($this->all() as $user)
-			$x[$user->role]['members'][] = $user;
-
-		return array_values($x);
+		$x = $this->all();
+		shuffle($x);
+		return $x;
 	}
-
 
 
 	/**

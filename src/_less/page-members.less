@@ -2,27 +2,33 @@
 body.members #content
 {
 	max-width: none;
-	ul
+
+	.member-frames
 	{
-		padding: 0;
-		li
-		{
-			display: inline-block;
-		}
+		text-align: center;
 	}
+
 	a.frame
 	{
 		display: inline-block;
 		text-align: center;
 		vertical-align: top;
 		margin: 0 .5em .5em 0;
-		padding: .75em .95em;
+		padding: .55em .85em;
+		line-height: 1em;
 		color: inherit;
 		img
 		{
 			margin: auto;
 			.box-shadow(0,0,5px,rgba(0,0,0,.5));
 		}
+
+		&.conductor,&.technician,&.pianist{border: 1px solid darkred}
+		&.soprano{border: 1px solid yellow}
+		&.alto{border: 1px solid darkorange}
+		&.tenor{border:1px solid cyan}
+		&.bass{border:1px solid blue}
+
 	}
 
 	.details
@@ -39,13 +45,12 @@ body.members #content
 
 @media only screen and (max-width : 400px)
 {
-	body.members #content ul li
+	body.members #content
 	{
-		&, .frame, img
+		.frame, img
 		{
 			display: block;
 		}
-
 		.frame
 		{
 			margin-right: 0;
