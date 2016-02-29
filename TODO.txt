@@ -1,68 +1,57 @@
 
-- (!) Correct multipart downloads with Multipart/bytes Music
-- (!) Cache Controller_Page
-	- Use lmod of cached newest content file for valid check?
-	- (!) Add relevant COOKIE/GET to etag
-
-
-
-- Get stuff through JSON?
-
-
-
-Contact
-===
-
-- (!) Add nonce thingy to contact form
-
-
 
 Calendar
 ===
 
-- (!) ICS with only concerts and sermons
-- Only show description for logged in users?
+- (!) ICal file with only concerts and sermons
+- Description with songs we're going to sing, only for logged in users?
 - https://www.addevent.com ?
 
 
-
-Members/Member area
+Member area (for logged in members)
 ===
 
-- https://www.twilio.com/sms/pricing/no?
-- Contact details for members
+- Contact details for all members
 - Practice material
-	- Full length audio streaming
+	- Full length audio streaming for practice
 	- Access to Musescore and PDF files
-- Edit account
+- Mange account
 	- Update image
 	- Change details
-- Group SMS/Email sending to choir members
+- Group SMS/Email sending to choir members?
+- https://www.twilio.com/sms/pricing/no?
 
 
-
-Admin
+Admin section
 ===
 
-- Edit content
-- Edit config
-- Add new translations
-- Config admin users? Limit to language?
+- Content/Page editor
+	- All languages?
+- New translations?
+	- List missing translations
+- Config editor
+- Member admin
 
 
 
 Music/Store
 ===
 
-- Popup with larger cover and inlay (which is hopefully readable)
-- Reuse Paypal stuff?
-	- http://minicartjs.com
-- Samples from highly compressed full files?
-- Fade out and stop playing after n seconds
-	- Serve only part of file?
+- Popup with larger cover and inlay
+- PayPal buttons and cart
+	- http://minicartjs.com?
+- IPN/PDT?
 
 
 
-Auto update?
+Other/Bugs
 ===
-- Fetch new files from GitHub/BitBucket?
+- (!) Fix menu disappearing responsive wide
+- (!) Correct multipart downloads with Multipart/bytes Music
+- (!) Cache Controller_Page
+	- Use lmod of cached newest content file for valid check?
+	- (!) Add relevant COOKIE/GET to etag
+- Get stuff through JSON?
+	- Member page?
+	- Calendar details?
+
