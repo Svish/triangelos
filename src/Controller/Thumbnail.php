@@ -13,6 +13,7 @@ class Controller_Thumbnail extends CachedController
 		[700,700], // Choir: Large image
 		[250,250], // Music: Listing, cover
 		[320,370], // Music: Album, cover and inlay
+		[100,100], // Index: Album cover
 		[960,960], // Header
 		];
 	private $file;

@@ -5,7 +5,7 @@
  */
 class Helper_Svg
 {
-	const DIR = DOCROOT.'_'.DIRECTORY_SEPARATOR;
+	const DIR = DOCROOT.'_'.DIRECTORY_SEPARATOR.'icon'.DIRECTORY_SEPARATOR;
 
 	public function __invoke($name)
 	{

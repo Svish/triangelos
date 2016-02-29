@@ -7,6 +7,7 @@ return [
 		'day-name' => 'l j.',
 		'day' => 'j.',
 		'date' => 'j. F Y',
+		'date-short' => 'j. F',
 		'time' => 'H:i',
 	],
 

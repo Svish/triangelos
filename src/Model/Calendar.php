@@ -102,8 +102,22 @@ class Model_Calendar extends Model
 	}
 
 
+	public function up_next()
+	{
+		$today = new DateTime('today');
+		$count = 2;
 
-	private function events(DateTime $first)
+		foreach($this->events($today) as $date)
+			foreach($date as $event)
+				if( ! $event['private'])
+					if($count-- > 0)
+						yield $event;
+					else
+						return;
+	}
+
+
+	public function events(DateTime $first)
 	{
 		$events = [];
 		$id = 0;
@@ -114,6 +128,7 @@ class Model_Calendar extends Model
 				'id' => ++$id,
 				'iso' => $e['start']->format('Y-m-d'),
 				'start_date' => $e['start']->format(__('date/date')),
+				'start_date_short' => $e['start']->format(__('date/date-short')),
 				'start_w3c' => $e['start']->format(DATE_W3C),
 				'end_date' => $e['end']->format(__('date/date')),
 				'end_w3c' => $e['end']->format(DATE_W3C),

@@ -15,7 +15,7 @@ class Cache
 	public function __construct($id, $ttl = PHP_INT_MAX)
 	{
 		$this->dir = self::DIR.$id.DIRECTORY_SEPARATOR;
-		$this->ttl = $ttl;
+		$this->ttl = isset($_GET['no-cache']) ? 0 : $ttl;
 	}
 
 

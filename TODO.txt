@@ -3,9 +3,9 @@
 Calendar
 ===
 
-- (!) ICal file with only concerts and sermons
 - Description with songs we're going to sing, only for logged in users?
 - https://www.addevent.com ?
+- {{time | date.format?}}
 
 
 Member area (for logged in members)
@@ -41,12 +41,12 @@ Music/Store
 - PayPal buttons and cart
 	- http://minicartjs.com?
 - IPN/PDT?
+- Lyrics for tracks?
 
 
 
 Other/Bugs
 ===
-- (!) Fix menu disappearing responsive wide
 - (!) Correct multipart downloads with Multipart/bytes Music
 - (!) Cache Controller_Page
 	- Use lmod of cached newest content file for valid check?

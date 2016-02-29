@@ -1,11 +1,51 @@
 {{% BLOCKS }}
 {{< layout }}
-{{$ title }}{{#_}}Welcome{{/_}}{{/ title }}
+{{$ title }}{{#_}}Welcome{{/_}}!{{/ title }}
 
 {{$ content}}
-{{{markdown}}}
 
-<p><b>// TODO: Latest album, Next practice, Upcoming events</b>
+
+
+<div class="responsive albums">
+	<h2><a href="music">{{#svg}}jumping-man{{/svg}} {{#_}}Get our latest albums!{{/_}}</a></h2>
+	{{#music.latest}}
+	<p>
+		<a href="music/{{url}}">
+			<img class="frame" alt="{{#_}}Album cover{{/_}}" src="t/100x100/{{cover}}">
+			<span class="text">
+				<span class="title">{{album}}</span>
+				<br>
+				<span class="year">{{year}}</span>
+			</span>
+		</a>
+	</p>
+	{{/music.latest}}
+</div>
+
+
+<div class="responsive events">
+	<h2><a href="calendar">{{#svg}}people{{/svg}} {{#_}}Come see us live!{{/_}}</a></h2>
+	{{#calendar.up_next}}
+	<p>
+		<div class="summary">{{summary|_}}</div>
+		<time datetime="{{start_w3c}}">{{start_date_short|_}}, {{start_time}}</time>
+		{{#location}}
+		<address>{{{location | firstLine}}}</address>
+		{{/location}}
+	</p>
+	{{/calendar.up_next}}
+</div>
+
+
+<div class="videos">
+	<h2><a href="https://www.youtube.com/channel/UCmrYJ77oVF6usz_Un0R3I3Q">{{#svg}}woman-listening-to-music{{/svg}} {{#_}}Listen to us RIGHT NOW!{{/_}}</a></h2>
+	<p class="videowrapper">
+		{{#embed}}https://www.youtube.com/watch?v=3SJTy3z_WaI{{/embed}}
+	</p>
+	<p class="videowrapper">
+		{{#embed}}https://www.youtube.com/watch?v=m73hWAdBnb0{{/embed}}
+	</p>
+</div>
 
 {{/ content}}
 

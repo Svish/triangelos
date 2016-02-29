@@ -2,13 +2,13 @@
 
 
 /**
- * Trim times.
+ * First line.
  */
-class Helper_TimeTrim
+class Helper_FirstLine
 {
 	public function __invoke($text, Mustache_LambdaHelper $render = null)
 	{
-		$text = str_replace(':00', '', $text);
+		$text = explode('<br>', $text, 2)[0];
 		return $render ? $render($text) : $text;
 	}
 }

@@ -9,16 +9,23 @@ class Model_Music extends Model
 	const DIR = 'album';
 	const ROOT = parent::DIR.self::DIR;
 
+
+
 	public function listing()
 	{
-		$albums = $this->albums();
+		return $this->albums();
+	}
 
-		usort($albums, function($a, $b)
-		{
-			return -1 * strcmp($a->year, $b->year);
-		});
 
-		return $albums;
+
+	public function latest()
+	{
+		$count = 2;
+		foreach($this->albums() as $album)
+			if($count-- > 0)
+				yield $album;
+			else
+				return;
 	}
 
 
@@ -41,15 +48,20 @@ class Model_Music extends Model
 	}
 
 
+
 	public function albums()
 	{
-		$cache = new Cache(__CLASS__);
+		$cache = new Cache(__CLASS__, 4*3600); // 4 hour cache
 		return $cache->get(__METHOD__, function()
 			{
-				return iterator_to_array($this->_albums());
+				$x = iterator_to_array($this->_albums());
+				usort($x, function($a, $b)
+				{
+					return -1 * strcmp($a->year, $b->year);
+				});
+				return $x;
 			}, true);
 	}
-
 	private function _albums()
 	{
 		$getID3 = new getID3;

@@ -28,7 +28,7 @@ class ICalParser
 		$config->setVirtualLimit($rlimit);
 		$this->transformer = new \Recurr\Transformer\ArrayTransformer($config);
 
-		$cache = new Cache(__CLASS__, isset($_GET['no-cache']) ? 0 : self::TTL);
+		$cache = new Cache(__CLASS__, self::TTL);
 		$this->file = $cache->get($file, function($f)
 			{
 				return file($f, FILE_IGNORE_NEW_LINES);

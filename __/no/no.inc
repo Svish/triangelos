@@ -7,13 +7,16 @@ return [
 	'Warmup' => 'Oppvarming',
 	'Sermon' => 'Gudstjeneste',
 	'Concert' => 'Konsert',
-	'Participate' => 'Delta',
+	'Participating' => 'Deltar',
 	
 	'Source code' => 'Kildekode',
 	'Web developer' => 'Webutvikler',
 	'Web analytics' => 'Statistikk',
 	'Graphics used for design' => 'Grafikk brukt til design',
 	'Subscribe to calendar' => 'Abonnér på kalender',
+	'Get our latest albums!' => 'Skaff våre siste album!',
+	'Come see us live!' => 'Kom og se oss live!',
+	'Listen to us RIGHT NOW!' => 'Lytt til oss NÅ!',
 
 	'About the site' => 'Om nettstedet',
 	'The choir' => 'Koret',
@@ -25,7 +28,6 @@ return [
 	'Music' => 'Musikk',
 	'Welcome' => 'Velkommen',
 	'Login' => 'Logg inn',
-	'Listen' => 'Lytt',
 	'Home' => 'Forsiden',
 
 	'Where?' => 'Hvor?',
