@@ -29,7 +29,7 @@
 		</thead>
 		<tbody class="checkered">
 		{{#weeks}}
-		<tr data-week="{{week}}" class="{{#isCurrent}}current{{/isCurrent}}">
+		<tr data-week="{{week}}" class="{{#isCurrent}}current{{/isCurrent}} {{#isPast}}past{{/isPast}}">
 			{{#days}}
 			{{^day}}
 			<td class="empty"></td>
@@ -37,12 +37,11 @@
 			{{#day}}
 			<td data-day="{{day}}" data-week="{{week}}" data-date="{{iso}}" data-name="{{name|_}}" class="{{#isCurrent}}current{{/isCurrent}}">{{#events}}
 
-				<div class="event {{status}} {{transp}} {{continued}} has-details" data-details="{{uid}}">
-					{{#start_time}}<time datetime="{{start_w3c}}">{{start_time}}</time>{{/start_time}}
-					{{#end_time}}<time datetime="{{end_w3c}}"> – {{end_time}}</time>{{/end_time}}
+				<div class="event {{status}} {{transp}} {{continued}} has-details" data-details="{{id}}">
+					{{#start_time}}<time datetime="{{start_w3c}}">{{start_time | timeTrim}}</time>{{/start_time}}
 					<div class="summary">{{summary|_}}</div>
 				</div>
-				<div class="details" data-details="{{uid}}">
+				<div class="details" data-details="{{id}}">
 					<article>
 						<h1>{{summary|_}}</h1>
 						<div class="subtitle">

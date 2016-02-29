@@ -38,19 +38,80 @@ class Model_Calendar extends Model
 	{
 		// Begin first of current month
 		$first = new DateTime('midnight first day of 0 month');
+		$today = new DateTime('today');
 
-		// Gather events
-		$last = clone $first;
+		// Get events
+		$events = $this->events($first);
+
+		// Find last date for calendar
+		$last = end($events);
+		$last = end($last);
+		$last = clone $last['end'];
+		$last->modify('last day of 0 month 23:59:59');
+
+		// Generate calendar strucuture
+		$cal = [];
+		foreach($this->days($first, $last) as $day)
+		{
+			// Month
+			$month = $day->format('Y-M');
+			if( ! array_key_exists($month, $cal))
+				$cal[$month] = [
+					'name' => $day->format(__('date/month-name')),
+					'weeks' => [],
+					];
+
+			// Week
+			$week = (int) $day->format('W');
+			if($day->format('w') == '0') $week++; // Biblical week adjustment
+			if( ! array_key_exists($week, $cal[$month]['weeks']))
+			{
+				$cal[$month]['weeks'][$week] = [
+					'week' => $week,
+					'days' => [],
+					];
+			}
+			$cal[$month]['weeks'][$week]['isPast'] = $day < $today;
+
+
+			// Day
+			$iso = $day->format('Y-m-d');
+			$cal[$month]['weeks'][$week]['days'][(int) $day->format('w')] = [
+				'date' => $day,
+				'day' => $day->format(__('date/day')),
+				'week' => (int) $day->format('W'),
+				'iso' => $iso,
+				'name' => $day->format(__('date/day-name')),
+				'events' => Util::path($events, $iso, []),
+				];
+		}
+
+
+		// Finally, clean up for mustache traversing
+		foreach($cal as &$month)
+		{
+			foreach($month['weeks'] as &$week)
+				$week['days'] = array_values($week['days']);
+
+			$month['weeks'] = array_values($month['weeks']);
+
+			while(count($month['weeks'][0]['days']) != 7)
+				array_unshift($month['weeks'][0]['days'], []);
+		}
+		return array_values($cal);
+	}
+
+
+
+	private function events(DateTime $first)
+	{
 		$events = [];
-		$uid = 0;
+		$id = 0;
 		foreach($this->ical->events($first) as $e)
 		{
-			// Keep track of last date
-			$last = clone max($last, $e['start'], $e['end']);
-
 			// Add formatted stuffs
 			$e += [
-				'uid' => ++$uid,
+				'id' => ++$id,
 				'iso' => $e['start']->format('Y-m-d'),
 				'start_date' => $e['start']->format(__('date/date')),
 				'start_w3c' => $e['start']->format(DATE_W3C),
@@ -89,13 +150,10 @@ class Model_Calendar extends Model
 			}
 		}
 
-
-		// Push end date to last of month
-		$last->modify('last day of 0 month 23:59:59');
-
-		// Sort the events, if necessary
+		// Sort the events
+		ksort($events);
 		foreach($events as &$date)
-			if(count($date) > 1)
+ 			if(count($date) > 1)
 				usort($date, function($a, $b)
 				{
 					$a = $a['start'];
@@ -105,55 +163,7 @@ class Model_Calendar extends Model
 					return $a < $b ? -1 : 1;
 				});
 
-
-		// Generate calendar strucuture
-		$cal = [];
-		foreach($this->days($first, $last) as $day)
-		{
-			// Month
-			$month = $day->format('Y-M');
-			if( ! array_key_exists($month, $cal))
-				$cal[$month] = [
-					'name' => $day->format(__('date/month-name')),
-					'weeks' => [],
-					];
-
-			// Week
-			$week = (int) $day->format('W');
-			if($day->format('w') == '0') $week++; // Biblical week adjustment
-			if( ! array_key_exists($week, $cal[$month]['weeks']))
-			{
-				$cal[$month]['weeks'][$week] = [
-					'week' => $week,
-					'days' => [],
-					];
-			}
-
-			// Day
-			$iso = $day->format('Y-m-d');
-			$cal[$month]['weeks'][$week]['days'][(int) $day->format('w')] = [
-				'date' => $day,
-				'day' => $day->format(__('date/day')),
-				'week' => (int) $day->format('W'),
-				'iso' => $iso,
-				'name' => $day->format(__('date/day-name')),
-				'events' => Util::path($events, $iso, []),
-				];
-		}
-
-
-		// Finally, clean up for mustache traversing
-		foreach($cal as &$month)
-		{
-			foreach($month['weeks'] as &$week)
-				$week['days'] = array_values($week['days']);
-
-			$month['weeks'] = array_values($month['weeks']);
-
-			while(count($month['weeks'][0]['days']) != 7)
-				array_unshift($month['weeks'][0]['days'], []);
-		}
-		return array_values($cal);
+		return $events;
 	}
 
 

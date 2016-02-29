@@ -13,7 +13,7 @@ body.calendar #content .calendar
 	{
 		th
 		{
-			padding: .05rem .3rem;
+			padding-left: .3rem;
 		}
 	}
 	td
@@ -68,10 +68,11 @@ body.calendar #content .calendar
 			{
 				overflow: hidden;
 				text-overflow: ellipsis;
-				font-weight: bold;
+				//font-weight: bold;
+				//display: inline;
 			}
 
-			.time
+			time
 			{
 				font-weight: bold;
 			}
@@ -117,14 +118,16 @@ body.calendar #content .calendar
 			outline: 3px solid black;
 		}
 	}
-
-
 }
 
 @media only screen and (max-width : 700px)
 {
 	body.calendar #content .calendar
 	{
+		tr.past
+		{
+			display: none;
+		}
 		td
 		{
 			background: fade(@accent-color, 5%);
@@ -135,6 +138,10 @@ body.calendar #content .calendar
 			{
 				padding: .5em .5em;
 				border: none;
+				.summary
+				{
+					display: inline;
+				}
 			}
 
 			&[data-day]:before
