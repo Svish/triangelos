@@ -6,6 +6,8 @@
 
 {{#calendar.listing}}
 
+	<h2>{{name|_}}</h2>
+
 	<table class="calendar" width="100%">
 		<col>
 		<col>
@@ -15,9 +17,6 @@
 		<col>
 		<col>
 		<thead>
-			<tr>
-				<th colspan="7">{{name|_}}</th>
-			</tr>
 			<tr>
 				<th>{{#_}}Sunday{{/_}}</th>
 				<th>{{#_}}Monday{{/_}}</th>
@@ -70,8 +69,6 @@
 
 
 {{/calendar.listing}}
-
-{{{markdown}}}
 
 <p>
 	<a class="badge" data-name="iCal" href="calendar.ics">{{#_}}Subscribe to calendar{{/_}}</a>

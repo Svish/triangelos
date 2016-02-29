@@ -13,6 +13,7 @@ return [
 	'Web developer' => 'Webutvikler',
 	'Web analytics' => 'Statistikk',
 	'Graphics used for design' => 'Grafikk brukt til design',
+	'Subscribe to calendar' => 'Abonnér på kalender',
 
 	'About the site' => 'Om nettstedet',
 	'The choir' => 'Koret',
