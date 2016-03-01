@@ -8,9 +8,6 @@ class MyLoader implements Mustache_Loader
 	const EXT = '.mustache';
 	protected $templates = [];
 
-	// TODO: Cache name=>$file
-
-
 
 	/**
 	 * Load named template.

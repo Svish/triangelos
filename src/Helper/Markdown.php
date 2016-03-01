@@ -8,7 +8,6 @@ class Helper_Markdown
 	const EXT = '.md';
 	const DIR = DOCROOT.'_'.DIRECTORY_SEPARATOR;
 
-	// TODO: Cache $name => $file
 
 	private $url;
 	public function __construct($ctx)

@@ -114,7 +114,6 @@ class Website
 
 			if(preg_match('#'.$pattern.'/?#Au', $path, $matches))
 			{
-				// TODO: array_shift
 				unset($matches[0]);
 				return ['handler' => $handler, 'params' => $matches];
 			}
