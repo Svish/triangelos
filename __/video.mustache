@@ -1,18 +1,11 @@
 {{% BLOCKS }}
 {{< layout }}
-{{$ title }}{{#_}}Video{{/_}}{{/ title }}
+{{$ TITLE }}{{#_}}Video{{/_}}{{/ TITLE }}
+{{$ title }}{{#_}}Video{{/_}}<div class="right">{{>button-youtube}}</div>{{/ title }}
 {{$ content}}
 
 
-
-<script src="https://apis.google.com/js/platform.js"></script>
-<div class="right">
-	<div class="g-ytsubscribe" data-channelid="UCmrYJ77oVF6usz_Un0R3I3Q" data-layout="default" data-count="default"></div>
-</div>
-
-
 {{{markdown}}}
-
 
 <p class="videowrapper">
 	{{#embed}}https://www.youtube.com/watch?v=zw28hJ3X-KA{{/embed}}

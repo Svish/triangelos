@@ -42,12 +42,15 @@
 
 
 <section class="responsive">
+
 	<h2>Social</h2>
-	<p>
-		{{!https://developers.google.com/youtube/youtube_subscribe_button}}
-		<script src="https://apis.google.com/js/platform.js"></script>
-		<span class="g-ytsubscribe" data-channelid="UCmrYJ77oVF6usz_Un0R3I3Q" data-layout="default" data-count="default"></span>
-	</p>
+	<div>
+
+		{{>button-youtube}}
+
+		{{>button-facebook}}
+
+	</div>
 
 	<h2>{{#_}}Mail{{/_}}</h2>
 	<address>
@@ -56,12 +59,18 @@
 		1429 Vinterbro<br>
 		Norway
 	</address>
+
 	<h2>{{#_}}Bank details{{/_}}</h2>
 	<p>1720 26 24200<br>
 		<small><b>IBAN:</b> NO71 1720 2624 200</small><br>
 		<small><b>SWIFT/BIC:</b> BIENNOK1</small>
 	</p>
+
 </section>
+
+
+
+
 
 {{/ content}}
 
