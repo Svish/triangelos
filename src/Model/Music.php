@@ -11,6 +11,17 @@ class Model_Music extends Model
 
 
 
+	public function listing()
+	{
+		$n = 1;
+		foreach($this->albums() as $album)
+		{
+			$album->isFirst = $n-- > 0;
+			yield $album;
+		}
+	}
+
+
 	public function latest()
 	{
 		$count = 2;

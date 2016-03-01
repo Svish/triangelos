@@ -4,24 +4,14 @@
 {{$ title }}{{album.album}} <span>{{album.year}}</span>{{/ title }}
 {{$ content}}
 
-
-
 {{{markdown}}}
 
-<p><b>// TODO: Buy buttons</b>
-
-<hr>
-
 {{#album}}
-	<ol class="tracks">
-		{{#tracks}}
-		<li><span class="time">{{time}}</span> <a href="stream/{{url}}" type="{{mime}}">{{title}}</a>
-		{{/tracks}}
-	</ol>
+	{{> album-tracks}}
 
-	<p>
-		<img class="frame" alt="{{#_}}Album cover{{/_}}" src="t/320x370/{{cover}}">
-		<img class="frame" alt="{{#_}}Album inlay{{/_}}" src="t/320x370/{{inlay}}">
+	<p class="covers">
+		<img class="frame" alt="{{#_}}Album cover{{/_}}" src="t/400x500/{{cover}}">
+		<img class="frame" alt="{{#_}}Album inlay{{/_}}" src="t/400x500/{{inlay}}">
 	</p>
 {{/album}}
 

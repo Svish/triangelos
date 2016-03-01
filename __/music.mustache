@@ -5,26 +5,17 @@
 
 {{$ content}}
 
-<p><b>// TODO: Buy buttons</b>
+{{#music.listing}}
 
-{{#music.albums}}
-<hr>
+{{^isFirst}}<hr>{{/isFirst}}
+
 <article class="album">
-	<h1><a href="music/{{url}}">{{album}}</a>
+	<h2 class="title"><a href="music/{{url}}"><img class="frame" alt="{{#_}}Album cover{{/_}}" src="t/75x75/{{cover}}"> {{album}}</a>
 		<span>{{year}}</span>
-	</h1>
-	<ol class="tracks">
-		{{#tracks}}
-		<li><span class="time">{{time}}</span> <a href="stream/{{url}}" type="{{mime}}">{{title}}</a>
-		{{/tracks}}
-	</ol>
-	<p>
-		<a class="frame" href="music/{{url}}">
-			<img alt="{{#_}}Album cover{{/_}}" src="t/250x250/{{cover}}">
-		</a>
-	</p>
+	</h2>
+	{{> album-tracks}}
 </article>
-{{/music.albums}}
+{{/music.listing}}
 
 {{>jplayer}}
 

@@ -11,8 +11,8 @@ class Controller_Thumbnail extends CachedController
 		[350,100], // Members: Listing
 		[350,250], // Members: Details
 		[700,700], // Choir: Large image
-		[250,250], // Music: Listing, cover
-		[320,370], // Music: Album, cover and inlay
+		[ 75, 75], // Music: Listing, cover
+		[400,500], // Music: Album, cover and inlay
 		[100,100], // Index: Album cover
 		[960,960], // Header
 		];

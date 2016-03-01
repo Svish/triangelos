@@ -1,8 +1,40 @@
 
 @import "jplayer";
 
+
+body.album #content
+{
+	.covers
+	{
+		img
+		{
+			width: 49%;
+		}
+		img:last-child
+		{
+			float: right;
+		}
+	}
+}
+
+
 body.music #content
 {
+	.album
+	{
+		position:relative;
+
+		.title
+		{
+			img
+			{
+				width: 2em;
+				margin-right: .65em;
+				float: left;
+			}
+		}
+	}
+
 	.tracks
 	{
 		li
