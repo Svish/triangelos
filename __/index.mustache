@@ -7,11 +7,11 @@
 
 
 <div class="responsive albums">
-	<h2><a href="music">{{#svg}}jumping-man{{/svg}} {{#_}}Get our latest albums!{{/_}}</a></h2>
+	<h2><a href="music">{{#_}}Get our latest albums!{{/_}} {{#svg}}jumping-man{{/svg}}</a></h2>
 	{{#music.latest}}
 	<p>
 		<a href="music/{{url}}">
-			<img class="frame" alt="{{#_}}Album cover{{/_}}" src="t/100x100/{{cover}}">
+			<img class="cover frame" alt="{{#_}}Album cover{{/_}}" src="t/100x100/{{cover}}">
 			<span class="text">
 				<span class="title">{{album}}</span>
 				<br>
@@ -24,7 +24,7 @@
 
 
 <div class="responsive events">
-	<h2><a href="calendar">{{#svg}}people{{/svg}} {{#_}}Come see us live!{{/_}}</a></h2>
+	<h2><a href="calendar">{{#_}}Come see us live!{{/_}} {{#svg}}people{{/svg}}</a></h2>
 	{{#calendar.up_next}}
 	<p>
 		<div class="summary">{{summary|_}}</div>

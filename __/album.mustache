@@ -1,7 +1,7 @@
 {{% BLOCKS }}
 {{< layout }}
 {{$ TITLE }}{{album.album}}{{/ TITLE }}
-{{$ title }}{{album.album}} <span>{{album.year}}</span>{{/ title }}
+{{$ title }}{{album.album}} <span>{{album.year}}</span>{{>webshop-help-button}}{{/ title }}
 {{$ content}}
 
 {{{markdown}}}
@@ -17,7 +17,7 @@
 
 {{>jplayer}}
 
-
+{{>webshop-help}}
 
 {{/ content}}
 {{/ layout }}

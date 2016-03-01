@@ -29,6 +29,7 @@ return [
 	'Welcome' => 'Velkommen',
 	'Login' => 'Logg inn',
 	'Home' => 'Forsiden',
+	'Webshop' => 'Nettbutikk',
 
 	'Where?' => 'Hvor?',
 

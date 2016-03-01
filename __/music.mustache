@@ -1,7 +1,7 @@
 {{% BLOCKS }}
 {{< layout }}
 {{$ TITLE }}{{#_}}Music{{/_}}{{/ TITLE }}
-{{$ title }}{{#_}}Music{{/_}}<a href="javascript:void(0)" class="has-details right" data-details="help">{{#svg}}help{{/svg}}</a>{{/ title }}
+{{$ title }}{{#_}}Music{{/_}}{{>webshop-help-button}}{{/ title }}
 
 {{$ content}}
 
@@ -10,9 +10,7 @@
 {{^isFirst}}<hr>{{/isFirst}}
 
 <article class="album">
-	<h2 class="title"><a href="music/{{url}}"><img class="frame" alt="{{#_}}Album cover{{/_}}" src="t/75x75/{{cover}}"> {{album}}</a>
-		<span>{{year}}</span>
-	</h2>
+	<h2 class="title"><a href="music/{{url}}"><img class="frame" alt="{{#_}}Album cover{{/_}}" src="t/75x75/{{cover}}"> {{album}} <span>{{year}}</span></a></h2>
 	{{> album-tracks}}
 </article>
 {{/music.listing}}
@@ -21,13 +19,7 @@
 
 
 
-<div class="details" data-details="help">
-	<article>
-		<h1>{{#_}}Music{{/_}}</h1>
-		{{{markdown}}}
-		{{>close-link}}
-	</article>
-</div>
+{{>webshop-help}}
 
 
 {{/ content}}

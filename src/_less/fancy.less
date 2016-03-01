@@ -1,4 +1,30 @@
+// Fancy frames
+.frame
+{
+	border: 1px solid @shadow-color;
+	border-radius: 5px;
+	background: #fff;
+	.box-shadow(0,0,15px, @shadow-color);
+	display: inline-block;
 
+	img, span
+	{
+		border-radius: 5px;
+		display: block;
+	}
+}
+a.frame:hover
+{
+	.box-shadow(0,0,15px, darken(@shadow-color, 30%));
+}
+a.frame:hover img,
+a:not(.frame):hover img.frame
+{
+	opacity: .85;
+}
+
+
+// No select fix
 .no-select {
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none;   /* Chrome/Safari/Opera */
@@ -9,7 +35,7 @@
 }
 
 
-/** NProgress color adjustments **/
+// NProgress color adjustments
 #nprogress
 {
 	.bar
@@ -31,7 +57,7 @@
 //::selection{background-color: fade(@accent3-color, 75%);color: white;}
 
 
-/** Badges **/
+// Badges
 .badge
 {
 	padding-right: 1em;

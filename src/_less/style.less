@@ -8,6 +8,7 @@
 @accent3-color: #A9078A;
 @background-color: #eee;
 @text-color: #111;
+@shadow-color: #999;
 
 
 
@@ -202,7 +203,7 @@ blockquote
 	border-left: 15px solid @accent-color;
 	border-right: 2px solid @accent-color;
 
-	.box-shadow(2px, 2px, 15px, #ccc);
+	.box-shadow(0, 0, 15px, @shadow-color);
 	border-radius: 5px;
 }
 blockquote::before{
