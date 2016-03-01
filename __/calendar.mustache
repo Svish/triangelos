@@ -43,7 +43,7 @@
 				</div>
 				<div class="details" data-details="{{id}}">
 					<article>
-						<h1>{{summary|_}}</h1>
+						<h1>{{summary|_}}{{>close-link}}</h1>
 						<p class="subtitle">
 							<time datetime="{{start_w3c}}">{{start_date|_}} {{start_time}}</time>
 							{{#end_w3c}}
@@ -55,7 +55,6 @@
 						{{#location}}
 							<address>{{{location}}}</address>
 						{{/location}}
-						{{>close-link}}
 					</article>
 				</div>
 
