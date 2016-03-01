@@ -48,6 +48,8 @@ class Controller_Javascript extends CachedController
 		(
 			CURLOPT_URL => 'https://closure-compiler.appspot.com/compile',
 			CURLOPT_POST => TRUE,
+			CURLOPT_CONNECTTIMEOUT => 5,
+			CURLOPT_RETURNTRANSFER => TRUE,
 			CURLOPT_POSTFIELDS => http_build_query([
 				'language' => 'ECMASCRIPT5',
 				'output_info' => 'compiled_code',
@@ -57,13 +59,21 @@ class Controller_Javascript extends CachedController
 			]),
 		));
 
-		// Execute and output
-		if(curl_exec($c) === FALSE)
-			http_response_code(500) and exit("// ERROR: ".curl_error($c));
+		$resp = curl_exec($c);
+		$info = curl_getinfo($c);
 
-		// Response is empty if compression fails; default to source
-		if(curl_getinfo($c, CURLINFO_CONTENT_LENGTH_DOWNLOAD ) <= 1)
+		if($resp === FALSE
+			|| $info['http_code'] != 200 
+			|| $info['download_content_length'] <= 1)
+		{
+			http_response_code(500);
+			echo "// ERROR: ".curl_error($c)."\r\n";
 			echo $js;
+		}
+		else
+		{
+			echo $resp;
+		}
 
 		curl_close($c);
 	}
