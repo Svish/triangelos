@@ -42,6 +42,12 @@ Music/Store
 	- http://minicartjs.com?
 - IPN/PDT?
 - Lyrics for tracks?
+- Add release date/month
+	- Din stemme: 1994-06-24
+	- Av nåde: 1996-02
+	- Dråper av live: 1999-03
+	- Kommer du ei snart?: 2012-06-03
+	- Seventh Day: 2015-07-01
 
 
 
