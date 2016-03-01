@@ -11,13 +11,6 @@ class Model_Music extends Model
 
 
 
-	public function listing()
-	{
-		return $this->albums();
-	}
-
-
-
 	public function latest()
 	{
 		$count = 2;

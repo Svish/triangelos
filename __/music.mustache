@@ -1,15 +1,13 @@
 {{% BLOCKS }}
 {{< layout }}
-{{$ title }}{{#_}}Music{{/_}}{{/ title }}
+{{$ TITLE }}{{#_}}Music{{/_}}{{/ TITLE }}
+{{$ title }}{{#_}}Music{{/_}}<a href="javascript:void(0)" class="has-details right" data-details="help">{{#svg}}help{{/svg}}</a>{{/ title }}
+
 {{$ content}}
-
-
-{{{markdown}}}
-
 
 <p><b>// TODO: Buy buttons</b>
 
-{{#music.listing}}
+{{#music.albums}}
 <hr>
 <article class="album">
 	<h1><a href="music/{{url}}">{{album}}</a>
@@ -26,9 +24,19 @@
 		</a>
 	</p>
 </article>
-{{/music.listing}}
+{{/music.albums}}
 
 {{>jplayer}}
+
+
+
+<div class="details" data-details="help">
+	<article>
+		<h1>{{#_}}Music{{/_}}</h1>
+		{{{markdown}}}
+		{{>close-link}}
+	</article>
+</div>
 
 
 {{/ content}}

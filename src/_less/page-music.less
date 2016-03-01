@@ -3,45 +3,43 @@
 
 body.music #content
 {
-	
-}
-
-.tracks
-{
-	li
+	.tracks
 	{
-		border-bottom: 1px dotted darken(@background-color, 15%);
-		&:last-child
+		li
 		{
-			border-bottom: none;
-		}
+			border-bottom: 1px dotted darken(@background-color, 15%);
+			&:last-child
+			{
+				border-bottom: none;
+			}
 
-		.time
-		{
-			float: right;
-		}
-		a
-		{
-			color: inherit;
-			display: block;
-		}
-		.time,a
-		{
-			padding: .1em .5em;
-		}
-		a:hover,
-		a:active
-		{
-			background: darken(@background-color, 5%);
-		}
+			.time
+			{
+				float: right;
+			}
+			a
+			{
+				color: inherit;
+				display: block;
+			}
+			.time,a
+			{
+				padding: .1em .5em;
+			}
+			a:hover,
+			a:active
+			{
+				background: darken(@background-color, 5%);
+			}
 
-		&.playing a::before
-		{
-			content: url(icon/pause.svg);
-			display: inline-block;
-			height: .8em;
-			width: .8em;
-			margin-right: .6em;
+			&.playing a::before
+			{
+				content: url(icon/pause.svg);
+				display: inline-block;
+				height: .8em;
+				width: .8em;
+				margin-right: .6em;
+			}
 		}
 	}
 }
