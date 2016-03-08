@@ -13,7 +13,7 @@ class Controller_Thumbnail extends CachedController
 		[700,700], // Choir: Large image
 		[ 75, 75], // Music: Listing, cover
 		[400,500], // Music: Album, cover and inlay
-		[100,100], // Index: Album cover
+		[120,250], // Index: Album cover
 		[960,960], // Header
 		];
 	private $file;
@@ -49,7 +49,7 @@ class Controller_Thumbnail extends CachedController
 
 		$i = new PHPImage($this->file);
 		$i->resize((int)$w, (int)$h, false, true);
-		$i->setOutput('jpg', 80);
+		$i->setOutput('jpg', 90);
 		$i->show();
 	}
 
