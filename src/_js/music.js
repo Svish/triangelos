@@ -1,5 +1,5 @@
 /**
- * Handles navigation, TOC creation and soft scrolling.
+ * Handles music playing.
  */
 var Music = {
 

@@ -8,6 +8,8 @@ return [
 	'Sermon' => 'Gudstjeneste',
 	'Concert' => 'Konsert',
 	'Participating' => 'Deltar',
+
+	'More information…' => 'Mer informasjon…',
 	
 	'Source code' => 'Kildekode',
 	'Web developer' => 'Webutvikler',

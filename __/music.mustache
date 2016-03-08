@@ -10,8 +10,19 @@
 {{^isFirst}}<hr>{{/isFirst}}
 
 <article class="album">
-	<h2 class="title"><a href="music/{{url}}"><img class="frame" alt="{{#_}}Album cover{{/_}}" src="t/75x75/{{cover}}"> {{album}} <span>{{year}}</span></a></h2>
+	<h2 class="title">
+		<a href="music/{{url}}" title="{{#_}}More information…{{/_}}">
+			<img class="frame" alt="{{#_}}Album cover{{/_}}" src="t/120x250/{{cover}}">
+			{{album}}
+			<span>{{year}}</span>
+		</a>
+	</h2>
+
 	{{> album-tracks}}
+
+	<p>
+		<a href="music/{{url}}">{{#_}}More information…{{/_}}</a>
+	</p>
 </article>
 {{/music.listing}}
 

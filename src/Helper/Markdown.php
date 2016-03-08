@@ -6,7 +6,6 @@
 class Helper_Markdown
 {
 	const EXT = '.md';
-	const DIR = DOCROOT.'_'.DIRECTORY_SEPARATOR;
 
 
 	private $url;
@@ -21,6 +20,9 @@ class Helper_Markdown
 	 */
 	public function __invoke($name = null, Mustache_LambdaHelper $render = null)
 	{
+		if($render)
+			$name = $render($name);
+
 		foreach($this->alternatives($name ?: $this->url) as $file)
 		{
 			if( ! file_exists($file))
@@ -28,7 +30,7 @@ class Helper_Markdown
 
 			$md = File::get($file);
 			$md = Markdown::render($md);
-			return $render ? $render($md) : $md;
+			return $md;
 		}
 	}
 
@@ -38,11 +40,13 @@ class Helper_Markdown
 	 */
 	protected function alternatives($name)
 	{
-	 	// a/b/c, b/c, c
-		foreach(Util::sub_paths($name, true) as $x)
-		{
-			yield CONTENT.$x.self::EXT;
-			yield CONTENT.'../'.$x.self::EXT;
-		}
+		// Try as is
+		yield CONTENT.$name.self::EXT;
+		yield CONTENT.'../'.$name.self::EXT;
+
+		// Try with extension removed
+		$name = substr($name, 0, strrpos($name, '.'));
+		yield CONTENT.$name.self::EXT;
+		yield CONTENT.'../'.$name.self::EXT;
 	}
 }

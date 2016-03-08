@@ -4,10 +4,13 @@
 {{$ title }}{{album.album}} <span>{{album.year}}</span>{{>webshop-help-button}}{{/ title }}
 {{$ content}}
 
-{{{markdown}}}
+
 
 {{#album}}
-	{{> album-tracks}}
+	
+	{{#markdown}}{{url}}{{/markdown}}
+
+	{{>album-tracks}}
 
 	<p class="covers">
 		<img class="frame" alt="{{#_}}Album cover{{/_}}" src="t/400x500/{{cover}}">
@@ -15,9 +18,12 @@
 	</p>
 {{/album}}
 
+
 {{>jplayer}}
 
 {{>webshop-help}}
+
+
 
 {{/ content}}
 {{/ layout }}

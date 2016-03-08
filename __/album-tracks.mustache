@@ -1,6 +1,7 @@
 
 <ol class="tracks">
 	{{#tracks}}
-	<li><span class="time">{{time}}</span> <a href="stream/{{url}}" type="{{mime}}">{{title}}</a>
+	<li><span class="time">{{time}}</span> <a class="title" href="stream/{{url}}" type="{{mime}}">{{title}}</a>
+		<div class="summary">{{#markdown}}{{url}}{{/markdown}}</div>
 	{{/tracks}}
 </ol>

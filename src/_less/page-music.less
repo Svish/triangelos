@@ -10,41 +10,34 @@ body.music #content
 {
 	.album
 	{
-		position:relative;
-
-		.title
+		.frame
 		{
-			img
-			{
-				width: 2em;
-				margin-right: .65em;
-				float: left;
-			}
+			float: right;
+			width: 2em;
+			margin-left: .35em;
+			border: none;
 		}
 	}
 
 	.tracks
 	{
+		li+li
+		{
+			border-top: 1px dotted darken(@background-color, 25%);
+		}
 		li
 		{
-			border-bottom: 1px dotted darken(@background-color, 15%);
-			&:last-child
-			{
-				border-bottom: none;
-			}
+			padding: .2em 0;
+			//margin: .2em 0;
 
 			.time
 			{
 				float: right;
 			}
-			a
+			.title
 			{
 				color: inherit;
 				display: block;
-			}
-			.time,a
-			{
-				padding: .1em .5em;
 			}
 			a:hover,
 			a:active
@@ -59,6 +52,15 @@ body.music #content
 				height: .8em;
 				width: .8em;
 				margin-right: .6em;
+			}
+			.summary
+			{
+				font-size: small;
+				opacity: .6;
+				p
+				{
+					margin: 0;
+				}
 			}
 		}
 	}
