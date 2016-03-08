@@ -6,7 +6,7 @@
  */
 class Model_Members extends Model
 {
-	const DIR = 'members';
+	const DIR = 'members/';
 	const PATH = parent::DIR.self::DIR.DIRECTORY_SEPARATOR;
 
 
@@ -40,7 +40,7 @@ class Model_Members extends Model
 	 */
 	public function all()
 	{
-		$cache = new Cache(__CLASS__);
+		$cache = new Cache(__CLASS__, ENV == 'dev' ? 0 : 3600);
 		return $cache->get(__METHOD__, function()
 			{
 				$x = iterator_to_array($this->_all());
@@ -62,7 +62,8 @@ class Model_Members extends Model
 
 			$data = json_decode(File::get($file));
 			$data->id = $filename;
-			$data->img = empty($img) ? 'none' : self::DIR.'/'.pathinfo($img[0], PATHINFO_BASENAME);
+			$data->url = self::DIR.$filename;
+			$data->img = empty($img) ? 'none' : self::DIR.pathinfo($img[0], PATHINFO_BASENAME);
 
 			yield $data->id => $data;
 		}
