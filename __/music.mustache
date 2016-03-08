@@ -1,13 +1,16 @@
 {{% BLOCKS }}
 {{< layout }}
 {{$ TITLE }}{{#_}}Music{{/_}}{{/ TITLE }}
-{{$ title }}{{#_}}Music{{/_}}{{>webshop-help-button}}{{/ title }}
-
+{{$ title }}{{#_}}Music{{/_}}{{>webshop-cart-button}}{{/ title }}
 {{$ content}}
+
+
+{{{md}}}
+
 
 {{#music.listing}}
 
-{{^isFirst}}<hr>{{/isFirst}}
+<hr>
 
 <article class="album">
 	<h2 class="title">
@@ -15,22 +18,22 @@
 			<img class="frame" alt="{{#_}}Album cover{{/_}}" src="t/120x250/{{cover}}">
 			{{album}}
 			<span>{{year}}</span>
+			<br>
 		</a>
 	</h2>
 
-	{{> album-tracks}}
+	{{>album-tracks}}
 
-	<p>
-		<a href="music/{{url}}">{{#_}}More information…{{/_}}</a>
+	<p class="right">
+		{{>webshop-buttons}}
 	</p>
+
 </article>
+
 {{/music.listing}}
 
+
 {{>jplayer}}
-
-
-
-{{>webshop-help}}
 
 
 {{/ content}}

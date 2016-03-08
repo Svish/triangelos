@@ -1,7 +1,7 @@
 {{% BLOCKS }}
 {{< layout }}
 {{$ TITLE }}{{album.album}}{{/ TITLE }}
-{{$ title }}{{album.album}} <span>{{album.year}}</span>{{>webshop-help-button}}{{/ title }}
+{{$ title }}{{album.album}} <span>{{album.year}}</span>{{>webshop-cart-button}}{{/ title }}
 {{$ content}}
 
 
@@ -10,12 +10,15 @@
 	
 	{{#md}}{{url}}{{/md}}
 
+	<p>
+		{{>webshop-buttons}}
+	</p>
+
+	<h2>{{#_}}Songs{{/_}}</h2>
 	{{>album-tracks}}
 
-	<p class="covers">
-		<img class="frame" alt="{{#_}}Album cover{{/_}}" src="t/400x500/{{cover}}">
-		<img class="frame" alt="{{#_}}Album inlay{{/_}}" src="t/400x500/{{inlay}}">
-	</p>
+	<h2>{{#_}}Cover{{/_}}</h2>
+	<p class="covers"><img class="frame" alt="{{#_}}Album cover{{/_}}" src="t/400x500/{{cover}}"><img class="frame" alt="{{#_}}Album inlay{{/_}}" src="t/400x500/{{inlay}}"></p>
 {{/album}}
 
 

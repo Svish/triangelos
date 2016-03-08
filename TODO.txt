@@ -1,4 +1,7 @@
 
+- (!) Social buttons on front page
+
+- Lang code rather than flag?
 
 Calendar
 ===
@@ -6,6 +9,12 @@ Calendar
 - Description with songs we're going to sing, only for logged in users?
 - https://www.addevent.com ?
 - {{time | date.format?}}
+
+
+Members
+===
+
+- Member detail pop-up into own page, fetch through ajax?
 
 
 Member area (for logged in members)
@@ -32,6 +41,8 @@ Admin section
 - Config editor
 - Member admin
 
+- YAML?
+
 
 
 Music/Store
@@ -56,7 +67,3 @@ Other/Bugs
 - (!) Cache Controller_Page
 	- Use lmod of cached newest content file for valid check?
 	- (!) Add relevant COOKIE/GET to etag
-- Get stuff through JSON?
-	- Member page?
-	- Calendar details?
-

@@ -2,6 +2,8 @@
 
 return [
 
+	'Add to cart' => 'Legg i handlekurv',
+
 	'Choir practice' => 'Korøvelse',
 	'On-the-road' => 'Langtur',
 	'Warmup' => 'Oppvarming',
@@ -9,8 +11,10 @@ return [
 	'Concert' => 'Konsert',
 	'Participating' => 'Deltar',
 
-	'More information…' => 'Mer informasjon…',
-	
+	'More information' => 'Mer informasjon',
+	'Sheet music' => 'Notehefte',
+	'Show PayPal cart' => 'Vis PayPal handlekurv',
+
 	'Source code' => 'Kildekode',
 	'Web developer' => 'Webutvikler',
 	'Web analytics' => 'Statistikk',
@@ -32,6 +36,7 @@ return [
 	'Login' => 'Logg inn',
 	'Home' => 'Forsiden',
 	'Webshop' => 'Nettbutikk',
+	'Songs' => 'Sanger',
 
 	'Where?' => 'Hvor?',
 

@@ -19,7 +19,15 @@ body.index #content
 		p a {color: inherit}
 		a {display:inline-block}
 		img {margin-right: .5em}
-		.text {display: inline-block; vertical-align: top}
-		.title {font-weight: bold; white-space: nowrap}
+		.text
+		{
+			display: inline-block;
+			vertical-align: top;
+			white-space: nowrap;
+			&:first-line
+			{
+				font-weight: bold;
+			}
+		}
 	}
 }

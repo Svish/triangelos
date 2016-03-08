@@ -1,15 +1,55 @@
 
 @import "jplayer";
 
-img.cover.frame
+
+body.music #content
 {
-	border: none;
+	a.button
+	{
+		text-align: center;
+		white-space: nowrap;
+		padding: .25em .25em;
+
+		.text
+		{
+			display: inline-block;
+			vertical-align: top;
+			text-align: left;
+			font-size: small;
+			&:first-line
+			{
+				font-size: medium;
+			}
+		}
+	}
+
+	a.button.webshop svg
+	{
+		width: 3em;
+		height: 3em;
+	}
 }
+
 
 body.music #content
 {
 	.album
 	{
+		.title
+		{
+			margin-bottom: 0;
+			a
+			{
+				display: block;
+			}
+		}
+		.more
+		{
+			display: block;
+			color: inherit;
+			margin-top: -.5em;
+			font-size: .7em;
+		}
 		.frame
 		{
 			float: right;
@@ -66,6 +106,7 @@ body.music #content
 	}
 }
 
+
 body.album #content
 {
 	.covers
@@ -73,10 +114,25 @@ body.album #content
 		img
 		{
 			width: 49%;
+			vertical-align: top;
 		}
 		img:last-child
 		{
 			float: right;
+		}
+	}
+}
+
+
+@media only screen and (max-width : 400px)
+{
+	body.album #content .covers
+	{
+		text-align: center;
+		img
+		{
+			width: 100%;
+			float: none !important;
 		}
 	}
 }

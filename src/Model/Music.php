@@ -13,12 +13,7 @@ class Model_Music extends Model
 
 	public function listing()
 	{
-		$n = 1;
-		foreach($this->albums() as $album)
-		{
-			$album->isFirst = $n-- > 0;
-			yield $album;
-		}
+		return $this->albums();
 	}
 
 
@@ -55,7 +50,8 @@ class Model_Music extends Model
 
 	public function albums()
 	{
-		$cache = new Cache(__CLASS__, 4*3600); // 4 hour cache
+		$ttl = ENV == 'dev' ? 0 : 4*3600; // 4 hour cache
+		$cache = new Cache(__CLASS__, $ttl); 
 		return $cache->get(__METHOD__, function()
 			{
 				$x = iterator_to_array($this->_albums());
@@ -68,6 +64,8 @@ class Model_Music extends Model
 	}
 	private function _albums()
 	{
+		$webshop = Model::get('webshop');
+
 		$getID3 = new getID3;
 		$albums = new RecursiveDirectoryIterator(self::ROOT, FilesystemIterator::SKIP_DOTS);
 		while($albums->valid())
@@ -94,6 +92,7 @@ class Model_Music extends Model
 								'album' => $id3['comments']['album'][0],
 								'artist' => $id3['comments']['artist'][0],
 								'url' => self::url($tracks->getSubPath()),
+								'items' => $webshop->items($id3['comments']['year'][0]),
 								];
 
 						$album['tracks'][] = (object) [
