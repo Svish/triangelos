@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Markdown importer for Mustache templates.
+ * Markdown helper for Mustache templates.
  */
-class Helper_Markdown
+class Helper_Md
 {
 	const EXT = '.md';
 
