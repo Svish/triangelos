@@ -18,20 +18,28 @@ class I18N
 	protected static $current;
 	protected static $strings;
 	
+	protected static $rkey;
+	protected static $rval;
 
-	public static function translate($string)
+
+	public static function translate($text)
 	{
 		if( ! self::$config)
 			throw new Exception(__METHOD__.' called before init');
 		
-		$keys = explode('/', $string);
+		// General string
+		if(strpos($text, '/') === false)
+			return str_replace(self::$rkey, self::$rval, $text);
+
+		// Path to something specific
+		$keys = explode('/', $text);
 		$strings = &self::$strings;
 
 		while ($key = array_shift($keys))
 		{
 			$key = trim($key);
 			if( ! array_key_exists($key, $strings))
-				return $string;
+				return $text;
 			$strings = &$strings[$key];
 		}
 		return $strings;
@@ -77,5 +85,10 @@ class I18N
 		$strings = CONTENT.$lang.'.inc';
 		self::$strings = file_exists($strings) ? require $strings : [];
 		self::$strings = Util::merge(require CONTENT.'../default.inc', self::$strings);
+
+		// Get replacements
+		$replacements = array_filter(self::$strings, 'is_string');
+		self::$rkey = array_keys($replacements);
+		self::$rval = array_values($replacements);
 	}
 }

@@ -49,7 +49,7 @@ class Util
 	}
 
 	/**
-	 * Returns an array containing only the blaclisted keys.
+	 * Returns an array containing none of the blaclisted keys.
 	 */
 	public static function array_blacklist(array $array, array $blacklist)
 	{
