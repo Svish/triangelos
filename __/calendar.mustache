@@ -41,6 +41,7 @@
 					{{#start_time}}<time datetime="{{start_w3c}}">{{start_time | timeTrim}}</time>{{/start_time}}
 					<div class="summary">{{summary|_}}</div>
 				</div>
+				{{^continued}}
 				<div class="details" data-details="{{id}}">
 					<article>
 						<h1>{{summary|_}}{{>close-link}}</h1>
@@ -50,13 +51,15 @@
 							<time datetime="{{end_w3c}}"> – {{end_date|_}} {{end_time}}</time>
 							{{/end_w3c}}
 						</p>
-						{{{description}}}
 
 						{{#location}}
 							<address>{{{location}}}</address>
 						{{/location}}
+						
+						{{{description}}}
 					</article>
 				</div>
+				{{/continued}}
 
 				{{/events}}</td>
 			{{/day}}
