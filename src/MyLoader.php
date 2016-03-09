@@ -41,10 +41,10 @@ class MyLoader implements Mustache_Loader
 	 */
 	protected function alternatives($name)
 	{
-	 	// a/b/c, b/c, c
-		foreach(Util::sub_paths($name, true) as $x)
-	 		// a/b/c, a/b, a
-			foreach(Util::sub_paths($x) as $y)
+	 	// a/b/c, a/b, a
+		foreach(Util::sub_paths($name) as $x)
+	 		// a/b/c, b/c, c
+			foreach(Util::sub_paths($x, true) as $y)
 			{
 				yield CONTENT.$y.self::EXT;
 				yield CONTENT.'../'.$y.self::EXT;
