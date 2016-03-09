@@ -1,4 +1,14 @@
 
+.no-select()
+{
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* IE/Edge */
+	user-select: none;
+}
+
 .transition(@property: all, @duration: 500ms, @timing: ease-out, @delay: 0s)
 {
 	-webkit-transition: @arguments;

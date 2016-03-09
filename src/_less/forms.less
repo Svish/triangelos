@@ -39,21 +39,27 @@ textarea.error
 
 
 // Buttons
-button, .button
+button, a.button
 {
 	padding: .25em 1em;
 	font-size: .9em;
 	background: fade(@accent-color, 10%);
-	border: 1px solid rgba(0,0,0,.25);
+	color: inherit;
+	border: 1px outset rgba(0,0,0,.25);
+
+	&:hover,
+	&:active
+	{
+		background: fade(@accent-color, 20%);
+		border: 1px outset rgba(0,0,0,.35);
+		color: inherit;
+	}
 }
-.button
+a.button
 {
 	display: inline-block;	
 	line-height: 1em;
-}
-button:hover
-{
-	background: fade(@accent-color, 20%);
+	.no-select();
 }
 
 
