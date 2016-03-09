@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Serve thumbnails of images.
+ * Generates images for PayPal pages.
  */
 class Controller_PayPalImage extends CachedController
 {
