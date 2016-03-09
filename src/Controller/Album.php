@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Serve audio files.
+ * Page for single album.
  */
 class Controller_Album extends Controller_Page
 {

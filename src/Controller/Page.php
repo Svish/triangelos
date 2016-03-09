@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Pages.
+ * Handles normal pages.
  */
 class Controller_Page extends Controller
 {

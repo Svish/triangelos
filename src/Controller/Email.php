@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Pages.
+ * Handles sending of contact emails.
  */
 class Controller_Email extends Controller_Page
 {
@@ -28,8 +28,7 @@ class Controller_Email extends Controller_Page
 			HTTP::set_status(400);
 			return $this->get($url, ['errors' => array_map('array_values', $result)]);
 		}
-			
-
+		
 		extract($_POST, EXTR_SKIP);
 
 		// Create the message

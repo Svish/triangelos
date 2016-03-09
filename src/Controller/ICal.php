@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Calendar serving.
+ * Raw ICal Calendar serving.
  */
 class Controller_ICal extends Controller
 {
