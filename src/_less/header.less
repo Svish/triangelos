@@ -6,7 +6,9 @@
 
 	background: fadeout(@accent-color, 90%);
 	border-bottom: 1px solid black;
-	.box-shadow(0, 0, 15px, #000);
+	.box-shadow(0, 0, 15px, black);
+
+	color: black;
 
 	h1
 	{
@@ -46,13 +48,12 @@
 				&:hover,
 				&:active
 				{
-					color: @text-color;
 					background: fadeout(@accent-color, 88%);
 				}
 				&.current
 				{
-					color: @text-color;
 					border-bottom: 2px solid @accent-color;
+					.inset-shadow(0, 0, 7px, fade(@accent-color, 40%));
 				}
 			}
 		}
