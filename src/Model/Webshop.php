@@ -12,34 +12,34 @@ class Model_Webshop extends Model
 
 	public function __construct()
 	{
-		$config = require CONFIG.'.webshop.inc';
+		$this->config = require CONFIG.'.webshop.inc';
 
-		// Localize currency code
-		self::localize($config->add['currency_code']);
+		// Localize currency_code
+		self::localize($this->config->add['currency_code']);
 
-		foreach($config->items as &$items)
+		// Go through each item
+		foreach($this->config->items as &$items)
 			foreach($items as &$item)
 			{
 				// Localize item name and amount
 				$item['item_name'] = __($item['item_name']);
 				self::localize($item['amount']);
 
-				// Merge with defaults for cart add item
-				$item += $config->add;
+				// Merge with defaults
+				$item += $this->config->add + $this->config->all;
 				
 				// Create PayPal URL
 				$params = Util::array_blacklist($item, ['type']);
-				$item['url'] = $config->api.'?'.http_build_query($params, null, '&', PHP_QUERY_RFC3986);
+				$item['url'] = $this->build_url($params);
 			}
 
-		$this->config = $config;
 	}
 
 
 	public function display_cart_url()
 	{
-		$params = $this->config->display;
-		return $this->config->api.'?'.http_build_query($params, null, '&', PHP_QUERY_RFC3986);
+		$params = $this->config->display + $this->config->all;
+		return $this->build_url($params);
 	}
 
 
@@ -48,6 +48,14 @@ class Model_Webshop extends Model
 		return isset($this->config->items[$album])
 			? $this->config->items[$album]
 			: [];
+	}
+
+
+	private function build_url(array $params)
+	{
+		return $this->config->url
+			. '?'
+			. http_build_query($params, null, '&', PHP_QUERY_RFC3986);
 	}
 
 

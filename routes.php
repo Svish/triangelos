@@ -8,6 +8,7 @@ return [
 	
 	// Media
 	'/t/:number:x:number:/:any:' => 'Controller_Thumbnail',
+	'/_/paypal/:alpha:' => 'Controller_PayPalImage',
 	'/stream/:any:' => 'Controller_Stream',
 
 	// Special Pages
