@@ -8,8 +8,11 @@ return [
 	
 	// Media
 	'/t/:number:x:number:/:any:' => 'Controller_Thumbnail',
-	'/_/paypal/:alpha:' => 'Controller_PayPalImage',
 	'/stream/:any:' => 'Controller_Stream',
+
+	// PayPal
+	'/_/paypal/:alpha:' => 'Controller_PayPalImage',
+	'/music/(return)' => 'Controller_PayPalReturn',
 
 	// Special Pages
 	'/(contact/email)' => 'Controller_Email',

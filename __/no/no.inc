@@ -14,6 +14,7 @@ return [
 	'More information' => 'Mer informasjon',
 	'Sheet music' => 'Notehefte',
 	'Show PayPal cart' => 'Vis PayPal handlekurv',
+	'Thank you!' => 'Takk!',
 
 	'Source code' => 'Kildekode',
 	'Web developer' => 'Webutvikler',
