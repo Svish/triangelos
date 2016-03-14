@@ -2,6 +2,13 @@
 	<nav>
 		<span>Copyright © <a href="{{url}}">Triangelos</a></span>
 		<span>| <a href="about">{{#_}}About the site{{/_}}</a></span>
+		{{^user}}
+		<span>| <a href="login">{{#_}}Login{{/_}}</a></span>
+		{{/user}}
+		{{#user}}
+		<span>| <a href="logout">{{#_}}Logout{{/_}}</a></span>
+		{{/user}}
+
 	</nav>
 </footer>
 

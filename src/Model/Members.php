@@ -26,12 +26,12 @@ class Model_Members extends Model
 	/**
 	 * Find single member.
 	 */
-	public function find($id)
+	public function find($id, $by = 'email')
 	{
-		$p = is_numeric($id) ? 'id' : 'email';
-		foreach ($this->all as $user)
-			if($user->$p == $id)
+		foreach ($this->all() as $user)
+			if($user->$by == $id)
 				return $user;
+		return false;
 	}
 
 
@@ -61,12 +61,12 @@ class Model_Members extends Model
 
 			$img = glob("$dirname/$filename.{jpg,jpeg,png,gif}", GLOB_BRACE);
 
-			$data = json_decode(File::get($file));
-			$data->id = $filename;
-			$data->url = self::DIR.$filename;
-			$data->img = empty($img) ? 'none' : self::DIR.pathinfo($img[0], PATHINFO_BASENAME);
+			$data = json_decode(File::get($file), true);
+			$data['id'] = $filename;
+			$data['url'] = self::DIR.$filename;
+			$data['img'] = empty($img) ? 'none' : self::DIR.pathinfo($img[0], PATHINFO_BASENAME);
 
-			yield $data->id => $data;
+			yield new Data_Member($data, $file);
 		}
 	}
 }

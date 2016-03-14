@@ -16,11 +16,12 @@ return [
 
 	// Special Pages
 	'/(contact/email)' => 'Controller_Email',
+	'/(login|logout)' => 'Controller_Login',
 	'/music/(album/:number:)' => 'Controller_Album',
 	'/calendar\.ics' => 'Controller_ICal',
 
 	// Admin pages
-	'/(admin/:any:)' => 'Controller_Admin',
+	'/(admin(?:/.+)?)' => 'Controller_Admin',
 
 	// General Pages
 	0 => 'Controller_Page',

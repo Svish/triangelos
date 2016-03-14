@@ -25,6 +25,14 @@ class Valid extends I18N
 	}
 
 
+	public static function keys_exist(array $array, array $keys)
+	{
+		foreach($keys as $key)
+			if( ! array_key_exists($key, $array))
+				return false;
+		return true;
+	}
+
 
 	public static function not_empty($value)
 	{

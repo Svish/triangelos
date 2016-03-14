@@ -115,6 +115,16 @@ class Cache
 
 
 	/**
+	 * Delete the cache for this $id.
+	 */
+	public function clear()
+	{
+		File::rdelete($this->dir);
+	}
+
+
+
+	/**
 	 * Delete the whole cache.
 	 */
 	public static function clear_all()

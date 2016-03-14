@@ -3,15 +3,15 @@
 /**
  * Handles normal pages.
  */
-class Controller_Page extends Controller
+class Controller_Page extends SessionController
 {
 	private $ctx;
 	private $path;
 
 	public function before(array &$info)
 	{
-		$this->path = trim($info['path'], '/') ?: 'index';
 		parent::before($info);
+		$this->path = trim($info['path'], '/') ?: 'index';
 	}
 
 
@@ -21,10 +21,16 @@ class Controller_Page extends Controller
 		$this->ctx = $context + [
 			'this' => $this->path,
 			'class' => str_replace('/', ' ', $this->path),
+
+			'user' => Model::get('user')->logged_in(),
+			
 			'css' => Controller_Less::config()->global,
 			'js' => Controller_Javascript::config()->global,
+			
 			'isProd' => ENV == 'prod',
+			
 			'_' => new Helper_I18N,
+			
 			'_get' => $_GET,
 			'_post' => $_POST,
 		];

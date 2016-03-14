@@ -8,10 +8,17 @@
  */
 class Session
 {
+	const ID = 'session';
+
+	public static function start()
+	{
+		session_name(self::ID);
+		session_start();
+	}
 
 	public static function destroy()
 	{
-		session_start();
+		self::start();
 		$_SESSION = array();
 		
 		if(ini_get("session.use_cookies"))

@@ -34,9 +34,11 @@ return [
 	'Music' => 'Musikk',
 	'Welcome' => 'Velkommen',
 	'Login' => 'Logg inn',
+	'Logout' => 'Logg ut',
 	'Home' => 'Forsiden',
 	'Webshop' => 'Nettbutikk',
 	'Songs' => 'Sanger',
+
 
 	'Where?' => 'Hvor?',
 
@@ -83,6 +85,7 @@ return [
 	],
 
 	'error' => [
+		'invalid_login' => 'Ugyldig login',
 		'email_fail' => 'Kunne ikke sende eposten. Sjekk at du at du har fyllt ut skjemaet riktig.',
 
 		'not_empty' => 'Kan ikke være tomt',

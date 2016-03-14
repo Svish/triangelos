@@ -18,6 +18,7 @@ return [
 	],
 	
 	'error' => [
+		'invalid_login' => 'Invalid login',
 		'email_fail' => 'Failed to send email. Please check your input.',
 		
 		'not_empty' => 'Cannot be empty',
