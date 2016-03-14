@@ -34,6 +34,9 @@ class File
 
 	public static function put($filename, $contents)
 	{
+		if(empty($filename))
+			throw new Exception('Empty filename');
+
 		self::check(dirname($filename));
 
 		$fp = fopen($filename, 'c');
