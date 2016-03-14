@@ -1,33 +1,34 @@
 {{% BLOCKS }}
 {{< layout }}
-{{$ TITLE }}{{#_}}Members{{/_}} | {{title}}{{/ TITLE }}
-{{$ title }}{{#_}}Members{{/_}} <span>{{title}}</span>{{/ title }}
+{{$ TITLE }}Members | {{title}}{{/ TITLE }}
+{{$ title }}Members <span>{{title}}</span>{{/ title }}
 
 {{$ content}}
+
+
 
 <table>
 	<thead>
 		<tr>
-			<th>Name
-			<th>Role
-			<th>Email
-			<th>Phone
+			<th>Name</th>
+			<th>Role</th>
+			<th>Email (<a href="mailto: {{#members.all}}{{email}},{{/members.all}}">all</a>)</th>
+			<th>Phone</th>
 		</tr>
 	</thead>
 	<tbody class="striped">
 	{{#members.all}}
 		<tr>
-			<td data-key="Name">{{first | ucfirst}} {{last | ucfirst}}
-			<td data-key="Role">{{role | ucfirst | _ }}
-			<td data-key="Email"><a href="mailto:{{email | strtolower}}">{{email | strtolower}}</a>
-			<td data-key="Phone"><a href="tel:{{phone}}">{{phone}}</a>
+			<td data-key="Name">{{first | ucfirst}} {{last | ucfirst}}</td>
+			<td data-key="Role">{{role | ucfirst | _ }}</td>
+			<td data-key="Email"><a href="mailto:{{email | strtolower}}">{{email | strtolower}}</a></td>
+			<td data-key="Phone"><a href="tel:{{phone}}">{{phone}}</a></td>
 		</tr>
 	{{/members.all}}
 	</tbody>
 </table>
 
-<p>Email: <a href="mailto: {{#members.all}}{{email}},{{/members.all}}">All</p>
+
 
 {{/ content}}
-
 {{/ layout }}
