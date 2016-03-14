@@ -7,7 +7,10 @@ define('WEBROOT', 'http://'.$_SERVER['HTTP_HOST'].WEBBASE);
 
 // Environment
 define('ENV', $_SERVER['ENV']);
+
+// Directories
 define('CONFIG', DOCROOT.'config'.DIRECTORY_SEPARATOR);
+define('CACHE', DOCROOT.'.cache'.DIRECTORY_SEPARATOR);
 
 // Language, Encoding and Locales
 mb_internal_encoding("UTF-8");

@@ -11,7 +11,7 @@ class Helper_Embed
 
 	public function __construct()
 	{
-		$this->cache = new Cache(__CLASS__, 14400);
+		$this->cache = new Cache(__CLASS__, self::TTL);
 	}
 
 	public function __invoke($url)

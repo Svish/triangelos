@@ -73,7 +73,6 @@ class I18N
 		define('LANG', $lang);
 		define('LOCALE', $locale);
 		define('HOST', $host);
-		define('CACHE', DOCROOT.'.cache'.DIRECTORY_SEPARATOR.$lang.DIRECTORY_SEPARATOR);
 		define('CONTENT', DOCROOT.'__'.DIRECTORY_SEPARATOR.$lang.DIRECTORY_SEPARATOR);
 
 		$locales = array_map('trim', explode(',', $locales.','));

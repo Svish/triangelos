@@ -12,7 +12,7 @@ class Model_Members extends Model
 
 
 	/**
-	 * Members
+	 * For members page
 	 */
 	public function listing()
 	{
@@ -22,8 +22,9 @@ class Model_Members extends Model
 	}
 
 
+
 	/**
-	 * Single member
+	 * Find single member.
 	 */
 	public function find($id)
 	{
@@ -36,11 +37,11 @@ class Model_Members extends Model
 
 
 	/**
-	 * All members
+	 * All members.
 	 */
 	public function all()
 	{
-		$cache = new Cache(__CLASS__, ENV == 'dev' ? 0 : 3600);
+		$cache = new Cache(__CLASS__);
 		return $cache->get(__METHOD__, function()
 			{
 				$x = iterator_to_array($this->_all());

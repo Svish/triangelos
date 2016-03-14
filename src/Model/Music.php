@@ -10,7 +10,6 @@ class Model_Music extends Model
 	const ROOT = parent::DIR.self::DIR;
 
 
-
 	public function listing()
 	{
 		return $this->albums();
@@ -50,8 +49,7 @@ class Model_Music extends Model
 
 	public function albums()
 	{
-		$ttl = ENV == 'dev' ? 0 : 4*3600; // 4 hour cache
-		$cache = new Cache(__CLASS__, $ttl); 
+		$cache = new Cache(__CLASS__);
 		return $cache->get(__METHOD__, function()
 			{
 				$x = iterator_to_array($this->_albums());

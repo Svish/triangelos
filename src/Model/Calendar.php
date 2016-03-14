@@ -137,7 +137,7 @@ class Model_Calendar extends Model
 			// Add type/category
 			$e['private'] = self::is_private($e);
 
-			// If all day, remove times
+			// If not all day, add times
 			if( ! $e['all_day']) $e += [
 				'start_time' => $e['start']->format(__('date/time')),
 				'end_time' => $e['end']->format(__('date/time')),

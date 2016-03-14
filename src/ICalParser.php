@@ -9,7 +9,7 @@
  */
 class ICalParser
 {
-	const TTL = 3600; // 1 hour / Time raw file cached
+	const TTL = 3600; // 1 hour / Raw file cache time
 
 	private $file;
 	private $components = null;

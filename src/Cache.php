@@ -12,17 +12,19 @@ class Cache
 
 
 
-	public function __construct($id, $ttl = PHP_INT_MAX)
+	public function __construct($id, $ttl = PHP_INT_MAX, $language_specific = false)
 	{
-		$this->dir = self::DIR.$id.DIRECTORY_SEPARATOR;
 		$this->ttl = isset($_GET['no-cache']) ? 0 : $ttl;
+
+		$this->dir = self::DIR.$id.DIRECTORY_SEPARATOR;
+		if($language_specific)
+			$this->dir .= LANG.DIRECTORY_SEPARATOR;
 	}
 
 
 
 	/**
 	 * Reads and unserializes data from the cache file identified by $key.
-	 * Returns $default if the cache file doesn't exist.
 	 */
 	public function get($key, $default = NULL, $set = FALSE)
 	{
@@ -48,6 +50,7 @@ class Cache
 	}
 
 
+
 	/**
 	 * Serializes and stores the $data in a cache file identified by $key.
 	 */
@@ -60,6 +63,7 @@ class Cache
 		File::put($path, serialize($data));
 		return $data;
 	}
+
 
 
 	/**
@@ -90,14 +94,19 @@ class Cache
 
 
 
+	/**
+	 * Return sanitized file path for $key.
+	 */
 	private function path($key)
 	{
-		File::check($this->dir);
 		return $this->dir.self::sanitize($key);
 	}
 
 
 
+	/**
+	 * Make the key filename-friendly.
+	 */
 	private static function sanitize($key)
 	{
 		return preg_replace('/[^.a-z0-9_-]+/i', '-', $key);
@@ -105,6 +114,9 @@ class Cache
 
 
 
+	/**
+	 * Delete the whole cache.
+	 */
 	public static function clear_all()
 	{
 		File::rdelete(self::DIR);
