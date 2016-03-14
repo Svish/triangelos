@@ -16,7 +16,7 @@ class Controller_Stream extends Controller
 		$path = $track->path;
 		$preview = substr_replace($path, '-preview', -4, 0);
 
-		Download::send(file_exists($preview) ? $preview : $path,
+		Stream::send(file_exists($preview) ? $preview : $path,
 			[
 				'filename' => $name,
 				'mime' => $track->mime,

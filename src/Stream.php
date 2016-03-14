@@ -3,7 +3,7 @@
 /**
  * Send a download to the browser.
  */
-class Download
+class Stream
 {
 	/**
 	 * Send a file to the client.
