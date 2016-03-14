@@ -13,22 +13,21 @@ body.about #content
 	.accent3 {border-color: #A9078A; background: fade(#A9078A, 75%); &:before {content: "#A9078A"} }
 
 
-	dt,dd
+	dt
 	{
-		display: inline;
+		clear: both;
 	}
 	dd
 	{
-		margin-left: 0;
+		float: left;
+		margin: 0;
 	}
 	dd+dd:before
 	{
-		content: ' / ';
+		content: ', ';
 	}
-
-	dd+dt:before
+	dt+dd
 	{
-		content: '\A';
-		white-space: pre;
+		margin-left: 2em;
 	}
 }
