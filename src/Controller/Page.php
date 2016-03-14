@@ -36,7 +36,7 @@ class Controller_Page extends Controller
 		}
 		catch(Mustache_Exception_UnknownTemplateException $e)
 		{
-			throw new HTTP_Exception("No page found for the url '$url'.", 404);
+			throw new HTTP_Exception("Page '$url' not found", 404);
 		}
 	}
 

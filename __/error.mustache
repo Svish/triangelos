@@ -1,16 +1,19 @@
 {{% BLOCKS }}
 {{< layout }}
-{{$ title }}{{status}} {{title}}{{/ title }}
+{{$ TITLE }}{{status}} {{title}}{{/ TITLE }}
+{{$ title }}{{/ title }}
 
 {{$ content}}
-	<p>{{message}}</p>
-	
+
+
+
 	{{^isProd}}
-	<hr />
 	<table>
 		{{{debug}}}
 	</table>
 	{{/isProd}}
-{{/ content}}
 
+
+
+{{/ content}}
 {{/ layout }}

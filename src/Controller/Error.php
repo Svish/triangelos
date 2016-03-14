@@ -10,10 +10,14 @@ class Controller_Error extends Controller_Page
 		if( ! $e instanceof HTTP_Exception)
 			$e = new HTTP_Exception('Internal Server Error', 500, $e);
 
+		HTTP::set_status($e->getHttpStatus());
 		$this->get('error', [
 			'status' => $e->getHttpStatus(),
 			'title' => $e->getHttpTitle(),
-			'message' => $e->getMessage(),
+			'message' => [
+				'type' => 'error',
+				'text' => $e->getMessage(),
+				],
 			'debug' => self::collect_xdebug($e),
 			]);
 	}

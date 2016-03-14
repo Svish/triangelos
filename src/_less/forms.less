@@ -30,10 +30,18 @@ textarea
 	resize: vertical;
 	min-height: 200px;
 }
+
+// Errors
 input.error,
 textarea.error
 {
-	border-color: #9E1B1B !important;
+	border-color: fadeout(red, 30%) !important;
+}
+.errors
+{
+	margin-top: -1.1rem;
+	font-size: .8em;
+	color: red;
 }
 
 
@@ -60,25 +68,6 @@ a.button
 	display: inline-block;	
 	line-height: 1em;
 	.no-select();
-}
-
-
-
-// Boxes
-.info
-{
-	padding: .5em;
-	border: 1px solid fade(#090, 40%);
-	border-radius: 5px;
-	.box-shadow(0, 0, 6px, rgba(0,0,0,.35));
-	background: fade(#090, 15%);
-}
-
-.errors
-{
-	margin-top: -1rem;
-	font-size: x-small;
-	color: #9E1B1B;
 }
 
 

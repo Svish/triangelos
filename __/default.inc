@@ -18,6 +18,8 @@ return [
 	],
 	
 	'error' => [
+		'email_fail' => 'Failed to send email. Please check your input.',
+		
 		'not_empty' => 'Cannot be empty',
 		'email' => 'Invalid email address',
 		'email_domain' => 'Invalid email domain',

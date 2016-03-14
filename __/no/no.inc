@@ -23,7 +23,6 @@ return [
 	'Subscribe to calendar' => 'Abonnér på kalender',
 	'Get our latest albums!' => 'Skaff våre siste album!',
 	'Come see us live!' => 'Kom og se oss live!',
-	'Listen to us RIGHT NOW!' => 'Lytt til oss NÅ!',
 
 	'About the site' => 'Om nettstedet',
 	'The choir' => 'Koret',
@@ -84,6 +83,8 @@ return [
 	],
 
 	'error' => [
+		'email_fail' => 'Kunne ikke sende eposten. Sjekk at du at du har fyllt ut skjemaet riktig.',
+
 		'not_empty' => 'Kan ikke være tomt',
 		'email' => 'Ugylding epost',
 		'email_domain' => 'Ugylding epostdomene',

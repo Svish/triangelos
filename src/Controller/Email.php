@@ -19,14 +19,25 @@ class Controller_Email extends Controller_Page
 	}
 
 
+	public function get($url, $context = [])
+	{
+		if(isset($_GET['sent']))
+			$context += Msg::ok('message/email-sent');
+
+		parent::get($url, $context);
+	}
+
+
 	public function post($url)
 	{
 		// Validate
 		$result = Valid::check($_POST, $this->rules);
 		if($result !== true)
 		{
-			HTTP::set_status(400);
-			return $this->get($url, ['errors' => array_map('array_values', $result)]);
+			HTTP::set_status(422);
+			return $this->get($url, ['errors' => array_map('array_values', $result)]
+				+ Msg::error('error/email_fail')
+				);
 		}
 		
 		extract($_POST, EXTR_SKIP);
@@ -51,7 +62,7 @@ class Controller_Email extends Controller_Page
 		// Send the message
 		$mailer = Swift_Mailer::newInstance($transport);
 		if($mailer->send($message))
-			HTTP::redirect($url.'?sent=true');
+			HTTP::redirect($url.'?sent');
 
 		throw new HTTP_Exception('Failed to send email', 500);
 	}
