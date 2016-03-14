@@ -9,7 +9,7 @@ class Controller_Admin extends Controller_Page
 	{
 		parent::before($info);
 
-		if( ! Model::get('user')->logged_in())
+		if( ! Model::user()->logged_in())
 			HTTP::redirect('login?url='.urlencode(ltrim($info['path'], '/')));
 	}
 

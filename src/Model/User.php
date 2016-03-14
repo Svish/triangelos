@@ -22,7 +22,7 @@ class Model_User extends Model
 		extract($_POST, EXTR_SKIP);
 
 		// Check member exists and password is valid
-		$member = Model::get('members')->find($email);
+		$member = Model::members()->get($email);
 		if( ! $member || ! $member->verify($password))
 			return false;
 
@@ -51,7 +51,7 @@ class Model_User extends Model
 		if( ! array_key_exists(self::KEY, $_SESSION))
 			return false;
 
-		return Model::get('members')->find($_SESSION[self::KEY], 'id');
+		return Model::members()->get($_SESSION[self::KEY], 'id');
 	}
 
 }

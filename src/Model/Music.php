@@ -62,7 +62,7 @@ class Model_Music extends Model
 	}
 	private function _albums()
 	{
-		$webshop = Model::get('webshop');
+		$webshop = Model::webshop();
 
 		$getID3 = new getID3;
 		$albums = new RecursiveDirectoryIterator(self::ROOT, FilesystemIterator::SKIP_DOTS);

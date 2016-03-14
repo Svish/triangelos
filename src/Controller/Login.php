@@ -10,7 +10,7 @@ class Controller_Login extends Controller_Page
 	{
 		if($url == 'logout')
 		{
-			Model::get('user')->logout();
+			Model::user()->logout();
 			HTTP::redirect();
 		}
 
@@ -20,7 +20,7 @@ class Controller_Login extends Controller_Page
 
 	public function post($url)
 	{
-		if(Model::get('user')->login($_POST))
+		if(Model::user()->login($_POST))
 			HTTP::redirect('admin');
 
 		HTTP::set_status(422);

@@ -22,7 +22,7 @@ class Controller_Page extends SessionController
 			'this' => $this->path,
 			'class' => str_replace('/', ' ', $this->path),
 
-			'user' => Model::get('user')->logged_in(),
+			'user' => Model::user()->logged_in(),
 			
 			'css' => Controller_Less::config()->global,
 			'js' => Controller_Javascript::config()->global,

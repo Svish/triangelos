@@ -14,7 +14,7 @@ Calendar
 Members
 ===
 
-- Member detail pop-up into own page, fetch through ajax?
+- (!) Member detail pop-up into own page, fetch through ajax?
 
 
 Member area (for logged in members)
@@ -48,8 +48,6 @@ Admin section
 Music/Store
 ===
 
-- PayPal buttons and cart
-	- http://minicartjs.com?
 - IPN/PDT?
 - Lyrics for tracks?
 - Add release date/month
@@ -59,6 +57,7 @@ Music/Store
 	- Kommer du ei snart?: 2012-06-03
 	- Seventh Day: 2015-07-01
 
+- http://minicartjs.com?
 
 
 Other/Bugs

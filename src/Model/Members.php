@@ -24,9 +24,9 @@ class Model_Members extends Model
 
 
 	/**
-	 * Find single member.
+	 * Get single member.
 	 */
-	public function find($id, $by = 'email')
+	public function get($id, $by = 'email')
 	{
 		foreach ($this->all() as $user)
 			if($user->$by == $id)

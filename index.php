@@ -4,6 +4,7 @@
 require 'vendor/autoload.php';
 require 'constants.inc';
 
+
 // Error handling
 error_reporting(E_ALL);
 set_exception_handler(new Controller_Error());

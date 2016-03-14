@@ -6,9 +6,6 @@
  */
 class Model_Calendar extends Model
 {
-	const DIR = 'calendar';
-	const ROOT = parent::DIR.self::DIR;
-
 	const ICAL = 'https://sharing.calendar.live.com/calendar/private/3794e2fa-c705-4523-a379-a65187312020/8e8c11c8-8d8f-40d0-bcfe-ca1478af22a0/cid-4a7c4549b6307161/calendar.ics';
 	private $ical;
 
