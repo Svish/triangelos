@@ -12,9 +12,12 @@ class Cache
 
 
 
-	public function __construct($id, $ttl = PHP_INT_MAX, $language_specific = false)
+	public function __construct($id, $ttl = false, $language_specific = false)
 	{
+		if($ttl === false)
+			$ttl = PHP_INT_MAX;
 		$this->ttl = isset($_GET['no-cache']) ? 0 : $ttl;
+
 
 		$this->dir = self::DIR.$id.DIRECTORY_SEPARATOR;
 		if($language_specific)
