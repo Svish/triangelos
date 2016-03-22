@@ -39,7 +39,7 @@ class Controller_Login extends Controller_Page
 
 
 	/**
-	 * Reset
+	 * Reset token stuff.
 	 */
 	public function reset_get($url)
 	{
@@ -50,6 +50,7 @@ class Controller_Login extends Controller_Page
 			else
 				return parent::get($url, Msg::ok('error/invalid_token'));
 		}
+
 		if(isset($_GET['sent']))
 		{
 			return parent::get($url, Msg::ok('message/reset_sent'));
