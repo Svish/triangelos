@@ -55,6 +55,7 @@ class HTTP
 		if($prepend)
 			$target = WEBROOT.$target;
 
+		Session::close();
 		header('Location: '.$target, true, $code);
 		exit;
 	}
