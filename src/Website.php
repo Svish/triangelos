@@ -70,26 +70,10 @@ class Website
 
 	protected function get_parsed_path($path)
 	{
-		// Init cache
-		$cache = new Cache(__CLASS__);
-		$cache->validate(self::CACHE_FILENAME, filemtime($this->routes_filepath));
-
-		// Get cached routes
-		$routes = $cache->get(self::CACHE_FILENAME, []);
-
-		// If exists, use cached
-		if(array_key_exists($path, $routes))
-			return $routes[$path];
-
-		// Parse cache
 		$request = $this->parse_path($path);
+		
 		if($request['handler'] === NULL)
 			throw new HTTP_Exception('No route found for '.$path, 404);
-
-		// Add to cache
-		$routes[$path] = $request;
-		ksort($routes, SORT_NATURAL);
-		$cache->set(self::CACHE_FILENAME, $routes);
 
 		return $request;
 	}
