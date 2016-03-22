@@ -28,9 +28,8 @@ class Stream
 		while (ob_get_level() > 0)
 			ob_end_clean();
 
-		// Close session if any
-		if(session_name())
-			session_write_close();
+		// Close session
+		Session::close();
 
 		// Disable time limit of script (hopefully)
 		set_time_limit(0);

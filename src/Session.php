@@ -16,6 +16,12 @@ class Session
 		session_start();
 	}
 
+	public static function close()
+	{
+		if(session_name())
+			session_write_close();
+	}
+
 	public static function destroy()
 	{
 		self::start();
