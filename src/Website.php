@@ -50,13 +50,13 @@ class Website
 	{
 		$handler = new $request['handler'];
 
-		// Default to handler::get if actual method does not exist
-		if( ! method_exists($request['handler'], $request['method']))
-			$request['method'] = 'get';
-
 		// Call handler::before
 		if( method_exists($handler, 'before'))
 			call_user_func_array([$handler, 'before'], [&$request]);
+
+		// Default to handler::get if actual method does not exist
+		if( ! method_exists($request['handler'], $request['method']))
+			$request['method'] = 'get';
 
 		// Call handler::method
 		call_user_func_array([$handler, $request['method']], $request['params']);
