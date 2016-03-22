@@ -3,9 +3,6 @@
 
 - Lang code rather than flag?
 - Messages through session instead of context?
-- Move lang to _lang
-
-- (!) Move placeholders, menu items, links into input/ menu/ etc/
 
 
 Bugs
