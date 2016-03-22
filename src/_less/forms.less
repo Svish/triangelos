@@ -31,6 +31,23 @@ textarea
 	min-height: 200px;
 }
 
+
+
+// Focused
+input,
+select,
+textarea,
+button,
+a
+{
+	&:focus
+	{
+		outline: 1px dashed rgba(0,0,0,.5);
+	}
+}
+
+
+
 // Errors
 input.error,
 textarea.error
@@ -71,6 +88,7 @@ a.button
 }
 
 
+
 // Other
 address
 {
@@ -78,6 +96,7 @@ address
 	font-style: normal;
 	margin-bottom: 1em;
 }
+
 
 
 // Responsiveness

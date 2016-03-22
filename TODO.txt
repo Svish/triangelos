@@ -2,6 +2,18 @@
 - (!) Social buttons on front page
 
 - Lang code rather than flag?
+- Messages through session instead of context?
+- Move lang to _lang
+
+- (!) Move placeholders, menu items, links into input/ menu/ etc/
+
+
+Bugs
+===
+
+- Thumbnail headers already sent...?
+	- Website route cache issues? O.o
+
 
 Calendar
 ===
@@ -15,12 +27,6 @@ Members
 ===
 
 - (!) Member detail pop-up into own page, fetch through ajax?
-
-
-Member area (for logged in members)
-===
-
-- Contact details for all members
 - Practice material
 	- Full length audio streaming for practice
 	- Access to Musescore and PDF files

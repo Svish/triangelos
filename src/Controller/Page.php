@@ -5,7 +5,7 @@
  */
 class Controller_Page extends SessionController
 {
-	private $ctx;
+	private $ctx = [];
 	private $path;
 
 	public function before(array &$info)
@@ -17,6 +17,9 @@ class Controller_Page extends SessionController
 
 	public function get($url, $context = [])
 	{
+		if( ! is_array($context))
+			$context = [];
+		
 		$url = ltrim($url, '/') ?: 'index';
 		$this->ctx = $context + [
 			'this' => $this->path,

@@ -61,10 +61,9 @@ class Model_Members extends Model
 
 			$img = glob("$dirname/$filename.{jpg,jpeg,png,gif}", GLOB_BRACE);
 
-			$data = json_decode(File::get($file), true);
+			$data['img'] = empty($img) ? 'none' : self::DIR.pathinfo($img[0], PATHINFO_BASENAME);
 			$data['id'] = $filename;
 			$data['url'] = self::DIR.$filename;
-			$data['img'] = empty($img) ? 'none' : self::DIR.pathinfo($img[0], PATHINFO_BASENAME);
 
 			yield new Data_Member($data, $file);
 		}

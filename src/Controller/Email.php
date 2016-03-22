@@ -10,19 +10,11 @@ class Controller_Email extends Controller_Page
 		'subject' => ['not_empty'],
 		'message' => ['not_empty'],
 		];
-
-	private $config;
-
-	public function __construct()
-	{
-		$this->config = parse_ini_file(CONFIG.'.contact.ini', true, INI_SCANNER_RAW);
-	}
-
-
+	
 	public function get($url, $context = [])
 	{
 		if(isset($_GET['sent']))
-			$context += Msg::ok('message/email-sent');
+			$context += Msg::ok('message/email_sent');
 
 		parent::get($url, $context);
 	}
@@ -35,35 +27,15 @@ class Controller_Email extends Controller_Page
 		if($result !== true)
 		{
 			HTTP::set_status(422);
-			return $this->get($url, ['errors' => array_map('array_values', $result)]
-				+ Msg::error('error/email_fail')
-				);
+			$context = Msg::error('error/email_fail') + ['errors' => array_map('array_values', $result)];
+			return $this->get($url, $context);
 		}
 		
-		extract($_POST, EXTR_SKIP);
-
-		// Create the message
-		$message = Swift_Message::newInstance()
-			->setFrom($from)
-			->setReplyTo($this->config['email']['address'])
-			->setTo([$this->config['email']['address'] => $this->config['email']['name']])
-			->setSubject($subject)
-			->setBody($message);
-
-
-		// Create transport
-		$transport = Swift_SmtpTransport::newInstance()
-			->setHost($this->config['email']['server'])
-			->setPort($this->config['email']['port'])
-			->setEncryption('tls')
-			->setUsername($this->config['email']['username'])
-			->setPassword($this->config['email']['password']);
-
-		// Send the message
-		$mailer = Swift_Mailer::newInstance($transport);
-		if($mailer->send($message))
+		// Send
+		$sent = Email::feedback($_POST['from'], $_POST['subject'], $_POST['message']);
+		if($sent)
 			HTTP::redirect($url.'?sent');
-
-		throw new HTTP_Exception('Failed to send email', 500);
+		else
+			throw new HTTP_Exception('Failed to send email', 500);
 	}
 }

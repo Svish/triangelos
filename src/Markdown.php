@@ -9,6 +9,8 @@ use Webuni\CommonMark\AttributesExtension\AttributesExtension;
 
 /**
  * Markdown helper.
+ *
+ * @see http://commonmark.thephpleague.com
  */
 class Markdown
 {

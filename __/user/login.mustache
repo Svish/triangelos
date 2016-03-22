@@ -6,7 +6,7 @@
 
 
 
-<form action="login" method="post">
+<form action="{{this}}" method="post">
 	
 	<p><input {{#errors.email}}class="error"{{/errors.email}} type="email" name="email" placeholder="{{#_}}Your email{{/_}}" value="{{_post.email}}">
 	<ul class="errors">{{#errors.email}}<li>{{.}}</li>{{/errors.email}}</ul>
@@ -14,7 +14,11 @@
 	<p><input {{#errors.password}}class="error"{{/errors.password}} type="password" name="password" placeholder="{{#_}}Your password{{/_}}">
 	<ul class="errors">{{#errors.password}}<li>{{.}}</li>{{/errors.password}}</ul>
 	
-	<p><button class="icon" type="submit">{{#svg}}login{{/svg}}</button>
+	<p>
+		<button class="icon" type="submit">{{#svg}}login{{/svg}}</button>
+		&nbsp;
+		<a class="small" href="user/reset">{{#_}}link/need_password{{/_}}</a>
+	</p>
 </form>
 
 

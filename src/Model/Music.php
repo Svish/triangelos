@@ -10,10 +10,12 @@ class Model_Music extends Model
 	const ROOT = parent::DIR.self::DIR;
 
 
+
 	public function listing()
 	{
 		return $this->albums();
 	}
+
 
 
 	public function latest()

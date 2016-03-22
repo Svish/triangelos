@@ -38,6 +38,7 @@ return [
 	'Home' => 'Forsiden',
 	'Webshop' => 'Nettbutikk',
 	'Songs' => 'Sanger',
+	'Practice' => 'Øving',
 
 
 	'Where?' => 'Hvor?',

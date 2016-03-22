@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Admin controller.
+ * Dashboard controller.
  */
-class Controller_Admin extends Controller_Page
+class Controller_Dashboard extends Controller_Page
 {
 	public function before(array &$info)
 	{
@@ -16,7 +16,7 @@ class Controller_Admin extends Controller_Page
 	public function get($url, $context = [])
 	{
 		parent::get($url, [
-			'title' => 'Admin',
+			'title' => 'Dashboard',
 			]);
 	}
 }
