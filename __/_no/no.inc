@@ -17,12 +17,11 @@ return [
 	'Thank you!' => 'Takk!',
 
 	'Come see us live!' => 'Kom og se oss live!',
+	'Subscribe to calendar' => 'Abonnér på kalender',
+	'Get our latest albums!' => 'Skaff våre siste album!',
 
 	'Where?' => 'Hvor?',
 
-	'E-Mail' => 'Epost',
-	'Mail' => 'Post',
-	'Bank details' => 'Bankdetaljer',
 
 	'Your email' => 'Din epost',
 	'Your subject' => 'Ditt emne',
@@ -77,7 +76,11 @@ return [
 		'Webshop' => 'Nettbutikk',
 		'Welcome' => 'Velkommen',
 		'Video' => 'Video',
+		
+		'Social' => 'Social',
 		'E-Mail' => 'Epost',
+		'Mail' => 'Post',
+		'Bank details' => 'Bankdetaljer',
 		
 		'Login' => 'Logg inn',
 		'Logout' => 'Logg ut',
@@ -88,8 +91,6 @@ return [
 		'Web developer' => 'Webutvikler',
 		'Web analytics' => 'Statistikk',
 		'Graphics used for design' => 'Grafikk brukt til design',
-		'Subscribe to calendar' => 'Abonnér på kalender',
-		'Get our latest albums!' => 'Skaff våre siste album!',
 	],
 
 	'message' => [
