@@ -3,6 +3,7 @@
 
 - Lang code rather than flag?
 - Messages through session instead of context?
+- Pull mustache context stuff from Page into own class?
 
 
 Bugs
@@ -10,6 +11,13 @@ Bugs
 
 - Thumbnail headers already sent...?
 	- Website route cache issues? O.o
+
+
+Video
+===
+
+- More videos
+	- Import from channel somehow?
 
 
 Calendar

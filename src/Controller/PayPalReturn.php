@@ -6,10 +6,9 @@
 class Controller_PayPalReturn extends Controller_Page
 {
 	private $config;
-
 	public function __construct()
 	{
-		$this->config = require CONFIG.'.webshop.inc';
+		$this->config = Config::webshop();
 	}
 
 

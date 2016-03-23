@@ -9,10 +9,9 @@
 class Model_Webshop extends Model
 {
 	private $config;
-
 	public function __construct()
 	{
-		$this->config = require CONFIG.'.webshop.inc';
+		$this->config = Config::webshop();
 
 		// Localize currency_code
 		self::localize($this->config->add['currency_code']);

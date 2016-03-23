@@ -66,7 +66,7 @@ class Email
 	public static function __callStatic($name, $args)
 	{
 		$email = new self;
-		$email->config = parse_ini_file(CONFIG.'.contact.ini', true, INI_SCANNER_RAW);
+		$email->config = Config::contact();
 		return call_user_func_array([$email, "send_$name"], $args);
 	}
 }

@@ -63,6 +63,6 @@ class Controller_Less extends CachedController
 
 	public static function config()
 	{
-		return include CONFIG.'less.inc';
+		return Config::less();
 	}
 }

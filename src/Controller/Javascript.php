@@ -82,6 +82,6 @@ class Controller_Javascript extends CachedController
 
 	public static function config()
 	{
-		return include CONFIG.'javascript.inc';
+		return Config::javascript();
 	}
 }

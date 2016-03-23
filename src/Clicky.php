@@ -14,7 +14,7 @@ class Clicky
 
 	public function __construct()
 	{
-		$this->config = parse_ini_file(CONFIG.'.clicky.ini', true, INI_SCANNER_RAW);
+		$this->config = Config::clicky();
 	}
 
 
