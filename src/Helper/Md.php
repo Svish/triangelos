@@ -33,7 +33,8 @@ class Helper_Md
 			return $md;
 		}
 
-		return implode('<br>', iterator_to_array($this->alternatives($name ?: $this->url)));
+		if( ! $name)
+			return implode('<br>', iterator_to_array($this->alternatives($this->url)));
 	}
 
 
