@@ -8,15 +8,7 @@ var Navigation = {
 		// Menu toggle button
 		$('#menu-toggle')
 			.click(Navigation.onMenuToggle);
-
-
-		// Mark current language
-		$('a', '#language-menu').each(function()
-		{
-			var href = $(this).attr('href');
-			var current = href.includes(Site.Url.Host);
-			$(this).toggleClass('current', current);
-		});
+		
 
 		// Mark current menu item
 		{
@@ -30,6 +22,15 @@ var Navigation = {
 			}
 			while(parts.length);
 		}
+
+
+		// Mark current language
+		$('a', '#language-menu').each(function()
+		{
+			var href = $(this).attr('href');
+			var current = href.includes(Site.Url.Host);
+			$(this).toggleClass('current', current);
+		});
 
 
 		// Cookie language switcher for dev env
