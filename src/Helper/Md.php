@@ -32,6 +32,8 @@ class Helper_Md
 			$md = Markdown::render($md);
 			return $md;
 		}
+
+		return implode('<br>', iterator_to_array($this->alternatives($name ?: $this->url)));
 	}
 
 
@@ -46,6 +48,8 @@ class Helper_Md
 
 		// Try with extension removed
 		$name = substr($name, 0, strrpos($name, '.'));
+		if( ! $name)
+			return;
 		yield CONTENT.$name.self::EXT;
 		yield CONTENT.'../'.$name.self::EXT;
 	}
