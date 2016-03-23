@@ -25,7 +25,7 @@ class Controller_Thumbnail extends CachedController
 		$this->file = $this->find_file($info['params'][3]) ?: DOCROOT.'_/blank.png';
 
 		if( ! $this->file)
-			throw new HTTP_Exception("Image not found", 404);
+			throw new HTTP_Exception('Image not found', 404);
 
 		if( ! in_array([$info['params'][1], $info['params'][2]], $this->whitelist))
 			throw new HTTP_Exception('Requested size not in whitelist', 400);

@@ -9,13 +9,14 @@
  */
 class File
 {
-
 	public static function human_size($size, $precision = 2)
 	{
 		for($i=0; ($size / 1024) > 0.9; $i++, $size /= 1024);
 		return round($size, $precision)
 			 . ['B','kB','MB','GB','TB','PB','EB','ZB','YB'][$i];
 	}
+
+
 
 	public static function get($filename, $default = NULL)
 	{
@@ -32,10 +33,11 @@ class File
 	}
 
 
+
 	public static function put($filename, $contents)
 	{
 		if(empty($filename))
-			throw new Exception('Empty filename');
+			return trigger_error(__METHOD__.' called with empty filename.', E_USER_WARNING) and false;
 
 		self::check(dirname($filename));
 

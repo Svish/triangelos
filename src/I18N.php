@@ -25,7 +25,7 @@ class I18N
 	public static function translate($text)
 	{
 		if( ! self::$config)
-			throw new Exception(__METHOD__.' called before init');
+			trigger_error(__METHOD__.' called without init.', E_USER_ERROR);
 		
 		// General string
 		if(strpos($text, '/') === false)
