@@ -10,7 +10,7 @@ class Controller_Dashboard extends Controller_Page
 		parent::before($info);
 
 		if( ! Model::user()->logged_in())
-			HTTP::redirect('login?url='.urlencode(ltrim($info['path'], '/')));
+			HTTP::redirect('user/login?url='.urlencode(ltrim($info['path'], '/')));
 	}
 
 	public function get($url, $context = [])

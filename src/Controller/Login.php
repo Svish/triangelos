@@ -30,7 +30,12 @@ class Controller_Login extends Controller_Page
 	public function login_post($url)
 	{
 		if(Model::user()->login($_POST))
-			HTTP::redirect('dashboard');
+		{
+			$url = empty($_POST['url'])
+				? 'dashboard'
+				: $_POST['url'];
+			HTTP::redirect($url);
+		}
 
 		HTTP::set_status(422);
 		return parent::get($url, Msg::error('error/invalid_login'));

@@ -7,12 +7,12 @@
 
 
 <form action="{{this}}" method="post">
+
+	<input type="hidden" name="url" value="{{_get.url}}{{_post.url}}">
 	
-	<p><input {{#errors.email}}class="error"{{/errors.email}} type="email" name="email" placeholder="{{#_}}Your email{{/_}}" value="{{_post.email}}">
-	<ul class="errors">{{#errors.email}}<li>{{.}}</li>{{/errors.email}}</ul>
+	<p><input type="email" name="email" placeholder="{{#_}}Your email{{/_}}" value="{{_post.email}}">
 	
-	<p><input {{#errors.password}}class="error"{{/errors.password}} type="password" name="password" placeholder="{{#_}}Your password{{/_}}">
-	<ul class="errors">{{#errors.password}}<li>{{.}}</li>{{/errors.password}}</ul>
+	<p><input type="password" name="password" placeholder="{{#_}}Your password{{/_}}">
 	
 	<p>
 		<button class="icon" type="submit">{{#svg}}login{{/svg}}</button>

@@ -10,8 +10,7 @@
 
 <form action="{{this}}" method="post">
 	
-	<p><input {{#errors.email}}class="error"{{/errors.email}} type="email" name="email" placeholder="{{#_}}Your email{{/_}}" value="{{_post.email}}">
-	<ul class="errors">{{#errors.email}}<li>{{.}}</li>{{/errors.email}}</ul>
+	<p><input type="email" name="email" placeholder="{{#_}}Your email{{/_}}" value="{{_post.email}}">
 	
 	<p>
 		<button class="icon" type="submit">{{#svg}}login{{/svg}}</button>
