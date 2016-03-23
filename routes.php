@@ -16,7 +16,7 @@ return [
 
 	# Member area
 	'/(user/(login|logout|reset))' => 'Controller_Login',
-	'/(members-only(?:/.+)?)' => 'Controller_MembersOnly',
+	'/(member-area(?:/.+)?)' => 'Controller_MemberArea',
 
 	# Contact
 	'/(contact/email)' => 'Controller_Email',

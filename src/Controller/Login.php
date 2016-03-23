@@ -32,7 +32,7 @@ class Controller_Login extends Controller_Page
 		if(Model::user()->login($_POST))
 		{
 			$url = empty($_POST['url'])
-				? 'members-only'
+				? 'member-area'
 				: $_POST['url'];
 			HTTP::redirect($url);
 		}
@@ -51,7 +51,7 @@ class Controller_Login extends Controller_Page
 		if(isset($_GET['id']))
 		{
 			if(Model::user()->token($_GET))
-				HTTP::redirect('members-only');
+				HTTP::redirect('member-area');
 			else
 				return parent::get($url, Msg::ok('error/invalid_token'));
 		}

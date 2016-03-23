@@ -10,12 +10,26 @@ var Navigation = {
 			.click(Navigation.onMenuToggle);
 
 
-		// Mark current menu item
-		$('a', '#header').each(function() {
+		// Mark current language
+		$('a', '#language-menu').each(function()
+		{
 			var href = $(this).attr('href');
-			var current = Site.Url.Current.includes(href) || href.includes(Site.Url.Host);
+			var current = href.includes(Site.Url.Host);
 			$(this).toggleClass('current', current);
 		});
+
+		// Mark current menu item
+		{
+			var parts = Site.Url.Current.split('/');
+
+			do
+			{
+				$("a[href='" + parts.join('/') + "']", '#main-menu')
+					.addClass('current');
+				parts.pop();
+			}
+			while(parts.length);
+		}
 
 
 		// Cookie language switcher for dev env

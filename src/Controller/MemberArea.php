@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Protected members-only controller.
+ * Controller for protected member area.
  */
-class Controller_MembersOnly extends Controller_Page
+class Controller_MemberArea extends Controller_Page
 {
 	public function before(array &$info)
 	{
