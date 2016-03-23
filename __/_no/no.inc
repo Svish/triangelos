@@ -24,6 +24,7 @@ return [
 	'Get our latest albums!' => 'Skaff våre siste album!',
 	'Come see us live!' => 'Kom og se oss live!',
 
+	'Member area' => 'Medlemsområde',
 	'About the site' => 'Om nettstedet',
 	'The choir' => 'Koret',
 	'Calendar' => 'Kalender',

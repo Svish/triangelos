@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Dashboard controller.
+ * Protected members-only controller.
  */
-class Controller_Dashboard extends Controller_Page
+class Controller_MembersOnly extends Controller_Page
 {
 	public function before(array &$info)
 	{
@@ -15,8 +15,6 @@ class Controller_Dashboard extends Controller_Page
 
 	public function get($url, $context = [])
 	{
-		parent::get($url, [
-			'title' => 'Dashboard',
-			]);
+		parent::get($url, $context + ['title' => 'Member area']);
 	}
 }
