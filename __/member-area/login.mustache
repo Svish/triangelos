@@ -1,19 +1,23 @@
 {{% BLOCKS }}
 {{< layout }}
-{{$ title }}{{#_}}title/Reset{{/_}}{{/ title }}
+{{$ title }}{{#_}}title/Login{{/_}}{{/ title }}
 
 {{$ content}}
 
 
 
-<p lang="en">If your email address has been registered as a choir member, this form will send you an email with a link that will allow you to login and set a personal password for your member account.</p>
-
 <form action="{{this}}" method="post">
+
+	<input type="hidden" name="url" value="{{_get.url}}{{_post.url}}">
 	
 	<p><input type="email" name="email" placeholder="{{#_}}Your email{{/_}}" value="{{_post.email}}">
 	
+	<p><input type="password" name="password" placeholder="{{#_}}Your password{{/_}}">
+	
 	<p>
 		<button class="icon" type="submit">{{#svg}}login{{/svg}}</button>
+		&nbsp;
+		<a class="small" href="member-area/reset">{{#_}}link/need_password{{/_}}</a>
 	</p>
 </form>
 

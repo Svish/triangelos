@@ -10,7 +10,7 @@ class Controller_MemberArea extends Controller_Page
 		parent::before($info);
 
 		if( ! Model::user()->logged_in())
-			HTTP::redirect('user/login?url='.urlencode(ltrim($info['path'], '/')));
+			HTTP::redirect('member-area/login?url='.urlencode(ltrim($info['path'], '/')));
 	}
 
 	public function get($url, $context = [])

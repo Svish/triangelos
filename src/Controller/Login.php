@@ -51,7 +51,7 @@ class Controller_Login extends Controller_Page
 		if(isset($_GET['id']))
 		{
 			if(Model::user()->token($_GET))
-				HTTP::redirect('member-area');
+				HTTP::redirect('member-area/me');
 			else
 				return parent::get($url, Msg::ok('error/invalid_token'));
 		}
@@ -76,10 +76,10 @@ class Controller_Login extends Controller_Page
 		// Create and send email
 		$to = [$this->member->email => $this->member->first];
 		$subject = ucfirst(HOST).' reset link';
-		$message = Mustache::engine()->render('user/reset-email', $this);
+		$message = Mustache::engine()->render('member-area/reset-email', $this);
 
 		if(Email::info($to, $subject, $message))
-			HTTP::redirect('user/reset?sent');
+			HTTP::redirect('member-area/reset?sent');
 		else
 			throw new HTTP_Exception('Failed to send email', 500);
 	}

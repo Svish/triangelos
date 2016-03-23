@@ -15,7 +15,7 @@ return [
 	'/music/(return)' => 'Controller_PayPalReturn',
 
 	# Member area
-	'/(user/(login|logout|reset))' => 'Controller_Login',
+	'/(member-area/(login|logout|reset))' => 'Controller_Login',
 	'/(member-area(?:/.+)?)' => 'Controller_MemberArea',
 
 	# Contact
