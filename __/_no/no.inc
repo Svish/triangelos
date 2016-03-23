@@ -77,6 +77,7 @@ return [
 		'Webshop' => 'Nettbutikk',
 		'Welcome' => 'Velkommen',
 		'Video' => 'Video',
+		'E-Mail' => 'Epost',
 		
 		'Login' => 'Logg inn',
 		'Logout' => 'Logg ut',
