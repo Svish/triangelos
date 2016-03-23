@@ -15,6 +15,8 @@ return [
 		'need_password' => 'Need a password?',
 	],
 
+
+
 	'message' => [
 		'email_sent' => 'The e-mail is sent! We answer as soon as we can :)',
 		'reset_sent' => 'E-mail sent! You should shortly receive an e-mail with a link allowing you to login and choose a password.',

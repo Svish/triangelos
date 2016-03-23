@@ -81,6 +81,10 @@ return [
 	'Bass' => 'Bass',
 	'Technician' => 'Tekniker',
 
+	'link' => [
+		'need_password' => 'Trenger du passord?',
+	],
+
 	'message' => [
 		'email-sent' => 'Eposten er sendt! Vi svarer så fort vi klarer :)',
 		'cookies' => 'Cookies brukes for å analysere trafikk, og når meldlemmer logger inn.',
