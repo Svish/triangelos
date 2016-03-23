@@ -8,8 +8,10 @@ class Helper_I18N extends I18N
 {
 	public function __invoke($text, Mustache_LambdaHelper $render = null)
 	{
-		$text = self::translate($text);
-		return $render ? $render($text) : $text;
+		if($render)
+			$text = $render($text);
+
+		return self::translate($text);
 	}
 
 	public function languages()

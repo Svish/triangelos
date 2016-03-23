@@ -15,7 +15,9 @@ return [
 		'need_password' => 'Need a password?',
 	],
 
-
+	'title' => [
+		
+	],
 
 	'message' => [
 		'email_sent' => 'The e-mail is sent! We answer as soon as we can :)',

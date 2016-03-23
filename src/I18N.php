@@ -39,7 +39,7 @@ class I18N
 		{
 			$key = trim($key);
 			if( ! array_key_exists($key, $strings))
-				return $text;
+				return $key;
 			$strings = &$strings[$key];
 		}
 		return $strings;

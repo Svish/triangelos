@@ -16,31 +16,7 @@ return [
 	'Show PayPal cart' => 'Vis PayPal handlekurv',
 	'Thank you!' => 'Takk!',
 
-	'Source code' => 'Kildekode',
-	'Web developer' => 'Webutvikler',
-	'Web analytics' => 'Statistikk',
-	'Graphics used for design' => 'Grafikk brukt til design',
-	'Subscribe to calendar' => 'Abonnér på kalender',
-	'Get our latest albums!' => 'Skaff våre siste album!',
 	'Come see us live!' => 'Kom og se oss live!',
-
-	'Member area' => 'Medlemsområde',
-	'About the site' => 'Om nettstedet',
-	'The choir' => 'Koret',
-	'Calendar' => 'Kalender',
-	'Choir' => 'Koret',
-	'Contact' => 'Kontakt',
-	'Icons' => 'Ikoner',
-	'Members' => 'Medlemmer',
-	'Music' => 'Musikk',
-	'Welcome' => 'Velkommen',
-	'Login' => 'Logg inn',
-	'Logout' => 'Logg ut',
-	'Home' => 'Forsiden',
-	'Webshop' => 'Nettbutikk',
-	'Songs' => 'Sanger',
-	'Practice' => 'Øving',
-
 
 	'Where?' => 'Hvor?',
 
@@ -83,6 +59,36 @@ return [
 
 	'link' => [
 		'need_password' => 'Trenger du passord?',
+	],
+
+	'title' => [
+		'Home' => 'Forsiden',
+		'Music' => 'Musikk',
+		'About the site' => 'Om nettstedet',
+		'Calendar' => 'Kalender',
+		'Choir' => 'Koret',
+		'Contact' => 'Kontakt',
+		'Me' => 'Meg',
+		'Member area' => 'Medlemsområde',
+		'Members' => 'Medlemmer',
+		'Everyone' => 'Alle',
+		'Practice' => 'Øving',
+		'Songs' => 'Sanger',
+		'Webshop' => 'Nettbutikk',
+		'Welcome' => 'Velkommen',
+		'Video' => 'Video',
+		
+		'Login' => 'Logg inn',
+		'Logout' => 'Logg ut',
+
+		'Cookies' => 'Cookies',
+		'Icons' => 'Ikoner',
+		'Source code' => 'Kildekode',
+		'Web developer' => 'Webutvikler',
+		'Web analytics' => 'Statistikk',
+		'Graphics used for design' => 'Grafikk brukt til design',
+		'Subscribe to calendar' => 'Abonnér på kalender',
+		'Get our latest albums!' => 'Skaff våre siste album!',
 	],
 
 	'message' => [
