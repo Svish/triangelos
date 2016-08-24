@@ -1,0 +1,66 @@
+
+body.video #content
+{
+	max-width: none;
+
+	a.frame
+	{
+		margin: 0 .6em .6em 0;
+		padding: .55rem .85rem;
+		position: relative;
+		text-align: left;
+		font-size: .8em;
+		line-height: inherit;
+
+		&:after
+		{
+			content: attr(data-duration);
+			display: block;
+			position: absolute;
+			font-size: x-large;
+			top: .55rem;
+			right: .85rem;
+			padding: .2em .8em;
+			background: fadeout(@text-color, 40%);
+			color: @background-color;
+			border-bottom-left-radius: 5px;
+			border-top-right-radius: 5px;
+		}
+
+		img
+		{
+			margin: auto auto .275em auto;
+			.box-shadow(0,0,10px,@shadow-color);
+		}
+
+		span
+		{
+			max-width: 320px;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+
+	}
+}
+
+@media only screen and (max-width : 350px)
+{
+	body.video #content
+	{
+		a.frame, img
+		{
+			display: block;
+		}
+		a.frame
+		{
+			margin-right: 0;
+		}
+		.frame
+		{
+			float: none;
+			margin: .5em auto;
+			max-width: 100%;
+		}
+	}
+}

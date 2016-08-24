@@ -24,6 +24,9 @@ return [
 	# Music
 	'/music/(album/:number:)' => 'Controller_Album',
 
+	# Video
+	'/video/:alpha:' => 'Controller_Video',
+
 	# Calendar
 	'/calendar\.ics' => 'Controller_ICal',
 

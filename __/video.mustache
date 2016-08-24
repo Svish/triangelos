@@ -1,17 +1,20 @@
 {{% BLOCKS }}
 {{< layout }}
-{{$ TITLE }}{{#_}}Video{{/_}}{{/ TITLE }}
-{{$ title }}{{#_}}title/Video{{/_}}<div class="right">{{>button-youtube}}</div>{{/ title }}
+{{$ title }}{{#_}}title/Video{{/_}}{{/ title }}
 {{$ content}}
 
+<div class="center">
 
-{{{md}}}
+	{{#videos.all}}
+	<a class="frame" href="video/{{id}}" data-duration="{{duration | formatDuration}}">
+		<img src="{{thumbnail.url}}" width="{{thumbnail.width}}" height="{{thumbnail.height}}">
+		<span>{{title}}</span>
+	</a>
+	{{/videos.all}}
 
-<p class="videowrapper">
-	{{#embed}}https://www.youtube.com/watch?v=zw28hJ3X-KA{{/embed}}
-</p>
+	<p>{{>button-youtube}}
 
-
+</div>
 
 {{/ content}}
 {{/ layout }}
