@@ -62,9 +62,13 @@ abstract class CachedController extends Controller
 		$lmod = @$_SERVER['HTTP_IF_MODIFIED_SINCE'] ?: false;
 		$etag = @trim($_SERVER['HTTP_IF_NONE_MATCH']) ?: false;
 
+		// Remove compression method
+		// @see https://httpd.apache.org/docs/trunk/mod/mod_deflate.html#deflatealteretag
+		$etag = preg_replace('/-.+(?=")/', '', $etag);
+
 		// Respond with 304 and no content if both match
 		if($this->cached['lmod'] == $lmod
-		&& $this->cached['etag'] == rtrim($etag, '-gzip'))
+		&& $this->cached['etag'] == $etag)
 		{
 			HTTP::set_status(304);
 			return;
