@@ -99,6 +99,15 @@ class Website
 			if(preg_match('#'.$pattern.'/?#Au', $path, $matches))
 			{
 				unset($matches[0]);
+
+				if(strpos($handler, '$') !== false)
+					foreach($matches as $i => $m)
+					{
+						$handler = str_replace("$$i", ucfirst($m), $handler, $count);
+						if($count > 0)
+							unset($matches[$i]);
+					}
+
 				return ['handler' => $handler, 'params' => $matches];
 			}
 		}

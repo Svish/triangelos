@@ -5,12 +5,12 @@
 		<span>| <a href="about">{{#_}}title/About the site{{/_}}</a></span>
 		
 		{{^user}}
-		<span>| <a href="member-area/login">{{#_}}title/Login{{/_}}</a></span>
+		<span>| <a href="user/login">{{#_}}title/Login{{/_}}</a></span>
 		{{/user}}
 
 		{{#user}}
-		<span>| <a href="member-area/logout">{{#_}}title/Logout{{/_}}</a></span>
-		<span>| <a href="member-area/me">{{email}}</a></span>
+		<span>| <a href="user/logout">{{#_}}title/Logout{{/_}}</a></span>
+		<span>| <a href="tools/members/edit/me">{{email}}</a></span>
 		{{/user}}
 
 	</nav>

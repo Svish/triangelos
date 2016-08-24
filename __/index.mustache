@@ -10,10 +10,10 @@
 	<h2><a href="music">{{#_}}Get our latest albums!{{/_}} {{#svg}}jumping-man{{/svg}}</a></h2>
 	{{#music.latest}}
 	<p>
-		<a href="music/{{url}}">
-			<img width="75" class="cover frame" alt="{{#_}}Album cover{{/_}}" src="t/75x100/{{cover}}">
+		<a href="{{url}}">
+			<img width="75" class="cover frame" alt="{{#_}}Album cover{{/_}}" src="t/75x100/{{images.cover}}">
 			<span class="text">
-				<span class="title">{{album}}</span>
+				<span class="title">{{title}}</span>
 				<br>
 				<span class="year">{{year}}</span>
 			</span>

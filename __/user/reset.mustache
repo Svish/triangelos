@@ -1,0 +1,26 @@
+{{% BLOCKS }}
+{{< layout }}
+{{$ title }}{{#_}}title/Reset{{/_}}{{/ title }}
+
+{{$ content}}
+
+
+
+<h1>{{#_}}title/Reset{{/_}}</h1>
+
+{{{md}}}
+
+<form action="{{this}}" method="post">
+	
+	<p><input type="email" name="email" placeholder="{{#_}}Your email{{/_}}" value="{{_post.email}}">
+	<ul class="errors">{{#errors.email}}<li>{{.}}</li>{{/errors.email}}</ul>	
+
+	<p>
+		<button class="icon" type="submit">{{#svg}}login{{/svg}}</button>
+	</p>
+</form>
+
+
+
+{{/ content}}
+{{/ layout }}

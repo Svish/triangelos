@@ -59,6 +59,7 @@ class Controller_Javascript extends CachedController
 			]),
 		));
 
+		set_time_limit(30);
 		$resp = curl_exec($c);
 		$info = curl_getinfo($c);
 

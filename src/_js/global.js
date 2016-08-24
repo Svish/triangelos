@@ -2,7 +2,7 @@
 
 // Configure NProgress
 NProgress.configure({
-	parent: '#content',
+	//parent: '#content',
 	showSpinner: true,
 });
 

@@ -1,8 +1,13 @@
 <?php
 
+
 // Include autoloader and stuff
 require 'vendor/autoload.php';
 require 'constants.inc';
+
+
+if(ENV=='dev')
+	set_time_limit(3);
 
 
 // Error handling

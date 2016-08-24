@@ -6,7 +6,7 @@
  */
 class Model_User extends Model
 {
-	const USER = 'user';
+	const KEY = 'user';
 
 
 
@@ -20,7 +20,7 @@ class Model_User extends Model
 		extract($_POST, EXTR_SKIP);
 
 		// Check if member exists
-		$member = Model::members()->get($email);
+		$member = Model::members()->find($email);
 		if( ! $member)
 			return false;
 
@@ -44,7 +44,7 @@ class Model_User extends Model
 		// If email, create token
 		if(isset($email))
 		{
-			$member = Model::members()->get($email);
+			$member = Model::members()->find($email);
 			if( ! $member)
 				return false;
 
@@ -55,7 +55,7 @@ class Model_User extends Model
 		// If id, check token
 		if(isset($id))
 		{
-			$member = Model::members()->get($id, 'id');
+			$member = Model::members()->find($id, 'id');
 			if( ! $member)
 				return false;
 
@@ -68,9 +68,9 @@ class Model_User extends Model
 
 
 
-	private function _login(Data_Member $member)
+	private function _login(Data_User $member)
 	{
-		$_SESSION[self::USER] = $member->id;
+		$_SESSION[self::KEY] = $member->id;
 		return true;
 	}
 
@@ -81,7 +81,7 @@ class Model_User extends Model
 	 */
 	public function logout()
 	{
-		unset($_SESSION[self::USER]);
+		unset($_SESSION[self::KEY]);
 		return true;
 	}
 
@@ -90,12 +90,16 @@ class Model_User extends Model
 	/**
 	 * Get logged in user; false if not logged in.
 	 */
-	public function logged_in()
+	public function logged_in($return_member = false)
 	{
-		if( ! array_key_exists(self::USER, $_SESSION))
+		if( ! array_key_exists(self::KEY, $_SESSION))
 			return false;
 
-		return Model::members()->get($_SESSION[self::USER], 'id');
+		$id = $_SESSION[self::KEY];
+		
+		return $return_member 
+			? Model::members()->find($id, 'id') 
+			: $id;
 	}
 
 }

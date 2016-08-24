@@ -5,7 +5,7 @@
  */
 class Controller_Video extends Controller_Page
 {
-	public function get($id, $context = [])
+	public function get($id = null, $context = [])
 	{
 		$video = Model::videos()->get($id);
 		

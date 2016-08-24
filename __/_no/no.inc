@@ -68,11 +68,11 @@ return [
 		'Choir' => 'Koret',
 		'Contact' => 'Kontakt',
 		'Me' => 'Meg',
-		'Member area' => 'Medlemsområde',
 		'Members' => 'Medlemmer',
 		'Everyone' => 'Alle',
 		'Practice' => 'Øving',
 		'Songs' => 'Sanger',
+		'Tools' => 'Verktøy',
 		'Webshop' => 'Nettbutikk',
 		'Welcome' => 'Velkommen',
 		'Video' => 'Video',
@@ -101,6 +101,9 @@ return [
 	'error' => [
 		'invalid_login' => 'Ugyldig login',
 		'email_fail' => 'Kunne ikke sende eposten. Sjekk at du at du har fyllt ut skjemaet riktig.',
+
+		'reset_fail' => 'Ugyldig epostadresse.',
+		'not_a_member' => 'Eposten er ikke registrert på noe medlem.',
 
 		'not_empty' => 'Kan ikke være tomt',
 		'email' => 'Ugylding epost',

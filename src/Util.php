@@ -2,7 +2,6 @@
 
 class Util
 {
-
 	/**
 	 * #rrggbb or #rgb to [r, g, b]
 	 */

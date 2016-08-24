@@ -31,12 +31,11 @@ class Model_Videos extends Model
 	 */
 	public function all()
 	{
-		$cache = new Cache(__CLASS__, false, true);
-		$cache->validate(__METHOD__, filemtime(__FILE__));
+		$cache = new Cache(__CLASS__, true);
 		$items =  $cache->get(__METHOD__, function()
 		{
 			return iterator_to_array($this->_all());
-		}, true);
+		});
 
 		return $items;
 	}

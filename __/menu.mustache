@@ -1,0 +1,16 @@
+<ul id="main-menu">
+	<li><a href="index">{{#svg}}home{{/svg}}<span>{{#_}}title/Home{{/_}}</span></a>
+	<li><a href="music">{{#svg}}cart{{/svg}} {{#_}}title/Music{{/_}}</a>
+	<li><a href="video">{{#svg}}youtube-symbol{{/svg}} {{#_}}title/Video{{/_}}</a>
+	<li><a href="calendar">{{#_}}title/Calendar{{/_}}</a>
+	<li><a href="choir">{{#_}}title/Choir{{/_}}</a>
+	<li><a href="members">{{#_}}title/Members{{/_}}</a>
+	<li><a href="contact">{{#_}}title/Contact{{/_}}</a>
+	<li><a href="tools">{{#svg}}tools{{/svg}}<span>{{#_}}title/Tools{{/_}}</span></a>
+</ul>
+
+<ul id="language-menu">
+	{{#_.languages}}
+	<li><a class="language" href="{{href}}/{{this}}" rel="alternate" hreflang="{{lang}}" lang="{{lang}}" title="{{name}}" data-host="{{host}}"><img src="_/flag/{{flag}}.png"></a>
+	{{/_.languages}}
+</ul>

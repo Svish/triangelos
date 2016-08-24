@@ -28,11 +28,7 @@ body.music #content
 		width: 3em;
 		height: 3em;
 	}
-}
 
-
-body.music #content
-{
 	.album
 	{
 		.title
@@ -42,47 +38,47 @@ body.music #content
 			{
 				display: block;
 			}
+			img
+			{
+				float: left;
+				width: 7rem;
+				display: inline-block;
+				border: none;
+				margin-right: 1rem;
+			}
 		}
-		.more
-		{
-			display: block;
-			color: inherit;
-			margin-top: -.5em;
-			font-size: .7em;
-		}
-		.frame
-		{
-			float: right;
-			width: 2em;
-			margin-left: .35em;
-			border: none;
-		}
+	}
+
+	article.album .tracks
+	{
+		margin-left: 7.5rem;
 	}
 
 	.tracks
 	{
+		margin-top: 0;
+
 		li+li
 		{
 			border-top: 1px dotted darken(@background-color, 25%);
 		}
 		li
 		{
-			padding: .2em 0;
-			//margin: .2em 0;
-
 			.time
 			{
+				padding: .2em .5rem;
 				float: right;
 			}
 			.title
 			{
 				color: inherit;
 				display: block;
+				padding: .2em .5rem;
 			}
 			a:hover,
 			a:active
 			{
-				background: darken(@background-color, 5%);
+				background: darken(@background-color, 3%);
 			}
 
 			&.playing a::before
@@ -93,11 +89,13 @@ body.music #content
 				width: .8em;
 				margin-right: .6em;
 			}
-			.summary
+			.description
 			{
 				font-size: small;
-				opacity: .6;
-				p
+				color: fadeout(@text-color, 40%);
+				padding: .2em .5rem;
+				p:first-child,
+				p:last-child
 				{
 					margin: 0;
 				}
@@ -124,8 +122,23 @@ body.album #content
 }
 
 
-@media only screen and (max-width : 400px)
+@media only screen and (max-width : 450px)
 {
+	body.music #content
+	{
+		.album .title img
+		{
+			float: right;
+			height: 1.3em;
+			width: auto;
+			margin-right: 0;
+			.box-shadow(0,0,8px, @shadow-color);
+		}
+		.tracks
+		{
+			margin-left: 0;
+		}
+	}
 	body.album #content .covers
 	{
 		text-align: center;

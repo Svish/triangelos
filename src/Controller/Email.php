@@ -11,7 +11,8 @@ class Controller_Email extends Controller_Page
 		'message' => ['not_empty'],
 		];
 	
-	public function get($url, $context = [])
+	
+	public function get($url = null, $context = [])
 	{
 		if(isset($_GET['sent']))
 			$context += Msg::ok('message/email_sent');

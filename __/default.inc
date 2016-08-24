@@ -28,9 +28,10 @@ return [
 	'error' => [
 		'invalid_token' => 'Invalid reset token.',
 		'invalid_login' => 'Invalid login.',
-		'not_a_member' => 'Not registered to a member.',
 		'email_fail' => 'Failed to send email. Please check your input.',
-		
+		'reset_fail' => 'Invalid email address.',
+		'not_a_member' => 'Email not registered to a member.',
+
 		'not_empty' => 'Cannot be empty',
 		'email' => 'Invalid email address',
 		'email_domain' => 'Invalid email domain',

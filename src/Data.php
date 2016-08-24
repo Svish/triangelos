@@ -3,73 +3,47 @@
 /**
  * Base class for file data objects.
  */
-abstract class Data implements JsonSerializable
+abstract class Data
 {
-	private $file;
-	private $properties = [];
+	const DIR = DOCROOT.'data'.DIRECTORY_SEPARATOR;
+	protected $data = [];
 
-	public function __construct(array $properties, $file = null)
+
+
+	public static function __callStatic($name, $args)
 	{
-		$this->file = $file;
-		if($this->file)
-			$this->load();
-
-		$this->set($properties);
+		$name = __CLASS__.'_'.ucfirst($name);
+		$r = new ReflectionClass($name);
+		return $r->newInstanceArgs($args);
 	}
 
-
-
-	public function load()
+	public function __call($method, $args)
 	{
-		$json = File::get($this->file);
-		$this->properties = json_decode($json, true);
-		return $this;
-	}
-
-	public function save()
-	{
-		File::put($this->file, json_encode($this, JSON_PRETTY_PRINT));
-		return $this;
-	}
-
-	public function set(array $properties)
-	{
-		foreach($properties as $k => $v)
-			$this->$k = $v;
-		return $this;
+		if(is_callable($this->data[$method]))
+			return call_user_func_array($this->data[$method], $args);
 	}
 
 
 
 	public function __get($key)
 	{
-		return array_key_exists($key, $this->properties)
-			? $this->properties[$key]
+		return array_key_exists($key, $this->data)
+			? $this->data[$key]
 			: null;
 	}
 
 	public function __set($key, $value)
 	{
-		$this->properties[$key] = $value;
+		$this->data[$key] = $value;
 	}
 	
 	public function __isset($key)
 	{
-		return array_key_exists($key, $this->properties);
+		return array_key_exists($key, $this->data);
 	}
 	
 	public function __unset($key)
 	{
-		unset($this->properties[$key]);
-	}
-
-
-
-	protected $serialize = [];
-	public function jsonSerialize()
-	{
-		return empty($this->serialize) 
-			? $this->properties
-			: Util::array_whitelist($this->properties, $this->serialize);
+		unset($this->data[$key]);
 	}
 }

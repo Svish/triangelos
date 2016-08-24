@@ -1,9 +1,10 @@
 
 - (!) Social buttons on front page
 
-- Lang code rather than flag?
 - Messages through session instead of context?
 - Pull mustache context stuff from Page into own class?
+
+- (!) Performance check...
 
 
 Bugs
@@ -13,17 +14,9 @@ Bugs
 	- Website route cache issues? O.o
 
 
-Video
-===
-
-- More videos
-	- Import from channel somehow?
-
-
 Calendar
 ===
 
-- Description with songs we're going to sing, only for logged in users?
 - https://www.addevent.com ?
 - {{time | date.format?}}
 
@@ -31,15 +24,15 @@ Calendar
 Members
 ===
 
-- (!) Member detail pop-up into own page, fetch through ajax?
-- Practice material
-	- Full length audio streaming for practice
-	- Access to Musescore and PDF files
-- Mange account
+- Manage account
 	- Update image
 	- Change details
 - Group SMS/Email sending to choir members?
-- https://www.twilio.com/sms/pricing/no?
+	- https://www.twilio.com/sms/pricing/no
+	- https://www.smsgateway.to/en/technical-specifications
+	- https://www.nexmo.com/products/sms/
+	- http://www.budgetsms.net/en/sms-gateway/
+
 
 
 Admin section

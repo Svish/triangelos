@@ -15,8 +15,8 @@ class Controller_PayPalReturn extends Controller_Page
 	public function get($url, $context = [])
 	{
 		$data = isset($_GET['tx'])
-        	? $this->process_pdt($_GET['tx'])
-        	: FALSE;
+			? $this->process_pdt($_GET['tx'])
+			: FALSE;
 
 
 		if( ! $data)

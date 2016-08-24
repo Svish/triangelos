@@ -8,16 +8,19 @@ class Cache
 {
 	const DIR = CACHE;
 	private $dir;
-	private $ttl;
+	protected $valid;
 
 
-
-	public function __construct($id, $ttl = false, $language_specific = false)
+	/**
+	 * Creates a new cache instance.
+	 *
+	 * @param id Identifier for this cache
+	 * @param language_specific True if cache should be per LANG
+	 * @param validator Optional callable for validating the cache when getting
+	 */
+	public function __construct($id, $language_specific = false, $validator = null)
 	{
-		if($ttl === false)
-			$ttl = PHP_INT_MAX;
-		$this->ttl = isset($_GET['no-cache']) ? 0 : $ttl;
-
+		$this->valid = $validator ?: $this;
 
 		$this->dir = self::DIR.$id.DIRECTORY_SEPARATOR;
 		if($language_specific)
@@ -33,19 +36,21 @@ class Cache
 	{
 		$path = $this->path($key);
 
-		// Try get data, unless age greater than ttl
+		// Try get data
 		$data = $this->_get($path);
-		if($data !== NULL && $this->_age($path) <= $this->ttl)
+		$valid = $this->valid;
+        if($data !== NULL && $valid(filemtime($path), $key))
 			return unserialize($data);
 
-		// Call default if Closure
-		if($default instanceof Closure)
+		// Call and store default if callable
+		if(is_callable($default))
+		{
 			$default = $default($key);
+			return $this->_set($path, $default);
+		}
 
-		// Return the default; optionally set
-		return $set
-			? $this->_set($path, $default)
-			: $default;
+		// Otherwise just return default
+		return $default;
 	}
 	private function _get($path)
 	{
@@ -68,33 +73,13 @@ class Cache
 	}
 
 
-
 	/**
-	 * Returns the age of the cache file in seconds.
+	 * Default validation check.
 	 */
-	public function age($key)
+	public function __invoke($mtime, $key)
 	{
-		return $this->_age( $this->path($key) );
+		return true;
 	}
-	private function _age($path)
-	{
-		return file_exists($path)
-			? time() - filemtime($path)
-			: PHP_INT_MAX;
-	}
-
-
-
-	/**
-	 * Deletes cache file for $key if file is older than $time.
-	 */
-	public function validate($key, $time)
-	{
-		$key = $this->path($key);
-		if(file_exists($key) && filemtime($key) <= $time)
-			@unlink($key);
-	}
-
 
 
 	/**

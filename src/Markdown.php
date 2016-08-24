@@ -15,6 +15,7 @@ use Webuni\CommonMark\AttributesExtension\AttributesExtension;
 class Markdown
 {
 	private static $c;
+	
 	public static function render($markdown)
 	{
 		if( ! self::$c)
@@ -28,5 +29,12 @@ class Markdown
 		}
 
 		return self::$c->convertToHtml($markdown);
+	}
+
+	public static function render_file($path)
+	{
+		return file_exists($path)
+			? self::render(file_get_contents($path))
+			: false;
 	}
 }

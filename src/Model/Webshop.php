@@ -14,7 +14,8 @@ class Model_Webshop extends Model
 		$this->config = Config::webshop();
 
 		// Localize currency_code
-		self::localize($this->config->add['currency_code']);
+		if(is_array($this->config->add['currency_code']))
+			self::localize($this->config->add['currency_code']);
 
 		// Go through each item
 		foreach($this->config->items as &$items)
@@ -22,7 +23,8 @@ class Model_Webshop extends Model
 			{
 				// Localize item name and amount
 				$item['item_name'] = __($item['item_name']);
-				self::localize($item['amount']);
+				if(is_array($item['amount']))
+					self::localize($item['amount']);
 
 				// Merge with defaults
 				$item += $this->config->add + $this->config->all;
@@ -31,7 +33,6 @@ class Model_Webshop extends Model
 				$params = Util::array_blacklist($item, ['type']);
 				$item['url'] = $this->build_url($params);
 			}
-
 	}
 
 
@@ -42,10 +43,10 @@ class Model_Webshop extends Model
 	}
 
 
-	public function items($album)
+	public function items($id)
 	{
-		return isset($this->config->items[$album])
-			? $this->config->items[$album]
+		return isset($this->config->items[$id])
+			? $this->config->items[$id]
 			: [];
 	}
 

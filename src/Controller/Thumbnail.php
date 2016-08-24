@@ -23,7 +23,6 @@ class Controller_Thumbnail extends CachedController
 	public function before(array &$info)
 	{
 		$this->file = $this->find_file($info['params'][3]) ?: DOCROOT.'_/blank.png';
-
 		if( ! $this->file)
 			throw new HTTP_Exception('Image not found', 404);
 
@@ -31,7 +30,6 @@ class Controller_Thumbnail extends CachedController
 			throw new HTTP_Exception('Requested size not in whitelist', 400);
 
 		parent::before($info);
-	
 	}
 
 	

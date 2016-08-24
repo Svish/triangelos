@@ -149,11 +149,6 @@ ul li
 	list-style: square;
 }
 
-ul:empty
-{
-	display:none;
-}
-
 
 // Definition lists
 dl
@@ -223,6 +218,15 @@ blockquote::after{
 }
 
 
+// Empty
+h1,h2,h3,p,div,span,ul,ol,li
+{
+	&:empty
+	{
+		display: none;
+	}
+}
+
 
 // Other
 .no-wrap
@@ -274,6 +278,6 @@ p.right
 @import "page-about";
 @import "page-index";
 @import "page-video";
-@import "page-member-area";
+@import "page-tools";
 
 @import "fancy";

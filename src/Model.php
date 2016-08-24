@@ -6,18 +6,15 @@
  */
 abstract class Model
 {
-	const DIR = DOCROOT.'data'.DIRECTORY_SEPARATOR;
-
-
 	/**
 	 * Returns a new Model_$name.
 	 */
 	public static function __callStatic($name, $args)
 	{
-		$name = 'Model_'.ucfirst($name);
-		return new $name;
+		$name = __CLASS__.'_'.ucfirst($name);
+		$r = new ReflectionClass($name);
+		return $r->newInstanceArgs($args);
 	}
-
 
 
 	/**
@@ -25,7 +22,7 @@ abstract class Model
 	 */
 	public function clear_cache()
 	{
-		$cache = new Cache(get_class($this), 3600);
+		$cache = new Cache(get_class($this));
 		$cache->clear();
 	}
 }

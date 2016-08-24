@@ -5,14 +5,14 @@
  */
 class Controller_Album extends Controller_Page
 {
-	public function get($url, $context = [])
+	public function get($id = null, $context = [])
 	{
 		$music = new Model_Music();
-		$album = $music->album($url);
-		
+		$album = $music->album($id);
+
 		if( ! $album)
 			throw new HTTP_Exception('Not found', 404);
 
-		parent::get($url, ['album' => $album]);
+		parent::get('album', ['album' => $album]);
 	}
 }

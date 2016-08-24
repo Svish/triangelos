@@ -15,8 +15,11 @@ class Controller_Page extends SessionController
 	}
 
 
-	public function get($url, $context = [])
+	public function get($url = null, $context = [])
 	{
+		if(is_null($url))
+			$url = $this->path;
+
 		if( ! is_array($context))
 			$context = [];
 		
@@ -25,7 +28,7 @@ class Controller_Page extends SessionController
 			'this' => $this->path,
 			'class' => str_replace('/', ' ', $this->path),
 
-			'user' => Model::user()->logged_in(),
+			'user' => Model::user()->logged_in(true),
 			
 			'css' => Controller_Less::config()->global,
 			'js' => Controller_Javascript::config()->global,

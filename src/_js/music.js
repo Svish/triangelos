@@ -36,7 +36,7 @@ var Music = {
 	onTrackClick: function(event)
 	{
 		if($(this).data('id') == Music.current)
-			Music.onPlayPause();
+			Music.stopTrack();
 		else
 			Music.playTrack(this);
 
@@ -112,6 +112,12 @@ var Music = {
 	pauseTrack: function()
 	{
 		Music.player.jPlayer('pause');
+	},
+
+	stopTrack: function()
+	{
+		Music.player.jPlayer('stop');
+		Music.current = null;
 	},
 
 
