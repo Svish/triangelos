@@ -71,6 +71,7 @@ class ICalParser
 	{
 		// Values same for every instance
 		$summary = Util::path($event, 'SUMMARY.value');
+		$summary = preg_replace('/^Triangelos:\\s/', '', $summary);
 		$description = Util::path($event, 'DESCRIPTION.value');
 		$location = Util::path($event, 'LOCATION.value');
 		$status = strtolower(Util::path($event, 'X-MICROSOFT-CDO-BUSYSTATUS.value', 'BUSY'));

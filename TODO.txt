@@ -19,6 +19,8 @@ Calendar
 
 - https://www.addevent.com ?
 - {{time | date.format?}}
+- Update "in background" via ajax?
+- Make sure to fall-back to previous successfull calendar if failing
 
 
 Members
