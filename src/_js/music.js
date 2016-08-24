@@ -5,6 +5,10 @@ var Music = {
 
 	init: function()
 	{
+		// Only on music pages
+		if( ! $('body').hasClass('music'))
+			return;
+
 		// Collect tracks
 		Music.tracks = $('a', '.tracks')
 			.each(function(n) {$(this).data('id', n);})
