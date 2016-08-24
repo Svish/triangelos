@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Base class for data objects.
+ * Base class for file data objects.
  */
 abstract class Data implements JsonSerializable
 {
