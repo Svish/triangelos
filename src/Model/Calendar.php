@@ -41,10 +41,15 @@ class Model_Calendar extends Model
 		$events = $this->events($first);
 
 		// Find last date for calendar
-		$last = end($events);
-		$last = end($last);
-		$last = clone $last['end'];
-		$last->modify('last day of 0 month 23:59:59');
+		if( ! empty($events))
+		{
+			$last = end($events);
+			$last = end($last);
+			$last = clone $last['end'];
+			$last->modify('last day of 0 month 23:59:59');
+		}
+		else
+			$last = new DateTime('last day of 0 month 23:59:59');
 
 		// Generate calendar strucuture
 		$cal = [];
@@ -59,7 +64,7 @@ class Model_Calendar extends Model
 					];
 
 			// Week
-			$week = (int) $day->format('W');
+			$week = (int) $day->format('W') % 53;
 			if($day->format('w') == '0') $week++; // Biblical week adjustment
 			if( ! array_key_exists($week, $cal[$month]['weeks']))
 			{
