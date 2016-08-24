@@ -9,8 +9,6 @@
  */
 class ICalParser
 {
-	const TTL = 3600; // 1 hour / Raw file cache time
-
 	private $file;
 	private $components = null;
 
@@ -28,13 +26,14 @@ class ICalParser
 		$config->setVirtualLimit($rlimit);
 		$this->transformer = new \Recurr\Transformer\ArrayTransformer($config);
 
-		$cache = new Cache(__CLASS__, self::TTL);
+		// TODO: Invalidate cache somehow
+		$cache = new Cache(__CLASS__, false);
 		$this->file = $cache->get($file, function($f)
 			{
+				set_time_limit(30);
 				return file($f, FILE_IGNORE_NEW_LINES);
-			}, true);
+			});
 	}
-
 
 
 	/**
@@ -84,10 +83,12 @@ class ICalParser
 			$rrule .= ";DTSTART=$r_start";
 		if($r_end = Util::path($event, 'DTEND.value'))
 			$rrule .= ";DTEND=$r_end";
+
+		// TODO: Handle multiple EXDATE and RDATE
 		if($r_exdate = Util::path($event, 'EXDATE.value'))
-			$rrule .= ";EXDATE=$r_exdate";
+			$rrule .= ";EXDATE=".(is_array($r_exdate) ? implode(',', $r_exdate) : $r_exdate);
 		if($r_rdate = Util::path($event, 'RDATE.value'))
-			$rrule .= ";RDATE=$r_rdate";
+			$rrule .= ";RDATE=".(is_array($r_rdate) ? implode(',', $r_rdate) : $r_rdate);
 
 		$rrule = new \Recurr\Rule($rrule);
 		$events = $this->transformer->transform($rrule, $constraint);
