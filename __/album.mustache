@@ -1,9 +1,13 @@
 {{% BLOCKS }}
 {{< layout }}
-{{$ TITLE }}{{album.album}}{{/ TITLE }}
-{{$ title }}{{album.album}} <span>{{album.year}}</span>{{>webshop-cart-button}}{{/ title }}
+{{$ title }}{{album.album}} - {{#_}}title/Music{{/_}}{{/ title }}
 {{$ content}}
 
+
+<h1>{{album.album}}
+	<span>{{album.year}}</span>
+	{{>webshop-cart-button}}
+</h1>
 
 
 {{#album}}

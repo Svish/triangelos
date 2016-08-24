@@ -1,16 +1,18 @@
 {{% BLOCKS }}
 {{< layout }}
-{{$ title }}{{video.title}}{{/ title }}
+{{$ title }}{{video.title}} - {{#_}}title/Video{{/_}}{{/ title }}
 {{$ content}}
 
+
+<h1>{{video.title}}</h1>
 
 {{#video}}
 	<div class="videowrapper">
 		{{{player}}}
 	</div>
-	
-<p>{{>button-youtube}}</p>
 {{/video}}
+
+<p>{{>button-youtube}}</p>
 
 
 {{/ content}}

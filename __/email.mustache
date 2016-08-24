@@ -6,6 +6,8 @@
 
 
 
+<h1>{{#_}}title/E-Mail{{/_}}</h1>
+
 <form action="contact/email" method="post">
 	
 	<p><input {{#errors.from}}class="error"{{/errors.from}} type="email" name="from" placeholder="{{#_}}Your email{{/_}}" value="{{_post.from}}">
