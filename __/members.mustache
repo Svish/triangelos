@@ -8,24 +8,14 @@
 
 <h1>{{#_}}title/Members{{/_}}</h1>
 
-<div class="center"><!--
-{{#members.listing}}
-
-	--><a class="frame has-details {{role}}" data-details="{{id}}">
+<div class="center">
+	{{#members.listing}}
+	<a href="{{url}}" class="frame {{role}}">
 		<img src="t/350x100/{{img}}" alt="{{first}}">
 		<span>{{first}}</span>
-	</a><div class="details" data-details="{{id}}">
-		<article>
-			<h1>{{first}}{{>close-link}}</h1>
-			<div class="subtitle">{{role | ucfirst | _ }}</div>
-			<p><img class="frame" src="t/350x250/{{img}}"></p>
-			
-			{{#md}}{{url}}{{/md}}
-		</article>
-	</div><!--
-
-{{/members.listing}}
---></div>
+	</a>
+	{{/members.listing}}
+</div>
 
 
 

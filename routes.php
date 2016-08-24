@@ -14,6 +14,9 @@ return [
 	'/_/paypal/:alpha:' => 'Controller_PayPalImage',
 	'/music/(return)' => 'Controller_PayPalReturn',
 
+	# Members
+	'/members/:alpha:' => 'Controller_Members',
+
 	# Member area
 	'/(member-area/(login|logout|reset))' => 'Controller_Login',
 	'/(member-area(?:/.+)?)' => 'Controller_MemberArea',

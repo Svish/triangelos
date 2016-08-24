@@ -1,0 +1,23 @@
+{{% BLOCKS }}
+{{< layout }}
+{{$ title }}{{member.first}} - {{#_}}title/Members{{/_}}{{/ title }}
+
+{{$ content}}
+
+
+{{#member}}
+
+	<h1>{{first}}
+		<span>{{role | ucfirst | _ }}</span>
+	</h1>
+	
+	<img class="frame right" src="t/350x250/{{img}}">
+
+	{{#md}}{{url}}{{/md}}
+
+{{/member}}
+
+
+{{/ content}}
+
+{{/ layout }}
