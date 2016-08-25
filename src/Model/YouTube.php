@@ -2,11 +2,11 @@
 
 
 /**
- * Videos via YouTube channel.
+ * Stuff from the YouTube channel.
  *
  * @see https://developers.google.com/youtube/v3/docs/
  */
-class Model_Videos extends Model
+class Model_YouTube extends Model
 {
 	private $config;
 	public function __construct()

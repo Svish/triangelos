@@ -8,12 +8,12 @@
 
 <div class="center">
 
-	{{#videos.all}}
+	{{#youtube.all}}
 	<a class="frame" href="video/{{id}}" data-duration="{{duration | formatDuration}}">
 		<img src="{{thumbnail.url}}" width="{{thumbnail.width}}" height="{{thumbnail.height}}">
 		<span>{{title}}</span>
 	</a>
-	{{/videos.all}}
+	{{/youtube.all}}
 
 	<p>{{>button-youtube}}
 
