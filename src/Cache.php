@@ -5,26 +5,36 @@
  * Cache helper.
  */
 class Cache
-{
+{	
 	const DIR = CACHE;
 	private $dir;
 	protected $valid;
 
+	use MemberLambdaFix;
 
 	/**
 	 * Creates a new cache instance.
 	 *
 	 * @param id Identifier for this cache
 	 * @param language_specific True if cache should be per LANG
-	 * @param validator Optional callable for validating the cache when getting
+	 * @param cache_validator Int for TTL seconds; Callable($mtime, $key) for custom; otherwise none
 	 */
-	public function __construct($id, $language_specific = false, $validator = null)
+	public function __construct($id, $language_specific = false, $cache_validator = null)
 	{
-		$this->valid = $validator ?: $this;
-
+		// Set cache directory
 		$this->dir = self::DIR.$id.DIRECTORY_SEPARATOR;
 		if($language_specific)
 			$this->dir .= LANG.DIRECTORY_SEPARATOR;
+
+		// TTL
+		if(is_int($cache_validator))
+			$this->valid = new Cache_TimeInvalidation($cache_validator);
+		// Callable
+		elseif(is_callable($cache_validator))
+			$this->valid = $cache_validator;
+		// None
+		else
+			$this->valid = new Cache_NoInvalidation();
 	}
 
 
@@ -74,15 +84,6 @@ class Cache
 
 
 	/**
-	 * Default validation check.
-	 */
-	public function __invoke($mtime, $key)
-	{
-		return true;
-	}
-
-
-	/**
 	 * Return sanitized file path for $key.
 	 */
 	private function path($key)
@@ -118,5 +119,27 @@ class Cache
 	public static function clear_all()
 	{
 		File::rdelete(self::DIR);
+	}
+}
+
+
+class Cache_TimeInvalidation
+{
+	private $ttl;
+	public function __construct($ttl)
+	{
+		$this->ttl = (int)$ttl;
+	}
+	public function __invoke($mtime, $key)
+	{
+		return (time() - $mtime) <= $this->ttl;
+	}
+}
+
+class Cache_NoInvalidation
+{
+	public function __invoke($mtime, $key)
+	{
+		return true;
 	}
 }
