@@ -39,7 +39,7 @@
 			<td class="empty"></td>
 			{{/day}}
 			{{#day}}
-			<td data-day="{{day}}" data-week="{{week}}" data-date="{{iso}}" data-name="{{name|_}}" class="{{#isCurrent}}current{{/isCurrent}}">{{#events}}
+			<td id="{{iso}}" data-day="{{day}}" data-week="{{week}}" data-date="{{iso}}" data-name="{{name|_}}" class="{{#isCurrent}}current{{/isCurrent}}">{{#events}}
 
 				<div class="event {{status}} {{transp}} {{continued}} {{private}} has-details" data-details="{{id}}">
 					{{#start_time}}<time datetime="{{start_w3c}}">{{start_time | timeTrim}}</time>{{/start_time}}
