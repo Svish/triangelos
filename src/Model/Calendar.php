@@ -31,7 +31,15 @@ class Model_Calendar extends Model
 	/**
 	 * Calendar for calendar page.
 	 */
-	public function listing()
+	public function calendar()
+	{
+		$cache = new Cache(__CLASS__, false, 3600); // 1 hour
+		return $cache->get(__METHOD__, function()
+			{
+				return $this->_calendar();
+			});
+	}
+	private function _calendar()
 	{
 		// Begin first of current month
 		$first = new DateTime('midnight first day of 0 month');
@@ -59,7 +67,7 @@ class Model_Calendar extends Model
 			$month = $day->format('Y-M');
 			if( ! array_key_exists($month, $cal))
 				$cal[$month] = [
-					'name' => $day->format(__('date/month-name')),
+					'month' => $month,
 					'weeks' => [],
 					];
 
@@ -77,14 +85,9 @@ class Model_Calendar extends Model
 
 
 			// Day
-			$iso = $day->format('Y-m-d');
 			$cal[$month]['weeks'][$week]['days'][(int) $day->format('w')] = [
-				'date' => $day,
-				'day' => $day->format(__('date/day')),
-				'week' => (int) $day->format('W'),
-				'iso' => $iso,
-				'name' => $day->format(__('date/day-name')),
-				'events' => Util::path($events, $iso, []),
+				'day' => $day,
+				'events' => Util::path($events, $day->format('Y-m-d'), []),
 				];
 		}
 
@@ -103,15 +106,25 @@ class Model_Calendar extends Model
 		return array_values($cal);
 	}
 
-
+	/**
+	 * Next two public events
+	 */
 	public function up_next()
+	{
+		$cache = new Cache(__CLASS__, false, 3600); // 1 hour
+		return $cache->get(__METHOD__, function()
+			{
+				return $this->_up_next();
+			});
+	}
+	private function _up_next()
 	{
 		$today = new DateTime('today');
 		$count = 2;
 
 		foreach($this->events($today) as $date)
 			foreach($date as $event)
-				if( ! $event['private'])
+				//if( ! $event['private'])
 					if($count-- > 0)
 						yield $event;
 					else
@@ -119,52 +132,41 @@ class Model_Calendar extends Model
 	}
 
 
-	public function events(DateTime $first)
+
+	private function events(DateTime $first)
+	{
+		$cache = new Cache(__CLASS__, false, 3600); // 1 hour
+		return $cache->get(__METHOD__, function() use ($first)
+			{
+				return $this->_events($first);
+			});
+	}
+	private function _events(DateTime $first)
 	{
 		$events = [];
 		$id = 0;
 		foreach($this->ical->events($first) as $e)
 		{
-			// Add formatted stuffs
-			$e += [
-				'id' => ++$id,
-				'iso' => $e['start']->format('Y-m-d'),
-				'start_date' => $e['start']->format(__('date/date')),
-				'start_date_short' => $e['start']->format(__('date/date-short')),
-				'start_w3c' => $e['start']->format(DATE_W3C),
-				'end_date' => $e['end']->format(__('date/date')),
-				'end_w3c' => $e['end']->format(DATE_W3C),
-				];
+			// Add some ids for detail-linking
+			$e += ['id' => ++$id];
 
 			// Add type/category
 			$e['private'] = self::is_private($e);
-
-			// If not all day, add times
-			if( ! $e['all_day']) $e += [
-				'start_time' => $e['start']->format(__('date/time')),
-				'end_time' => $e['end']->format(__('date/time')),
-				];
-
-			// If equal dates, remove end date
-			if($e['start_date'] == $e['end_date'])
-				unset($e['end_date']);
 			
-			// If equal datetimes, remove end
-			if($e['start'] == $e['end'])
-				unset($e['end_time'], $e['end_w3c']);
-
+			// Render description
 			$e['description'] = Markdown::render($e['description']);
+
+			// Format location
 			$e['location'] = str_replace(',', '<br>', $e['location']);
 
 			// Add to list
-			$events[$e['iso']][] = $e;
+			$events[$e['start']->format('Y-m-d')][] = $e;
 
-			// Copy if over more days
+			// Copy if it goes over multiple days
 			$next = clone $e['start'];
 			$next->add(new DateInterval('P1D'));
 			foreach($this->days($next, $e['end']) as $day)
 			{
-				$e['first'] = $e['iso'];
 				$e['continued'] = 'continued';
 				$events[$day->format('Y-m-d')][] = $e;
 			}
@@ -173,7 +175,7 @@ class Model_Calendar extends Model
 		// Sort the events
 		ksort($events);
 		foreach($events as &$date)
- 			if(count($date) > 1)
+			if(count($date) > 1)
 				usort($date, function($a, $b)
 				{
 					$a = $a['start'];
@@ -197,7 +199,7 @@ class Model_Calendar extends Model
 	}
 
 
-	private static function days(DateTime $first, DateTime $last)
+	public static function days(DateTime $first, DateTime $last)
 	{
 		$date = clone $first;
 		$one = new DateInterval('P1D');

@@ -4,37 +4,50 @@
 
 {{$ content}}
 
-<h1>{{#_}}title/Welcome{{/_}}</h1>
-
-<div class="responsive albums">
+<section class="responsive albums">
 	<h2><a href="music">{{#_}}Get our latest albums!{{/_}} {{#svg}}jumping-man{{/svg}}</a></h2>
 	{{#music.latest}}
-	<p>
-		<a href="{{url}}">
-			<img width="75" class="cover frame" alt="{{#_}}Album cover{{/_}}" src="t/75x100/{{images.cover}}">
-			<span class="text">
-				<span class="title">{{title}}</span>
-				<br>
-				<span class="year">{{year}}</span>
-			</span>
-		</a>
-	</p>
+	<a class="block album" href="{{url}}">
+		<img width="100" class="frame" alt="{{#_}}Album cover{{/_}}" src="t/100x150/{{images.cover}}">
+		{{title}}
+		<br>
+		{{year}}
+	</a>
 	{{/music.latest}}
-</div>
+</section>
 
 
-<div class="responsive events">
+<section class="responsive events">
 	<h2><a href="calendar">{{#_}}Come see us live!{{/_}} {{#svg}}people{{/svg}}</a></h2>
 	{{#calendar.up_next}}
-	<p>
-		<div class="summary">{{summary|_}}</div>
-		<time datetime="{{start_w3c}}">{{start_date_short|_}}, {{start_time}}</time>
+	<a class="block event" href="calendar#{{iso}}">
+		{{summary|_}}
+		<br>
+		<time datetime="{{start|df.w3c}}">{{start|df.date-short}}{{^all_day}}, {{end|df.time}}{{/all_day}}</time>
 		{{#location}}
+		<br>
 		<address>{{{location | firstLine}}}</address>
 		{{/location}}
-	</p>
+	</a>
 	{{/calendar.up_next}}
-</div>
+</section>
+
+
+<section class="responsive posts">
+	<h2><a href="https://www.facebook.com/triangelos">{{#_}}Follow us!{{/_}} {{#svg}}share{{/svg}}</a></h2>
+	{{#facebook.latest}}
+	<a class="block post" href="{{link}}">
+		{{#picture}}<img width="100" class="frame" src="{{.}}">{{/picture}}
+		{{text}}
+		<br>
+		<time datetime="{{created_time}}">{{created_time | df.full}}</time>
+		{{#description}}<br>{{.}}{{/description}}
+	</a>
+	{{/facebook.latest}}
+</section>
+
+
+
 
 {{/ content}}
 

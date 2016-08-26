@@ -8,9 +8,9 @@
 <h1>{{#_}}title/Calendar{{/_}}</h1>
 
 
-{{#calendar.listing}}
+{{#calendar.calendar}}
 
-	<h2>{{name|_}}</h2>
+	<h2>{{month|df.month-name}}</h2>
 
 	<table class="calendar" width="100%">
 		<col>
@@ -39,21 +39,27 @@
 			<td class="empty"></td>
 			{{/day}}
 			{{#day}}
-			<td id="{{iso}}" data-day="{{day}}" data-week="{{week}}" data-date="{{iso}}" data-name="{{name|_}}" class="{{#isCurrent}}current{{/isCurrent}}">{{#events}}
+			<td id="{{day | df.date-iso}}" 
+				data-day="{{day | df.day}}"
+				data-week="{{day | df.week}}"
+				data-date="{{day | df.date-iso}}"
+				data-name="{{day | df.date-day}}">{{#events}}
 
-				<div class="event {{status}} {{transp}} {{continued}} {{private}} has-details" data-details="{{id}}">
-					{{#start_time}}<time datetime="{{start_w3c}}">{{start_time | timeTrim}}</time>{{/start_time}}
+				<div class="event has-details {{status}} {{transp}} {{continued}} {{private}}" data-details="{{id}}">
+					{{^all_day}}<time datetime="{{start|df.w3c}}">{{start | df.time | timeTrim}}</time>{{/all_day}}
 					<div class="summary">{{summary|_}}</div>
 				</div>
+
 				{{^continued}}
 				<div class="details" data-details="{{id}}">
 					<article>
 						<h1>{{summary|_}}{{>close-link}}</h1>
 						<p class="subtitle">
-							<time datetime="{{start_w3c}}">{{start_date|_}} {{start_time}}</time>
-							{{#end_w3c}}
-							<time datetime="{{end_w3c}}"> – {{end_date|_}} {{end_time}}</time>
-							{{/end_w3c}}
+							{{#df.simplify}}
+							<time datetime="{{start|df.w3c}}">{{start|df.date}}{{^all_day}}, {{start|df.time}}{{/all_day}}</time>
+							 – 
+							<time datetime="{{end|df.w3c}}">{{end|df.date}}{{^all_day}}, {{end|df.time}}{{/all_day}}</time>
+							{{/df.simplify}}
 						</p>
 
 						{{#location}}
@@ -73,7 +79,7 @@
 	</table>
 
 
-{{/calendar.listing}}
+{{/calendar.calendar}}
 
 <p>
 	<a class="badge" data-name="iCal" href="calendar.ics">{{#_}}Subscribe to calendar{{/_}}</a>

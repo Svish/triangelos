@@ -1,10 +1,15 @@
 
-- (!) Social buttons on front page
-
 - Messages through session instead of context?
 - Pull mustache context stuff from Page into own class?
 
 - (!) Performance check...
+	- (!) Get front-page blocks via ajax
+
+- Multiple cache invalidators?
+	- , $valid...) ?
+	- Validator dependent on other cache files?
+
+- (!) Use previous cache value on exceptions from callable
 
 
 Bugs
@@ -14,13 +19,21 @@ Bugs
 	- Website route cache issues? O.o
 
 
+Video
+===
+
+- Subscribe to YouTube uploads?
+	- https://developers.google.com/youtube/v3/guides/push_notifications
+	- https://pubsubhubbub.appspot.com/subscribe
+
 Calendar
 ===
 
+- (!) Try to move and clean things into Data_Event/Calendar class.
 - https://www.addevent.com ?
-- {{time | date.format?}}
 - Update "in background" via ajax?
 - Make sure to fall-back to previous successfull calendar if failing
+	- (!) Check for HTML garbage...?
 
 
 Members

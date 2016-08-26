@@ -3,12 +3,21 @@
 return [
 
 	'date' => [
-		'month-name' => 'F Y',
-		'day-name' => 'l j.',
-		'day' => 'j.',
-		'date' => 'j. F Y',
-		'date-short' => 'j. F',
+		'w3c' => DATE_W3C,
+
+		'short' => 'j. F, H:i',
+		'full' => 'j. F Y, H:i',
+
 		'time' => 'H:i',
+
+		'month-name' => 'F Y',
+		'day' => 'j.',
+		'week' => 'W',
+
+		'date' => 'j. F Y',
+		'date-day' => 'l j.',
+		'date-iso' => 'Y-m-d',
+		'date-short' => 'j. F',
 	],
 
 	'link' => [

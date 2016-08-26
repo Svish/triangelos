@@ -18,16 +18,18 @@ class ICalParser
 
 
 	/**
-	 * New ICalParser, constrained to the given starting date.
+	 * New ICalParser for given file.
 	 */
 	public function __construct($file, $rlimit = 52)
 	{
+		// Setup Recurr
 		$config = new \Recurr\Transformer\ArrayTransformerConfig();
 		$config->setVirtualLimit($rlimit);
 		$this->transformer = new \Recurr\Transformer\ArrayTransformer($config);
 
-		// TODO: Invalidate cache somehow
-		$cache = new Cache(__CLASS__, false);
+		// Load calendar file
+		set_time_limit(30);
+		$cache = new Cache(__CLASS__, false, 28800); // 8 hours
 		$this->file = $cache->get($file, function($f)
 			{
 				set_time_limit(30);
@@ -47,7 +49,7 @@ class ICalParser
 
 
 	/**
-	 * Yields all event instances in this calendar.
+	 * Yields all event instances in this calendar after the given date.
 	 */
 	public function events(DateTime $after)
 	{

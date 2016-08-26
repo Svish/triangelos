@@ -13,6 +13,9 @@
 		<span>| <a href="tools/members/edit/me">{{email}}</a></span>
 		{{/user}}
 
+		{{^isProd}}
+		<span>| <a href="{{this}}?XDEBUG_PROFILE">Profiler</a></span>
+		{{/isProd}}
 	</nav>
 </footer>
 

@@ -1,33 +1,45 @@
 body.index #content
 {
-	&>h1 {display: none}
-	&>h1+* { margin-top: 0;}
 	h2 {font-size: xx-large;}
 
-	.events
+	.block
 	{
-		.summary { font-weight: bold }
+		display: block;
+		overflow: hidden;
+		padding: .4em .8em;
+
+		background: fade(@accent-color, 5%);
+		border: 1px solid fade(@accent-color, 40%);
+		color: inherit;
+
+		font-size: .9rem;
+		&::first-line
+		{
+			font-weight: bold;
+			font-size: 1.1rem;
+		}
+
+		&:hover,
+		&:active
+		{
+			background: fade(@accent-color, 10%);
+			border: 1px solid fade(@accent-color, 75%);
+		}
+
+		img
+		{
+			margin-right: .8em;
+			float: left;
+		}
 		time, address
 		{
-			display: block;
-			font-size: .8em;
+			margin: 0;
 		}
 	}
 
-	.albums
+
+	.block+.block
 	{
-		p a {color: inherit}
-		a {display:inline-block}
-		img {margin-right: .5em}
-		.text
-		{
-			display: inline-block;
-			vertical-align: top;
-			white-space: nowrap;
-			&:first-line
-			{
-				font-weight: bold;
-			}
-		}
+		margin-top: 1.5em;
 	}
 }
