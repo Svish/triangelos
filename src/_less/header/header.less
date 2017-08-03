@@ -1,0 +1,35 @@
+#header
+{
+	.no-select();
+
+	position: relative;
+	padding: .75em 1em;
+
+	background: lighten(@accent-color, 57%);
+	border-bottom: 1px solid black;
+	.box-shadow(0, 0, 10px, @shadow-color);
+	
+	line-height: 1em;
+	color: black;
+
+	h1
+	{
+		z-index: 10;
+		margin: 0 0 -.3em 0;
+		
+		font: 700 5em/1em 'Tangerine', sans-serif;
+		text-shadow: rgba(0,0,0, 50%) 0 0 6px;
+		color: inherit;
+
+		a
+		{
+			color: inherit;
+		}
+	}
+
+	background-image: url(icon/sda.svg?opacity=0.2);
+	background-repeat: no-repeat;
+	background-position: top -12.9em right -9.5em;
+	background-size: 35em;
+
+}

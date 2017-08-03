@@ -1,0 +1,48 @@
+#menu
+{
+	.no-select();
+
+	z-index: 20;
+	position: relative;
+	
+	margin: 0;
+	padding: 0;
+	width: 100%;
+
+	line-height: 1rem;
+
+	display: flex;
+	flex-flow: row wrap;
+
+	background: fadeout(@accent-color, 96%);
+
+	a
+	{
+		padding: 0.55em 0.95em;
+
+		color: inherit;
+		border: 1px solid transparent;
+		border-bottom: 3px solid transparent;
+
+		&:hover,
+		&:active
+		{
+			border-bottom: 3px solid @accent-color;
+			background: fadeout(@accent-color, 92%);
+		}
+		&.current
+		{
+			background: fadeout(@accent-color, 80%);
+		}
+	}
+
+	.no-grow
+	{
+		flex-grow: 0;
+	}
+
+	.logged-in
+	{
+		color: @accent3-color;
+	}
+}

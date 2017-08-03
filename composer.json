@@ -1,24 +1,26 @@
 {
 	"repositories":
 	[
-		{"type": "vcs", "url": "https://github.com/Svish/php-image"}
+		{"type": "vcs", "url": "https://github.com/Svish/php-image"},
+		{"type": "vcs", "url": "https://github.com/Svish/php-weblib"}
 	],
 	"require":
 	{
-		"php": ">=5.5.12",
-		"mustache/mustache": "2.*",
-		"leafo/lessphp": "0.*",
-		"kus/php-image": "dev-master",
-		"swiftmailer/swiftmailer": "5.*",
+		"php": ">=7.1",
+
+		"geekality/weblib": "dev-master",
+		"geekality/php-image": "dev-master",
+		
 		"james-heinrich/getid3": "1.*",
-		"simshaun/recurr": "0.*",
-		"league/commonmark": "0.*",
-		"webuni/commonmark-attributes-extension": "^0.3.2",
-		"webuni/commonmark-table-extension": "^0.4.3"
+		"swiftmailer/swiftmailer": "6.*",
+		"simshaun/recurr": "0.*"
 	},
 	
 	"autoload":
 	{
-		"psr-0": {"": "src/"}
+		"psr-4": {"": "src/"},
+		"files": [
+			"constants.inc"
+		]
 	}
 }

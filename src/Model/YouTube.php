@@ -1,4 +1,8 @@
 <?php
+namespace Model;
+
+use Cache\I18N as Cache;
+use Config;
 
 
 /**
@@ -6,12 +10,24 @@
  *
  * @see https://developers.google.com/youtube/v3/docs/
  */
-class Model_YouTube extends Model
+class YouTube extends \Model
 {
 	private $config;
 	public function __construct()
 	{
-		$this->config = (object) Config::youtube();
+		$this->config = (object) Config::youtube(INI_SCANNER_RAW);
+	}
+
+
+	public function channel()
+	{
+		$channel = $this->_api('channels', [
+				'part' => 'statistics',
+				'id' => $this->config->channel_id,
+			])->items[0]->statistics;
+
+		$channel->id = $this->config->channel_id;
+		return $channel;
 	}
 
 
@@ -23,6 +39,8 @@ class Model_YouTube extends Model
 		foreach($this->all() as $video)
 			if($video['id'] == $id)
 				return $video;
+
+		throw new \Error\NotFound($id, 'video');
 	}
 
 
@@ -31,7 +49,7 @@ class Model_YouTube extends Model
 	 */
 	public function all()
 	{
-		$cache = new Cache(__CLASS__, true);
+		$cache = new Cache(__CLASS__);
 		$items =  $cache->get(__METHOD__, function()
 		{
 			return iterator_to_array($this->_all());
@@ -50,6 +68,7 @@ class Model_YouTube extends Model
 		// Get playlist
 		$items = $this->_api('playlistItems', [
 				'part' => 'contentDetails',
+				'hl' => LOCALE,
 				'playlistId' => $this->config->channel_playlist_id,
 			])->items;
 
@@ -70,6 +89,7 @@ class Model_YouTube extends Model
 		{
 			$q = http_build_query([
 				'autohide' => 1,
+				'enablejsapi' => 1,
 				//'autoplay' => 1,
 				'hl' => LOCALE,
 				'rel' => 0,
@@ -79,10 +99,13 @@ class Model_YouTube extends Model
 			$player = $video->player->embedHtml;
 			$player = str_replace($video->id, $video->id.'?'.$q, $player);
 
+			$title = $video->snippet->localized->title;
+			$title = preg_replace($this->config->title_clean, '', $title);
+
 			yield [
-				'title' => $video->snippet->localized->title,
-				'published' => $video->snippet->publishedAt,
 				'id' => $video->id,
+				'title' => $title,
+				'published' => $video->snippet->publishedAt,
 				'duration' => $video->contentDetails->duration,
 				'thumbnail' => [
 					'url' => $video->snippet->thumbnails->medium->url,

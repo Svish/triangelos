@@ -23,8 +23,8 @@ class Controller_PayPalImage extends CachedController
 
 		// Settings
 		$color = (object)[
-			'background' => Util::hex2rgb('#FFF'),
-			     'title' => Util::hex2rgb('#58129F'),
+			'background' => hex2rgb('#FFF'),
+			     'title' => hex2rgb('#58129F'),
 		];
 		$font = (object)[
 			     'title' => __DIR__.'/../_fonts/tangerine/Tangerine_Bold.ttf',

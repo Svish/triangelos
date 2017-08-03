@@ -1,0 +1,47 @@
+// Fancy checkboxes
+input[type=checkbox],
+input[type=radio]
+{
+	position: absolute;
+	left: -3em;
+	& + label
+	{
+		display: block;
+		&:hover
+		{
+			background: darken(@background-color, 5%);
+			outline: 1px solid darken(@background-color, 25%);
+		}
+	}
+
+	&:focus + label
+	{
+		outline: 1px dotted darken(@background-color, 25%);
+	}
+
+	& + label::before
+	{
+		display: inline-block;
+		content: "";
+		height: 1em;
+		width: 2em;
+		background-size: .9em .9em;
+		background-position: .75em .22em;
+		background-repeat: no-repeat;
+		background-image: 
+			radial-gradient(lighten(@text-color, 70%) 40%, @text-color 50%, transparent 50%);
+	}
+	&:checked + label::before
+	{
+		background-image: 
+			radial-gradient(@text-color 50%, transparent 50%);
+	}
+}
+.checkbox-list
+{
+	padding-left: 0;
+	li
+	{
+		list-style: none;
+	}
+}

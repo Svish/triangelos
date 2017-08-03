@@ -72,25 +72,25 @@ class ICalParser
 	private function unravel(array $event, \Recurr\Transformer\Constraint\AfterConstraint $constraint)
 	{
 		// Values same for every instance
-		$summary = Util::path($event, 'SUMMARY.value');
+		$summary = $event['SUMMARY.value'] ?? null;
 		$summary = preg_replace('/^Triangelos:\\s/', '', $summary);
-		$description = Util::path($event, 'DESCRIPTION.value');
-		$location = Util::path($event, 'LOCATION.value');
-		$status = strtolower(Util::path($event, 'X-MICROSOFT-CDO-BUSYSTATUS.value', 'BUSY'));
-		$transp = strtolower(Util::path($event, 'TRANSP.value', 'BUSY'));
+		$description = $event['DESCRIPTION.value'];
+		$location = $event['LOCATION.value'];
+		$status = strtolower($event['X-MICROSOFT-CDO-BUSYSTATUS.value'] ?? 'BUSY');
+		$transp = strtolower($event['TRANSP.value'] ?? 'BUSY');
 
 		// For consistency, pretend everything has an rrule
-		$rrule = Util::path($event, 'RRULE.value', 'FREQ=DAILY;COUNT=1');
+		$rrule = $event['RRULE.value'] ?? 'FREQ=DAILY;COUNT=1';
 
-		if($r_start = Util::path($event, 'DTSTART.value'))
+		if($r_start = $event['DTSTART.value'] ?? null)
 			$rrule .= ";DTSTART=$r_start";
-		if($r_end = Util::path($event, 'DTEND.value'))
+		if($r_end = $event['DTEND.value'] ?? null)
 			$rrule .= ";DTEND=$r_end";
 
 		// TODO: Handle multiple EXDATE and RDATE
-		if($r_exdate = Util::path($event, 'EXDATE.value'))
+		if($r_exdate = $event['EXDATE.value'] ?? null)
 			$rrule .= ";EXDATE=".(is_array($r_exdate) ? implode(',', $r_exdate) : $r_exdate);
-		if($r_rdate = Util::path($event, 'RDATE.value'))
+		if($r_rdate = $event['RDATE.value'] ?? null)
 			$rrule .= ";RDATE=".(is_array($r_rdate) ? implode(',', $r_rdate) : $r_rdate);
 
 		$rrule = new \Recurr\Rule($rrule);
@@ -98,12 +98,12 @@ class ICalParser
 		
 		foreach($events as $e)
 		{
-			$all_day = Util::path($event, 'DTSTART.params.VALUE') == 'DATE';
+			$all_day = 'DATE' == $event['DTSTART.params.VALUE'] ?? null;
 			
 			$start = $e->getStart();
 			$end = $e->getEnd();
 
-			if(Util::path($event, 'DTSTART.params.VALUE') === 'DATE')
+			if('DATE' == $event['DTSTART.params.VALUE'] ?? null)
 				$end->sub(new DateInterval('PT1S'));
 
 			// Yield wanted event properties

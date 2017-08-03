@@ -1,0 +1,138 @@
+body.music #content
+{
+	.meta
+	{
+		font-size: .85em;
+		margin-bottom: -3.5rem;
+	}
+
+	.album
+	{
+		.title
+		{
+			margin-bottom: 0;
+			a
+			{
+				display: block;
+			}
+			img
+			{
+				display: inline-block;
+				float: left;
+				width: 7rem;
+				margin-right: .5em;
+			}
+		}
+	}
+
+	.album .tracks
+	{
+		margin-left: 7.5rem;
+	}
+
+	.tracks
+	{
+		margin-top: 0;
+
+		li+li
+		{
+			border-top: 1px dotted darken(@background-color, 25%);
+		}
+		li:only-child
+		{
+
+			border-top: 1px dotted darken(@background-color, 25%);
+			border-bottom: 1px dotted darken(@background-color, 25%);
+		}
+		li
+		{
+			.length
+			{
+				padding: .2em .5rem;
+				float: right;
+			}
+			.title
+			{
+				//color: inherit;
+				display: block;
+				padding: .2em .5rem;
+			}
+			a:hover,
+			a:active
+			{
+				background: darken(@background-color, 3%);
+			}
+
+			&.playing a::before
+			{
+				content: url(icon/pause.svg);
+				display: inline-block;
+				height: .8em;
+				width: .8em;
+				margin-right: .6em;
+			}
+			.description
+			{
+				font-size: small;
+				color: lighten(@text-color, 5%);
+				padding: .2em .5rem;
+				p:first-child,
+				p:last-child
+				{
+					margin: 0;
+				}
+			}
+		}
+	}
+}
+
+
+body.album #content
+{
+	.covers
+	{
+		img
+		{
+			width: 49%;
+			vertical-align: top;
+		}
+		img:last-child
+		{
+			float: right;
+		}
+	}
+
+	.lyrics
+	{
+		font-size: .9em;
+	}
+}
+
+
+@media only screen and (max-width : 450px)
+{
+	body.music #content
+	{
+		.album .title img
+		{
+			float: right;
+			height: 1.3em;
+			width: auto;
+			margin-right: 0;
+			.box-shadow(0,0,8px, @shadow-color);
+		}
+		.album .tracks
+		{
+			margin-left: 0;
+		}
+	}
+	body.album #content .covers
+	{
+		text-align: center;
+		img
+		{
+			width: 100%;
+			float: none !important;
+		}
+	}
+}

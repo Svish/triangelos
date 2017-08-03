@@ -1,0 +1,31 @@
+{{% BLOCKS }}
+{{< layout }}
+{{$ title }}{{#_}}title/Music{{/_}}{{/ title }}
+{{$ content}}
+
+
+
+<h1><a href="{{PATH}}">{{#_}}title/Music{{/_}}</a></h1>
+
+
+{{#albums}}
+<article class="album loading">
+	<h2 class="title">
+		<a href="music/album/{{id}}" title="{{#_}}More information…{{/_}}">
+			<img class="frame" alt="{{#_}}Album cover{{/_}}" src="i/120x250/album/{{id}}/cover">
+			{{title}}
+			<span>{{year}}</span>
+			<br>
+		</a>
+	</h2>
+
+	{{> tracks}}
+
+</article>
+{{/albums}}
+
+{{! >jplayer}}
+
+
+{{/ content}}
+{{/ layout }}

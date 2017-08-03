@@ -1,0 +1,37 @@
+
+// Buttons
+button, a.button
+{
+	cursor: pointer;
+	padding: .25em 1em;
+	font-size: .9em;
+
+	background: darken(@background-color, 10%);
+	border: 1px outset fade(@background-color, 50%);
+	color: inherit;
+
+	transition: opacity 250ms;
+
+	&:hover
+	{
+		&:not(:disabled)
+		{
+			background: darken(@background-color, 15%);
+		}
+	}
+
+	&:disabled
+	{
+		opacity: .5;
+		cursor: default;
+	}
+
+	.ripple-effect();
+}
+a.button
+{
+	display: inline-block;	
+	line-height: 1em;
+	.no-select();
+}
+

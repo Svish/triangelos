@@ -1,7 +1,12 @@
 <?php
 
+use Email\Smtp;
+use Email\Message;
+
 /**
  * Email helper.
+ * 
+ * @uses Config email
  */
 class Email
 {
@@ -10,11 +15,11 @@ class Email
 	 */
 	public function send_info($to, $subject, $message)
 	{
-		$message = Swift_Message::newInstance()
+		$message = (new Message)
 			->setFrom($this->config['smtp']['username'])
 			->setTo($to)
 			->setSubject($subject)
-			->setBody($message);
+			->setBodyMd($message);
 
 		return $this->send($message);
 	}
@@ -25,48 +30,69 @@ class Email
 	 */
 	public function send_feedback($from, $subject, $message)
 	{
-		$message = Swift_Message::newInstance()
+		$message = (new Message)
 			->setTo($this->config['contact']['address'])
 			->setFrom($from)
 			->setSubject($subject)
-			->setBody($message);
+			->setBodyMd($message);
 
 		return $this->send($message);
 	}
 
 
 	/**
-	 * Send message.
+	 * Send password reset email to $user.
 	 */
-	private function send(Swift_Message $message)
+	public function send_reset(\Data\User $user)
 	{
-		// Set common message stuff
-		$text = $message->getBody();
-		$html = Markdown::render($text);
-		$message
-			->setSender($this->config['smtp']['username'])
-			->setBody($html, 'text/html')
-			->addPart($text, 'text/plain');
+		// Make token
+		$user->make_token();
 
-		// Create transport
-		$transport = Swift_SmtpTransport::newInstance()
-			->setEncryption('tls')
-			->setHost($this->config['smtp']['server'])
-			->setPort($this->config['smtp']['port'])
-			->setUsername($this->config['smtp']['username'])
-			->setPassword($this->config['smtp']['password']);
+		// Create email (using first line as subject)
+		$text = Mustache::engine()->render('user/reset-email',
+			[
+				'user' => $user,
+				'host' => HOST,
+				'u' => new \View\Helper\Url,
+			]);
+		$text = preg_split('/\R/', $text);
 
-		// Send message
-		$mailer = Swift_Mailer::newInstance($transport);
-		//$mailer->registerPlugin(new Swift_Plugins_LoggerPlugin(new Swift_Plugins_Loggers_EchoLogger()));$mailer->send($message);exit;
-		return $mailer->send($message);
+		$to = [$user->email => $user->name];
+		$subject = array_shift($text);
+		$message = trim(implode("\r\n", $text));
+
+		$this->send_info($to, $subject, $message);
 	}
 
+
+	public function __construct()
+	{
+		$this->config = Config::email();
+	}
+
+
+
+	private function send(Message $message): bool
+	{
+		return Smtp::send($message);
+	}
+
+	
 
 	public static function __callStatic($name, $args)
 	{
-		$email = new self;
-		$email->config = Config::contact();
-		return call_user_func_array([$email, "send_$name"], $args);
+		try
+		{
+			Log::group();
+			Log::trace_raw("Sending $name email…");
+			$result = call_user_func_array([new self, "send_$name"], $args);
+			Log::groupEnd();
+			return $result;
+		}
+		catch(Swift_SwiftException $e)
+		{
+			throw new Exception('Failed to send email.', $e);
+		}
 	}
+
 }

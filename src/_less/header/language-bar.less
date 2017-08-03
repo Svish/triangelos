@@ -1,0 +1,43 @@
+#language-bar
+{
+	.no-select();
+
+	position: absolute;
+	top: -.2em;
+	right: 0;
+	bottom: 0;
+	padding: inherit;
+
+	line-height: .5em;
+	font-size: 1.5em;
+
+	display: flex;
+	flex-flow: column wrap-reverse;
+	align-items: baseline;
+	align-content: flex-start;
+
+
+	.language
+	{
+		padding: .15em;
+		transition: opacity 500ms;
+
+		&:hover
+		{
+			background: fadeout(@accent-color, 85%);
+		}
+		&:not(.current)
+		{
+			opacity: .25;
+		}
+		&:not(.current):hover
+		{
+
+		}
+	}
+}
+
+#header:hover #language-bar .language
+{
+	opacity: 1;
+}

@@ -1,5 +1,9 @@
 <?php
 
+namespace Model;
+
+use Cache;
+
 
 /**
  * Stuff from Facebook.
@@ -9,7 +13,7 @@
  * @see https://developers.facebook.com/docs/graph-api/reference/v2.7/page
  * @see https://developers.facebook.com/tools/explorer/307412509315861?method=GET&path=triangelos%2Fposts&version=v2.7
  */
-class Model_Facebook extends Model
+class Facebook extends \Model
 {
 	private $config;
 	public function __construct()

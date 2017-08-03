@@ -1,0 +1,31 @@
+/**
+ * NProgress adjustments
+ */
+#nprogress
+{
+	@np-color: @accent-color;
+
+	.bar, .spinner
+	{
+		//z-index: 90;
+	}
+	.bar
+	{
+		background: @np-color;
+	}
+	.peg
+	{
+		box-shadow: 0 0 10px @np-color, 0 0 5px @np-color;
+	}
+	.spinner
+	{
+		top: .75em;
+		left: .75em;
+	}
+	.spinner-icon
+	{
+		display: block;
+		border-top-color: @np-color;
+		border-left-color: @np-color;
+	}
+}

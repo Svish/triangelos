@@ -54,12 +54,7 @@ class I18N
 
 
 		// Get host configuration
-		self::$config = parse_ini_file(CONFIG.'hosts.ini', true, INI_SCANNER_RAW);
-		foreach(self::$config as $key => &$val)
-		{
-			$val['href'] = 'http://'.$key;
-			$val['host'] = $key;
-		}
+		self::$config = Config::hosts(INI_SCANNER_RAW);
 
 
 		// Find config for current domain
@@ -73,9 +68,8 @@ class I18N
 		define('LANG', $lang);
 		define('LOCALE', $locale);
 		define('HOST', $host);
-		define('CONTENT', DOCROOT.'__'.DIRECTORY_SEPARATOR.'_'.$lang.DIRECTORY_SEPARATOR);
+		define('CONTENT', ROOT.'i18n'.DIRECTORY_SEPARATOR.'_'.$lang.DIRECTORY_SEPARATOR);
 
-		$locales = array_map('trim', explode(',', $locales.','));
 		call_user_func_array('setlocale', [LC_ALL, $locales]);
 		setlocale(LC_NUMERIC, 'C');
 

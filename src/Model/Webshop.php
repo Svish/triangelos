@@ -1,4 +1,7 @@
 <?php
+namespace Model;
+
+use Config;
 
 
 /**
@@ -6,7 +9,7 @@
  *
  * @see https://developer.paypal.com/docs/classic/paypal-payments-standard/integration-guide/Appx_websitestandard_htmlvariables/#id08A6HH0D0TA
  */
-class Model_Webshop extends Model
+class Webshop extends \Model
 {
 	private $config;
 	public function __construct()
@@ -30,7 +33,7 @@ class Model_Webshop extends Model
 				$item += $this->config->add + $this->config->all;
 				
 				// Create PayPal URL
-				$params = Util::array_blacklist($item, ['type']);
+				$params = array_blacklist($item, ['type']);
 				$item['url'] = $this->build_url($params);
 			}
 	}

@@ -1,22 +1,26 @@
 
-- Messages through session instead of context?
-- Pull mustache context stuff from Page into own class?
+- (!) Move album info to meta.ini and nn.ini
 
-- (!) Performance check...
-	- (!) Get front-page blocks via ajax
+- Complete SVG <!-- source URLs -->
+	- Display them on about page
+	- Link to about page... in language bar?
 
-- Multiple cache invalidators?
-	- , $valid...) ?
-	- Validator dependent on other cache files?
+- Messages through js + session instead of context?
 
-- (!) Use previous cache value on exceptions from callable
+- Add ->url to Album and Track for cleaner mustache
+
+- Use Mustache/Loader/ProductionFilesystemLoader
+	- (!) Clear template cache on upload
 
 
-Bugs
+Calendar
 ===
 
-- Thumbnail headers already sent...?
-	- Website route cache issues? O.o
+- (!) Try to move and clean things into Data_Event/Calendar class.
+- https://www.addevent.com ?
+- Update "in background" via ajax?
+- (!) Make sure to fall-back to previous successfull calendar if failing
+	- (!) Check for HTML garbage...?
 
 
 Video
@@ -26,23 +30,17 @@ Video
 	- https://developers.google.com/youtube/v3/guides/push_notifications
 	- https://pubsubhubbub.appspot.com/subscribe
 
-Calendar
-===
-
-- (!) Try to move and clean things into Data_Event/Calendar class.
-- https://www.addevent.com ?
-- Update "in background" via ajax?
-- Make sure to fall-back to previous successfull calendar if failing
-	- (!) Check for HTML garbage...?
-
 
 Members
 ===
 
 - Manage account
 	- Update image
-	- Change details
-- Group SMS/Email sending to choir members?
+- Email to choir members
+	- Individual selection
+	- Group selection
+	- Standard selection (all singers)
+- SMS to choir members?
 	- https://www.twilio.com/sms/pricing/no
 	- https://www.smsgateway.to/en/technical-specifications
 	- https://www.nexmo.com/products/sms/
@@ -53,14 +51,12 @@ Members
 Admin section
 ===
 
+- User admin
 - Content/Page editor
 	- All languages?
 - New translations?
 	- List missing translations
 - Config editor
-- Member admin
-
-- YAML?
 
 
 
@@ -77,11 +73,12 @@ Music/Store
 	- Seventh Day: 2015-07-01
 
 - http://minicartjs.com?
+- Make composers clickable and list songs?
+- (!) https://artists.spotify.com
+- (!) Get Store URLs from emubands.com
 
 
 Other/Bugs
 ===
-- (!) Correct multipart downloads with Multipart/bytes Music
-- (!) Cache Controller_Page
-	- Use lmod of cached newest content file for valid check?
-	- (!) Add relevant COOKIE/GET to etag
+- Correct multipart downloads with Multipart/bytes Music
+- Use previous cache value on exceptions from callable

@@ -1,0 +1,52 @@
+// Input
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+input[type=number],
+input[type=tel],
+input[type=date],
+input[type=time],
+input[type=search],
+select,
+textarea
+{
+	width: 15rem;
+	padding: .5em;
+	.box-sizing();
+
+	background: @input-background-color;
+	border: 1px solid @input-border-color;
+	color: inherit;
+	font-size: .9em;
+	text-overflow: ellipsis;
+
+	& + br
+	{
+		margin-bottom: 1em;
+	}
+
+	&:required
+	{
+		background-image: radial-gradient(@text-color 17%, transparent 17%);
+		background-size: 1em 1em;
+		background-position: top right;
+		background-repeat: no-repeat;
+	}
+
+	// Placeholders
+	&::-webkit-input-placeholder { color: @placeholder-color; /* Chrome/Opera/Safari */}
+	&::-moz-placeholder          { color: @placeholder-color; /* Firefox 19+ */}
+	&:-ms-input-placeholder      { color: @placeholder-color; /* IE 10+ */}
+	&:-moz-placeholder           { color: @placeholder-color; /* Firefox 18- */}
+	&::placeholder               { color: @placeholder-color; }
+}
+	select[data-bind*=data-selected]:not(:focus):not([data-selected]) { color: @small-color; }
+
+
+// Textarea
+textarea
+{
+	resize: vertical;
+	min-height: 17em;
+}

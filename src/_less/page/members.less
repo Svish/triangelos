@@ -1,0 +1,23 @@
+
+body.members #content
+{
+	max-width: none;
+}
+
+body.members #content,
+body.user.me #content
+{
+	.frames
+	{
+		.name
+		{
+			font-weight: bold;
+		}
+		.roles
+		{
+			font-size: small;
+			span { display: inline; }
+			span:not(:last-of-type):after { content: ', '; }
+		}
+	}
+}

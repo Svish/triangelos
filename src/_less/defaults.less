@@ -1,0 +1,213 @@
+
+// Default font
+body,
+input,
+textarea,
+select
+{
+	font: 400 120%/1.5 'Open Sans', sans-serif;
+}
+
+
+
+// Html & Body
+html,
+body
+{
+	margin: 0;
+	padding: 0;
+	color: @text-color;
+	background: @background-color;
+}
+body
+{
+	cursor: default;
+	overflow-y: scroll;
+}
+
+
+
+// Margins
+h1,h2,h3,h4,p,.p,
+section,article,
+address,form,fieldset,
+blockquote,ul,ol,dl,
+pre,table, hr
+{
+	margin: 0 0 1.5rem 0;
+	&:last-child
+	{
+		margin-bottom: 0;
+	}
+	&:empty
+	{
+		display: none;
+	}
+}
+
+
+
+// Headers
+h1,h2,h3,h4
+{
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 300;
+	color: @accent-color;
+
+	a
+	{
+		color: inherit;
+		&:hover,
+		&:active
+		{
+			color: lighten(@accent-color, 25%);
+			img
+			{
+				opacity: .85;
+				border-color: lighten(@accent-color, 25%);
+			}
+		}
+
+		img
+		{
+			border: 1px solid transparent;
+		}
+	}
+}
+h1{font-size: 2em}
+h2{font-size: 1.5em}
+h3{font-size: 1.2em}
+
+
+
+// Blocks
+article,
+section
+{
+	&+&
+	{
+		margin-top: 4.5rem;
+	}
+}
+
+
+
+// Links
+a
+{
+	text-decoration: none;
+	color: @accent2-color;
+
+	&:hover,
+	&:active
+	{
+		color: lighten(@accent2-color, 25%);
+		border-color: lighten(@accent2-color, 25%);
+		outline-color: lighten(@accent2-color, 25%);
+	}
+}
+
+
+
+// SVG
+svg
+{
+	vertical-align: baseline;
+	height: .8em;
+	width: 1em;
+	* {fill: currentColor}
+}
+svg.flag
+{
+	height: 11px;
+}
+
+
+
+// Lists
+ul li
+{
+	list-style: square;
+}
+
+
+
+// Definition lists
+dl
+{
+	dt
+	{
+		font-weight: bold;
+		&:first-of-type {margin-top: 0;}
+	}
+	dd
+	{
+		margin-left: 0;
+	}
+}
+
+
+
+// Horizontal lines
+hr
+{
+	height: 1px;
+	border: 0;
+	font-size: 0;
+	color: darken(@background-color, 20%);
+	background: darken(@background-color, 20%);
+	.box-shadow(0, 0, 6px, rgba(0,0,0,.35));
+}
+
+// Quotes
+blockquote
+{
+	width: 100%;
+	box-sizing: border-box;
+	position: relative;
+	background: #fff;
+	padding: .75em 1em .75em 2.50em;
+
+	color: #666;
+	
+	border-left: .75em solid @accent-color;
+	border-right: .15em solid @accent-color;
+
+	.box-shadow(0, 0, 15px, @shadow-color);
+	border-radius: 5px;
+}
+blockquote::before
+{
+	position: absolute;
+	left: .15em;
+	top: -.15em;
+
+	content: "\201C"; /*Unicode for Left Double Quote*/
+	
+	font-family: Georgia, serif;
+	font-size: 3.2em;
+	font-weight: bold;
+	color: @shadow-color;
+}
+blockquote::after
+{
+	content: "";
+}
+
+
+
+// Bold
+b,
+strong
+{
+	font-weight: 600;
+}
+
+
+
+// Small
+small,
+.small
+{
+	font-size: smaller;
+}

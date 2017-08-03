@@ -2,14 +2,11 @@
 
 class Msg
 {
-	public static function ok($text)
+	
+	public static function __callStatic($name, $args)
 	{
-		return self::get('ok', $text);
-	}
-
-	public static function error($text)
-	{
-		return self::get('error', $text);
+		$key = array_shift($args);
+		return self::get($name, Text::$type($key));
 	}
 
 	public static function get($type, $text)

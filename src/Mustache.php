@@ -1,14 +1,32 @@
 <?php
 
+use Mustache\Engine;
+
+/**
+ * Mustache_Engine wrapper with some defaults and other stuff.
+ */
 class Mustache
 {
-	public static function engine()
+	const APP = 'src'.DS.'_views'.DS;
+	const LIB = 'vendor'.DS.'geekality'.DS.'weblib'.DS.'src'.DS.'_views'.DS;
+	const I18N = '_'.LANG.DS;
+
+
+	public static function engine(string $template = null, array $options = [])
 	{
-		return new Mustache_Engine([
-			'cache' => CACHE.__CLASS__,
-			'loader' => new MyLoader,
-			'partials_loader' => new MyPartialsLoader,
-			'pragmas' => [Mustache_Engine::PRAGMA_FILTERS],
-			]);
+		$paths = [ 
+			self::I18N.$template,
+			self::APP.$template,
+			self::I18N,
+			self::APP,
+			self::LIB,
+			];
+
+		if($template)
+			$partials = $paths;
+
+		$templates = array_slice($paths, 2);
+
+		return new Engine($templates, $partials ?? null, $options);
 	}
 }

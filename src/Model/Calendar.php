@@ -1,16 +1,26 @@
 <?php
 
+namespace Model;
+
 
 /**
  * Calendar model.
  */
-class Model_Calendar extends Model
+class Calendar extends \Model
 {
+	// URL to shared iCalendar file
 	const ICAL = 'https://sharing.calendar.live.com/calendar/private/3794e2fa-c705-4523-a379-a65187312020/8e8c11c8-8d8f-40d0-bcfe-ca1478af22a0/cid-4a7c4549b6307161/calendar.ics';
+
+	// List of event names that should be marked private (for members only)
+	private static $private = [
+		'Choir practice',
+		'Warmup',
+		'Choir trip',
+		];
+
+
+	
 	private $ical;
-
-
-
 	public function __construct()
 	{
 		$this->ical = new ICalParser(self::ICAL);
@@ -24,6 +34,33 @@ class Model_Calendar extends Model
 	public function ical()
 	{
 		return $this->ical->raw();
+	}
+
+
+
+	/**
+	 * Next two public events
+	 */
+	public function up_next()
+	{
+		$cache = new Cache(__CLASS__, false, 3600); // 1 hour
+		return $cache->get(__METHOD__, function()
+			{
+				return $this->_up_next();
+			});
+	}
+	private function _up_next()
+	{
+		$today = new DateTime('today');
+		$count = 2;
+
+		foreach($this->events($today) as $date)
+			foreach($date as $event)
+				if( ! $event['private'])
+					if($count-- > 0)
+						yield $event;
+					else
+						return;
 	}
 
 
@@ -87,7 +124,7 @@ class Model_Calendar extends Model
 			// Day
 			$cal[$month]['weeks'][$week]['days'][(int) $day->format('w')] = [
 				'day' => $day,
-				'events' => Util::path($events, $day->format('Y-m-d'), []),
+				'events' => $events[$day->format('Y-m-d')] ?? [],
 				];
 		}
 
@@ -104,31 +141,6 @@ class Model_Calendar extends Model
 				array_unshift($month['weeks'][0]['days'], []);
 		}
 		return array_values($cal);
-	}
-
-	/**
-	 * Next two public events
-	 */
-	public function up_next()
-	{
-		$cache = new Cache(__CLASS__, false, 3600); // 1 hour
-		return $cache->get(__METHOD__, function()
-			{
-				return $this->_up_next();
-			});
-	}
-	private function _up_next()
-	{
-		$today = new DateTime('today');
-		$count = 2;
-
-		foreach($this->events($today) as $date)
-			foreach($date as $event)
-				//if( ! $event['private'])
-					if($count-- > 0)
-						yield $event;
-					else
-						return;
 	}
 
 
@@ -157,7 +169,7 @@ class Model_Calendar extends Model
 			$e['description'] = Markdown::render($e['description']);
 
 			// Format location
-			$e['location'] = str_replace(',', '<br>', $e['location']);
+			$e['location'] = str_replace(',', "\r\n", $e['location']);
 
 			// Add to list
 			$events[$e['start']->format('Y-m-d')][] = $e;
@@ -187,9 +199,6 @@ class Model_Calendar extends Model
 
 		return $events;
 	}
-
-
-	private static $private = ['Choir practice', 'Warmup'];
 
 	private static function is_private(array $event)
 	{

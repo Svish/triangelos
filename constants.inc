@@ -1,18 +1,27 @@
 <?php
 
-// Base paths
-define('DOCROOT', realpath(__DIR__).DIRECTORY_SEPARATOR);
+// System paths
+define('DS', DIRECTORY_SEPARATOR);
+define('ROOT', realpath(__DIR__).DS);
+define('SRC', ROOT.'src'.DS);
+
+
+// Web paths
+define('SCHEME', empty($_SERVER['HTTPS']) || $_SERVER['HTTPS']=='off' ? 'http' : 'https');
 define('WEBBASE', $_SERVER['BASE']);
-define('WEBROOT', 'http://'.$_SERVER['HTTP_HOST'].WEBBASE);
+define('WEBROOT', SCHEME.'://'.$_SERVER['HTTP_HOST'].WEBBASE);
+
+// Current path
+$path = $_GET['path_uri'] ?? '';
+$path = trim($path, '/');
+define('PATH', $path ?: 'index');
+unset($_GET['path_uri']);
 
 // Environment
 define('ENV', $_SERVER['ENV']);
 
-// Directories
-define('CONFIG', DOCROOT.'config'.DIRECTORY_SEPARATOR);
-define('CACHE', DOCROOT.'.cache'.DIRECTORY_SEPARATOR);
 
 // Language, Encoding and Locales
 mb_internal_encoding("UTF-8");
 date_default_timezone_set('Europe/Oslo');
-I18N::init(Util::path($_COOKIE, 'host', $_SERVER['HTTP_HOST']));
+I18N::init($_COOKIE['host'] ?? $_SERVER['HTTP_HOST']);

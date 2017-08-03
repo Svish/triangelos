@@ -1,10 +1,6 @@
+// http://mattkersley.com/responsive/
 
-.responsive
-{
-	margin-bottom: 1em;
-}
-
-@media only screen and (max-width : 550px)
+@media only screen and (max-width : 480px)
 {
 	body,
 	input,
@@ -15,8 +11,8 @@
 	}
 	#header, #message, #content, #footer nav
 	{
-		padding-left: 1rem;
-		padding-right: 1rem;
+		padding-left: @small-padding;
+		padding-right: @small-padding;
 	}
 	.responsive
 	{

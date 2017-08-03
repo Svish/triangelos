@@ -1,0 +1,49 @@
+
+body.video #content
+{
+	max-width: none;
+
+	.frames>*
+	{
+		position: relative;
+		line-height: inherit;
+
+		.thumbnail
+		{
+			position: relative;
+			display: inline-block;
+
+			&:after
+			{
+				content: attr(data-duration);
+				position: absolute;
+				font-size: x-large;
+				top: 1px;
+				right: 1px;
+				padding: .2em .8em;
+				background: fadeout(@text-color, 40%);
+				color: @background-color;
+				border-bottom-left-radius: 5px;
+				border-top-right-radius: 5px;
+			}
+
+		}
+
+		span
+		{
+			max-width: 320px;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+	}
+
+}
+
+@media only screen and (max-width : 480px)
+{
+	body.video #content .frames>* span
+	{
+		max-width: none;
+	}
+}

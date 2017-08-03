@@ -1,0 +1,35 @@
+// Errors
+fieldset.error,
+fieldset.error legend,
+input.error,
+textarea.error
+{
+	border-color: @error-color;
+	&:required
+	{
+		background-image:
+			radial-gradient(@error-color 17%, transparent 17%);
+	}
+}
+tfoot.error
+{
+	color: white;
+	background: fadeout(red, 50%);
+}
+
+.field.error
+{
+	font-size: .8em;
+	color: @error-color;
+	white-space: pre-line;
+	&::before
+	{
+		content: '\A';
+		white-space: pre-line;
+	}
+}
+.cell.error
+{
+	font-size: .8em;
+	color: @error-color;
+}
