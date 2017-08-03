@@ -12,22 +12,15 @@ ExpiresByType image/x-icon "access plus 1 week"
 ExpiresByType image/png "access plus 1 week"
 
 
-
 # Environment
 RewriteEngine on
 RewriteBase /triangelos/
 SetEnv BASE /triangelos/
 SetEnv ENV dev
 
-# Block hidden files
-<Files .*>
-	Order Deny,Allow
-	Deny From All
-</Files>
-
 # Static files
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME} !-d
 
 # Route anything else through the app
 #RewriteRule .* index.php/$0 [L]

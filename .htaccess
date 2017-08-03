@@ -12,7 +12,6 @@ ExpiresByType image/x-icon "access plus 1 week"
 ExpiresByType image/png "access plus 1 week"
 
 
-
 # Environment
 RewriteEngine on
 RewriteBase /
@@ -31,7 +30,7 @@ RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
 # Static files
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME} !-d
 
 # Route anything else through the app
 #RewriteRule .* index.php/$0 [L]
