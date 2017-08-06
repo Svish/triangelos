@@ -14,39 +14,18 @@ function __($text)
  */
 class I18N
 {
-	protected static $config;
-	protected static $current;
-	protected static $strings;
+	use Candy\InstanceCallable;
+
+	private $_config;
+	private $_current;
+
+	private $_strings;
 	
-	protected static $rkey;
-	protected static $rval;
+	private $_rkey;
+	private $_rval;
 
 
-	public static function translate($text)
-	{
-		if( ! self::$config)
-			trigger_error(__METHOD__.' called without init.', E_USER_ERROR);
-		
-		// General string
-		if(strpos($text, '/') === false)
-			return str_replace(self::$rkey, self::$rval, $text);
-
-		// Path to something specific
-		$keys = explode('/', $text);
-		$strings = &self::$strings;
-
-		while ($key = array_shift($keys))
-		{
-			$key = trim($key);
-			if( ! array_key_exists($key, $strings))
-				return $key;
-			$strings = &$strings[$key];
-		}
-		return $strings;
-	}
-	
-
-	public static function init($host)
+	private function __construct(string $host)
 	{
 		// For dev envs
 		if(in_array($host, ['localhost', 'triangelos.geekality.net']) || ip2long($host) !== false)
@@ -54,34 +33,57 @@ class I18N
 
 
 		// Get host configuration
-		self::$config = Config::hosts(INI_SCANNER_RAW);
+		$this->_config = Config::hosts(INI_SCANNER_RAW);
 
-
+		
 		// Find config for current domain
-		if( ! array_key_exists($host, self::$config))
+		if( ! array_key_exists($host, $this->_config))
 			HTTP::plain_exit(404, 'Unconfigured hostname: '.$host);
-		self::$current = &self::$config[$host];
-		extract(self::$current);
+
+		$this->_current = &$this->_config[$host];
+		extract($this->_current);
 
 
 		// Set constants and locale
 		define('LANG', $lang);
 		define('LOCALE', $locale);
 		define('HOST', $host);
-		define('CONTENT', ROOT.'i18n'.DIRECTORY_SEPARATOR.'_'.$lang.DIRECTORY_SEPARATOR);
+		define('I18N', 'i18n'.DS);
+		define('L10N', 'i18n'.DS."_$lang".DS);
 
-		call_user_func_array('setlocale', [LC_ALL, $locales]);
+		setlocale(LC_ALL, ...$locales);
 		setlocale(LC_NUMERIC, 'C');
 
 
 		// Get strings
-		$strings = CONTENT.$lang.'.inc';
-		self::$strings = file_exists($strings) ? require $strings : [];
-		self::$strings = Util::merge(require CONTENT.'../default.inc', self::$strings);
+		$i18n = parse_ini_file(I18N.'_.ini', INI_SCANNER_RAW);
+		$l10n = parse_ini_file(L10N.'_.ini', INI_SCANNER_RAW);
+		$this->_strings = Util::merge($i18n, $l10n);
 
 		// Get replacements
-		$replacements = array_filter(self::$strings, 'is_string');
-		self::$rkey = array_keys($replacements);
-		self::$rval = array_values($replacements);
+		$replacements = array_filter($this->_strings, 'is_string');
+		$this->_rkey = array_keys($replacements);
+		$this->_rval = array_values($replacements);
+	}
+
+
+	private function translate($text)
+	{
+		// General string
+		if(strpos($text, '/') === false)
+			return str_replace($this->_rkey, $this->_rval, $text);
+
+		// Path to something specific
+		$keys = explode('/', $text);
+		$strings = &$this->_strings;
+
+		while($key = array_shift($keys))
+		{
+			$key = trim($key);
+			if( ! array_key_exists($key, $strings))
+				return $key;
+			$strings = &$strings[$key];
+		}
+		return $strings;
 	}
 }

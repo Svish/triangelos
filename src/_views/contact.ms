@@ -8,54 +8,49 @@
 
 <h1>{{#_}}title/Contact{{/_}}</h1>
 
-{{{md}}}
+{{#practice}}
 
-<section id="gmap_canvas"></section>
-<script type='text/javascript'>function init_map()
-{
-	map = new google.maps.Map(document.getElementById('gmap_canvas'),
-		{
-			zoom:16,
-			center: new google.maps.LatLng(59.917949,10.744473),
-			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			mapTypeControl: false,
-			streetViewControl: false,
-			scrollwheel: false,
-		});
+	{{#md}}{{/md}}
 
-	marker = new google.maps.Marker(
-		{
-			map: map,
-			position: new google.maps.LatLng(59.917949,10.744473),
-			title: 'Adventkirken Betel',
-		});
+	<section id="gmap_canvas"></section>
+	<script type='text/javascript'>function init_map()
+	{
+		map = new google.maps.Map(document.getElementById('gmap_canvas'),
+			{
+				zoom:16,
+				center: new google.maps.LatLng( {{lat}} , {{lon}} ),
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				mapTypeControl: false,
+				streetViewControl: false,
+				scrollwheel: false,
+			});
 
-	google.maps.event.addDomListener(window, 'resize', function()
-		{
-			map.setCenter(marker.position);
-		});
-}
-</script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?callback=init_map"></script>
+		marker = new google.maps.Marker(
+			{
+				map: map,
+				position: new google.maps.LatLng( {{lat}} , {{lon}} ),
+				title: '{{label}}',
+			});
 
+		google.maps.event.addDomListener(window, 'resize', function()
+			{
+				map.setCenter(marker.position);
+			});
+	}
+	</script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?callback=init_map&amp;key={{google.api_key}}"></script>
+{{/practice}}
 
 <section class="flex">
 
 	<section>
 		<h2>{{#_}}title/Mail{{/_}}</h2>
-		<address><b>Triangelos</b>
-			Postboks 102
-			1429 Vinterbro
-			Norway
-		</address>
+		<address>{{post}}</address>
 	</section>
 
 	<section>
 		<h2>{{#_}}title/Bank details{{/_}}</h2>
-		<p>1720 26 24200<br>
-			<small><b>IBAN:</b> NO71 1720 2624 200</small><br>
-			<small><b>SWIFT/BIC:</b> BIENNOK1</small>
-		</p>
+		<address>{{bank}}</address>
 	</section>
 
 	<section>

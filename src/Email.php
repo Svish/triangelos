@@ -31,7 +31,7 @@ class Email
 	public function send_feedback($from, $subject, $message)
 	{
 		$message = (new Message)
-			->setTo($this->config['contact']['address'])
+			->setTo($this->config['email'])
 			->setFrom($from)
 			->setSubject($subject)
 			->setBodyMd($message);
@@ -67,7 +67,7 @@ class Email
 
 	public function __construct()
 	{
-		$this->config = Config::email();
+		$this->config = Config::contact();
 	}
 
 

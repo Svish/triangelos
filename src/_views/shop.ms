@@ -4,9 +4,13 @@
 {{$ content}}
 
 
+
 <h1>{{#_}}title/Shop{{/_}}</h1>
 
-{{{md}}}
+<pre>// TODO</pre>
+
+{{#md}}{{/md}}
+
 
 
 {{/ content}}

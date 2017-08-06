@@ -1,1 +1,0 @@
-Velkommen til våre nettsider! Her kan du blant annet lytte til og kjøpe [vår musikk](music), sjekke når vi opptrer neste gang i [vår kalender](calendar) og [kontakte oss](contact) dersom det er noe du lurer på.

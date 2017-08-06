@@ -1,14 +1,14 @@
 {{% BLOCKS }}
 {{< layout }}
-{{$ title }}{{#_}}title/Reset{{/_}}{{/ title }}
+{{$ title }}{{#_}}title/I need a password{{/_}}{{/ title }}
 
 {{$ content}}
 
 
 
-<h1>{{#_}}title/Reset{{/_}}</h1>
+<h1>{{#_}}title/I need a password{{/_}}</h1>
 
-{{{md}}}
+{{#md}}{{/md}}
 
 <form action="{{PATH}}" method="post">
 	

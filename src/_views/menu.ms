@@ -1,22 +1,30 @@
 <nav id="menu">
 
-	<a class="no-grow" href="." class="{{#_icp}}index{{/_icp}}">
+	<a href="."
+		title="{{#_}}title/Home{{/_}}"
+		class="no-grow {{#_icp}}index{{/_icp}}">
 		{{#svg}}home{{/svg}}
 	</a>
 
 	{{^_user}}
-	<a class="no-grow {{#_icp}}user{{/_icp}}" href="user/login" title="{{#_}}title/Login{{/_}}">
+	<a href="user/login"
+		title="{{#_}}title/Login{{/_}}"
+		class="no-grow {{#_icp}}user{{/_icp}}">
 		{{#svg}}key{{/svg}}
 	</a>
 	{{/_user}}
 
 	{{#_user}}
-	<a class="no-grow logged-in {{#_icp}}user{{/_icp}}" href="user/area" title="{{email}}">
+	<a href="user/area"
+		title="{{email}}"
+		class="no-grow logged-in {{#_icp}}user{{/_icp}}">
 		{{#svg}}key{{/svg}}
 	</a>
 	{{/_user}}
 
-	<a href="shop" class="{{#_icp}}shop{{/_icp}}">
+	<a href="webshop"
+		title="{{#_}}title/Webshop{{/_}}"
+		class="{{#_icp}}shop{{/_icp}}">
 		{{#svg}}cart{{/svg}}
 	</a>
 		

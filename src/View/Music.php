@@ -7,8 +7,11 @@ use Model;
  */
 class Music extends \View\Layout
 {
-	public function albums()
+	public $albums;
+
+	public function __construct()
 	{
-		return Model::music()->all();
+		$this->albums = Model::music()->all();		
+		parent::__construct();
 	}
 }

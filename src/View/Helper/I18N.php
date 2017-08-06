@@ -3,36 +3,40 @@
 namespace View\Helper;
 use Mustache_LambdaHelper as LH;
 use I18N as I;
+use Config;
+
 
 /**
  * Translation helper for Mustache templates.
  */
-class I18N extends I
+class I18N
 {
 	public function __invoke($text, LH $render = null)
 	{
 		if($render)
 			$text = $render($text);
 
-		return self::translate($text);
+		return I::translate($text);
 	}
 
 	/**
-	 * Yields language options, current first.
+	 * Yield language options.
 	 */
 	public function options()
 	{
-		$info = self::$config[HOST];
+		$hosts = Config::hosts();
+
+		// Current host first
+		$info = $hosts[HOST];
 		$info['host'] = HOST;
 		yield $info;
 
-		foreach(self::$config as $host => $info)
-		{
+		// Then the rest
+		foreach($hosts as $host => $info)
 			if($host != HOST)
 			{
 				$info['host'] = $host;
 				yield $info;
 			}
-		}
 	}
 }

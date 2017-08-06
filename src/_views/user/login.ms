@@ -19,7 +19,7 @@
 	<p>
 		<button class="icon" type="submit">{{#svg}}login{{/svg}}</button>
 		&nbsp;
-		<a class="small" href="user/reset">{{#_}}link/need_password{{/_}}</a>
+		<a class="small" href="user/reset">{{#_}}title/Need a password?{{/_}}</a>
 	</p>
 </form>
 

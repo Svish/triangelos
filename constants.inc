@@ -21,7 +21,7 @@ unset($_GET['path_uri']);
 define('ENV', $_SERVER['ENV']);
 
 
-// Language, Encoding and Locales
+// I18N
 mb_internal_encoding("UTF-8");
 date_default_timezone_set('Europe/Oslo');
-I18N::init($_COOKIE['host'] ?? $_SERVER['HTTP_HOST']);
+I18N::instance($_COOKIE['host'] ?? $_SERVER['HTTP_HOST']);

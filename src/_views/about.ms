@@ -8,10 +8,10 @@
 
 <h1>{{#_}}title/About the site{{/_}}</h1>
 
-{{{md}}}
+{{#md}}{{/md}}
 
 <dl>
-	<dt>{{#_}}Icons by{{/_}}</dt>
+	<dt>{{#_}}title/Icons by{{/_}}</dt>
 		{{#icons}}
 		<dd><a href="{{url}}">{{author}}</a></dd>
 		{{/icons}}

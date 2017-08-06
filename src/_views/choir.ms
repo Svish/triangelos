@@ -4,9 +4,13 @@
 
 {{$ content}}
 
+
+
 <h1>{{#_}}title/Choir{{/_}}</h1>
 
-{{{md}}}
+{{#md}}{{/md}}
+
+
 
 {{/ content}}
 

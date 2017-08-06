@@ -17,10 +17,7 @@ use Error\InternalNotFound as Error;
  */
 class Md
 {
-	const DIR = [
-		'i18n'.DS,
-		'i18n'.DS.'_'.LANG.DS,
-	];
+	const DIR = [ L10N , I18N ];
 
 
 	/**
@@ -28,14 +25,9 @@ class Md
 	 */
 	public function __invoke($text = null, Helper $render = null)
 	{
-		if($render)
-			$text = $render($text);
-
-
 		// Render: Text
 		if($text)
-			return Markdown::instance()->render($text);
-
+			return Markdown::instance()->render($render ? $render($text) : $text);
 
 		// Render: File according to path
 		$filename = PATH;
@@ -46,6 +38,9 @@ class Md
 			$md = File::get($file, false);
 			if($md === false)
 				continue;
+
+			if($render)
+				$md = $render($md);
 
 			return Markdown::instance()->render($md);
 		}
