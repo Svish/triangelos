@@ -72,7 +72,7 @@ class Image extends Cached
 			throw new NotFound($path, 'image', $e);
 		}
 
-		if($w > 0 && $h > 0)
+		if($w > 0 || $h > 0)
 		{
 			Log::trace_raw("Resizing to {$w}x{$h}…");
 			$i->resize((int)$w, (int)$h, false, true);

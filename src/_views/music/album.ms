@@ -6,11 +6,21 @@
 
 {{#album}}
 
-	<h1><a href="music/album/{{id}}">{{title}}</a>
+	<h1 class="title">{{title}}
 		<span>{{#_}}title/Album{{/_}}</span>
 	</h1>
 
-	<section class="meta center frames no-select">
+
+	{{> toc}}
+
+	<section class="meta frames no-select">
+
+		<a href="{{PATH}}#the-cover">
+			<img class="loading" alt="{{#_}}Album cover{{/_}}" src="i/75x50/album/{{id}}/cover">
+		</a>
+
+		<a class="p" href="shop/{{id}}">{{#svg}}cart{{/svg}}</a>
+		
 		<p>
 			<b>{{#_}}Released{{/_}}</b>
 			<br>
@@ -22,49 +32,21 @@
 			{{trackCount}}
 		</p>
 		<p>
-			<b>{{#_}}Total time{{/_}}</b>
+			<b>{{#_}}Total duration{{/_}}</b>
 			<br>
 			{{totalTime | f.duration}}
 		</p>
-		<p>
-			{{> shop/webshop-cart-button}}
-		</p>
 	</section>
 
-	<section>{{{html}}}</section>
+	<section>{{{description | md}}}</section>
 
-	<section>
-		<h2>{{#_}}title/The songs{{/_}}</h2>
-		{{> music/tracks}}
-	</section>
+	{{> music/the-songs}}
 
-	<section class="no-select">
-		<h2>{{#_}}title/The choir{{/_}}</h2>
-		<div class="flex">
-			{{#choir}}
-			<dl>
-				<dt>{{role | ucfirst | _}}</dt>
-				{{#members}}
-				<dd>{{.}}</dd>
-				{{/members}}
-			</dl>
-			{{/choir}}
-		</div>
-	</section>
+	{{> music/the-credits}}
 
-	<section class="no-select">
-		<h2>{{#_}}title/The cover{{/_}}</h2>
-		<p class="covers">
-			
-			<img alt="{{#_}}Album cover{{/_}}"
-				src="i/400x500/album/{{id}}/cover"
-				class="frame">
+	{{> music/the-choir}}
 
-			<img alt="{{#_}}Album inlay{{/_}}"
-				src="i/400x500/album/{{id}}/inlay"
-				class="frame">
-		</p>
-	</section>
+	{{> music/the-cover}}
 {{/album}}
 
 

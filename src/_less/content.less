@@ -6,6 +6,7 @@
 	max-width: @max-width;
 	box-sizing: border-box;
 
+	// Headers
 	h1,h2,h3,h4
 	{
 		span
@@ -14,28 +15,44 @@
 			vertical-align: super;
 			font-size: medium;
 			color: black;
+			&::before
+			{
+				content: ' ';
+			}
+
 		}
 	}
-	.subtitle
+	h1+h2,
+	h2+h3,
+	h3+h4
 	{
-		margin-top: 0;
-		font-size: small;
+		margin-top: -@trailing-margin;
 	}
 
+	// Images
 	img
 	{
 		max-width: 100%;
 		height: auto;
 	}
 
-	&>*:first-child
+	// Lists
+	ul,ol,dl
 	{
-		margin-top: 0;
+		line-height: 1.5em;
 	}
-	
-	&>*:last-child
+	ul,ol,dd
 	{
-		margin-bottom: 0;
+		margin-left: 0;
+		padding-left: 0;
+	}
+	dd
+	{
+		margin-left: 1.25em;
+	}
+	li
+	{
+		margin-left: 2em;
 	}
 }
 

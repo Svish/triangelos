@@ -7,7 +7,7 @@
 <pre>// TODO: Load these via JS</pre>
 <pre>// TODO: Use flexbox?</pre>
 
-<div class="responsive">
+<div class="flex">
 
 <section class="albums">
 	<h2><a href="music">{{#_}}Get our latest albums!{{/_}} {{#svg}}jumping-man{{/svg}}</a></h2>

@@ -18,7 +18,7 @@ class Duration
 	{
 		$time = $render ? $render($time) : $time;
 
-		if($time[0] == 'P')
+		if(is_string($time) && strlen($time) && 'P' == $time[0])
 			return $this->interval($time);
 
 		if(is_numeric($time))
@@ -36,6 +36,9 @@ class Duration
 
 	private function number(float $time)
 	{
+		if( ! $time)
+			return '0';
+		
 		$h = floor($time / 3600);
 		$m = floor($time / 60 % 60);
 		$s = floor($time % 60);

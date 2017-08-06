@@ -6,11 +6,11 @@
 
 
 
-<h1><a href="{{PATH}}">{{#_}}title/Contact{{/_}}</a></h1>
+<h1>{{#_}}title/Contact{{/_}}</h1>
 
 {{{md}}}
 
-<div id="gmap_canvas" class="p"></div>
+<section id="gmap_canvas"></section>
 <script type='text/javascript'>function init_map()
 {
 	map = new google.maps.Map(document.getElementById('gmap_canvas'),
@@ -39,7 +39,7 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?callback=init_map"></script>
 
 
-<div class="p flex">
+<section class="flex">
 
 	<section>
 		<h2>{{#_}}title/Mail{{/_}}</h2>
@@ -69,7 +69,7 @@
 		</div>
 	</section>
 
-</div>
+</section>
 
 <section>
 	{{> contact/email}}

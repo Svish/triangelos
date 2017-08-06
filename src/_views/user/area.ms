@@ -6,7 +6,7 @@
 
 <div class="menu no-select frames">
 	
-	<a href="tools/user/me">
+	<a href="user/me">
 		{{#svg}}person{{/svg}}<br>
 		{{#_}}title/Me{{/_}}
 	</a>

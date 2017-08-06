@@ -2,48 +2,36 @@
 namespace View\Music;
 
 use Model;
+use Mustache\IteratorPresenter as Presenter;
+
 
 /**
  * View: music/album/<id>
  */
 class Album extends \View\Layout
 {
+	public $album;
+
 	public function __construct(string $id)
 	{
 		$this->id = $id;
-		parent::__construct();
-	}
+		$this->album = Model::music()->get($id);
+		$this->album->choir = new Presenter($this->album->choir, true);
+		$this->album->credits = new Presenter($this->album->credits ?: [], true);
 
-	private $_album;
-	public function album(): \Data\Album
-	{
-		if( ! $this->_album)
-			try
-			{
-				$this->_album = Model::music()->get($this->id);
-				foreach($this->_album->choir ?? [] as $k => $v)
-				{
-					$choir[] = ['role' => $k, 'members' => $v];
-				}
-				$this->_album->choir = $choir ?? [];
-			}
-			catch(\Error\PleaseNo $e)
-			{
-				throw new \Error\NotFound($this->id, 'album', $e);
-			}
-		return $this->_album;
+		parent::__construct();
 	}
 
 	public function trackCount()
 	{
-		return count($this->album()->tracks);
+		return count($this->album->tracks);
 	}
 
 	public function totalTime()
 	{
 		$time = 0;
-		foreach($this->album()->tracks as $track)
-			$time += $track->seconds;
+		foreach($this->album->tracks as $track)
+			$time += $track->duration['number'];
 
 		return $time;
 	}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c34d8561ffe163ffdaae03ceb046d54",
+    "content-hash": "270d8757464acb8ac85915bf1029cdc8",
     "packages": [
         {
             "name": "bitworking/mimeparse",
@@ -123,20 +123,20 @@
         },
         {
             "name": "doctrine/collections",
-            "version": "v1.4.0",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "1a4fb7e902202c33cce8c55989b945612943c2ba"
+                "reference": "a01ee38fcd999f34d9bfbcee59dbda5105449cbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/1a4fb7e902202c33cce8c55989b945612943c2ba",
-                "reference": "1a4fb7e902202c33cce8c55989b945612943c2ba",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/a01ee38fcd999f34d9bfbcee59dbda5105449cbf",
+                "reference": "a01ee38fcd999f34d9bfbcee59dbda5105449cbf",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.6 || ^7.0"
+                "php": "^7.1"
             },
             "require-dev": {
                 "doctrine/coding-standard": "~0.1@dev",
@@ -186,7 +186,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2017-01-03T10:49:41+00:00"
+            "time": "2017-07-22T10:37:32+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -301,16 +301,16 @@
         },
         {
             "name": "geekality/consolelog",
-            "version": "v1.2",
+            "version": "v1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Svish/consolelog.git",
-                "reference": "f706902595abbc4c8bea133a2d9982267128a513"
+                "reference": "ed3fa182b6f68de0eccc8893cf4fa66a4f964437"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Svish/consolelog/zipball/f706902595abbc4c8bea133a2d9982267128a513",
-                "reference": "f706902595abbc4c8bea133a2d9982267128a513",
+                "url": "https://api.github.com/repos/Svish/consolelog/zipball/ed3fa182b6f68de0eccc8893cf4fa66a4f964437",
+                "reference": "ed3fa182b6f68de0eccc8893cf4fa66a4f964437",
                 "shasum": ""
             },
             "require": {
@@ -336,7 +336,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2017-07-27T07:41:44+00:00"
+            "time": "2017-08-03T07:48:28+00:00"
         },
         {
             "name": "geekality/php-image",
@@ -375,21 +375,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Svish/php-weblib.git",
-                "reference": "6ba6ec2828033cd38b2c7b44d3b5a958c746d973"
+                "reference": "ea7e01b40599d6b0bb1c92b1b3584b3977f25569"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Svish/php-weblib/zipball/6ba6ec2828033cd38b2c7b44d3b5a958c746d973",
-                "reference": "6ba6ec2828033cd38b2c7b44d3b5a958c746d973",
+                "url": "https://api.github.com/repos/Svish/php-weblib/zipball/ea7e01b40599d6b0bb1c92b1b3584b3977f25569",
+                "reference": "ea7e01b40599d6b0bb1c92b1b3584b3977f25569",
                 "shasum": ""
             },
             "require": {
                 "bitworking/mimeparse": "2.*",
+                "dflydev/dot-access-data": "1.*",
                 "geekality/consolelog": "*",
-                "leafo/lessphp": "0.*",
                 "league/commonmark": "0.*",
                 "mustache/mustache": "2.*",
-                "php": "7.*",
+                "oyejorge/less.php": "1.*",
+                "php": ">=7.1",
                 "webuni/commonmark-attributes-extension": "0.*",
                 "webuni/commonmark-table-extension": "0.*"
             },
@@ -410,7 +411,7 @@
                 "source": "https://github.com/Svish/php-weblib/tree/master",
                 "issues": "https://github.com/Svish/php-weblib/issues"
             },
-            "time": "2017-07-29 00:58:09"
+            "time": "2017-08-03 23:05:01"
         },
         {
             "name": "james-heinrich/getid3",
@@ -447,47 +448,6 @@
                 "tags"
             ],
             "time": "2017-03-27T21:12:55+00:00"
-        },
-        {
-            "name": "leafo/lessphp",
-            "version": "v0.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/leafo/lessphp.git",
-                "reference": "0f5a7f5545d2bcf4e9fad9a228c8ad89cc9aa283"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/leafo/lessphp/zipball/0f5a7f5545d2bcf4e9fad9a228c8ad89cc9aa283",
-                "reference": "0f5a7f5545d2bcf4e9fad9a228c8ad89cc9aa283",
-                "shasum": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.4.x-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "lessc.inc.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Leaf Corcoran",
-                    "email": "leafot@gmail.com",
-                    "homepage": "http://leafo.net"
-                }
-            ],
-            "description": "lessphp is a compiler for LESS written in PHP.",
-            "homepage": "http://leafo.net/lessphp/",
-            "time": "2014-11-24T18:39:20+00:00"
         },
         {
             "name": "league/commonmark",

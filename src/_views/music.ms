@@ -5,8 +5,7 @@
 
 
 
-<h1><a href="{{PATH}}">{{#_}}title/Music{{/_}}</a></h1>
-
+<h1>{{#_}}title/Music{{/_}}</h1>
 
 {{#albums}}
 <article class="album loading">
@@ -14,12 +13,12 @@
 		<a href="music/album/{{id}}" title="{{#_}}More information…{{/_}}">
 			<img class="frame" alt="{{#_}}Album cover{{/_}}" src="i/120x250/album/{{id}}/cover">
 			{{title}}
-			<span>{{year}}</span>
+			<span>{{released | f.year}}</span>
 			<br>
 		</a>
 	</h2>
 
-	{{> tracks}}
+	{{> tracks-ol}}
 
 </article>
 {{/albums}}

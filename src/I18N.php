@@ -59,7 +59,7 @@ class I18N
 
 		// Find config for current domain
 		if( ! array_key_exists($host, self::$config))
-			HTTP::exit_status(404, 'Unconfigured hostname: '.$host);
+			HTTP::plain_exit(404, 'Unconfigured hostname: '.$host);
 		self::$current = &self::$config[$host];
 		extract(self::$current);
 

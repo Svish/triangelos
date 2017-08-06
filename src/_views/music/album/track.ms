@@ -5,20 +5,43 @@
 
 {{#track}}
 
-	<h1><a href="music/album/{{album_id}}">{{album}}</a>
-		<span>{{#_}}title/Track{{/_}}</span>
+	<h1>{{title | first}}
+		<span>{{#_}}title/Song{{/_}}</span>
 	</h1>
+	
 
-	<ol class="tracks" start="{{track}}">
-		<li>
-			<span class="length" data-url="music/album/{{file}}">{{seconds | f.duration}}</span>
-			<a class="title" href="music/album/{{id}}" type="{{mime}}">{{title | first}}</a>
-		</li>
-	</ol>
+	<nav>
+		<ul id="toc"/>
+	</nav>
+
+	<section class="meta frames no-select">
+		<a href="{{PATH}}#the-cover">
+			<img class="loading" alt="{{#_}}Album cover{{/_}}" src="i/75x50/album/{{album_id}}/cover">
+		</a>
+
+		<a class="p" href="shop/{{album_id}}">{{#svg}}cart{{/svg}}</a>
+
+		<p>
+			<b>{{#_}}Duration{{/_}}</b>
+			<br>
+			{{duration.number | f.duration}}
+		</p>
+	</section>
 	
-	<blockquote class="lyrics">{{{lyrics}}}</blockquote>
+	<section>{{{description | md}}}</section>
+
+	{{#lyrics}}
+	<section id="the-lyrics" class="toc">
+		<h2>{{#_}}title/The lyrics{{/_}}</h2>
+		<blockquote class="lyrics">{{{. | md}}}</blockquote>
+	</section>
+	{{/lyrics}}
+
+	{{> music/the-credits}}
 	
-	<section>{{{html}}}</section>
+	{{#album}}
+	{{> music/the-choir}}
+	{{/album}}
 
 {{/track}}
 

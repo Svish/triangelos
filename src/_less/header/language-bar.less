@@ -17,10 +17,11 @@
 	align-content: flex-start;
 
 
-	.language
+	&>*
 	{
 		padding: .15em;
 		transition: opacity 500ms;
+		color: inherit;
 
 		&:hover
 		{
@@ -37,7 +38,7 @@
 	}
 }
 
-#header:hover #language-bar .language
+#header:hover #language-bar &>*
 {
 	opacity: 1;
 }

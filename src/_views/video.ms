@@ -5,7 +5,7 @@
 
 
 
-<h1><a href="{{PATH}}">{{#_}}title/Video{{/_}}</a></h1>
+<h1>{{#_}}title/Video{{/_}}</h1>
 
 
 <div class="center frames p">

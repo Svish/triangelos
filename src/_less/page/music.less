@@ -1,35 +1,28 @@
+// music
 body.music #content
 {
-	.meta
-	{
-		font-size: .85em;
-		margin-bottom: -3.5rem;
-	}
-
-	.album
+	// In album listing
+	.album 
 	{
 		.title
 		{
-			margin-bottom: 0;
 			a
 			{
 				display: block;
 			}
-			img
-			{
-				display: inline-block;
-				float: left;
-				width: 7rem;
-				margin-right: .5em;
-			}
+		}
+		.tracks
+		{
+			margin-left: 7.5rem;
+		}
+
+		h2.title
+		{
+			margin-bottom: .5em;
 		}
 	}
 
-	.album .tracks
-	{
-		margin-left: 7.5rem;
-	}
-
+	// Track listing
 	.tracks
 	{
 		margin-top: 0;
@@ -46,15 +39,14 @@ body.music #content
 		}
 		li
 		{
-			.length
-			{
-				padding: .2em .5rem;
-				float: right;
-			}
 			.title
 			{
-				//color: inherit;
 				display: block;
+				padding: .2em .5rem;
+			}
+			.length
+			{
+				float: right;
 				padding: .2em .5rem;
 			}
 			a:hover,
@@ -84,11 +76,14 @@ body.music #content
 			}
 		}
 	}
+
 }
 
-
-body.album #content
+// music/album
+body.music.album #content
 {
+
+	// Cover photos
 	.covers
 	{
 		img
@@ -102,13 +97,79 @@ body.album #content
 		}
 	}
 
+	// Lyrics
 	.lyrics
 	{
 		font-size: .9em;
 	}
+
+	// Parts
+	.parts dl
+	{
+		font-size: .8em;
+	}
+
+
+	// Meta "bar"
+	.meta
+	{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+
+		font-size: .85em;
+		margin-bottom: -3.5rem;
+		&>*
+		{
+			margin: 0 1em .5em 0;
+			line-height: @line-height;
+		}
+
+		a
+		{
+			color: inherit;
+		}
+
+		img,
+		svg
+		{
+			height: 3em;
+			width: auto;
+		}
+	}
 }
 
 
+
+// Album titles
+body.music #content .album,
+body.music.album #content
+{
+	// Cover thumbnail
+	.title img,
+	{
+		display: inline-block;
+	}
+
+	// In music listing
+	h2.title img
+	{
+		float: left;
+		width: 7rem;
+		margin-right: .5em;
+	}
+
+	// On album page
+	h1.title img
+	{
+		width: auto;
+		height: 1em;
+		vertical-align: top;
+	}
+}
+
+
+// Responsiveness
 @media only screen and (max-width : 450px)
 {
 	body.music #content

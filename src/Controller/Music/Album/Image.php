@@ -6,7 +6,8 @@ namespace Controller\Music\Album;
 /**
  * Controller: i/<w>x<h>/album/<year>/<title>/<type>
  * 
- *  - Serves cover and inlay images for music albums.
+ *  - Cover and inlay images for music albums.
+ *  - Photos for album and track descriptions.
  * 
  */
 class Image extends \Controller\Image
@@ -16,8 +17,10 @@ class Image extends \Controller\Image
 	protected $whitelist = [
 		[0, 0], // original size
 		[100,150], // index.ms: Cover
+
 		[120,250], // music.ms: Cover
-		[400,500], // music.ms: Cover + inlay
+		[ 75, 50], // music/album.ms: Tiny cover in .meta
+		[400,500], // music/album.ms: Cover + inlay
 		];
 
 	public function before(array &$info)

@@ -30,6 +30,7 @@ return [
 			'nav.link-external',
 			'nav.loading',
 			'nav.language',
+			'nav.toc',
 			],
 
 		],

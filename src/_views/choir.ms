@@ -4,7 +4,7 @@
 
 {{$ content}}
 
-<h1><a href="{{PATH}}">{{#_}}title/Choir{{/_}}</a></h1>
+<h1>{{#_}}title/Choir{{/_}}</h1>
 
 {{{md}}}
 

@@ -3,6 +3,7 @@
 	[
 		{"type": "vcs", "url": "https://github.com/Svish/php-image"},
 		{"type": "vcs", "url": "https://github.com/Svish/php-weblib"}
+
 	],
 	"require":
 	{

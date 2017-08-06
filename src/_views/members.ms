@@ -6,7 +6,7 @@
 
 
 
-<h1><a href="{{PATH}}">{{#_}}title/Members{{/_}}</a></h1>
+<h1>{{#_}}title/Members{{/_}}</h1>
 
 <div class="center frames no-select">
 	{{#members}}

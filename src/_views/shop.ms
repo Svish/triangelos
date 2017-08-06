@@ -4,7 +4,7 @@
 {{$ content}}
 
 
-<h1><a href="{{PATH}}">{{#_}}title/Shop{{/_}}</a></h1>
+<h1>{{#_}}title/Shop{{/_}}</h1>
 
 {{{md}}}
 

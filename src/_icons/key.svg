@@ -1,5 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.655 25.655">
-	 <!-- http://www.flaticon.com/authors/freepik -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.655 25.655"
+	xmlns:c="credits"
+	c:author="Freepik"
+	c:url="https://www.flaticon.com/authors/freepik">
 	<g>
 		<path d="M7.812,0C3.498,0,0,3.497,0,7.812c0,4.314,3.498,7.813,7.813,7.813s7.812-3.499,7.812-7.813
 			C15.625,3.497,12.126,0,7.812,0z M5.312,7.914c-1.437,0-2.602-1.165-2.602-2.603c0-1.436,1.165-2.601,2.602-2.601

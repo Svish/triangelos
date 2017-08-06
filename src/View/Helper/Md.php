@@ -4,45 +4,52 @@ namespace View\Helper;
 
 use Mustache_LambdaHelper as Helper;
 
-use File, Markdown;
+use Log;
+use File;
+use Markdown;
+use Error\InternalNotFound as Error;
 
 
 /**
- * Markdown helper for Mustache templates.
+ * Helper: Markdown
+ * 
+ * Localized Markdown helper that looks for markdown files
  */
 class Md
 {
-	const EXT = '.md';
-
-	const DI = 'i18n'.DS;
-	const DL = 'i18n'.DS.'_'.LANG.DS;
+	const DIR = [
+		'i18n'.DS,
+		'i18n'.DS.'_'.LANG.DS,
+	];
 
 
 	/**
 	 * Renders and returns the named markdown file.
 	 */
-	public function __invoke($name = null, Helper $r = null)
+	public function __invoke($text = null, Helper $render = null)
 	{
-		if($r)
-			$name = $r($name);
+		if($render)
+			$text = $render($text);
 
-		if( ! $name)
-			$name = PATH;
 
-		$options = [
-			self::DL.$name.self::EXT,
-			self::DI.$name.self::EXT,
-		];
+		// Render: Text
+		if($text)
+			return Markdown::instance()->render($text);
 
-		foreach($options as $file)
+
+		// Render: File according to path
+		$filename = PATH;
+		foreach(self::DIR as $dir)
 		{
+			$file = $dir . $filename . Markdown::EXT;
+
 			$md = File::get($file, false);
 			if($md === false)
 				continue;
 
-			return Markdown::render($md);
+			return Markdown::instance()->render($md);
 		}
 
-		return implode('<br>', $options);
+		Log::warn('Could not find markdown file', $filename, 'in any of', self::DIR);
 	}
 }

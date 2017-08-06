@@ -1,3 +1,11 @@
+@import "input";
+@import "checkbox-radio";
+@import "buttons";
+
+@import "errors";
+@import "responsive";
+
+
 label[for]
 {
 	cursor: pointer;
@@ -10,11 +18,10 @@ fieldset
 	&, legend
 	{
 		background: @input-background-color;
-		border: 1px solid @input-border-color;	
+		border: 1px solid @input-border-color;
 	}
 	legend
 	{	
-		display: block;
 		padding: .25em .5em;
 	}
 }

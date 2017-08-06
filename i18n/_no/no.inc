@@ -25,7 +25,22 @@ return [
 	'Where?' => 'Hvor?',
 
 	'Released' => 'Utgitt',
-	'Total time' => 'Totaltid',
+	'Total duration' => 'Varighet',
+	'Duration' => 'Varighet',
+	
+	'Text' => 'Tekst',
+	'Melody' => 'Melodi',
+	'Arrangement' => 'Arrangement',
+	'Translation' => 'Oversettelse',
+	'Duet' => 'Duett',
+	'Vocal' => 'Vokal',
+	'Dedicated to' => 'Dedikert til',
+	'Source' => 'Kilde',
+	'Instruments' => 'Instrumenter',
+	'Recording' => 'Opptak',
+	'Location' => 'Sted',
+	'Componist' => 'Komponist',
+
 
 	'Your email' => 'Din epost',
 	'Your subject' => 'Ditt emne',
@@ -53,6 +68,12 @@ return [
 	'November' => 'November',
 	'December' => 'Desember',
 
+	'Developer' => 'Utvikler',
+	'Source Code' => 'Kildekode',
+	'Web analytics' => 'Webanalyse',
+
+	'Icons by' => 'Ikoner av',
+
 	'Conductor' => 'Dirigent',
 	'Soprano' => 'Sopran',
 	'Alto' => 'Alt',
@@ -68,13 +89,18 @@ return [
 		'Home' => 'Forsiden',
 		'Music' => 'Musikk',
 		'Album' => 'Album',
-		'Track' => 'Sang',
-		'About the site' => 'Om nettstedet',
-		'Calendar' => 'Kalender',
-		'Choir' => 'Koret',
+		'Track' => 'Spor',
+		'Song' => 'Sang',
+		'About the site' => 'Om nettsiden',
+
 		'The choir' => 'Koret',
 		'The cover' => 'Omslaget',
 		'The songs' => 'Sangene',
+		'The lyrics' => 'Teksten',
+		'The credits' => 'Medvirkende',
+
+		'Calendar' => 'Kalender',
+		'Choir' => 'Koret',
 		'Contact' => 'Kontakt',
 		'Me' => 'Meg',
 		'Members' => 'Medlemmer',

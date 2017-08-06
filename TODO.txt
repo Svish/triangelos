@@ -1,9 +1,16 @@
 
-- (!) Move album info to meta.ini and nn.ini
+- (!) Move translations to .ini
+	- Deal with "Unknown"
 
-- Complete SVG <!-- source URLs -->
-	- Display them on about page
-	- Link to about page... in language bar?
+- (!) Move {.frame .left} out of .md files...
+
+
+- Album/Track top
+	- [cover] [toc] [toc]
+	- [cart] [meta] [meta]
+
+- (!) "Up" link for album/track, at least
+
 
 - Messages through js + session instead of context?
 
@@ -11,6 +18,12 @@
 
 - Use Mustache/Loader/ProductionFilesystemLoader
 	- (!) Clear template cache on upload
+
+Cleanup
+===
+
+- Clean up norwegian missing paragraphs etc.
+- Try merge credits dt's with same dd
 
 
 Calendar
@@ -64,13 +77,6 @@ Music/Store
 ===
 
 - IPN/PDT?
-- Lyrics for tracks?
-- Add release date/month
-	- Din stemme: 1994-06-24
-	- Av nåde: 1996-02
-	- Dråper av live: 1999-03
-	- Kommer du ei snart?: 2012-06-03
-	- Seventh Day: 2015-07-01
 
 - http://minicartjs.com?
 - Make composers clickable and list songs?
@@ -82,3 +88,7 @@ Other/Bugs
 ===
 - Correct multipart downloads with Multipart/bytes Music
 - Use previous cache value on exceptions from callable
+- Use http://php.net/manual/en/class.logicexception.php ?
+
+- (!) Tracis CI
+- (!) Style CI

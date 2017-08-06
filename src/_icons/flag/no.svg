@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<svg xmlns="http://www.w3.org/2000/svg"
+	viewBox="0 0 512 512"
+	xmlns:c="credits"
+	c:author="Freepik"
+	c:url="https://www.flaticon.com/authors/freepik">
 	<circle style="fill:#F0F0F0;" cx="256" cy="256" r="256"/>
 	<g>
 		<path style="fill:#D80027;" d="M8.819,322.783c14.812,54.959,47.457,102.593,91.355,136.322V322.783H8.819z"/>

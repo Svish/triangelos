@@ -1,6 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.8 92.601251">
+<svg xmlns="http://www.w3.org/2000/svg"
+	viewBox="0 0 100.8 92.601251"
+	xmlns:c="credits"
+	c:author="Adventist.org"
+	c:url="https://identity.adventist.org/">
 	<g transform="scale(1.1682)">
-		<g transform="translate(0 59.567)">
+		<g aboutmstransform="translate(0 59.567)">
 			<path d="m36.438 9.8506v-3.4834h4.9433v-0.3261c0-3.4864-1.6064-6.0411-12.684-4.1231l-18.215 3.2441-10.481 14.539s25.151-4.4619 25.151-4.4619c7.5362-1.293 14.153-1.5635 16.23 4.4287v-9.8174h-4.9433z"/>
 		</g>
 		<g transform="translate(44.817 61.485)">

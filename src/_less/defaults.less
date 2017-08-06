@@ -5,7 +5,7 @@ input,
 textarea,
 select
 {
-	font: 400 120%/1.5 'Open Sans', sans-serif;
+	font: 400 120%/@line-height 'Open Sans', sans-serif;
 }
 
 
@@ -29,22 +29,21 @@ body
 
 // Margins
 h1,h2,h3,h4,p,.p,
-section,article,
+section,article,nav,
 address,form,fieldset,
 blockquote,ul,ol,dl,
-pre,table, hr
+pre,table,hr
 {
-	margin: 0 0 1.5rem 0;
+	margin: 0 0 @trailing-margin 0;
 	&:last-child
 	{
 		margin-bottom: 0;
 	}
-	&:empty
+	&:not(hr):empty
 	{
 		display: none;
 	}
 }
-
 
 
 // Headers
@@ -74,9 +73,10 @@ h1,h2,h3,h4
 		}
 	}
 }
-h1{font-size: 2em}
-h2{font-size: 1.5em}
-h3{font-size: 1.2em}
+h1{font-size: 2.0em; margin-bottom: (@trailing-margin)}
+h2{font-size: 1.5em; margin-bottom: (@trailing-margin/2)}
+h3{font-size: 1.2em; margin-bottom: (@trailing-margin/4)}
+h4{font-size: 1.2em; margin-bottom: (@trailing-margin/6)}
 
 
 
@@ -84,6 +84,7 @@ h3{font-size: 1.2em}
 article,
 section
 {
+	clear: both;
 	&+&
 	{
 		margin-top: 4.5rem;
@@ -127,7 +128,7 @@ svg.flag
 // Lists
 ul li
 {
-	list-style: square;
+	//list-style: square;
 }
 
 
@@ -140,9 +141,10 @@ dl
 		font-weight: bold;
 		&:first-of-type {margin-top: 0;}
 	}
-	dd
+
+	dd+dt
 	{
-		margin-left: 0;
+		margin-top: (@trailing-margin / 2);
 	}
 }
 
@@ -166,7 +168,7 @@ blockquote
 	box-sizing: border-box;
 	position: relative;
 	background: #fff;
-	padding: .75em 1em .75em 2.50em;
+	padding: .75em 1em .75em 3em;
 
 	color: #666;
 	
@@ -179,8 +181,8 @@ blockquote
 blockquote::before
 {
 	position: absolute;
-	left: .15em;
-	top: -.15em;
+	left: .25em;
+	top: .40em;
 
 	content: "\201C"; /*Unicode for Left Double Quote*/
 	
@@ -211,3 +213,13 @@ small,
 {
 	font-size: smaller;
 }
+
+
+
+// Code
+code
+{
+	font-family: monospace;
+	font-size: 1.2em;
+}
+

@@ -5,7 +5,7 @@
 {{$ content}}
 
 
-<h1><a href="{{PATH}}">{{#_}}title/Calendar{{/_}}</a></h1>
+<h1>{{#_}}title/Calendar{{/_}}</h1>
 
 
 {{#calendar.calendar}}

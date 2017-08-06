@@ -6,5 +6,4 @@
 
 {{> menu}}
 
-
 {{{messages}}}
