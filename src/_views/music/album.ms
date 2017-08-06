@@ -10,9 +10,6 @@
 		<span>{{#_}}title/Album{{/_}}</span>
 	</h1>
 
-
-	{{> toc}}
-
 	<section class="meta frames no-select">
 
 		<a href="{{PATH}}#the-cover">
@@ -37,6 +34,9 @@
 			{{totalTime | f.duration}}
 		</p>
 	</section>
+
+	{{> toc}}
+
 
 	<section>{{{description | md}}}</section>
 

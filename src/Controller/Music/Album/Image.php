@@ -20,7 +20,7 @@ class Image extends \Controller\Image
 
 		[120,250], // music.ms: Cover
 		[ 75, 50], // music/album.ms: Tiny cover in .meta
-		[400,500], // music/album.ms: Cover + inlay
+		[500,500], // music/album.ms: Cover + inlay
 		];
 
 	public function before(array &$info)

@@ -82,18 +82,17 @@ body.music #content
 // music/album
 body.music.album #content
 {
-
 	// Cover photos
 	.covers
 	{
-		img
+		align-items: stretch;
+		align-content: stretch;
+		justify-content: center;
+		&>*
 		{
-			width: 49%;
-			vertical-align: top;
-		}
-		img:last-child
-		{
-			float: right;
+			flex: 1 1 auto;
+			//max-width: calc(45% - 1.5rem * 2);
+			margin-right: 0;
 		}
 	}
 
@@ -118,7 +117,9 @@ body.music.album #content
 		justify-content: flex-start;
 
 		font-size: .85em;
-		margin-bottom: -3.5rem;
+		margin-bottom: 0;
+
+
 		&>*
 		{
 			margin: 0 1em .5em 0;
@@ -170,7 +171,7 @@ body.music.album #content
 
 
 // Responsiveness
-@media only screen and (max-width : 450px)
+@media only screen and (max-width : 480px)
 {
 	body.music #content
 	{
@@ -187,13 +188,22 @@ body.music.album #content
 			margin-left: 0;
 		}
 	}
-	body.album #content .covers
+}
+
+@media only screen and (min-width : 481px)
+{
+	body.music.album #content
 	{
-		text-align: center;
-		img
+		// Cover photos
+		.covers
 		{
-			width: 100%;
-			float: none !important;
+			align-items: stretch;
+			align-content: stretch;
+			justify-content: center;
+			&>*
+			{
+				max-width: calc(50% - 1.5rem);
+			}
 		}
 	}
 }

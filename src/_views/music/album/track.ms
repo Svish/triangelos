@@ -8,11 +8,6 @@
 	<h1>{{title | first}}
 		<span>{{#_}}title/Song{{/_}}</span>
 	</h1>
-	
-
-	<nav>
-		<ul id="toc"/>
-	</nav>
 
 	<section class="meta frames no-select">
 		<a href="{{PATH}}#the-cover">
@@ -27,6 +22,10 @@
 			{{duration.number | f.duration}}
 		</p>
 	</section>
+
+	<nav>
+		<ul id="toc"/>
+	</nav>
 	
 	<section>{{{description | md}}}</section>
 

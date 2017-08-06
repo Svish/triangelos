@@ -1,5 +1,5 @@
 
-<section id="the-credits" class="toc">
+<section id="the-credits" class="toc no-select">
 
 	<h2>{{#_}}title/The credits{{/_}}</h2>
 	<div class="flex p">
