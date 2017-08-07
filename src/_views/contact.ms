@@ -67,7 +67,8 @@
 </section>
 
 <section>
-	{{> contact/email}}
+	<h2>{{#_}}title/E-Mail{{/_}}</h2>
+	{{> contact/email-form }}
 </section>
 
 
