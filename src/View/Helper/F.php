@@ -4,6 +4,7 @@ namespace View\Helper;
 
 use Error\InternalNotFound;
 
+use I18N;
 use RecursiveArrayIterator as Iterator;
 use PathableRecursiveIteratorIterator as Recursor;
 use ConfigDot as Config;
@@ -70,7 +71,7 @@ class F
 			{
 				if( ! $date instanceof DateTime)
 					$date = new DateTime($date);
-				return __($date->format($format));
+				return I18N::translate($date->format($format));
 			};
 		}
 

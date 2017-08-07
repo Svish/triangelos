@@ -7,7 +7,7 @@
 <div class="flex">
 
 <section class="albums">
-	<h2><a href="music">{{#_}}Get our latest albums{{/_}} {{#svg}}jumping-man{{/svg}}</a></h2>
+	<h2><a href="music">{{#_}}title/Get our latest albums{{/_}} {{#svg}}jumping-man{{/svg}}</a></h2>
 	<pre>// TODO</pre>
 	{{#music.latest}}
 	<a class="block album" href="{{url}}">
@@ -21,7 +21,7 @@
 
 
 <section class="events">
-	<h2><a href="calendar">{{#_}}Come see us live{{/_}} {{#svg}}people{{/svg}}</a></h2>
+	<h2><a href="calendar">{{#_}}title/Come see us live{{/_}} {{#svg}}people{{/svg}}</a></h2>
 	<pre>// TODO</pre>
 	{{#calendar.up_next}}
 	<a class="block event" href="calendar#{{iso}}">
@@ -38,7 +38,7 @@
 
 
 <section class="posts">
-	<h2><a href="https://www.facebook.com/triangelos">{{#_}}Follow us on Facebook{{/_}} {{#svg}}share{{/svg}}</a></h2>
+	<h2><a href="https://www.facebook.com/triangelos">{{#_}}title/Follow us on Facebook{{/_}} {{#svg}}share{{/svg}}</a></h2>
 	<pre>// TODO</pre>
 	{{#facebook.latest}}
 	<a class="block post" href="{{link}}">

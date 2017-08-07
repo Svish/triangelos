@@ -23,9 +23,7 @@
 		</p>
 	</section>
 
-	<nav>
-		<ul id="toc"/>
-	</nav>
+	{{> toc}}
 	
 	<section>{{{description | md}}}</section>
 

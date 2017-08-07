@@ -7,7 +7,7 @@
 		<dl>
 			<dt>{{key | ucfirst | _}}</dt>
 			{{#value}}
-			<dd>{{.}}</dd>
+			<dd>{{ . | __}}</dd>
 			{{/value}}
 		</dl>
 		{{/credits}}
@@ -21,7 +21,7 @@
 				{{#value}}
 				<dt>{{key | ucfirst | _}}</dt>
 				{{#value}}
-				<dd>{{.}}</dd>
+				<dd>{{ . | __}}</dd>
 				{{/value}}
 				{{/value}}
 			</dl>

@@ -84,6 +84,22 @@ Music/Store
 - (!) Get Store URLs from emubands.com
 
 
+Translation
+===
+
+- Switch to gettext?
+	- https://www.sitepoint.com/localizing-php-applications-1/
+	- https://www.sitepoint.com/localizing-php-applications-2/
+	- http://www.onlamp.com/pub/a/php/2002/06/13/php.html
+
+
+Tests
+===
+
+- https://phpunit.de/getting-started.html
+
+
+
 Other/Bugs
 ===
 - Correct multipart downloads with Multipart/bytes Music

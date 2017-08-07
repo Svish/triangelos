@@ -84,7 +84,7 @@
 {{/calendar.calendar}}
 
 <p>
-	<a class="badge" data-name="iCal" href="calendar.ics">{{#_}}Subscribe to calendar{{/_}}</a>
+	<a data-name="iCal" href="calendar.ics">{{#_}}Subscribe to the calendar{{/_}}</a>
 </p>
 
 

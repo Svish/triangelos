@@ -30,5 +30,4 @@ class Track extends \View\Music\Album
 		
 		parent::__construct($this->track->album_id);
 	}
-
 }

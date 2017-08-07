@@ -1,6 +1,7 @@
 <?php
 namespace View\Music;
 
+use I18N;
 use Model;
 use Mustache\IteratorPresenter as Presenter;
 
@@ -18,6 +19,11 @@ class Album extends \View\Layout
 		$this->album = Model::music()->get($id);
 		$this->album->choir = new Presenter($this->album->choir, true);
 		$this->album->credits = new Presenter($this->album->credits ?: [], true);
+
+		$this->__ = function(string $s)
+			{
+				return $s === 'Unknown' ? I18N::translate($s) : $s;
+			};
 
 		parent::__construct();
 	}

@@ -12,7 +12,7 @@
 
 <form action="{{PATH}}" method="post">
 	
-	<p><input type="email" name="email" placeholder="{{#_}}Your email{{/_}}" value="{{_post.email}}">
+	<p><input type="email" name="email" placeholder="{{#_}}form/Your email{{/_}}" value="{{_post.email}}">
 	<ul class="errors">{{#errors.email}}<li>{{.}}</li>{{/errors.email}}</ul>	
 
 	<p>

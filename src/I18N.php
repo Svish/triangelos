@@ -1,15 +1,6 @@
 <?php
 
 /**
- * Short function for translations.
- */
-function __($text)
-{
-	return I18N::translate($text);
-}
-
-
-/**
  * Translator for Mustache templates.
  */
 class I18N
