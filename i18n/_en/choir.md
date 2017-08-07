@@ -1,7 +1,7 @@
 
 Triangelos is a Christian choir with base in [Betel](http://adventkirken-betel.no), a [Seventh-Day Adventist](http://adventist.org) church located in [Oslo, Norway](https://en.wikipedia.org/wiki/Oslo).
 
-The name **Triangelos** refers to the **Three Angels' Messages** found in **Revelation 14:6-12**. On so many levels we find this to be a very important message to humanity in our time. We wish to give praise and thanks to our Savior and Creator, which should be clear from our choice of songs. They revolve around who God is and His great love, which gave us life, presented to us through His Word.
+The name **Triangelos** refers to the **Three Angels' Messages** found in **[Revelation 14:6-12](bible "Rev 14:6-12")**. On so many levels we find this to be a very important message to humanity in our time. We wish to give praise and thanks to our Savior and Creator, which should be clear from our choice of songs. They revolve around who God is and His great love, which gave us life, presented to us through His Word.
 
 Over the years we have have visited many churches and congregations, covering most of Norway and even our neighbours, Denmark and Sweden.
 
