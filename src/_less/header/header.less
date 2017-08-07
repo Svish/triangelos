@@ -6,6 +6,9 @@
 	padding: .75em 1em;
 
 	background: lighten(@accent-color, 57%);
+	background: linear-gradient(to bottom,   lighten(@accent-color, 57%) 0%, lighten(@accent-color, 50%) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+
 	border-bottom: 1px solid black;
 	.box-shadow(0, 0, 10px, @shadow-color);
 	
@@ -26,12 +29,6 @@
 			color: inherit;
 		}
 	}
-
-	background-image: url(icon/sda.svg?opacity=0.2);
-	background-repeat: no-repeat;
-	background-position: top -12.9em right -9.5em;
-	background-size: 35em;
-
 }
 
 @import "menu";
