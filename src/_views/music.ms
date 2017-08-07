@@ -10,7 +10,7 @@
 {{#albums}}
 <article class="album loading">
 	<h2 class="title">
-		<a href="music/album/{{id}}" title="{{#_}}More information…{{/_}}">
+		<a href="{{ . | url}}" title="{{#_}}More information…{{/_}}">
 			<img class="frame" alt="{{#_}}Album cover{{/_}}" src="i/120x250/album/{{id}}/cover">
 			{{title}}
 			<span>{{released | f.year}}</span>

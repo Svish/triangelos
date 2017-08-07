@@ -7,6 +7,7 @@ use Error\InternalNotFound;
 use I18N;
 use RecursiveArrayIterator as Iterator;
 use PathableRecursiveIteratorIterator as Recursor;
+use Mustache_LambdaHelper as LambdaHelper;
 use ConfigDot as Config;
 
 use DateTime;
@@ -35,10 +36,10 @@ class F
 
 		// Own methods
 		foreach(get_class_methods($this) as $name)
-			if($name[0] != '_')
+			if($name[0] == '_' && $name[1] != '_')
 			{
 				$m = new \ReflectionMethod($this, $name);
-				$this->_f[$name] = $m->getClosure($this);
+				$this->_f[substr($name, 1)] = $m->getClosure($this);
 			}
 	}
 
@@ -79,11 +80,17 @@ class F
 	}
 
 
+	public function _timeTrim($text = null, LambdaHelper $render = null)
+	{
+		$text = str_replace(':00', '', $text);
+		return $render ? $render($text) : $text;
+	}
+
 
 	/**
 	 * Remove duplicate chunks from two <time> tags...
 	 */
-	public function simplify($html, \Mustache_LambdaHelper $render = null)
+	public function _simplify($html, LambdaHelper $render = null)
 	{
 		if($render)
 			$html = $render($html);

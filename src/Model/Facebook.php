@@ -2,6 +2,7 @@
 
 namespace Model;
 
+use Config;
 use Cache;
 
 
@@ -27,7 +28,7 @@ class Facebook extends \Model
 	 */
 	public function latest()
 	{
-		$cache = new Cache(__CLASS__, false, 60*60);
+		$cache = new Cache(__CLASS__, 60*60); // 1 Hour
 		$items =  $cache->get(__METHOD__, function()
 		{
 			return iterator_to_array($this->_latest());

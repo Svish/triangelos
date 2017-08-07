@@ -32,7 +32,8 @@
 						Base: '{{url}}',
 						Current: '{{PATH}}',
 						Host: '{{HOST}}'
-					}
+					},
+					TestHosts: {{_test_hosts}}
 				};
 		</script>
 

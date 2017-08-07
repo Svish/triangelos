@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "270d8757464acb8ac85915bf1029cdc8",
+    "content-hash": "fdd40995312f3d67d84b92f77bc33dc3",
     "packages": [
         {
             "name": "bitworking/mimeparse",
@@ -451,16 +451,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "0.15.4",
+            "version": "0.15.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "c4c8e6bf99e62d9568875d9fc3ef473fe3e18e0c"
+                "reference": "1162ff74f8ab66593d62c58142310101b415cd2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/c4c8e6bf99e62d9568875d9fc3ef473fe3e18e0c",
-                "reference": "c4c8e6bf99e62d9568875d9fc3ef473fe3e18e0c",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/1162ff74f8ab66593d62c58142310101b415cd2a",
+                "reference": "1162ff74f8ab66593d62c58142310101b415cd2a",
                 "shasum": ""
             },
             "require": {
@@ -473,7 +473,7 @@
             "require-dev": {
                 "cebe/markdown": "~1.0",
                 "erusev/parsedown": "~1.0",
-                "jgm/commonmark": "0.27",
+                "jgm/commonmark": "0.28",
                 "michelf/php-markdown": "~1.4",
                 "mikehaertl/php-shellcommand": "~1.2.0",
                 "phpunit/phpunit": "~4.3|~5.0",
@@ -516,7 +516,7 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2017-05-09T12:47:53+00:00"
+            "time": "2017-08-05T19:40:59+00:00"
         },
         {
             "name": "mustache/mustache",
@@ -628,21 +628,21 @@
         },
         {
             "name": "simshaun/recurr",
-            "version": "v0.6.4",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/simshaun/recurr.git",
-                "reference": "b51c6308a2372f4ab069f2c37c034a1ac83e3e88"
+                "reference": "7d0e8942cb1d00d4bc11d5eb87fa990d77b0de61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simshaun/recurr/zipball/b51c6308a2372f4ab069f2c37c034a1ac83e3e88",
-                "reference": "b51c6308a2372f4ab069f2c37c034a1ac83e3e88",
+                "url": "https://api.github.com/repos/simshaun/recurr/zipball/7d0e8942cb1d00d4bc11d5eb87fa990d77b0de61",
+                "reference": "7d0e8942cb1d00d4bc11d5eb87fa990d77b0de61",
                 "shasum": ""
             },
             "require": {
                 "doctrine/collections": "~1.3",
-                "php": ">=5.3.0"
+                "php": ">=5.5.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.5"
@@ -678,7 +678,7 @@
                 "recurring",
                 "rrule"
             ],
-            "time": "2016-08-11T19:48:47+00:00"
+            "time": "2017-08-03T23:25:58+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

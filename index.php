@@ -4,8 +4,6 @@
 require 'vendor/autoload.php';
 
 
-//var_dump(parse_ini_file('X:\dev\www\triangelos\data\music\1994\din-stemme\02.ini', true));exit;
-
 // Set error handler
 error_reporting(E_ALL);
 $eh = new Error\Handler();

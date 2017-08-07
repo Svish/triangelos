@@ -1,5 +1,5 @@
 // If on one of our dev sites
-if(['localhost','triangelos.geekality.net'].indexOf(window.location.host) >= 0)
+if(Site.TestHosts.indexOf(window.location.host) >= 0)
 	// Use cookie host switching
 	$('a.language', '#language-bar')
 		.on('click', function()

@@ -38,6 +38,8 @@ class Layout extends Mustache
 			'_tt' => new Helper\TitleTrim,
 			'_s' => new Helper\Security,
 
+			'_test_hosts' => json_encode(Config::hosts()['test'] ?? []),
+
 			'_url' => new Helper\Url,
 			'_' => new Helper\I18N,
 			'messages' => new Helper\Messages,

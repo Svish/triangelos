@@ -7,11 +7,9 @@
 
 <h1>{{#_}}title/Calendar{{/_}}</h1>
 
-<pre>// TODO</pre>
+{{#calendar}}
 
-{{#calendar.calendar}}
-
-	<h2>{{month|df.month-name}}</h2>
+	<h2>{{ month | f.month}}</h2>
 
 	<table class="calendar" width="100%">
 		<col>
@@ -40,28 +38,28 @@
 			<td class="empty"></td>
 			{{/day}}
 			{{#day}}
-			<td id="{{day | df.date-iso}}" 
-				data-day="{{day | df.day}}"
-				data-week="{{day | df.week}}"
-				data-date="{{day | df.date-iso}}"
-				data-name="{{day | df.date-day}}">{{#events}}
+			<td id="{{day | f.iso}}" 
+				data-day="{{day | f.day}}"
+				data-week="{{day | f.week}}"
+				data-date="{{day | f.iso}}"
+				data-name="{{day | f.date-day}}">{{#events}}
 
 				<div class="event has-details {{status}} {{transp}} {{continued}} {{private}}" data-details="{{id}}">
-					{{^all_day}}<time datetime="{{start|df.w3c}}">{{start | df.time | timeTrim}}</time>{{/all_day}}
+					{{^all_day}}<time datetime="{{start|f.w3c}}">{{start | f.time | f.timeTrim}}</time>{{/all_day}}
 					<div class="summary">{{summary | _}}</div>
-					<div class="location">{{location | firstLine}}</div>
+					<div class="location">{{location | fl}}</div>
 				</div>
 
 				{{^continued}}
 				<div class="details" data-details="{{id}}">
 					<article>
-						<h1>{{summary|_}}{{>close-link}}</h1>
+						<h1>{{summary|_}}</h1>
 						<p class="subtitle">
-							{{#df.simplify}}
-							<time datetime="{{start|df.w3c}}">{{start|df.date}}{{^all_day}}, {{start|df.time}}{{/all_day}}</time>
+							{{#f.simplify}}
+							<time datetime="{{start|f.w3c}}">{{start|f.date}}{{^all_day}}, {{start|f.time}}{{/all_day}}</time>
 							 – 
-							<time datetime="{{end|df.w3c}}">{{end|df.date}}{{^all_day}}, {{end|df.time}}{{/all_day}}</time>
-							{{/df.simplify}}
+							<time datetime="{{end|f.w3c}}">{{end|f.date}}{{^all_day}}, {{end|f.time}}{{/all_day}}</time>
+							{{/f.simplify}}
 						</p>
 
 						{{#location}}
@@ -81,13 +79,11 @@
 	</table>
 
 
-{{/calendar.calendar}}
+{{/calendar}}
 
 <p>
 	<a data-name="iCal" href="calendar.ics">{{#_}}Subscribe to the calendar{{/_}}</a>
 </p>
-
-
 
 <script>
 $(function()

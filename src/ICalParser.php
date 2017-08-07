@@ -28,11 +28,9 @@ class ICalParser
 		$this->transformer = new \Recurr\Transformer\ArrayTransformer($config);
 
 		// Load calendar file
-		set_time_limit(30);
 		$cache = new Cache(__CLASS__, false, 28800); // 8 hours
 		$this->file = $cache->get($file, function($f)
 			{
-				set_time_limit(30);
 				return file($f, FILE_IGNORE_NEW_LINES);
 			});
 	}
@@ -74,8 +72,8 @@ class ICalParser
 		// Values same for every instance
 		$summary = $event['SUMMARY.value'] ?? null;
 		$summary = preg_replace('/^Triangelos:\\s/', '', $summary);
-		$description = $event['DESCRIPTION.value'];
-		$location = $event['LOCATION.value'];
+		$description = $event['DESCRIPTION.value'] ?? null;
+		$location = $event['LOCATION.value'] ?? null;
 		$status = strtolower($event['X-MICROSOFT-CDO-BUSYSTATUS.value'] ?? 'BUSY');
 		$transp = strtolower($event['TRANSP.value'] ?? 'BUSY');
 
@@ -98,12 +96,12 @@ class ICalParser
 		
 		foreach($events as $e)
 		{
-			$all_day = 'DATE' == $event['DTSTART.params.VALUE'] ?? null;
+			$all_day = 'DATE' == ($event['DTSTART.params.VALUE'] ?? null);
 			
 			$start = $e->getStart();
 			$end = $e->getEnd();
 
-			if('DATE' == $event['DTSTART.params.VALUE'] ?? null)
+			if('DATE' == ($event['DTSTART.params.VALUE'] ?? null))
 				$end->sub(new DateInterval('PT1S'));
 
 			// Yield wanted event properties

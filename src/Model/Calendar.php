@@ -2,6 +2,13 @@
 
 namespace Model;
 
+use Cache;
+use Markdown;
+use ICalParser as Parser;
+
+use DateTime;
+use DateInterval;
+
 
 /**
  * Calendar model.
@@ -23,7 +30,7 @@ class Calendar extends \Model
 	private $ical;
 	public function __construct()
 	{
-		$this->ical = new ICalParser(self::ICAL);
+		$this->ical = new Parser(self::ICAL);
 	}
 
 
@@ -70,7 +77,7 @@ class Calendar extends \Model
 	 */
 	public function calendar()
 	{
-		$cache = new Cache(__CLASS__, false, 3600); // 1 hour
+		$cache = new Cache(__CLASS__, 3600); // 1 hour
 		return $cache->get(__METHOD__, function()
 			{
 				return $this->_calendar();
@@ -84,6 +91,7 @@ class Calendar extends \Model
 
 		// Get events
 		$events = $this->events($first);
+		$events = [];
 
 		// Find last date for calendar
 		if( ! empty($events))
@@ -147,7 +155,7 @@ class Calendar extends \Model
 
 	private function events(DateTime $first)
 	{
-		$cache = new Cache(__CLASS__, false, 3600); // 1 hour
+		$cache = new Cache(__CLASS__, 3600); // 1 hour
 		return $cache->get(__METHOD__, function() use ($first)
 			{
 				return $this->_events($first);
@@ -166,7 +174,7 @@ class Calendar extends \Model
 			$e['private'] = self::is_private($e);
 			
 			// Render description
-			$e['description'] = Markdown::render($e['description']);
+			$e['description'] = Markdown::instance()->render($e['description'] ?? '');
 
 			// Format location
 			$e['location'] = str_replace(',', "\r\n", $e['location']);

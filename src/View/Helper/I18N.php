@@ -33,7 +33,7 @@ class I18N
 
 		// Then the rest
 		foreach($hosts as $host => $info)
-			if($host != HOST)
+			if($host != HOST && $host != 'test')
 			{
 				$info['host'] = $host;
 				yield $info;

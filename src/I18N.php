@@ -18,13 +18,13 @@ class I18N
 
 	private function __construct(string $host)
 	{
-		// For dev envs
-		if(in_array($host, ['localhost', 'triangelos.geekality.net']) || ip2long($host) !== false)
-			$host = 'triangelos.net';
-
 
 		// Get host configuration
 		$this->_config = Config::hosts(INI_SCANNER_RAW);
+
+		// For dev envs
+		if(in_array($host, $this->_config['test'] ?? []) || ip2long($host) !== false)
+			$host = 'triangelos.net';
 
 		
 		// Find config for current domain

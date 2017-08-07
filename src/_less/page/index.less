@@ -1,29 +1,35 @@
 body.index #content
 {
-	h2 {font-size: xx-large;}
+	h2
+	{
+		font-size: xx-large;
+		white-space: nowrap;
+	}
 
 	.block
 	{
 		display: block;
-		overflow: hidden;
 		padding: .4em .8em;
 
-		background: fade(@accent-color, 5%);
-		border: 1px solid fade(@accent-color, 40%);
-		color: inherit;
+		overflow: hidden;
+		text-overflow: ellipsis;
 
 		font-size: .9rem;
-		&::first-line
-		{
-			font-weight: bold;
-			font-size: 1.1rem;
-		}
+		color: inherit;
+
+		background: white;
+		border: 1px solid @shadow-color;
 
 		&:hover,
 		&:active
 		{
-			background: fade(@accent-color, 10%);
-			border: 1px solid fade(@accent-color, 75%);
+			border-color: @accent2-color;
+		}
+
+		.title
+		{
+			font-weight: bold;
+			font-size: 1.1rem;
 		}
 
 		img
@@ -31,15 +37,18 @@ body.index #content
 			margin-right: .8em;
 			float: left;
 		}
-		time, address
-		{
-			margin: 0;
-		}
 	}
 
 
 	.block+.block
 	{
 		margin-top: 1.5em;
+	}
+}
+
+@media only screen and (min-width : 480px)
+{
+	body.index #content
+	{
 	}
 }
