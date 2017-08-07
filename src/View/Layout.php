@@ -36,6 +36,7 @@ class Layout extends Mustache
 			'_icl' => new Helper\IsCurrentLanguage,
 			'_pc' => new Helper\PathClasses,
 			'_tt' => new Helper\TitleTrim,
+			'_s' => new Helper\Security,
 
 			'_url' => new Helper\Url,
 			'_' => new Helper\I18N,

@@ -1,10 +1,11 @@
-{{% ACCESS login }}
 {{% BLOCKS }}
 {{< layout }}
 {{$ title }}{{#_}}title/Me{{/_}}{{/ title }}
 
 {{$ content}}
 
+
+{{_s.login}}
 
 
 <h1>{{#_}}title/Me{{/_}}</h1>

@@ -5,6 +5,8 @@
 {{$ content}}
 
 
+{{_s.login}}
+
 
 <h1>{{#_}}title/Practice{{/_}}</h1>
 
