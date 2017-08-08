@@ -7,8 +7,7 @@ winscp /command //^
 	"open ""sftp://triangelos.org@ssh.triangelos.org"""^
 	"lcd %~dp0"^
 	"cd /www"^
-	"synchronize remote -mirror -transfer=binary -delete -filemask="" | .git*; *.git/; *.cache/; *.sublime-*"""^
-	"rm "".cache"""^
+	"keepuptodate -transfer=binary -delete -filemask="" | .git*; *.git/; *.cache/; *.sublime-*"""^
 	"exit"
 echo.
 popd
