@@ -1,6 +1,6 @@
 <section id="the-cover" class="toc no-select">
 	<h2>{{#_}}title/The cover{{/_}}</h2>
-	<p class="flex covers">
+	<p class="flex covers loading">
 		
 		<img alt="{{#_}}Album cover{{/_}}"
 			src="i/500x500/album/{{id}}/cover"

@@ -84,7 +84,7 @@ class Email
 		try
 		{
 			Log::group();
-			Log::trace_raw("Sending $name email…");
+			Log::trace_raw("Sending '$name' email");
 			$result = call_user_func_array([new self, "send_$name"], $args);
 			Log::groupEnd();
 			return $result;

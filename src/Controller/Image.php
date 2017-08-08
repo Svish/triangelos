@@ -24,7 +24,7 @@ class Image extends Cached
 
 	public function before(array &$info)
 	{
-		Log::trace("Looking for {$info['params'][3]}…");
+		Log::trace("Looking for {$info['params'][3]}");
 		$this->file = static::find($info['params'][3]);
 
 		// Check size
@@ -64,7 +64,7 @@ class Image extends Cached
 
 		try
 		{
-			Log::trace_raw("Reading {$this->file}…");
+			Log::trace_raw("Reading {$this->file}");
 			$i = new PHPImage($this->file);
 		}
 		catch(\Exception $e)
@@ -74,11 +74,11 @@ class Image extends Cached
 
 		if($w > 0 || $h > 0)
 		{
-			Log::trace_raw("Resizing to {$w}x{$h}…");
+			Log::trace_raw("Resizing to {$w}x{$h}");
 			$i->resize((int)$w, (int)$h, false, true);
 		}
 
-		Log::trace_raw("Outputting jpg…");
+		Log::trace_raw("Outputting jpg");
 		$i->setOutput('jpg', 90);
 		$i->show();
 		Log::groupEnd();

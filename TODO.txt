@@ -1,5 +1,6 @@
 
 - (!) Move {.frame .left} out of .md files...
+	- Or at least .frame...
 
 
 - Album/Track top
@@ -11,7 +12,8 @@
 
 - Messages through js + session instead of context?
 
-- Add ->url to Album and Track for cleaner mustache
+- (!) Fix responsive front
+
 
 
 Cleanup
@@ -23,11 +25,12 @@ Cleanup
 Calendar
 ===
 
-- (!) Try to move and clean things into Data_Event/Calendar class.
-- https://www.addevent.com ?
+- (!) Try to move and clean things into Data_Event/Calendar class?
 - Update "in background" via ajax?
 - (!) Make sure to fall-back to previous successfull calendar if failing
 	- (!) Check for HTML garbage...?
+- Subscribe button(s)
+	- https://www.addevent.com ?
 
 
 Video

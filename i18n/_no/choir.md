@@ -1,10 +1,8 @@
-Triangelos er et Kristent kor med base i [Betel](http://adventkirken-betel.no), Oslo, som er Norges eldste [Syvendedags Adventist](http://adventist.no) (SDA) menighet.
+Triangelos er et Kristent kor med base i Oslo, og de fleste medlemmene kommer ifra [Syvendedags Adventist](http://adventist.no) menigheter i området.
 
 Vi valgte navnet **Triangelos** fordi det henviser til de **tre englers budskap** i [Åpenbaringen 14,6-12](bible "Åp 14,6-12"), som er viktige budskap for mennesker i denne tid.
 
 Triangelos har sunget i kirker og menigheter mange steder i Norge. Fra Mandal i sør til Tromsø i nord, fra Bergen i vest til Lillehammer i øst. Triangelos har sunget i domkirken i Molde og i Banken på Lillehammer. Koret har også sunget mange steder i Danmark og Sverige.
-
-Korets medlemmer kommer i fra SDA menighetene i Oslo området. Flere er studenter ved et av de mange utdannelsesinstitusjonene i Oslo. Vi har også glede av medlemmer som ikke deler vår tro.  Å møte mennesker som ikke deler vårt syn i alle saker er en berikelse, fordi vi må kunne lytte til andre mennesker samtidig som vi bekrefter vår egen tro.
 
 **Inger B. Berger** er vår dirigent. Det har hun vært siden første øvelse, **8. januar 1992**. Hun har alltid stått på og har stor tro på koret. Koret har vanligvis rundt 20 [medlemmer](members), noe som gir et passe antall i hver stemmegruppe samtidig som det er lite nok til at alle er viktige.
 

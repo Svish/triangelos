@@ -4,3 +4,4 @@ data/
 vendor/
 config/.*
 *.sublime-workspace
+.logs/

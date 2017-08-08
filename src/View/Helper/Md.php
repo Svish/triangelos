@@ -45,6 +45,6 @@ class Md
 			return Markdown::instance()->render($md);
 		}
 
-		Log::warn('Could not find markdown file', $filename, 'in any of', self::DIR);
+		Log::warn("Could not find markdown file '$filename' in any of", self::DIR);
 	}
 }

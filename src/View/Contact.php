@@ -9,6 +9,8 @@ use Config;
  */
 class Contact extends \View\Layout
 {
+	public $errors = false;
+
 	public function post()
 	{
 		return Config::{"contact.post"}();

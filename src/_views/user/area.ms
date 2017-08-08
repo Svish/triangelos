@@ -28,7 +28,7 @@
 	</a>
 	{{#_s.communicator}}
 	<br>
-	<a href="user/message">
+	<a href="user/messages">
 		{{#svg}}send{{/svg}}<br>
 		{{#_}}title/Send message{{/_}}
 	</a>
