@@ -40,13 +40,13 @@
 				{{#errors.password}}<span class="field error">{{.}}</span>{{/errors.password}}
 			</p>
 
-			<p><button class="icon" type="submit">{{#svg}}save{{/svg}}</button>
+			<p><button class="icon larger" type="submit">{{#svg}}save{{/svg}}</button>
 		</form>
 	</section>
 
 	<section class="no-select frames">
 		{{#me}}
-		{{> user\badge}}
+		{{> user/badge}}
 		{{/me}}
 	</section>
 	
