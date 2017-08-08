@@ -1,25 +1,28 @@
-.message
+body 
 {
-	padding: .6rem @large-padding;
-	
-	background: fadeout(darkblue, 15%);
-	border-bottom: 1px solid darkblue;
-	color: white;
-	font-size: large;
-	white-space: pre-line;
-}
+	.message
+	{
+		padding: .6rem @large-padding;
+		
+		background: fadeout(darkblue, 15%);
+		border-bottom: 1px solid darkblue;
+		color: white;
+		font-size: large;
+		white-space: pre-line;
+	}
 
-.message.error
-{
-	@box-color: darken(@error-color, 7%);
-	background: fadeout(@box-color, 15%);
-	border-bottom: 1px solid @box-color;
-}
+	.message.error
+	{
+		@box-color: darken(@error-color, 7%);
+		background: fadeout(@box-color, 15%);
+		border-bottom: 1px solid @box-color;
+	}
 
-.message.ok
-{
-	background: fadeout(darkgreen, 15%);
-	border-bottom: 1px solid darkgreen;
+	.message.ok
+	{
+		background: fadeout(darkgreen, 15%);
+		border-bottom: 1px solid darkgreen;
+	}
 }
 
 @keyframes slide-up-down

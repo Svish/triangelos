@@ -57,6 +57,11 @@ class I18N
 		$this->_rval = array_values($replacements);
 	}
 
+	private function strings()
+	{
+		return $this->_strings;
+	}
+
 
 	private function translate($text)
 	{
