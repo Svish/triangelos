@@ -20,10 +20,5 @@ header_remove();
 
 
 // Handle request
-$time = microtime(true);
-
 $site = new Website(require 'routes.php', PATH);
 $site->serve();
-
-$time = microtime(true) - $time;
-error_log(number_format($time, 3)."s\t".PATH);
