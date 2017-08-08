@@ -1,7 +1,4 @@
 
-- (!) Move translations to .ini
-	- Deal with "Unknown"
-
 - (!) Move {.frame .left} out of .md files...
 
 
@@ -9,20 +6,17 @@
 	- [cover] [toc] [toc]
 	- [cart] [meta] [meta]
 
-- (!) "Up" link for album/track, at least
+- (!) "Up a level" link for album/track, at least
 
 
 - Messages through js + session instead of context?
 
 - Add ->url to Album and Track for cleaner mustache
 
-- Use Mustache/Loader/ProductionFilesystemLoader
-	- (!) Clear template cache on upload
 
 Cleanup
 ===
 
-- Clean up norwegian missing paragraphs etc.
 - Try merge credits dt's with same dd
 
 
