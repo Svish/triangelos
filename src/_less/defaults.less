@@ -5,7 +5,7 @@ input,
 textarea,
 select
 {
-	font: 400 120%/@line-height 'Open Sans', sans-serif;
+	font: 400 120%/@line-height @text-font;
 }
 
 
@@ -49,7 +49,7 @@ pre,table,hr
 // Headers
 h1,h2,h3,h4
 {
-	font-family: 'Open Sans Condensed', sans-serif;
+	font-family: @header-font;
 	font-weight: 300;
 	color: @accent-color;
 
@@ -87,7 +87,7 @@ section
 	clear: both;
 	&+&
 	{
-		margin-top: 4.5rem;
+		margin-bottom: (@trailing-margin * 2);
 	}
 }
 

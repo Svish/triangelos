@@ -16,11 +16,6 @@ class Index extends \View\Layout
 	}
 
 
-	public function facebook()
-	{
-		return Model::facebook()->latest();
-	}
-
 	public function albums()
 	{
 		$n = 0;
@@ -31,5 +26,17 @@ class Index extends \View\Layout
 			else
 				yield $album;
 		}
+	}
+
+
+	public function events()
+	{
+		return Model::calendar()->upcoming(2);
+	}
+
+
+	public function facebook()
+	{
+		return Model::facebook()->latest();
 	}
 }

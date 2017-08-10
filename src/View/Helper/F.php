@@ -10,7 +10,8 @@ use PathableRecursiveIteratorIterator as Recursor;
 use Mustache_LambdaHelper as LambdaHelper;
 use ConfigDot as Config;
 
-use DateTime;
+use DateTimeInterface;
+use DateTimeImmutable;
 use DOMDocument;
 
 
@@ -70,8 +71,8 @@ class F
 
 			return $this->_f[$key] = function($date) use ($format)
 			{
-				if( ! $date instanceof DateTime)
-					$date = new DateTime($date);
+				if( ! $date instanceof DateTimeInterface)
+					$date = new DateTimeImmutable($date);
 				return I18N::translate($date->format($format));
 			};
 		}

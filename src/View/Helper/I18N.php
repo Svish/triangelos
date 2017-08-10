@@ -8,16 +8,43 @@ use Config;
 
 /**
  * Translation helper for Mustache templates.
+ * 
+ *     {{text | _}}
+ *     {{text | _.category}}
  */
 class I18N
 {
+	private $_category;
+	public function __construct(string $category = null)
+	{
+		if($category)
+			$this->_category = "$category/";
+	}
+
+
 	public function __invoke($text, LH $render = null)
 	{
 		if($render)
 			$text = $render($text);
 
-		return I::translate($text);
+		return I::translate($this->_category.$text);
 	}
+
+
+	/**
+	 * For limiting to category.
+	 */
+	private $_categories;
+	public function __get($category)
+	{
+		return $this->_categories[$category]
+			?? $this->_categories[$category] = new self($category);
+	}	
+	public function __isset($key)
+	{
+		return true;
+	}
+
 
 	/**
 	 * Yield language options.

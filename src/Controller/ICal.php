@@ -12,11 +12,12 @@ class ICal extends \Controller
 {
 	public function get()
 	{
-		if($_GET['type'] ?? null == 'plain')
-			header("content-type: text/{$_GET['type']}; charset=utf-8");
-		else	
-			header('content-type: text/calendar; charset=utf-8');
-			
-		echo Model::calendar()->ical();
+		$type = $_GET['type'] ?? 'calendar';
+		if( ! in_array($type, ['calendar', 'plain']))
+			throw new \Error\PleaseNo('Invalid type');
+
+		header("Content-Type: text/$type; charset=utf-8");
+		
+		echo Model::calendar()->raw();
 	}
 }

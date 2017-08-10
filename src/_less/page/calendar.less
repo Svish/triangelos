@@ -10,16 +10,15 @@ body.calendar #content
 }
 body.calendar #content .calendar
 {
-	margin-bottom: 3em;
-	//font-size: small;
 	table-layout: fixed;
 	empty-cells: show;
+	margin-bottom: (@trailing-margin * 2);
 
 	thead
 	{
 		th
 		{
-			padding-left: .3rem;
+			padding: .05rem .3rem;
 		}
 	}
 	td
@@ -46,7 +45,7 @@ body.calendar #content .calendar
 			content: attr(data-day);
 			display: block;
 			font-size: large;
-			font-family: 'Open Sans Condensed', sans-serif;
+			font-family: @header-font;
 			font-weight: 300;
 		}
 
@@ -57,34 +56,33 @@ body.calendar #content .calendar
 			font-size: x-small;
 			top: 0;
 			right: 0;
-			font-family: 'Open Sans Condensed', sans-serif;
+			font-family: @header-font;
 			font-weight: 300;
 		}
 
 		.event
 		{
+			display: block;
 			margin: .5em 0;
-			background: fade(@accent3-color, 50%);
-			.transition(background-color, 250ms);
+			line-height: 1.25em;
 			font-size: medium;
+			color: inherit;
+
 
 			&:first-child { margin-top: 0}
-			&:last-child { margin-bottom: 0}
 
 			.summary,
 			.location
 			{
+				white-space: pre;
 				overflow: hidden;
 				text-overflow: ellipsis;
-				//font-weight: bold;
-				//display: inline;
 			}
 			.location
 			{
 				font-size: small;
 			}
 
-			.summary,
 			time
 			{
 				font-weight: bold;
@@ -92,13 +90,18 @@ body.calendar #content .calendar
 
 			&:hover
 			{
-				background: fade(@accent3-color, 80%);
+				opacity: .75;
 			}
 		}
 
+
+		.event
+		{
+			background: fade(@accent3-color, 40%);
+		}
 		.private
 		{
-			background: fade(@accent3-color, 25%);
+			background: fade(@accent3-color, 20%);
 		}
 
 		.tentative
@@ -106,7 +109,7 @@ body.calendar #content .calendar
 			opacity: .25;
 			&:before
 			{
-				content: "(?) ";
+				//content: "(?) ";
 			}
 		}
 		.continued
@@ -120,26 +123,19 @@ body.calendar #content .calendar
 				display: none;
 			}
 		}
-		.details
-		{
-			li>p
-			{
-				margin: 0;
-			}
-		}
 	}
 
 	tr.current
 	{
 		td.current
 		{
-			.box-shadow(0, 0, 20px, rgba(0,0,0,.75));
+			.box-shadow(0, 0, 10px, rgba(0,0,0,.75));
 			outline: 3px solid black;
 		}
 	}
 	td:target
 	{
-		.box-shadow(0, 0, 20px, rgba(0,0,0,.75));
+		.box-shadow(0, 0, 10px, rgba(0,0,0,.75));
 		outline: 3px dashed white;
 	}
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fdd40995312f3d67d84b92f77bc33dc3",
+    "content-hash": "b4f8b2102db16b7a313d71caecaed5c3",
     "packages": [
         {
             "name": "bitworking/mimeparse",

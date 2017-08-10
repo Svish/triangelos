@@ -4,7 +4,6 @@
 
 {{$ content}}
 
-
 <section class="albums">
 	<h2><a href="music">{{#_}}title/Check our latest albums{{/_}} {{#svg}}jumping-man{{/svg}}</a></h2>
 	{{#albums}}
@@ -19,14 +18,13 @@
 
 <section class="events">
 	<h2><a href="calendar">{{#_}}title/Come see us live{{/_}} {{#svg}}people{{/svg}}</a></h2>
-	<pre>// TODO</pre>
-	{{#calendar.up_next}}
-	<a class="block event" href="calendar#{{iso}}">
-		<div class="title">{{summary|_}}</div>
-		<time datetime="{{start|f.w3c}}">{{start|df.date-short}}{{^all_day}}, {{end|df.time}}{{/all_day}}</time>
-		<address>{{{location | firstLine}}}</address>
+	{{#events}}
+	<a class="block event" href="calendar/event/{{uid}}">
+		<div class="title">{{summary | _.cal}}</div>
+		<time datetime="{{start|f.w3c}}">{{start|f.date}}{{^all_day}}, {{end|f.time}}{{/all_day}}</time>
+		<address>{{{location | fl}}}</address>
 	</a>
-	{{/calendar.up_next}}
+	{{/events}}
 </section>
 
 

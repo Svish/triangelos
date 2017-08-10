@@ -3,11 +3,15 @@
 namespace Model;
 
 use Cache;
-use Markdown;
-use ICalParser as Parser;
+use Config;
 
-use DateTime;
+use ICal\Parser as Parser;
+use Recurr\Transformer\Constraint\AfterConstraint;
+
 use DateInterval;
+use DateTimeInterface;
+use DateTimeImmutable;
+
 
 
 /**
@@ -15,55 +19,50 @@ use DateInterval;
  */
 class Calendar extends \Model
 {
-	// URL to shared iCalendar file
-	const ICAL = 'https://sharing.calendar.live.com/calendar/private/3794e2fa-c705-4523-a379-a65187312020/8e8c11c8-8d8f-40d0-bcfe-ca1478af22a0/cid-4a7c4549b6307161/calendar.ics';
-
 	// List of event names that should be marked private (for members only)
-	private static $private = [
+	const MEMBERS_ONLY = [
 		'Choir practice',
 		'Warmup',
 		'Choir trip',
 		];
 
+	private $_ical;
 
-	
-	private $ical;
+
+
 	public function __construct()
 	{
-		$this->ical = new Parser(self::ICAL);
-	}
+		$ical = Config::calendar()['ical'];
+		$cache = new Cache(__CLASS__, 1*60*60); // 1 Hour
 
-
-
-	/**
-	 * Raw ical file.
-	 */
-	public function ical()
-	{
-		return $this->ical->raw();
-	}
-
-
-
-	/**
-	 * Next two public events
-	 */
-	public function up_next()
-	{
-		$cache = new Cache(__CLASS__, false, 3600); // 1 hour
-		return $cache->get(__METHOD__, function()
+		$this->_ical = $cache->get('ical', function() use ($ical)
 			{
-				return $this->_up_next();
+				return file($ical, FILE_IGNORE_NEW_LINES);
 			});
 	}
-	private function _up_next()
-	{
-		$today = new DateTime('today');
-		$count = 2;
 
-		foreach($this->events($today) as $date)
+
+
+	/**
+	 * Raw, plain text, ical file.
+	 */
+	public function raw()
+	{
+		return implode("\r\n", $this->_ical);
+	}
+
+
+
+	/**
+	 * Upcoming non-private, non-tentative, events.
+	 */
+	public function upcoming($count = 2): iterable
+	{
+		$today = new DateTimeImmutable('today');
+
+		foreach($this->_events($today) as $date)
 			foreach($date as $event)
-				if( ! $event['private'])
+				if( ! $event['private'] && $event['status'] !== 'tentative')
 					if($count-- > 0)
 						yield $event;
 					else
@@ -75,41 +74,33 @@ class Calendar extends \Model
 	/**
 	 * Calendar for calendar page.
 	 */
-	public function calendar()
-	{
-		$cache = new Cache(__CLASS__, 3600); // 1 hour
-		return $cache->get(__METHOD__, function()
-			{
-				return $this->_calendar();
-			});
-	}
-	private function _calendar()
+	public function calendar(): array
 	{
 		// Begin first of current month
-		$first = new DateTime('midnight first day of 0 month');
-		$today = new DateTime('today');
+		$first = new DateTimeImmutable('midnight first day of 0 month');
+		$today = new DateTimeImmutable('today');
 
 		// Get events
-		$events = $this->events($first);
-		$events = [];
+		$events = $this->_events($first);
 
 		// Find last date for calendar
 		if( ! empty($events))
 		{
 			$last = end($events);
 			$last = end($last);
-			$last = clone $last['end'];
-			$last->modify('last day of 0 month 23:59:59');
+			$last = $last['end']->modify('last day of 0 month');
 		}
 		else
-			$last = new DateTime('last day of 0 month 23:59:59');
+			$last = new DateTimeImmutable('last day of 0 month');
 
 		// Generate calendar strucuture
 		$cal = [];
-		foreach(self::days($first, $last) as $day)
+		foreach(self::_days($first, $last) as $day)
 		{
 			// Month
-			$month = $day->format('Y-M');
+			$month = $day->format('Y-m');
+
+			// New month
 			if( ! array_key_exists($month, $cal))
 				$cal[$month] = [
 					'month' => $month,
@@ -117,19 +108,23 @@ class Calendar extends \Model
 					];
 
 			// Week
-			$week = (int) $day->format('W') % 53;
+			$week = (int) $day->format('W');
 			if($day->format('w') == '0') $week++; // Biblical week adjustment
+
+			// New week
 			if( ! array_key_exists($week, $cal[$month]['weeks']))
 			{
 				$cal[$month]['weeks'][$week] = [
 					'week' => $week,
-					'days' => [],
+					'days' => array_pad([], $day->format('w'), []),
 					];
 			}
+
+			// Mark past weeks
 			$cal[$month]['weeks'][$week]['past'] = $day < $today ? 'past' : false;
 
 
-			// Day
+			// New day
 			$cal[$month]['weeks'][$week]['days'][(int) $day->format('w')] = [
 				'day' => $day,
 				'events' => $events[$day->format('Y-m-d')] ?? [],
@@ -142,54 +137,42 @@ class Calendar extends \Model
 		{
 			foreach($month['weeks'] as &$week)
 				$week['days'] = array_values($week['days']);
-
 			$month['weeks'] = array_values($month['weeks']);
-
-			while(count($month['weeks'][0]['days']) != 7)
-				array_unshift($month['weeks'][0]['days'], []);
 		}
 		return array_values($cal);
 	}
 
 
 
-	private function events(DateTime $first)
-	{
-		$cache = new Cache(__CLASS__, 3600); // 1 hour
-		return $cache->get(__METHOD__, function() use ($first)
-			{
-				return $this->_events($first);
-			});
-	}
-	private function _events(DateTime $first)
+	/**
+	 * @return Event array ready for calendar().
+	 */
+	private function _events(DateTimeInterface $after): array
 	{
 		$events = [];
-		$id = 0;
-		foreach($this->ical->events($first) as $e)
+		$cal = (new Parser)
+			->parse($this->_ical)
+			->setConstraint(new AfterConstraint($after, true));
+
+		// Gather events
+		foreach($cal->expanded() as $e)
 		{
-			// Add some ids for detail-linking
-			$e += ['id' => ++$id];
-
-			// Add type/category
-			$e['private'] = self::is_private($e);
-			
-			// Render description
-			$e['description'] = Markdown::instance()->render($e['description'] ?? '');
-
-			// Format location
-			$e['location'] = str_replace(',', "\r\n", $e['location']);
+			unset($e['_raw']);
+			$e['summary'] = preg_replace('/^Triangelos:\\s/', '', $e['summary']);
+			$e['private'] = $this->_is_private($e) ? 'private' : false;
+			$e['location'] = preg_replace('/\\s*,\\s*/', "\r\n", $e['location']);
 
 			// Add to list
-			$events[$e['start']->format('Y-m-d')][] = $e;
-
-			// Copy if it goes over multiple days
-			$next = clone $e['start'];
-			$next->add(new DateInterval('P1D'));
-			foreach($this->days($next, $e['end']) as $day)
+			$day = $e['start'];
+			do
 			{
-				$e['continued'] = 'continued';
 				$events[$day->format('Y-m-d')][] = $e;
+				
+				// For events over multiple days
+				$e['continued'] = 'continued';
+				$day = $day->add(new DateInterval('P1D'));
 			}
+			while($day < $e['end']);
 		}
 
 		// Sort the events
@@ -204,26 +187,29 @@ class Calendar extends \Model
 						return 0;
 					return $a < $b ? -1 : 1;
 				});
-
+			
 		return $events;
 	}
 
-	private static function is_private(array $event)
+
+
+	private function _is_private(array $event)
 	{
-		return $event['transp'] !== 'opaque' || in_array($event['summary'], self::$private)
-			? 'private'
-			: false;
+		if($event['transp'] !== 'opaque')
+			return true;
+
+		return in_array($event['summary'], self::MEMBERS_ONLY);
 	}
 
 
-	public static function days(DateTime $first, DateTime $last)
+
+	private static function _days(DateTimeImmutable $first, DateTimeImmutable $last): iterable
 	{
-		$date = clone $first;
 		$one = new DateInterval('P1D');
-		while($date <= $last)
+		while($first <= $last)
 		{
-			yield clone $date;
-			$date->add($one);
+			yield clone $first;
+			$first = $first->add($one);
 		}
 	}
 }
