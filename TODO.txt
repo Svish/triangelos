@@ -3,10 +3,6 @@
 	- Or at least .frame...
 
 
-- Album/Track top
-	- [cover] [toc] [toc]
-	- [cart] [meta] [meta]
-
 - (!) "Up a level" link for album/track, at least
 
 
@@ -31,6 +27,7 @@ Calendar
 	- (!) Check for HTML garbage...?
 - Subscribe button(s)
 	- https://www.addevent.com ?
+
 
 
 Video

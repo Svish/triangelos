@@ -1,4 +1,4 @@
-<section id="the-cover" class="toc no-select">
+<section id="the-cover" class="no-select">
 	<h2>{{#_}}title/The cover{{/_}}</h2>
 	<p class="flex covers loading">
 		

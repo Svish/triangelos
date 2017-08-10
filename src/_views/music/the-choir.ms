@@ -1,4 +1,4 @@
-<section id="the-choir" class="toc no-select">
+<section id="the-choir" class="no-select">
 	<h2>{{#_}}title/The choir{{/_}}</h2>
 	<div class="flex">
 		{{#choir}}
