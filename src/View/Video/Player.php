@@ -14,8 +14,17 @@ class Player extends \View\Video
 		parent::__construct();
 	}
 
+
 	public function video()
 	{
 		return Model::YouTube()->get($this->id);
+	}
+
+
+	public function videos()
+	{
+		foreach(parent::videos() as $v)
+			if($this->id != $v['id'])
+				yield $v;
 	}
 }
