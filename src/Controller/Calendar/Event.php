@@ -1,7 +1,7 @@
 <?php
 namespace Controller\Calendar;
 
-use View\Calendar\event as View;
+use View\Calendar\Event as View;
 
 
 /**
