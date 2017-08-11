@@ -29,7 +29,7 @@
 			{
 				map: map,
 				position: new google.maps.LatLng( {{lat}} , {{lon}} ),
-				title: '{{label}}',
+				title: '{{#_}}contact/Our choir practices are here{{/_}}',
 			});
 
 		google.maps.event.addDomListener(window, 'resize', function()
@@ -44,17 +44,17 @@
 <section class="flex">
 
 	<section>
-		<h2>{{#_}}title/Mail{{/_}}</h2>
+		<h2>{{#_}}contact/Mail{{/_}}</h2>
 		<address>{{post}}</address>
 	</section>
 
 	<section>
-		<h2>{{#_}}title/Bank details{{/_}}</h2>
+		<h2>{{#_}}contact/Bank details{{/_}}</h2>
 		<address>{{bank}}</address>
 	</section>
 
 	<section>
-		<h2>{{#_}}title/Social{{/_}}</h2>
+		<h2>{{#_}}contact/Social{{/_}}</h2>
 		<div class="p">
 
 			{{>button-youtube}}
@@ -67,7 +67,7 @@
 </section>
 
 <section>
-	<h2>{{#_}}title/E-Mail{{/_}}</h2>
+	<h2>{{#_}}contact/E-Mail{{/_}}</h2>
 	{{> contact/email-form }}
 </section>
 

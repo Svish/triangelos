@@ -11,13 +11,13 @@
 {{#md}}{{/md}}
 
 <dl>
-	<dt>{{#_}}title/Icons by{{/_}}</dt>
+	<dt>{{#_}}about/Icons by{{/_}}</dt>
 		{{#icons}}
 		<dd><a href="{{url}}">{{author}}</a></dd>
 		{{/icons}}
 
 	{{#credits}}
-	<dt>{{key | _}}</dt>
+	<dt>{{key | _.about}}</dt>
 		{{#value}}
 		<dd><a href="{{value}}">{{key}}</a></dd>
 		{{/value}}

@@ -7,11 +7,15 @@
 
 <h1>{{#_}}title/Calendar{{/_}}</h1>
 
+<p>
+	<a data-name="iCal" class="button" href="calendar.ics">{{#svg}}calendar{{/svg}} {{#_}}cal/Subscribe to the calendar{{/_}}</a>
+</p>
+
 {{#calendar}}
 
-	<h2>{{ month | f.month | _}}</h2>
+	<h2 class="month">{{ month | f.month | _}}</h2>
 
-	<table class="calendar" width="100%">
+	<table class="calendar no-select" width="100%">
 		<col>
 		<col>
 		<col>
@@ -59,9 +63,6 @@
 
 {{/calendar}}
 
-<p>
-	<a data-name="iCal" href="calendar.ics">{{#_}}cal/Subscribe to the calendar{{/_}}</a>
-</p>
 
 <script>
 $(function()

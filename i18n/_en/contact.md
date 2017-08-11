@@ -1,2 +1,2 @@
 
-We practice in [{{label}}]({{url}}) in Oslo, Wednesdays, at 18:00.
+We practice in [Ulsrud SDA Church]({{url}}) in Oslo, Wednesdays, at 18:00.

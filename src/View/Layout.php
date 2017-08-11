@@ -9,6 +9,11 @@ use Config, Model, View;
  */
 class Layout extends Mustache
 {
+	public function trail(): iterable
+	{
+		yield ['.'];
+	}
+
 	public function __construct(array $context = [], string $t = null)
 	{
 		if( ! $t && self::class != static::class)

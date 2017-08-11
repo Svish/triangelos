@@ -1,9 +1,9 @@
 
-- (!) Move {.frame .left} out of .md files...
-	- Or at least .frame...
 
 
-- (!) "Up a level" link for album/track, at least
+- (!) Move Music translations into [music], like [cal]
+
+- (!) Breadcrumbs / "Up a level" link for album/track, at least
 
 
 - Messages through js + session instead of context?
@@ -21,7 +21,6 @@ Cleanup
 Calendar
 ===
 
-- (!) Try to move and clean things into Data_Event/Calendar class?
 - Update "in background" via ajax?
 - (!) Make sure to fall-back to previous successfull calendar if failing
 	- (!) Check for HTML garbage...?

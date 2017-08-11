@@ -1,14 +1,27 @@
 body.calendar #content
 {
 	max-width: none;
-	.no-select();
 
-	h2
+	h2.month
 	{
 		text-align: right;
 	}
+
+	#gmap_canvas
+	{
+		height: 22em;
+	}
 }
-body.calendar #content .calendar
+
+body.calendar.event #content
+{
+	.flex>*
+	{
+		white-space: pre-line;
+	}
+}
+
+body.calendar #content table.calendar
 {
 	table-layout: fixed;
 	empty-cells: show;
@@ -67,6 +80,7 @@ body.calendar #content .calendar
 			line-height: 1.25em;
 			font-size: medium;
 			color: inherit;
+			overflow: hidden;
 
 
 			&:first-child { margin-top: 0}
@@ -142,7 +156,7 @@ body.calendar #content .calendar
 
 @media only screen and (max-width : 700px)
 {
-	body.calendar #content .calendar
+	body.calendar #content table.calendar
 	{
 		tr.past
 		{

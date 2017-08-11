@@ -81,12 +81,24 @@ class F
 	}
 
 
-	public function _timeTrim($text = null, LambdaHelper $render = null)
+	public function _timeTrim(string $text = null)
 	{
-		$text = str_replace(':00', '', $text);
-		return $render ? $render($text) : $text;
+		return str_replace(':00', '', $text);
 	}
 
+
+	public function _rrule(string $rrule)
+	{
+		$rule = new \Recurr\Rule($rrule);
+		$tran = new \Recurr\Transformer\TextTransformer;
+		return $tran->transform($rule);
+	}
+
+
+	public function _addressLine(string $address)
+	{
+		return preg_replace('/[\r\n]+/', ',', $address);
+	}
 
 	/**
 	 * Remove duplicate chunks from two <time> tags...

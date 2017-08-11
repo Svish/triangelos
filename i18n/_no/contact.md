@@ -1,2 +1,2 @@
 
-Vi øver i [{{address}}]({{url}}) i Oslo, onsdager klokken 18:00.
+Vi øver i [Ulsrud Adventkirke]({{url}}) i Oslo, onsdager klokken 18:00.

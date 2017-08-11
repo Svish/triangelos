@@ -56,6 +56,19 @@ class Calendar
 		$this->_constraint = $constraint;
 		return $this;
 	}
+
+	public function sortEvents()
+	{
+		usort($this->_components['VEVENT'], function($a, $b)
+		{
+			$a = $a['DTSTART']['value'] ?? null;
+			$b = $b['DTSTART']['value'] ?? null;
+			if($a == $b)
+				return 0;
+			return $a < $b ? -1 : 1;
+		});
+		return $this;
+	}
 	
 
 	/**
@@ -101,7 +114,7 @@ class Calendar
 			// No rrule, just yield single event
 			if( ! ($_raw['RRULE']['value'] ?? null))
 			{
-				if($this->_constraint->test($start))
+				if( ! $this->_constraint || $this->_constraint->test($start))
 					yield get_defined_vars();
 				continue;
 			}
@@ -128,7 +141,8 @@ class Calendar
 				$end = $this->_date($e->getEnd());
 
 				unset($e);
-				yield get_defined_vars();
+				if( ! $this->_constraint || $this->_constraint->test($start))
+					yield get_defined_vars();
 			}
 
 			// Cleanup

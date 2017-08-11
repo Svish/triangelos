@@ -10,7 +10,7 @@
 
 {{#md}}{{/md}}
 
-<pre>// TODO</pre>
+<pre>// TODO: List products, shopping cart, PayPal payment, ...</pre>
 
 
 {{/ content}}

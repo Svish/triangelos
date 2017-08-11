@@ -32,6 +32,11 @@ address
 {
 	display: block;
 	
-	white-space: pre-line;
+	white-space: pre;
 	font-style: normal;
+
+	&::first-line
+	{
+		font-weight: bold;
+	}
 }

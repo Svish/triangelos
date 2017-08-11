@@ -60,13 +60,12 @@ class Calendar extends \Model
 	{
 		$today = new DateTimeImmutable('today');
 
-		foreach($this->_events($today) as $date)
-			foreach($date as $event)
-				if( ! $event['private'] && $event['status'] !== 'tentative')
-					if($count-- > 0)
-						yield $event;
-					else
-						return;
+		foreach($this->events($today) as $event)
+			if( ! $event['private'] && $event['status'] !== 'tentative')
+				if($count-- > 0)
+					yield $event;
+				else
+					return;
 	}
 
 
@@ -81,7 +80,33 @@ class Calendar extends \Model
 		$today = new DateTimeImmutable('today');
 
 		// Get events
-		$events = $this->_events($first);
+		$events = [];
+		foreach($this->events($first) as $event)
+		{
+			$day = $event['start'];
+			do
+			{
+				$events[$day->format('Y-m-d')][] = $event;
+				
+				// For events spanning multiple days
+				$event['continued'] = 'continued';
+				$day = $day->add(new DateInterval('P1D'));
+			}
+			while($day < $event['end']);
+		}
+
+		// Sort the events
+		ksort($events);
+		foreach($events as &$date)
+			if(count($date) > 1)
+				usort($date, function($a, $b)
+				{
+					$a = $a['start'];
+					$b = $b['start'];
+					if($a == $b)
+						return 0;
+					return $a < $b ? -1 : 1;
+				});
 
 		// Find last date for calendar
 		if( ! empty($events))
@@ -147,48 +172,23 @@ class Calendar extends \Model
 	/**
 	 * @return Event array ready for calendar().
 	 */
-	private function _events(DateTimeInterface $after): array
+	public function events(DateTimeInterface $after = null): iterable
 	{
-		$events = [];
 		$cal = (new Parser)
 			->parse($this->_ical)
-			->setConstraint(new AfterConstraint($after, true));
+			->sortEvents();
 
-		// Gather events
+		if($after)
+			$cal->setConstraint(new AfterConstraint($after, true));
+
 		foreach($cal->expanded() as $e)
 		{
 			unset($e['_raw']);
 			$e['summary'] = preg_replace('/^Triangelos:\\s/', '', $e['summary']);
 			$e['private'] = $this->_is_private($e) ? 'private' : false;
 			$e['location'] = preg_replace('/\\s*,\\s*/', "\r\n", $e['location']);
-
-			// Add to list
-			$day = $e['start'];
-			do
-			{
-				$events[$day->format('Y-m-d')][] = $e;
-				
-				// For events over multiple days
-				$e['continued'] = 'continued';
-				$day = $day->add(new DateInterval('P1D'));
-			}
-			while($day < $e['end']);
+			yield $e;
 		}
-
-		// Sort the events
-		ksort($events);
-		foreach($events as &$date)
-			if(count($date) > 1)
-				usort($date, function($a, $b)
-				{
-					$a = $a['start'];
-					$b = $b['start'];
-					if($a == $b)
-						return 0;
-					return $a < $b ? -1 : 1;
-				});
-			
-		return $events;
 	}
 
 

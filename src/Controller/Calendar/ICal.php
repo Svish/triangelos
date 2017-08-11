@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller;
+namespace Controller\Calendar;
 
 use Model;
 

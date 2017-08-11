@@ -6,7 +6,7 @@
 
 {{#album}}
 
-	<h1 class="title">{{title}}
+	<h1>{{title}}
 		<span>{{#_}}title/Album{{/_}}</span>
 	</h1>
 	

@@ -6,10 +6,16 @@ body.index #content
 		white-space: nowrap;
 	}
 
+	section
+	{
+		margin-bottom: (@trailing-margin * 2);
+	}
+
 	.block
 	{
 		display: block;
 		padding: .4em .8em;
+		margin-bottom: @trailing-margin;
 
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -37,12 +43,6 @@ body.index #content
 			margin-right: .8em;
 			float: left;
 		}
-	}
-
-
-	.block+.block
-	{
-		margin-top: 1.5em;
 	}
 }
 

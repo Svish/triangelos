@@ -24,7 +24,8 @@ return [
 
 
 	# Calendar
-	'calendar\.ics' => 'Controller\\ICal',
+	'calendar\.ics' => 'Controller\\Calendar\\ICal',
+	'calendar/event/:alphanum:' => 'Controller\\Calendar\\Event',
 
 
 	# PayPal
